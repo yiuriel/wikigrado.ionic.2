@@ -5,6 +5,14 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
+import { InitialSliderPage } from '../pages/initial-slider/initial-slider';
+
+// pages for menu
+import { TestPage } from '../pages/test/test';
+import { GradosPage } from '../pages/grados/grados';
+import { UniversidadesPage } from '../pages/universidades/universidades';
+import { ColegiosMayoresPage } from '../pages/colegios-mayores/colegios-mayores';
+import { FavoritosPage } from '../pages/favoritos/favoritos';
 
 @Component({
   templateUrl: 'app.html'
@@ -12,7 +20,7 @@ import { ListPage } from '../pages/list/list';
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = HomePage;
+  rootPage: any = InitialSliderPage;
 
   pages: Array<{title: string, component: any}>;
 
@@ -21,10 +29,12 @@ export class MyApp {
 
     // used for an example of ngFor and navigation
     this.pages = [
-      { title: 'Home', component: HomePage },
-      { title: 'List', component: ListPage }
+      { title: 'Test de Personalidad', component: TestPage },
+      { title: 'Grados y Salidas Profesionales', component: GradosPage },
+      { title: 'Universidades', component: UniversidadesPage },
+      { title: 'Colegios Mayores', component: ColegiosMayoresPage },
+      { title: 'Favoritos', component: FavoritosPage },
     ];
-
   }
 
   initializeApp() {

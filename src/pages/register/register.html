@@ -1,0 +1,48 @@
+<ion-content padding>
+  <ion-grid>
+    <ion-row align-items-start>
+      <ion-col>
+        <form #userForm="ngForm">
+          <ion-list>
+
+            <ion-item>
+              <ion-label stacked>Nombre</ion-label>
+              <ion-input name="firstname" required [(ngModel)]="user.firstname" type="text"></ion-input>
+            </ion-item>
+
+            <ion-item>
+              <ion-label stacked>Apellido</ion-label>
+              <ion-input name="lastname" [(ngModel)]="user.lastname" type="text"></ion-input>
+            </ion-item>
+
+            <ion-item>
+              <ion-label stacked>Gender</ion-label>
+              <ion-select name="age" [(ngModel)]="user.age" (ionChange)="onAgeChange(user.age)">
+                <ion-option *ngFor="let age of ages" [value]="age" [innerHTML]="age"></ion-option>
+              </ion-select>
+            </ion-item>
+
+            <ion-item>
+              <ion-label stacked>Email</ion-label>
+              <ion-input name="email" [(ngModel)]="user.email" type="email"></ion-input>
+            </ion-item>
+
+            <ion-item>
+              <ion-label stacked>Contraseña</ion-label>
+              <ion-input name="password" [(ngModel)]="user.password" type="password"></ion-input>
+            </ion-item>
+
+          </ion-list>
+        </form>
+      </ion-col>
+    </ion-row>
+    <ion-row align-items-end>
+      <ion-col></ion-col>
+      <ion-col align-self-end>
+        <div>
+          <button ion-button round color="danger" [disabled]="!userForm.form.valid" (click)="goToHomePage()">registrarme</button>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
