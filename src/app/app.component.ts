@@ -3,6 +3,7 @@ import { Nav, Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
+import { HttpClientModule } from '@angular/common/http';
 import { UserProvider } from '../providers/user/user';
 
 import { InitialSliderPage } from '../pages/initial-slider/initial-slider';
@@ -16,12 +17,12 @@ import { FavoritosPage } from '../pages/favoritos/favoritos';
 
 @Component({
   templateUrl: 'app.html',
-  providers: [UserProvider]
+  providers: [UserProvider, HttpClientModule]
 })
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = InitialSliderPage;
+  rootPage: any = TestPage;
 
   pages: Array<{icon: string, title: string, component: any}>;
 

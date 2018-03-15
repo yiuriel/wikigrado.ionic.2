@@ -1,12 +1,13 @@
 <ion-header>
-  <ion-navbar>
-    <button ion-button menuToggle color="danger">
-      <ion-icon name="md-menu"></ion-icon>
-    </button>
-    <ion-title>Grados y Salidas Profesionales</ion-title>
-  </ion-navbar>
+  <custom-header header-title="Grados y Salidas Profesionales"></custom-header>
 </ion-header>
 
 <ion-content padding>
-
+  <image-switch-iframe
+    *ngFor="let video of videos"
+    [url]="video.url"
+    [career]="video.career"
+    [width]="dimensions.width"
+    [height]="dimensions.height">
+  </image-switch-iframe>
 </ion-content>
