@@ -7,6 +7,7 @@ import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
 import { InitialSliderPage } from '../pages/initial-slider/initial-slider';
 import { RegisterPage } from '../pages/register/register';
+import { RegisterPictureStepPage } from '../pages/register-picture-step/register-picture-step';
 
 import { TestPage } from '../pages/test/test';
 import { GradosPage } from '../pages/grados/grados';
@@ -16,6 +17,7 @@ import { FavoritosPage } from '../pages/favoritos/favoritos';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { UserProvider } from '../providers/user/user';
 
 @NgModule({
   declarations: [
@@ -29,6 +31,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     UniversidadesPage,
     ColegiosMayoresPage,
     FavoritosPage,
+    RegisterPictureStepPage,
   ],
   imports: [
     BrowserModule,
@@ -46,11 +49,13 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     UniversidadesPage,
     ColegiosMayoresPage,
     FavoritosPage,
+    RegisterPictureStepPage,
   ],
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    UserProvider
   ]
 })
 export class AppModule {}

@@ -3,8 +3,8 @@ import { Nav, Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
-import { HomePage } from '../pages/home/home';
-import { ListPage } from '../pages/list/list';
+import { UserProvider } from '../providers/user/user';
+
 import { InitialSliderPage } from '../pages/initial-slider/initial-slider';
 
 // pages for menu
@@ -15,7 +15,8 @@ import { ColegiosMayoresPage } from '../pages/colegios-mayores/colegios-mayores'
 import { FavoritosPage } from '../pages/favoritos/favoritos';
 
 @Component({
-  templateUrl: 'app.html'
+  templateUrl: 'app.html',
+  providers: [UserProvider]
 })
 export class MyApp {
   @ViewChild(Nav) nav: Nav;

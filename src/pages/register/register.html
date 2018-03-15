@@ -37,11 +37,11 @@
       </ion-col>
     </ion-row>
     <ion-row align-items-end>
-      <ion-col></ion-col>
-      <ion-col align-self-end>
-        <div>
-          <button ion-button round color="danger" [disabled]="!userForm.form.valid" (click)="goToHomePage()">registrarme</button>
-        </div>
+      <ion-col>
+        <button ion-button round small outline color="danger" [disabled]="!userForm.form.valid" (click)="goToPicturePage()">subir foto</button>
+      </ion-col>
+      <ion-col text-right>
+        <button ion-button round small color="danger" [disabled]="!userForm.form.valid" (click)="goToHomePage()">registrarme</button>
       </ion-col>
     </ion-row>
   </ion-grid>
