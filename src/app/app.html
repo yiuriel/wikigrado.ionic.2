@@ -6,11 +6,12 @@
   </ion-header> -->
 
   <ion-content class="menu-background">
-    <ion-list *ngFor="let p of pages">
-      <button menuClose ion-button clear color="light" (click)="openPage(p)">
+    <div *ngFor="let p of pages">
+      <button menuClose ion-button icon-start clear color="danger" (click)="openPage(p)">
+        <ion-icon [name]="p.icon"></ion-icon>
         {{p.title}}
       </button>
-    </ion-list>
+    </div>
   </ion-content>
 
 </ion-menu>

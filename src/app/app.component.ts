@@ -22,18 +22,18 @@ export class MyApp {
 
   rootPage: any = InitialSliderPage;
 
-  pages: Array<{title: string, component: any}>;
+  pages: Array<{icon: string, title: string, component: any}>;
 
   constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen) {
     this.initializeApp();
 
     // used for an example of ngFor and navigation
     this.pages = [
-      { title: 'Test de Personalidad', component: TestPage },
-      { title: 'Grados y Salidas Profesionales', component: GradosPage },
-      { title: 'Universidades', component: UniversidadesPage },
-      { title: 'Colegios Mayores', component: ColegiosMayoresPage },
-      { title: 'Favoritos', component: FavoritosPage },
+      { icon: 'md-book', title: 'Test de Personalidad', component: TestPage },
+      { icon: 'md-school', title: 'Grados y Salidas Profesionales', component: GradosPage },
+      { icon: 'md-ribbon', title: 'Universidades', component: UniversidadesPage },
+      { icon: 'md-paper', title: 'Colegios Mayores', component: ColegiosMayoresPage },
+      { icon: 'md-star', title: 'Favoritos', component: FavoritosPage },
     ];
   }
 
