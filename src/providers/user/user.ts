@@ -10,6 +10,10 @@ export class UserProvider {
     console.log('Hello UserProvider Provider');
   }
 
+  saveData(user) {
+    this.http.post('url', {});
+  }
+
   setData(data) {
     this.data = data;
   }

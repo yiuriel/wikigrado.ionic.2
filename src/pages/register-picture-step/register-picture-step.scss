@@ -14,4 +14,19 @@ page-register-picture-step {
   #file-button-ux {
     z-index: -1;
   }
+  ion-content {
+    background-image: url('../../assets/imgs/register.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: contain;
+    .scroll-content {
+      background-color: rgba(255, 255, 255, 0.8);
+      .item {
+        background-color: transparent;
+        .label[stacked] {
+          color: #f53d3d;
+        }
+      }
+    }
+  }
 }

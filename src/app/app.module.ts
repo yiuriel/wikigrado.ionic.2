@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
+import { ScreenOrientation } from '@ionic-native/screen-orientation';
 
 import { ComponentsModule } from '../components/components.module'
 
@@ -67,6 +68,7 @@ import { UserProvider } from '../providers/user/user';
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     UserProvider,
+    ScreenOrientation
   ]
 })
 export class AppModule {}
