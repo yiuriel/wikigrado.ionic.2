@@ -22,6 +22,7 @@ import { FavoritosPage } from '../pages/favoritos/favoritos';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { UserProvider } from '../providers/user/user';
+import { TestQuestionsProvider } from '../providers/test-questions/test-questions';
 
 @NgModule({
   declarations: [
@@ -68,7 +69,8 @@ import { UserProvider } from '../providers/user/user';
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     UserProvider,
-    ScreenOrientation
+    ScreenOrientation,
+    TestQuestionsProvider
   ]
 })
 export class AppModule {}

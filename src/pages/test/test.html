@@ -4,38 +4,41 @@
 
 <ion-content padding>
   <ion-card>
-    <div *ngFor="let testQuestion of testQuestions; let i = index;">
-      <div [class.hidden]="i != activeCardIndex">
-        <ion-card-header [innerHTML]="testQuestion.question"></ion-card-header>
+    <div *ngFor="let testQuestionSet of testQuestions; let i = index;">
+      <div class="pages-data" padding [innerHTML]="questionsPageData" *ngIf="activeCardIndex == i"></div>
+      <div *ngFor="let testQuestion of testQuestionSet; let subi = index;">
+        <div [class.hidden]="i != activeCardIndex">
+          <ion-card-header [innerHTML]="testQuestion.question"></ion-card-header>
 
-        <ion-list radio-group>
-          <ion-item *ngFor="let answer of testQuestion.answers">
-            <ion-label [innerHTML]="answer.name"></ion-label>
-            <ion-radio [value]="answer.value" (ionSelect)="answerSelect(i, answer)"></ion-radio>
-          </ion-item>
-        </ion-list>
+          <ion-list radio-group>
+            <ion-item *ngFor="let answer of testQuestion.answers">
+              <ion-label [innerHTML]="answer.name"></ion-label>
+              <ion-radio [value]="answer.value" (ionSelect)="answerSelect(i, subi, answer)"></ion-radio>
+            </ion-item>
+          </ion-list>
 
-        <ion-row no-padding>
-          <ion-col *ngIf="activeCardIndex > 0">
-            <button ion-button color="danger" outline icon-start (click)="handleActiveIndex(-1)">
-              <ion-icon name='ios-arrow-dropleft-outline'></ion-icon>
-              anterior
-            </button>
-          </ion-col>
-          <ion-col text-right *ngIf="activeCardIndex < testQuestions.length - 1">
-            <button ion-button color="danger" outline icon-end (click)="handleActiveIndex(1)">
-              siguiente
-              <ion-icon name='ios-arrow-dropright-outline'></ion-icon>
-            </button>
-          </ion-col>
-          <ion-col text-right *ngIf="testProgress == 100 && activeCardIndex == testQuestions.length - 1">
-            <button ion-button color="danger" outline icon-end>
-              finalizar
-              <ion-icon name='ios-arrow-dropright-outline'></ion-icon>
-            </button>
-          </ion-col>
-        </ion-row>
+        </div>
       </div>
+      <ion-row no-padding *ngIf="activeCardIndex == i">
+        <ion-col *ngIf="activeCardIndex > 0">
+          <button ion-button color="danger" outline icon-start (click)="handleActiveIndex(-1)">
+            <ion-icon name='ios-arrow-dropleft-outline'></ion-icon>
+            anterior
+          </button>
+        </ion-col>
+        <ion-col text-right *ngIf="activeCardIndex < testQuestions.length - 1">
+          <button ion-button color="danger" [disabled]="nextButtonDisable[i] == 'disabled'" outline icon-end (click)="handleActiveIndex(1)">
+            siguiente
+            <ion-icon name='ios-arrow-dropright-outline'></ion-icon>
+          </button>
+        </ion-col>
+        <ion-col text-right *ngIf="testProgress == 100 && activeCardIndex == testQuestions.length - 1">
+          <button ion-button color="danger" outline icon-end>
+            finalizar
+            <ion-icon name='ios-arrow-dropright-outline'></ion-icon>
+          </button>
+        </ion-col>
+      </ion-row>
     </div>
   </ion-card>
 

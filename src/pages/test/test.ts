@@ -1,12 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
-
-/**
- * Generated class for the TestPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { ToastController } from 'ionic-angular';
+import { TestQuestionsProvider } from '../../providers/test-questions/test-questions';
 
 @Component({
   selector: 'page-test',
@@ -15,112 +10,61 @@ import { NavController, NavParams } from 'ionic-angular';
 export class TestPage {
 
   activeCardIndex: number;
-  testQuestions: Array<{question: string, answers:Array<{value: string, name: string}>}>;
-  testAnswers: Array<{answer: any}>;
+  testQuestions: Array<Array<{question: string, answers:Array<{value: string, name: string}>}>>;
+  testAnswers: Array<Array<{answer: any}>>;
   testProgress: number;
+  nextButtonDisable: Array<string>;
+  toast: any;
+  questionsPageData: string;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private testService: TestQuestionsProvider, public toastCtrl: ToastController) {
     this.activeCardIndex = 0;
+    this.testQuestions = this.testService.getQuestions();
     this.testProgress = 0;
     this.testAnswers = [];
-    this.testQuestions = [
-      {
-        question: "Pregunta 1",
-        answers: [
-          {
-            value: "1",
-            name: "Respuesta 1"
-          },
-          {
-            value: "2",
-            name: "Respuesta 2"
-          },
-          {
-            value: "3",
-            name: "Respuesta 3"
-          }
-        ]
-      },
-      {
-        question: "Pregunta 2",
-        answers: [
-          {
-            value: "4",
-            name: "Respuesta 4"
-          },
-          {
-            value: "5",
-            name: "Respuesta 5"
-          },
-          {
-            value: "6",
-            name: "Respuesta 6"
-          }
-        ]
-      },
-      {
-        question: "Pregunta 3",
-        answers: [
-          {
-            value: "7",
-            name: "Respuesta 7"
-          },
-          {
-            value: "8",
-            name: "Respuesta 8"
-          },
-          {
-            value: "9",
-            name: "Respuesta 9"
-          }
-        ]
-      },
-      {
-        question: "Pregunta 4",
-        answers: [
-          {
-            value: "10",
-            name: "Respuesta 10"
-          },
-          {
-            value: "11",
-            name: "Respuesta 11"
-          },
-          {
-            value: "12",
-            name: "Respuesta 12"
-          }
-        ]
-      },
-      {
-        question: "Pregunta 5",
-        answers: [
-          {
-            value: "13",
-            name: "Respuesta 13"
-          },
-          {
-            value: "14",
-            name: "Respuesta 14"
-          },
-          {
-            value: "15",
-            name: "Respuesta 15"
-          }
-        ]
-      }
-    ]
+    this.nextButtonDisable = [];
+    this.updateQuestionsPageData();
   }
 
-  answerSelect(index, answer) {
-    this.testAnswers[index] = answer.value;
-    var values = this.testAnswers.filter(answer => answer);
-    this.testProgress = (values.length * 100) / this.testQuestions.length;
-    console.log(this.testProgress)
+  answerSelect(index, subindex, answer) {
+    this.updateTest(index, subindex, answer);
   }
 
   handleActiveIndex(move) {
     this.activeCardIndex += move;
+    this.updateQuestionsPageData();
+  }
+
+  updateTest(index, subindex, answer) {
+    if (!this.testAnswers[index]) {
+      this.testAnswers[index] = [];
+    }
+    this.testAnswers[index][subindex] = answer.value;
+    this.testProgress = this.updateProgress(this.testAnswers);
+    this.nextButtonDisable[index] = (this.testAnswers[index].filter(val => val.toString() === "1").length > 2) ? "disabled" : "";
+
+    if (this.nextButtonDisable[index] === "disabled" && !this.toast) {
+      this.toast = this.toastCtrl.create({
+        message: 'Solo puedes elegir "Si" 2(dos) veces por pantalla',
+        duration: 5000,
+        position: 'middle',
+        showCloseButton: true
+      });
+      this.toast.present();
+      this.toast.onDidDismiss(() => {
+        this.toast = null;
+      });
+    }
+
+  }
+
+  updateProgress(values) {
+    var merged = [].concat.apply([], values).filter(val => val);
+    return (merged.length * 100) / this.testService.getTotalLength()
+  }
+
+  updateQuestionsPageData() {
+    this.questionsPageData = "Pagina " + (this.activeCardIndex + 1) + " de " + this.testQuestions.length;
   }
 
   ionViewDidLoad() {

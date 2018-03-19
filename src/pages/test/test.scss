@@ -5,7 +5,13 @@ page-test {
     background-attachment: fixed;
     background-size: contain;
     .scroll-content {
-      background-color: rgba(255, 255, 255, 0.3)
+      background-color: rgba(255, 255, 255, 0.3);
+      ion-card-header {
+        white-space: normal;
+      }
+      .pages-data {
+        border-bottom: 1px solid #DDD;
+      }
     }
   }
 }
