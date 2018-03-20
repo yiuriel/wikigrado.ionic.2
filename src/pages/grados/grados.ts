@@ -1,5 +1,6 @@
 import { Component, ElementRef } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
+import { GradoPage } from '../grado/grado';
 
 @Component({
   selector: 'page-grados',
@@ -7,7 +8,7 @@ import { NavController, NavParams } from 'ionic-angular';
 })
 export class GradosPage {
 
-  videos: Array<{url: string, career: string}>
+  videos: Array<{videoUrl: string, hasVideo: boolean, career: string}>
   dimensions: {width: number, height: number}
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private domElem: ElementRef) {
@@ -26,30 +27,57 @@ export class GradosPage {
 
     this.videos = [
       {
-        url: 'https://player.vimeo.com/video/250951635?autoplay=1',
+        videoUrl: 'https://player.vimeo.com/video/250951635?autoplay=1',
+        hasVideo: true,
         career: "Grado en ingenieria de software",
       },
       {
-        url: 'https://player.vimeo.com/video/252883728?autoplay=1',
+        videoUrl: 'https://player.vimeo.com/video/252883728?autoplay=1',
+        hasVideo: true,
         career: "Grado en filosofia",
       },
       {
-        url: 'https://player.vimeo.com/video/251032750?autoplay=1',
+        videoUrl: 'https://player.vimeo.com/video/251032750?autoplay=1',
+        hasVideo: true,
         career: "Grado en diseño de videojuegos y Productos Interactivos",
       },
       {
-        url: 'https://player.vimeo.com/video/250951635?autoplay=1',
+        videoUrl: 'https://player.vimeo.com/video/250951635?autoplay=1',
+        hasVideo: true,
         career: "Grado en ingenieria de software",
       },
       {
-        url: 'https://player.vimeo.com/video/252883728?autoplay=1',
+        videoUrl: 'https://player.vimeo.com/video/252883728?autoplay=1',
+        hasVideo: true,
         career: "Grado en filosofia",
       },
       {
-        url: 'https://player.vimeo.com/video/251032750?autoplay=1',
+        videoUrl: 'https://player.vimeo.com/video/251032750?autoplay=1',
+        hasVideo: true,
+        career: "Grado en diseño de videojuegos y Productos Interactivos",
+      },
+      {
+        videoUrl: null,
+        hasVideo: false,
+        career: "Grado en diseño de videojuegos y Productos Interactivos",
+      },
+      {
+        videoUrl: null,
+        hasVideo: false,
+        career: "Grado en diseño de videojuegos y Productos Interactivos",
+      },
+      {
+        videoUrl: null,
+        hasVideo: false,
         career: "Grado en diseño de videojuegos y Productos Interactivos",
       }
     ];
+  }
+
+  goToGrade(video) {
+    if (video.hasVideo) {
+      this.navCtrl.push(GradoPage, {videoData: video, dimensionData: this.dimensions});
+    }
   }
 
 }

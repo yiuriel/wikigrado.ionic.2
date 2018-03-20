@@ -44,18 +44,22 @@ export class TestPage {
     this.nextButtonDisable[index] = (this.testAnswers[index].filter(val => val.toString() === "1").length > 2) ? "disabled" : "";
 
     if (this.nextButtonDisable[index] === "disabled" && !this.toast) {
-      this.toast = this.toastCtrl.create({
-        message: 'Solo puedes elegir "Si" 2(dos) veces por pantalla',
-        duration: 5000,
-        position: 'middle',
-        showCloseButton: true
-      });
-      this.toast.present();
-      this.toast.onDidDismiss(() => {
-        this.toast = null;
-      });
+      this.showToast();
     }
 
+  }
+
+  showToast() {
+    this.toast = this.toastCtrl.create({
+      message: 'Solo puedes elegir "Si" 2(dos) veces por pantalla',
+      duration: 5000,
+      position: 'middle',
+      showCloseButton: true
+    });
+    this.toast.present();
+    this.toast.onDidDismiss(() => {
+      this.toast = null;
+    });
   }
 
   updateProgress(values) {

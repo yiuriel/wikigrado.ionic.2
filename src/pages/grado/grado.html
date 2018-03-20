@@ -1,0 +1,14 @@
+<ion-header>
+  <custom-header header-title="Grado"></custom-header>
+</ion-header>
+
+
+<ion-content padding>
+  <h2 text-center class="career-title" [innerHTML]="navParams.data.videoData.career"></h2>
+  <image-switch-iframe
+    [url]="navParams.data.videoData.videoUrl"
+    [career]="navParams.data.videoData.career"
+    [width]="navParams.data.dimensionData.width"
+    [height]="navParams.data.dimensionData.height">
+  </image-switch-iframe>
+</ion-content>

@@ -3,11 +3,19 @@
 </ion-header>
 
 <ion-content padding class="grados-y-salidas">
-  <image-switch-iframe
-    *ngFor="let video of videos"
-    [url]="video.url"
-    [career]="video.career"
-    [width]="dimensions.width"
-    [height]="dimensions.height">
-  </image-switch-iframe>
+  <ion-list>
+    <ion-item>
+      <ion-label color="danger" stacked>Buscar</ion-label>
+      <ion-input type="text" placeholder="..."></ion-input>
+    </ion-item>
+  </ion-list>
+
+  <ion-list>
+    <ion-item *ngFor="let video of videos;" class="career">
+      <a [class.has-video]="video.hasVideo" (click)="goToGrade(video)">
+        <ion-icon name="videocam" *ngIf="video.hasVideo"></ion-icon>
+        <span class="career-title" [innerHTML]="video.career"></span>
+      </a>
+    </ion-item>
+  </ion-list>
 </ion-content>

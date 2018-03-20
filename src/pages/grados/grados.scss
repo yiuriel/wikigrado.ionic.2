@@ -8,6 +8,33 @@ page-grados {
       image-switch-iframe {
         margin-bottom: 32px;
       }
+      .list {
+        .item {
+          background-color: transparent;
+          input,
+          ion-label {
+            color: white;
+          }
+          &.career {
+            color: white;
+            a {
+              color: white;
+              text-decoration: none;
+              font-size: .8em;
+              display: flex;
+              align-items: center;
+              white-space: normal;
+              &.has-video {
+                font-weight: bold;
+              }
+              ion-icon {
+                margin-right: 10px;
+                font-size: 2em;
+              }
+            }
+          }
+        }
+      }
     }
   }
 }

@@ -1,0 +1,13 @@
+page-grado {
+  ion-content {
+    .scroll-content {
+      background-image: url('../../assets/imgs/grados_y_salidas.jpg');
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-size: contain;
+      .career-title {
+        color: white;
+      }
+    }
+  }
+}

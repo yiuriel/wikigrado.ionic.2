@@ -15,6 +15,7 @@ import { RegisterPictureStepPage } from '../pages/register-picture-step/register
 
 import { TestPage } from '../pages/test/test';
 import { GradosPage } from '../pages/grados/grados';
+import { GradoPage } from '../pages/grado/grado';
 import { UniversidadesPage } from '../pages/universidades/universidades';
 import { ColegiosMayoresPage } from '../pages/colegios-mayores/colegios-mayores';
 import { FavoritosPage } from '../pages/favoritos/favoritos';
@@ -33,6 +34,7 @@ import { TestQuestionsProvider } from '../providers/test-questions/test-question
     RegisterPage,
     TestPage,
     GradosPage,
+    GradoPage,
     UniversidadesPage,
     ColegiosMayoresPage,
     FavoritosPage,
@@ -59,6 +61,7 @@ import { TestQuestionsProvider } from '../providers/test-questions/test-question
     RegisterPage,
     TestPage,
     GradosPage,
+    GradoPage,
     UniversidadesPage,
     ColegiosMayoresPage,
     FavoritosPage,
