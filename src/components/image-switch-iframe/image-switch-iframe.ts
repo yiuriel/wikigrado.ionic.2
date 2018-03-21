@@ -23,7 +23,6 @@ export class ImageSwitchIframeComponent {
 
   switchActive() {
     this.actualUrl = this.sanitizer.bypassSecurityTrustResourceUrl(this.url)
-    console.warn(this.url, this.actualUrl)
     this.active = true;
   }
 

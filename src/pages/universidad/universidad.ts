@@ -2,16 +2,16 @@ import { Component } from '@angular/core';
 import { NavController, NavParams, ViewController } from 'ionic-angular';
 
 @Component({
-  selector: 'page-grado',
-  templateUrl: 'grado.html',
+  selector: 'page-universidad',
+  templateUrl: 'universidad.html',
 })
-export class GradoPage {
+export class UniversidadPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public viewCtrl: ViewController) {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad GradoPage');
+    console.log('ionViewDidLoad UniversidadPage');
   }
 
   dismiss() {

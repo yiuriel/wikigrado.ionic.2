@@ -21,7 +21,7 @@
 }
 
 .swiper-pagination-bullet-active {
-  background-color: #f53d3d;
+  background-color: map-get($colors, danger);
 }
 
 .menu-background {

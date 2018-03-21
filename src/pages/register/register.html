@@ -16,7 +16,7 @@
             </ion-item>
 
             <ion-item>
-              <ion-label stacked>Gender</ion-label>
+              <ion-label stacked>Edad</ion-label>
               <ion-select name="age" [(ngModel)]="user.age" (ionChange)="onAgeChange(user.age)">
                 <ion-option *ngFor="let age of ages" [value]="age" [innerHTML]="age"></ion-option>
               </ion-select>

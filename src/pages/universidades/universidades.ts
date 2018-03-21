@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams, LoadingController, ModalController } from 'ionic-angular';
+import { UniversidadesProvider } from '../../providers/universidades/universidades';
+import { UniversidadPage } from '../universidad/universidad';
 
 @Component({
   selector: 'page-universidades',
@@ -7,11 +9,50 @@ import { NavController, NavParams } from 'ionic-angular';
 })
 export class UniversidadesPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  universidades: Array<string>
+  universidadesCached: Array<string>
+
+  constructor(public navCtrl: NavController, public navParams: NavParams, public modalCtrl: ModalController, public universidadesService: UniversidadesProvider, public loadingCtrl: LoadingController) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad UniversidadesPage');
+
+    let loading = this.loadingCtrl.create({
+      spinner: 'crescent'
+    });
+    loading.present();
+
+    this.getUniversidadesFromService(loading);
+  }
+
+  getUniversidadesFromService(loading) {
+    this.universidadesService.getUniversidades().then((universidades) => {
+      this.universidades = universidades;
+      this.universidadesCached = [].concat(this.universidades);
+      loading.dismiss();
+    });
+  }
+
+  getUniversidades($event) {
+    const value = $event.data;
+    if (!value) {
+      this.universidadesService.getUniversidades().then((universidades) => {
+        this.universidades = universidades;
+      });
+    } else {
+      this.universidades = this.universidadesCached.filter(univ => univ.toLowerCase().indexOf(value.toLowerCase()) > -1);
+    }
+  }
+
+  goToUniversidad(universidad) {
+    if (universidad) {
+      let modal = this.modalCtrl.create(UniversidadPage, {universidadData: universidad});
+      modal.onDidDismiss(() => {
+        modal = null;
+      })
+      modal.present();
+    }
   }
 
 }

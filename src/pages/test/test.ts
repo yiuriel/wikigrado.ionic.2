@@ -16,6 +16,7 @@ export class TestPage {
   nextButtonDisable: Array<string>;
   toast: any;
   questionsPageData: string;
+  questionsAnsweredData: string;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private testService: TestQuestionsProvider, public toastCtrl: ToastController) {
     this.activeCardIndex = 0;
@@ -24,6 +25,7 @@ export class TestPage {
     this.testAnswers = [];
     this.nextButtonDisable = [];
     this.updateQuestionsPageData();
+    this.updateQuestionsAnsweredData(0);
   }
 
   answerSelect(index, subindex, answer) {
@@ -47,11 +49,13 @@ export class TestPage {
       this.showToast();
     }
 
+    const questionsAnswered = this.getAnsweredLength(this.testAnswers);
+    this.updateQuestionsAnsweredData(questionsAnswered.length);
   }
 
   showToast() {
     this.toast = this.toastCtrl.create({
-      message: 'Solo puedes elegir "Si" 2(dos) veces por pantalla',
+      message: 'Solo puedes elegir "Si" 2 (dos) veces por pantalla',
       duration: 5000,
       position: 'middle',
       showCloseButton: true
@@ -63,12 +67,20 @@ export class TestPage {
   }
 
   updateProgress(values) {
-    var merged = [].concat.apply([], values).filter(val => val);
+    var merged = this.getAnsweredLength(values);
     return (merged.length * 100) / this.testService.getTotalLength()
+  }
+
+  getAnsweredLength(values) {
+    return [].concat.apply([], values).filter(val => val);
   }
 
   updateQuestionsPageData() {
     this.questionsPageData = "Pagina " + (this.activeCardIndex + 1) + " de " + this.testQuestions.length;
+  }
+
+  updateQuestionsAnsweredData(questionsAnswered) {
+    this.questionsAnsweredData = "Respondiste " + (questionsAnswered) + " de " + this.testService.getTotalLength();
   }
 
   ionViewDidLoad() {

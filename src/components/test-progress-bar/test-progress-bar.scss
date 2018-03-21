@@ -12,7 +12,7 @@ test-progress-bar {
       position: absolute;
       left: 0;
       height: 8px;
-      background-color: #f53d3d;
+      background-color: map-get($colors, danger);
       border-radius: 5px;
     }
   }

@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { Component, ViewChild } from '@angular/core';
+import { NavController, NavParams, Slides } from 'ionic-angular';
 
 import { RegisterPage } from '../register/register';
 
@@ -9,27 +9,32 @@ import { RegisterPage } from '../register/register';
 })
 export class InitialSliderPage {
 
-  slides: Array<any>
+  @ViewChild(Slides) slides: Slides;
+  slidesData: Array<any>
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
-    this.slides = [
+    this.slidesData = [
       {
-        title: "Welcome to the Docs!",
-        description: "The <b>Ionic Component Documentation</b> showcases a number of useful components that are included out of the box with Ionic.",
+        title: "Guia 1",
+        description: "Esta es la pagina 1 de guia, la podras volver a ver luego",
       },
-      // {
-      //   title: "What is Ionic?",
-      //   description: "<b>Ionic Framework</b> is an open source SDK that enables developers to build high quality mobile apps with web technologies like HTML, CSS, and JavaScript.",
-      // },
-      // {
-      //   title: "What is Ionic Cloud?",
-      //   description: "The <b>Ionic Cloud</b> is a cloud platform for managing and scaling Ionic apps with integrated services like push notifications, native builds, user auth, and live updating.",
-      // }
+      {
+        title: "Guia 2",
+        description: "Esta es la 2da pagina de la guia y tambien la podras volver a ver luego",
+      },
+      {
+        title: "Guia 3",
+        description: "Esta es la ultima pagina de la guia, luego viene el registro",
+      }
     ];
   }
 
   goToRegisterPage() {
     this.navCtrl.push(RegisterPage)
+  }
+
+  goToSlide(index) {
+    this.slides.slideTo(index, 250);
   }
 
   ionViewDidLoad() {

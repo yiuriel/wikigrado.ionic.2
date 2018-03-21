@@ -1,14 +1,30 @@
 <ion-header>
-  <custom-header header-title="Grado"></custom-header>
+  <ion-toolbar>
+    <ion-title>
+      Grado
+    </ion-title>
+    <ion-buttons start>
+      <button ion-button (click)="dismiss()">
+        <span ion-text color="primary" showWhen="ios">Volver</span>
+        <ion-icon name="md-close" showWhen="android, windows"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
 </ion-header>
-
 
 <ion-content padding>
   <h2 text-center class="career-title" [innerHTML]="navParams.data.videoData.career"></h2>
-  <image-switch-iframe
-    [url]="navParams.data.videoData.videoUrl"
-    [career]="navParams.data.videoData.career"
-    [width]="navParams.data.dimensionData.width"
-    [height]="navParams.data.dimensionData.height">
-  </image-switch-iframe>
+  <div *ngIf="navParams.data.videoData.hasVideo">
+    <image-switch-iframe
+      [url]="navParams.data.videoData.videoUrl"
+      [career]="navParams.data.videoData.career"
+      [width]="navParams.data.dimensionData.width"
+      [height]="navParams.data.dimensionData.height">
+    </image-switch-iframe>
+    <h2 color="light">algun titulo descriptivo de la carrera</h2>
+    <p color="light">alguna descripcion mas larga de la carrera</p>
+  </div>
+  <div *ngIf="!navParams.data.videoData.hasVideo" >
+    <p class="no-video" padding text-center color="light">De momento no hay un video para ver sobre esta carrera</p>
+  </div>
 </ion-content>

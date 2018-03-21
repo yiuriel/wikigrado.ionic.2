@@ -17,6 +17,7 @@ import { TestPage } from '../pages/test/test';
 import { GradosPage } from '../pages/grados/grados';
 import { GradoPage } from '../pages/grado/grado';
 import { UniversidadesPage } from '../pages/universidades/universidades';
+import { UniversidadPage } from '../pages/universidad/universidad';
 import { ColegiosMayoresPage } from '../pages/colegios-mayores/colegios-mayores';
 import { FavoritosPage } from '../pages/favoritos/favoritos';
 
@@ -24,6 +25,8 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { UserProvider } from '../providers/user/user';
 import { TestQuestionsProvider } from '../providers/test-questions/test-questions';
+import { GradosVideosProvider } from '../providers/grados-videos/grados-videos';
+import { UniversidadesProvider } from '../providers/universidades/universidades';
 
 @NgModule({
   declarations: [
@@ -36,6 +39,7 @@ import { TestQuestionsProvider } from '../providers/test-questions/test-question
     GradosPage,
     GradoPage,
     UniversidadesPage,
+    UniversidadPage,
     ColegiosMayoresPage,
     FavoritosPage,
     RegisterPictureStepPage,
@@ -63,6 +67,7 @@ import { TestQuestionsProvider } from '../providers/test-questions/test-question
     GradosPage,
     GradoPage,
     UniversidadesPage,
+    UniversidadPage,
     ColegiosMayoresPage,
     FavoritosPage,
     RegisterPictureStepPage,
@@ -73,7 +78,9 @@ import { TestQuestionsProvider } from '../providers/test-questions/test-question
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     UserProvider,
     ScreenOrientation,
-    TestQuestionsProvider
+    TestQuestionsProvider,
+    GradosVideosProvider,
+    UniversidadesProvider
   ]
 })
 export class AppModule {}

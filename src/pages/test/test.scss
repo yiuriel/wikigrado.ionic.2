@@ -5,12 +5,23 @@ page-test {
     background-attachment: fixed;
     background-size: contain;
     .scroll-content {
-      background-color: rgba(255, 255, 255, 0.3);
+      background-color: rgba(255, 255, 255, 0.6);
       ion-card-header {
         white-space: normal;
+        background-color: #F53d3d;
+        color: white;
       }
       .pages-data {
-        border-bottom: 1px solid #DDD;
+        border-bottom: 1px solid #EEE;
+      }
+
+      .list > .item-block:first-child {
+        border-top: 0;
+      }
+
+      .list > .item-block:last-child,
+      .list > .item-wrapper:last-child .item-block {
+        border-bottom: 0;
       }
     }
   }

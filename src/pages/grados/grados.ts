@@ -1,6 +1,7 @@
 import { Component, ElementRef } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams, ModalController, LoadingController } from 'ionic-angular';
 import { GradoPage } from '../grado/grado';
+import { GradosVideosProvider } from '../../providers/grados-videos/grados-videos';
 
 @Component({
   selector: 'page-grados',
@@ -9,10 +10,10 @@ import { GradoPage } from '../grado/grado';
 export class GradosPage {
 
   videos: Array<{videoUrl: string, hasVideo: boolean, career: string}>
+  videosCached: Array<{videoUrl: string, hasVideo: boolean, career: string}>
   dimensions: {width: number, height: number}
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private domElem: ElementRef) {
-  }
+  constructor(public navCtrl: NavController, public navParams: NavParams, public modalCtrl: ModalController, public gradosVideosService :GradosVideosProvider, private domElem: ElementRef, public loadingCtrl: LoadingController) {}
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad GradosPage');
@@ -25,58 +26,34 @@ export class GradosPage {
       height: (width * 9) / 16,
     }
 
-    this.videos = [
-      {
-        videoUrl: 'https://player.vimeo.com/video/250951635?autoplay=1',
-        hasVideo: true,
-        career: "Grado en ingenieria de software",
-      },
-      {
-        videoUrl: 'https://player.vimeo.com/video/252883728?autoplay=1',
-        hasVideo: true,
-        career: "Grado en filosofia",
-      },
-      {
-        videoUrl: 'https://player.vimeo.com/video/251032750?autoplay=1',
-        hasVideo: true,
-        career: "Grado en diseño de videojuegos y Productos Interactivos",
-      },
-      {
-        videoUrl: 'https://player.vimeo.com/video/250951635?autoplay=1',
-        hasVideo: true,
-        career: "Grado en ingenieria de software",
-      },
-      {
-        videoUrl: 'https://player.vimeo.com/video/252883728?autoplay=1',
-        hasVideo: true,
-        career: "Grado en filosofia",
-      },
-      {
-        videoUrl: 'https://player.vimeo.com/video/251032750?autoplay=1',
-        hasVideo: true,
-        career: "Grado en diseño de videojuegos y Productos Interactivos",
-      },
-      {
-        videoUrl: null,
-        hasVideo: false,
-        career: "Grado en diseño de videojuegos y Productos Interactivos",
-      },
-      {
-        videoUrl: null,
-        hasVideo: false,
-        career: "Grado en diseño de videojuegos y Productos Interactivos",
-      },
-      {
-        videoUrl: null,
-        hasVideo: false,
-        career: "Grado en diseño de videojuegos y Productos Interactivos",
-      }
-    ];
+    let loading = this.loadingCtrl.create({
+      spinner: 'crescent'
+    });
+    loading.present();
+
+    this.getAllVideos(loading);
+  }
+
+  getAllVideos(loading) {
+    this.gradosVideosService.getVideos().then(videos => {
+      this.videos = videos;
+      this.videosCached = [].concat(this.videos);
+      loading.dismiss();
+    });
+  }
+
+  filterGrades($event) {
+    const value = $event.value;
+    this.videos = this.videosCached.filter(video => video.career.toLowerCase().indexOf(value.toLowerCase()) > -1)
   }
 
   goToGrade(video) {
-    if (video.hasVideo) {
-      this.navCtrl.push(GradoPage, {videoData: video, dimensionData: this.dimensions});
+    if (video) {
+      let modal = this.modalCtrl.create(GradoPage, {videoData: video, dimensionData: this.dimensions});
+      modal.onDidDismiss(() => {
+        modal = null;
+      })
+      modal.present();
     }
   }
 

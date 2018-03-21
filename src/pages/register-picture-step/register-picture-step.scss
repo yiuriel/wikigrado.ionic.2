@@ -24,7 +24,7 @@ page-register-picture-step {
       .item {
         background-color: transparent;
         .label[stacked] {
-          color: #f53d3d;
+          color: map-get($colors, danger);
         }
       }
     }

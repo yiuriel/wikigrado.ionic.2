@@ -1,17 +1,11 @@
-page-grado {
+page-universidad {
   ion-content {
-    background-image: url('../../assets/imgs/grados_y_salidas.jpg');
+    background-image: url('../../assets/imgs/universidades.jpg');
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: contain;
     .scroll-content {
       background-color: rgba(0,0,0,0.45);
-      .career-title {
-        color: white;
-      }
-      .no-video {
-        font-size: 1.5em;
-      }
     }
   }
 

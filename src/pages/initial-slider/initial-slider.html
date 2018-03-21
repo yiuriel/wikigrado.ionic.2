@@ -1,11 +1,15 @@
 <ion-content padding class="slide-background">
   <ion-slides pager>
-    <ion-slide *ngFor="let slide of slides">
+    <ion-slide *ngFor="let slide of slidesData; let i = index;">
+      <ion-toolbar>
+        <ion-buttons end>
+          <button ion-button color="primary" (click)="goToSlide(i + 1)">siguiente</button>
+        </ion-buttons>
+      </ion-toolbar>
       <h2 class="slide-title" [innerHTML]="slide.title"></h2>
       <p [innerHTML]="slide.description"></p>
     </ion-slide>
-    <ion-slide>
-      <!-- <h2 class="slide-title">Ready to Play?</h2> -->
+    <ion-slide class="last-slide">
       <button ion-button small large round icon-end color="danger" (click)="goToRegisterPage()">
         registrarme
         <ion-icon name="md-log-in"></ion-icon>

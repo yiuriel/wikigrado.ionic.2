@@ -6,12 +6,12 @@
   <ion-list>
     <ion-item>
       <ion-label color="danger" stacked>Buscar</ion-label>
-      <ion-input type="text" placeholder="..."></ion-input>
+      <ion-input type="text" (ionChange)="filterGrades($event)" placeholder="busca entre todos los grados"></ion-input>
     </ion-item>
   </ion-list>
 
   <ion-list>
-    <ion-item *ngFor="let video of videos;" class="career">
+    <ion-item *ngFor="let video of videos;let i = index;" class="career">
       <a [class.has-video]="video.hasVideo" (click)="goToGrade(video)">
         <ion-icon name="videocam" *ngIf="video.hasVideo"></ion-icon>
         <span class="career-title" [innerHTML]="video.career"></span>
