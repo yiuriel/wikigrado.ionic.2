@@ -3,6 +3,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { ScreenOrientation } from '@ionic-native/screen-orientation';
+import { LaunchNavigator } from '@ionic-native/launch-navigator';
 
 import { ComponentsModule } from '../components/components.module'
 
@@ -27,6 +28,7 @@ import { UserProvider } from '../providers/user/user';
 import { TestQuestionsProvider } from '../providers/test-questions/test-questions';
 import { GradosVideosProvider } from '../providers/grados-videos/grados-videos';
 import { UniversidadesProvider } from '../providers/universidades/universidades';
+import { ColegiosMayoresProvider } from '../providers/colegios-mayores/colegios-mayores';
 
 @NgModule({
   declarations: [
@@ -76,11 +78,13 @@ import { UniversidadesProvider } from '../providers/universidades/universidades'
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    UserProvider,
     ScreenOrientation,
+    LaunchNavigator,
+    UserProvider,
     TestQuestionsProvider,
     GradosVideosProvider,
-    UniversidadesProvider
+    UniversidadesProvider,
+    ColegiosMayoresProvider
   ]
 })
 export class AppModule {}

@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 
 @Component({
-  selector: 'custom-header',
+  selector: '[customheader]',
   templateUrl: 'custom-header.html'
 })
 export class CustomHeaderComponent {

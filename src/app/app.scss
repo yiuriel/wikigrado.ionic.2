@@ -17,7 +17,7 @@
 
 .platform-ios11,
 .platform-ios10 {
-  
+
 }
 
 .swiper-pagination-bullet-active {
@@ -36,4 +36,8 @@
 .hidden {
   display: none !important;
   visibility: hidden !important;
+}
+
+ion-list + ion-list.list {
+  margin-top: 35px;
 }

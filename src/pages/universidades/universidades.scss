@@ -3,11 +3,18 @@ page-universidades {
     background-image: url('../../assets/imgs/universidades.jpg');
     background-repeat: no-repeat;
     background-attachment: fixed;
-    background-size: contain;
+    background-size: cover;
     .scroll-content {
-      background-color: rgba(255, 255, 255, 0.6);
+      background-color: rgba(255, 255, 255, 0.75);
+      .list > .item-block {
+        border-color: map-get($colors, danger);
+        border-top: 0;
+        .item-inner {
+          border-color: map-get($colors, danger);
+        }
+      }
       .item {
-        background-color: rgba(255, 255, 255, 0.5);
+        background-color: transparent;
       }
     }
   }

@@ -35,7 +35,7 @@ export class UniversidadesPage {
   }
 
   getUniversidades($event) {
-    const value = $event.data;
+    const value = $event.value;
     if (!value) {
       this.universidadesService.getUniversidades().then((universidades) => {
         this.universidades = universidades;

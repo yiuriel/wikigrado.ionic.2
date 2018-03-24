@@ -1,7 +1,8 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>
-      Grado
+      <span *ngIf="navParams.data.isColegioMayor">Colegio Mayor</span>
+      <span *ngIf="!navParams.data.isColegioMayor">Grado</span>
     </ion-title>
     <ion-buttons start>
       <button ion-button (click)="dismiss()">
@@ -14,7 +15,7 @@
 
 <ion-content padding>
   <h2 text-center class="career-title" [innerHTML]="navParams.data.videoData.career"></h2>
-  <div *ngIf="navParams.data.videoData.hasVideo">
+  <div *ngIf="!navParams.data.isColegioMayor">
     <image-switch-iframe
       [url]="navParams.data.videoData.videoUrl"
       [career]="navParams.data.videoData.career"
@@ -24,7 +25,16 @@
     <h2 color="light">algun titulo descriptivo de la carrera</h2>
     <p color="light">alguna descripcion mas larga de la carrera</p>
   </div>
-  <div *ngIf="!navParams.data.videoData.hasVideo" >
-    <p class="no-video" padding text-center color="light">De momento no hay un video para ver sobre esta carrera</p>
+
+  <div *ngIf="navParams.data.isColegioMayor">
+    <image-switch-iframe
+      [url]="navParams.data.videoData.videoUrl"
+      [career]="navParams.data.videoData.career"
+      [width]="navParams.data.dimensionData.width"
+      [height]="navParams.data.dimensionData.height">
+    </image-switch-iframe>
+    <p color="light" [innerHTML]="navParams.data.videoData.description"></p>
   </div>
+
+  <button *ngIf="navParams.data.videoData.location" ion-button outline block color="light" (click)="viewLocation(navParams.data.videoData.location)">ver en el mapa</button>
 </ion-content>

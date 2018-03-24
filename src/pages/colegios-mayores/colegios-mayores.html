@@ -1,7 +1,19 @@
-<ion-header>
-  <custom-header header-title="Colegios Mayores"></custom-header>
-</ion-header>
+<ion-header customheader header-title="Colegios Mayores"></ion-header>
 
 <ion-content padding>
+  <ion-list>
+    <ion-item>
+      <ion-label color="danger" stacked>Buscar</ion-label>
+      <ion-input type="text" (ionChange)="getColegiosMayores($event)" placeholder="busca entre todos los colegios mayores"></ion-input>
+    </ion-item>
+  </ion-list>
 
+  <ion-list>
+    <ion-item *ngFor="let video of videos;let i = index;" class="career">
+      <a (click)="goToColegioMayor(video)">
+        <ion-icon name="film"></ion-icon>
+        <span class="career-title" [innerHTML]="video.career"></span>
+      </a>
+    </ion-item>
+  </ion-list>
 </ion-content>
