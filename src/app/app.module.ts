@@ -4,6 +4,7 @@ import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { ScreenOrientation } from '@ionic-native/screen-orientation';
 import { LaunchNavigator } from '@ionic-native/launch-navigator';
+import { Geolocation } from '@ionic-native/geolocation';
 
 import { ComponentsModule } from '../components/components.module'
 
@@ -15,6 +16,7 @@ import { RegisterPage } from '../pages/register/register';
 import { RegisterPictureStepPage } from '../pages/register-picture-step/register-picture-step';
 
 import { TestPage } from '../pages/test/test';
+import { PretestPage } from '../pages/pretest/pretest';
 import { GradosPage } from '../pages/grados/grados';
 import { GradoPage } from '../pages/grado/grado';
 import { UniversidadesPage } from '../pages/universidades/universidades';
@@ -38,6 +40,7 @@ import { ColegiosMayoresProvider } from '../providers/colegios-mayores/colegios-
     InitialSliderPage,
     RegisterPage,
     TestPage,
+    PretestPage,
     GradosPage,
     GradoPage,
     UniversidadesPage,
@@ -66,6 +69,7 @@ import { ColegiosMayoresProvider } from '../providers/colegios-mayores/colegios-
     InitialSliderPage,
     RegisterPage,
     TestPage,
+    PretestPage,
     GradosPage,
     GradoPage,
     UniversidadesPage,
@@ -78,6 +82,7 @@ import { ColegiosMayoresProvider } from '../providers/colegios-mayores/colegios-
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
+    Geolocation,
     ScreenOrientation,
     LaunchNavigator,
     UserProvider,

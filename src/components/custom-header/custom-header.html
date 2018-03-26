@@ -3,4 +3,9 @@
     <ion-icon name="md-menu"></ion-icon>
   </button>
   <ion-title>{{headerTitle}}</ion-title>
+  <ion-buttons end *ngIf="!removeHeaderIcon">
+    <button ion-button icon-only color="royal" (click)="backToPretest()">
+      <img src="assets/imgs/small-logo.png" class="app-menu-logo" />
+    </button>
+  </ion-buttons>
 </ion-navbar>
