@@ -3,6 +3,7 @@ import { Nav, Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { Geolocation } from '@ionic-native/geolocation';
+import { GoogleAnalytics } from '@ionic-native/google-analytics';
 
 import { HttpClientModule } from '@angular/common/http';
 import { UserProvider } from '../providers/user/user';
@@ -28,7 +29,7 @@ export class MyApp {
 
   pages: Array<{icon: string, title: string, component: any}>;
 
-  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen) {
+  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen, public ga: GoogleAnalytics) {
     this.initializeApp();
 
     const testMenuComponent = this.checkIfPretestOrTest();
@@ -53,6 +54,15 @@ export class MyApp {
       // Here you can do any higher level native things you might need.
       this.statusBar.styleDefault();
       this.splashScreen.hide();
+      console.warn(this.ga)
+      this.ga.startTrackerWithId('UA-116499272-1')
+        .then(() => {
+          console.log('Google analytics is ready now');
+          this.ga.trackView('app');
+          // Tracker is ready
+          // You can now track pages or set additional information such as AppVersion or UserId
+        })
+        .catch(e => console.log('Error starting GoogleAnalytics', e));
     });
   }
 

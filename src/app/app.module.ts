@@ -5,6 +5,7 @@ import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { ScreenOrientation } from '@ionic-native/screen-orientation';
 import { LaunchNavigator } from '@ionic-native/launch-navigator';
 import { Geolocation } from '@ionic-native/geolocation';
+import { GoogleAnalytics } from '@ionic-native/google-analytics';
 
 import { ComponentsModule } from '../components/components.module'
 
@@ -83,6 +84,7 @@ import { ColegiosMayoresProvider } from '../providers/colegios-mayores/colegios-
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     Geolocation,
+    GoogleAnalytics,
     ScreenOrientation,
     LaunchNavigator,
     UserProvider,
