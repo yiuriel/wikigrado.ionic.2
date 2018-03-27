@@ -25,7 +25,7 @@ import { FavoritosPage } from '../pages/favoritos/favoritos';
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = PretestPage;
+  rootPage: any = InitialSliderPage;
 
   pages: Array<{icon: string, title: string, component: any}>;
 
@@ -54,7 +54,6 @@ export class MyApp {
       // Here you can do any higher level native things you might need.
       this.statusBar.styleDefault();
       this.splashScreen.hide();
-      console.warn(this.ga)
       this.ga.startTrackerWithId('UA-116499272-1')
         .then(() => {
           console.log('Google analytics is ready now');
