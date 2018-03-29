@@ -3,7 +3,7 @@ import { NavController, NavParams } from 'ionic-angular';
 import { UserProvider } from '../../providers/user/user';
 
 // pages
-import { TestPage } from '../test/test';
+import { PretestPage } from '../pretest/pretest';
 import { RegisterPictureStepPage } from '../register-picture-step/register-picture-step';
 
 @Component({
@@ -21,7 +21,7 @@ export class RegisterPage {
   }
 
   goToHomePage() {
-    this.navCtrl.setRoot(TestPage);
+    this.navCtrl.setRoot(PretestPage);
   }
 
   goToPicturePage() {
@@ -29,9 +29,12 @@ export class RegisterPage {
     this.navCtrl.push(RegisterPictureStepPage);
   }
 
+  goBack() {
+    this.navCtrl.pop();
+  }
+
   onAgeChange(age) {
     console.warn(age);
-    console.warn(this);
   }
 
   ionViewDidLoad() {

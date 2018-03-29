@@ -3,8 +3,7 @@ import { NavController, NavParams } from 'ionic-angular';
 
 import { UserProvider } from '../../providers/user/user';
 
-// pages
-import { TestPage } from '../test/test';
+import { PretestPage } from '../pretest/pretest';
 
 @Component({
   selector: 'page-register-picture-step',
@@ -25,7 +24,7 @@ export class RegisterPictureStepPage {
   }
 
   goToHomePage() {
-    this.navCtrl.setRoot(TestPage);
+    this.navCtrl.setRoot(PretestPage);
   }
 
   goToRegisterPage() {

@@ -6,6 +6,7 @@ import { ScreenOrientation } from '@ionic-native/screen-orientation';
 import { LaunchNavigator } from '@ionic-native/launch-navigator';
 import { Geolocation } from '@ionic-native/geolocation';
 import { GoogleAnalytics } from '@ionic-native/google-analytics';
+import { NativeGeocoder } from '@ionic-native/native-geocoder';
 
 import { ComponentsModule } from '../components/components.module'
 
@@ -14,6 +15,7 @@ import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
 import { InitialSliderPage } from '../pages/initial-slider/initial-slider';
 import { RegisterPage } from '../pages/register/register';
+import { LoginPage } from '../pages/login/login';
 import { RegisterPictureStepPage } from '../pages/register-picture-step/register-picture-step';
 
 import { TestPage } from '../pages/test/test';
@@ -32,6 +34,7 @@ import { TestQuestionsProvider } from '../providers/test-questions/test-question
 import { GradosVideosProvider } from '../providers/grados-videos/grados-videos';
 import { UniversidadesProvider } from '../providers/universidades/universidades';
 import { ColegiosMayoresProvider } from '../providers/colegios-mayores/colegios-mayores';
+import { AnalyticsProvider } from '../providers/analytics/analytics';
 
 @NgModule({
   declarations: [
@@ -40,6 +43,7 @@ import { ColegiosMayoresProvider } from '../providers/colegios-mayores/colegios-
     ListPage,
     InitialSliderPage,
     RegisterPage,
+    LoginPage,
     TestPage,
     PretestPage,
     GradosPage,
@@ -69,6 +73,7 @@ import { ColegiosMayoresProvider } from '../providers/colegios-mayores/colegios-
     ListPage,
     InitialSliderPage,
     RegisterPage,
+    LoginPage,
     TestPage,
     PretestPage,
     GradosPage,
@@ -84,6 +89,7 @@ import { ColegiosMayoresProvider } from '../providers/colegios-mayores/colegios-
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     Geolocation,
+    NativeGeocoder,
     GoogleAnalytics,
     ScreenOrientation,
     LaunchNavigator,
@@ -91,7 +97,8 @@ import { ColegiosMayoresProvider } from '../providers/colegios-mayores/colegios-
     TestQuestionsProvider,
     GradosVideosProvider,
     UniversidadesProvider,
-    ColegiosMayoresProvider
+    ColegiosMayoresProvider,
+    AnalyticsProvider
   ]
 })
 export class AppModule {}

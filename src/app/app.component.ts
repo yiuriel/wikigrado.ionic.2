@@ -3,6 +3,7 @@ import { Nav, Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { Geolocation } from '@ionic-native/geolocation';
+import { NativeGeocoder, NativeGeocoderReverseResult } from '@ionic-native/native-geocoder';
 import { GoogleAnalytics } from '@ionic-native/google-analytics';
 
 import { HttpClientModule } from '@angular/common/http';
@@ -29,7 +30,7 @@ export class MyApp {
 
   pages: Array<{icon: string, title: string, component: any}>;
 
-  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen, public ga: GoogleAnalytics) {
+  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen, private geolocation: Geolocation, private nativeGeocoder: NativeGeocoder) {
     this.initializeApp();
 
     const testMenuComponent = this.checkIfPretestOrTest();
@@ -54,14 +55,24 @@ export class MyApp {
       // Here you can do any higher level native things you might need.
       this.statusBar.styleDefault();
       this.splashScreen.hide();
-      this.ga.startTrackerWithId('UA-116499272-1')
-        .then(() => {
-          console.log('Google analytics is ready now');
-          this.ga.trackView('app');
-          // Tracker is ready
-          // You can now track pages or set additional information such as AppVersion or UserId
-        })
-        .catch(e => console.log('Error starting GoogleAnalytics', e));
+
+      var options = {
+        enableHighAccuracy: true,
+        timeout: 5000,
+        maximumAge: 0
+      };
+      // this.geolocation.getCurrentPosition(options).then((resp) => {
+      //   alert(resp.coords.latitude)
+      //   this.nativeGeocoder.reverseGeocode(resp.coords.latitude, resp.coords.longitude)
+      //     .then(
+      //       (result: NativeGeocoderReverseResult) => console.log(JSON.stringify(result))
+      //     )
+      //     .catch(
+      //       (error: any) => console.log(error)
+      //     );
+      // }, (err) => {
+      //   console.log('Error getting location ssss', JSON.stringify(err));
+      // });
     });
   }
 

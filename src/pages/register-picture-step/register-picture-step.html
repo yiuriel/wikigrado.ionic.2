@@ -1,5 +1,10 @@
 <ion-content padding>
   <ion-grid>
+    <ion-row>
+      <ion-col text-center>
+        <img src="assets/imgs/medium-logo.png" class="app-menu-logo" />
+      </ion-col>
+    </ion-row>
     <ion-row align-items-start>
       <ion-col>
         <form #pictureForm="ngForm" id="picture-form">
@@ -19,7 +24,7 @@
     </ion-row>
     <ion-row align-items-end>
       <ion-col>
-        <button ion-button round small outline color="danger" (click)="goToRegisterPage()">paso anterior</button>
+        <button ion-button round small outline color="danger" (click)="goToRegisterPage()">volver</button>
       </ion-col>
       <ion-col text-right>
         <button ion-button round small color="danger" [disabled]="!fileName" (click)="goToHomePage()">finalizar</button>
