@@ -21,14 +21,17 @@ export class AnalyticsProvider {
   }
 
   trackView(view) {
+    console.log('trackView');
     this.ga.trackView(view);
   }
 
   setVersion(version) {
+    console.log('setVersion');
     this.ga.setAppVersion(version);
   }
 
   trackEvent(category, action, label, value) {
+    console.log('trackEvent');
     this.ga.trackEvent(category, action, label, value);
   }
 
