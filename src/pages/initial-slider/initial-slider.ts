@@ -32,12 +32,12 @@ export class InitialSliderPage {
   }
 
   goToRegisterPage() {
-    this.tracker.trackEvent(this.viewCtrl.name, 'click', 'ir a registro', true);
+    this.tracker.trackEvent(this.viewCtrl.name, this.tracker.CLICK_ACTION, 'ir a registro', this.tracker.BUTTON_IN_VIEW);
     this.navCtrl.push(RegisterPage)
   }
 
   goToLoginPage() {
-    this.tracker.trackEvent(this.viewCtrl.name, 'click', 'ir a login', true);
+    this.tracker.trackEvent(this.viewCtrl.name, this.tracker.CLICK_ACTION, 'ir a login', this.tracker.BUTTON_IN_VIEW);
     this.navCtrl.push(LoginPage)
   }
 

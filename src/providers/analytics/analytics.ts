@@ -9,6 +9,8 @@ export class AnalyticsProvider {
   max_try_number: number;
   intents: number;
   intent_timer: any;
+  BUTTON_IN_VIEW: string;
+  CLICK_ACTION: string;
 
   constructor(public http: HttpClient, public ga: GoogleAnalytics) {
     console.log('Hello AnalyticsProvider Provider');
@@ -16,6 +18,9 @@ export class AnalyticsProvider {
     this.max_try_number = 5;
     this.intents = 1;
     this.intent_timer = null;
+
+    this.BUTTON_IN_VIEW = "boton en vista";
+    this.CLICK_ACTION = "click";
   }
 
   initService() {
@@ -48,8 +53,10 @@ export class AnalyticsProvider {
         this.intents += 1;
         this.trackView(view);
       } else if (!this.ready && this.intents === this.max_try_number) {
+        this.intents = 1;
         return;
       } else {
+        this.intents = 1;
         this.ga.trackView(view);
         this.intent_timer = null;
       }

@@ -2,6 +2,7 @@ import { Component, ElementRef } from '@angular/core';
 import { NavController, NavParams, ModalController, LoadingController } from 'ionic-angular';
 import { GradoPage } from '../grado/grado';
 import { GradosVideosProvider } from '../../providers/grados-videos/grados-videos';
+import { AnalyticsProvider } from '../../providers/analytics/analytics';
 
 @Component({
   selector: 'page-grados',

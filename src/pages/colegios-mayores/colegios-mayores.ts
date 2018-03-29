@@ -2,6 +2,7 @@ import { Component, ElementRef } from '@angular/core';
 import { NavController, NavParams, LoadingController, ModalController } from 'ionic-angular';
 import { GradoPage } from '../grado/grado';
 import { ColegiosMayoresProvider } from '../../providers/colegios-mayores/colegios-mayores';
+import { AnalyticsProvider } from '../../providers/analytics/analytics';
 
 @Component({
   selector: 'page-colegios-mayores',

@@ -1,8 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
-
 import { UserProvider } from '../../providers/user/user';
-
+import { AnalyticsProvider } from '../../providers/analytics/analytics';
 import { PretestPage } from '../pretest/pretest';
 
 @Component({

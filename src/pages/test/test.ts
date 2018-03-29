@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { ToastController } from 'ionic-angular';
 import { TestQuestionsProvider } from '../../providers/test-questions/test-questions';
+import { AnalyticsProvider } from '../../providers/analytics/analytics';
 
 @Component({
   selector: 'page-test',
@@ -18,7 +19,7 @@ export class TestPage {
   questionsPageData: string;
   questionsAnsweredData: string;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private testService: TestQuestionsProvider, public toastCtrl: ToastController) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private testService: TestQuestionsProvider, public toastCtrl: ToastController, public tracker: AnalyticsProvider) {
     this.activeCardIndex = 0;
     this.testQuestions = this.testService.getQuestions();
     this.testProgress = 0;
@@ -29,6 +30,7 @@ export class TestPage {
   }
 
   answerSelect(index, subindex, answer) {
+    this.tracker.trackEvent('test page', this.tracker.CLICK_ACTION, this.testQuestions[index][subindex].question, answer)
     this.updateTest(index, subindex, answer);
   }
 
@@ -85,6 +87,7 @@ export class TestPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad TestPage');
+    this.tracker.trackView('test page')
   }
 
 }

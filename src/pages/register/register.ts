@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { UserProvider } from '../../providers/user/user';
-
-// pages
+import { AnalyticsProvider } from '../../providers/analytics/analytics';
 import { PretestPage } from '../pretest/pretest';
 import { RegisterPictureStepPage } from '../register-picture-step/register-picture-step';
+
 
 @Component({
   selector: 'page-register',
