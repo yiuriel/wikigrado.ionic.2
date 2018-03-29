@@ -15,7 +15,6 @@ export class InitialSliderPage {
   slidesData: Array<any>
 
   constructor(public navCtrl: NavController, public viewCtrl: ViewController, public navParams: NavParams, public tracker: AnalyticsProvider) {
-    this.tracker.trackView(this.viewCtrl.name)
     this.slidesData = [
       // {
       //   title: "Guia 1",
@@ -48,6 +47,7 @@ export class InitialSliderPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad InitialSliderPage');
+    this.tracker.trackView(this.viewCtrl.name)
   }
 
 }

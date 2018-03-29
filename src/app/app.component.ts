@@ -4,10 +4,10 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { Geolocation } from '@ionic-native/geolocation';
 import { NativeGeocoder, NativeGeocoderReverseResult } from '@ionic-native/native-geocoder';
-import { GoogleAnalytics } from '@ionic-native/google-analytics';
 
 import { HttpClientModule } from '@angular/common/http';
 import { UserProvider } from '../providers/user/user';
+import { AnalyticsProvider } from '../providers/analytics/analytics';
 
 import { InitialSliderPage } from '../pages/initial-slider/initial-slider';
 
@@ -30,7 +30,7 @@ export class MyApp {
 
   pages: Array<{icon: string, title: string, component: any}>;
 
-  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen, private geolocation: Geolocation, private nativeGeocoder: NativeGeocoder) {
+  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen, private geolocation: Geolocation, private nativeGeocoder: NativeGeocoder, public tracker: AnalyticsProvider) {
     this.initializeApp();
 
     const testMenuComponent = this.checkIfPretestOrTest();
@@ -55,6 +55,8 @@ export class MyApp {
       // Here you can do any higher level native things you might need.
       this.statusBar.styleDefault();
       this.splashScreen.hide();
+
+      this.tracker.initService();
 
       var options = {
         enableHighAccuracy: true,
