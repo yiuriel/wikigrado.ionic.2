@@ -26,7 +26,7 @@ import { FavoritosPage } from '../pages/favoritos/favoritos';
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = UniversidadesPage;
+  rootPage: any = InitialSliderPage;
 
   pages: Array<{icon: string, title: string, component: any}>;
 
