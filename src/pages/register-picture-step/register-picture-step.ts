@@ -12,7 +12,7 @@ export class RegisterPictureStepPage {
 
   fileName: string
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public userService: UserProvider ) {
+  constructor(public navCtrl: NavController, public tracker: AnalyticsProvider, public navParams: NavParams, public userService: UserProvider ) {
     console.warn(userService.getData())
   }
 
@@ -32,6 +32,7 @@ export class RegisterPictureStepPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad RegisterPictureStepPage');
+    this.tracker.trackView('vista de registro (foto)');
   }
 
 }

@@ -14,11 +14,12 @@ export class ColegiosMayoresPage {
   videosCached: Array<{videoUrl: string, description: string, location: {any}, career: string}>
   dimensions: {width: number, height: number}
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private domElem: ElementRef, public modalCtrl: ModalController, public colegiosMayoresService: ColegiosMayoresProvider, public loadingCtrl: LoadingController) {
+  constructor(public navCtrl: NavController, public tracker: AnalyticsProvider, public navParams: NavParams, private domElem: ElementRef, public modalCtrl: ModalController, public colegiosMayoresService: ColegiosMayoresProvider, public loadingCtrl: LoadingController) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ColegiosMayoresPage');
+    this.tracker.trackView('vista de colegios mayores');
     let width = this.domElem.nativeElement.offsetWidth - 32;
     this.dimensions = {
       width: width,

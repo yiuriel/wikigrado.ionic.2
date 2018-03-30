@@ -1,5 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-import { NavController, NavParams, Slides, ViewController } from 'ionic-angular';
+import { NavController, NavParams, Slides } from 'ionic-angular';
 import { AnalyticsProvider } from '../../providers/analytics/analytics';
 
 import { RegisterPage } from '../register/register';
@@ -14,7 +14,7 @@ export class InitialSliderPage {
   @ViewChild(Slides) slides: Slides;
   slidesData: Array<any>
 
-  constructor(public navCtrl: NavController, public viewCtrl: ViewController, public navParams: NavParams, public tracker: AnalyticsProvider) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public tracker: AnalyticsProvider) {
     this.slidesData = [
       // {
       //   title: "Guia 1",
@@ -32,12 +32,10 @@ export class InitialSliderPage {
   }
 
   goToRegisterPage() {
-    this.tracker.trackEvent(this.viewCtrl.name, this.tracker.CLICK_ACTION, 'ir a registro', this.tracker.BUTTON_IN_VIEW);
     this.navCtrl.push(RegisterPage)
   }
 
   goToLoginPage() {
-    this.tracker.trackEvent(this.viewCtrl.name, this.tracker.CLICK_ACTION, 'ir a login', this.tracker.BUTTON_IN_VIEW);
     this.navCtrl.push(LoginPage)
   }
 
@@ -47,7 +45,7 @@ export class InitialSliderPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad InitialSliderPage');
-    this.tracker.trackView(this.viewCtrl.name)
+    this.tracker.trackView('primera vista')
   }
 
 }

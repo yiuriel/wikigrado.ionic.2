@@ -1,5 +1,22 @@
 <ion-header customheader header-title="Favoritos"></ion-header>
 
 <ion-content padding>
-
+  <ion-grid>
+    <ion-row *ngFor="let favorite of favorites;">
+      <ion-col>
+        <h3 [innerHTML]="favorite.type | noSnakeCase"></h3>
+        <div [ngSwitch]="favorite.type">
+          <div *ngSwitchCase="'universidad'">
+            <p [innerHTML]="favorite.universidad"></p>
+          </div>
+          <div *ngSwitchCase="'grado'">
+            <p [innerHTML]="favorite.career"></p>
+          </div>
+          <div *ngSwitchCase="'colegio_mayor'">
+            <p [innerHTML]="favorite.career"></p>
+          </div>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>

@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NavController, NavParams, LoadingController, ModalController } from 'ionic-angular';
 import { UniversidadesProvider } from '../../providers/universidades/universidades';
 import { UniversidadPage } from '../universidad/universidad';
+import { AnalyticsProvider } from '../../providers/analytics/analytics';
 
 @Component({
   selector: 'page-universidades',
@@ -12,11 +13,12 @@ export class UniversidadesPage {
   universidades: Array<string>
   universidadesCached: Array<string>
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public modalCtrl: ModalController, public universidadesService: UniversidadesProvider, public loadingCtrl: LoadingController) {
+  constructor(public navCtrl: NavController, public tracker: AnalyticsProvider, public navParams: NavParams, public modalCtrl: ModalController, public universidadesService: UniversidadesProvider, public loadingCtrl: LoadingController) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad UniversidadesPage');
+    this.tracker.trackView('vista de universidades');
 
     let loading = this.loadingCtrl.create({
       spinner: 'crescent'

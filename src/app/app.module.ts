@@ -9,6 +9,7 @@ import { GoogleAnalytics } from '@ionic-native/google-analytics';
 import { NativeGeocoder } from '@ionic-native/native-geocoder';
 
 import { ComponentsModule } from '../components/components.module'
+import { PipesModule } from '../pipes/pipes.module'
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
@@ -35,6 +36,7 @@ import { GradosVideosProvider } from '../providers/grados-videos/grados-videos';
 import { UniversidadesProvider } from '../providers/universidades/universidades';
 import { ColegiosMayoresProvider } from '../providers/colegios-mayores/colegios-mayores';
 import { AnalyticsProvider } from '../providers/analytics/analytics';
+import { FavoritesProvider } from '../providers/favorites/favorites';
 
 @NgModule({
   declarations: [
@@ -65,6 +67,7 @@ import { AnalyticsProvider } from '../providers/analytics/analytics';
       }
     }),
     ComponentsModule,
+    PipesModule,
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -98,7 +101,8 @@ import { AnalyticsProvider } from '../providers/analytics/analytics';
     GradosVideosProvider,
     UniversidadesProvider,
     ColegiosMayoresProvider,
-    AnalyticsProvider
+    AnalyticsProvider,
+    FavoritesProvider
   ]
 })
 export class AppModule {}

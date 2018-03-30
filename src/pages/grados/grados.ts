@@ -14,10 +14,11 @@ export class GradosPage {
   videosCached: Array<{videoUrl: string, hasVideo: boolean, career: string}>
   dimensions: {width: number, height: number}
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public modalCtrl: ModalController, public gradosVideosService :GradosVideosProvider, private domElem: ElementRef, public loadingCtrl: LoadingController) {}
+  constructor(public navCtrl: NavController, public tracker: AnalyticsProvider, public navParams: NavParams, public modalCtrl: ModalController, public gradosVideosService :GradosVideosProvider, private domElem: ElementRef, public loadingCtrl: LoadingController) {}
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad GradosPage');
+    this.tracker.trackView('vista de grados');
   }
 
   ionViewDidEnter() {

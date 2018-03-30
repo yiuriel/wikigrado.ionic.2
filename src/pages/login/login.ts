@@ -11,12 +11,13 @@ export class LoginPage {
 
   user: {email:string, password: string}
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public tracker: AnalyticsProvider, public navParams: NavParams) {
     this.user = {email: "", password: ""}
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad LoginPage');
+    this.tracker.trackView('vista de login');
   }
 
   goToHomePage() {

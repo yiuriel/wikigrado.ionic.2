@@ -1,3 +1,17 @@
 page-favoritos {
-
+  ion-content {
+    background-image: url('../../assets/imgs/favoritos.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    .scroll-content {
+      background-color: rgba(255,255,255,0.75);
+      .career-title {
+        color: white;
+      }
+      .no-video {
+        font-size: 1.5em;
+      }
+    }
+  }
 }

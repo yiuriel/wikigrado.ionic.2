@@ -11,12 +11,13 @@ export class GradoPage {
 
   appsAvailable: Array<string>
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public platform: Platform, public actionSheetCtrl: ActionSheetController, public viewCtrl: ViewController, private launchNavigator: LaunchNavigator) {
+  constructor(public navCtrl: NavController, public tracker: AnalyticsProvider, public navParams: NavParams, public platform: Platform, public actionSheetCtrl: ActionSheetController, public viewCtrl: ViewController, private launchNavigator: LaunchNavigator) {
     this.appsAvailable = [];
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad GradoPage');
+    this.tracker.trackView('vista de ' + (this.navParams.data.isColegioMayor ? 'colegio mayor' : 'grado'));
     if (this.platform.is("mobile") && !this.platform.is("mobileweb")) {
       this.launchNavigator.availableApps().then(res => {
         for (let app in res) {

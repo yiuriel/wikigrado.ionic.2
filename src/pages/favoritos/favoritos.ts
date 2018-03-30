@@ -1,12 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
-
-/**
- * Generated class for the FavoritosPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { FavoritesProvider } from '../../providers/favorites/favorites'
 
 @Component({
   selector: 'page-favoritos',
@@ -14,11 +8,14 @@ import { NavController, NavParams } from 'ionic-angular';
 })
 export class FavoritosPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  favorites: Array<{[key: string]: any}>
+
+  constructor(public navCtrl: NavController, public navParams: NavParams, public favoritesService: FavoritesProvider) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad FavoritosPage');
+    this.favorites = this.favoritesService.getFavorites();
   }
 
 }

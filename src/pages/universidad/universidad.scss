@@ -6,6 +6,18 @@ page-universidad {
     background-size: cover;
     .scroll-content {
       background-color: rgba(0,0,0,0.45);
+      ion-list {
+        ion-item {
+          background: rgba(255,255,255,0.4);
+          border: 0;
+          .item-inner {
+            border-bottom: 0;
+            ion-label {
+              color: white;
+            }
+          }
+        }
+      }
     }
   }
 

@@ -15,7 +15,7 @@ export class RegisterPage {
   ages: Array<number>
   user: { }
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public userService: UserProvider ) {
+  constructor(public navCtrl: NavController, public tracker: AnalyticsProvider, public navParams: NavParams, public userService: UserProvider ) {
     this.ages = Array.from(Array(100).keys());
     this.user = {};
   }
@@ -39,6 +39,7 @@ export class RegisterPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad RegisterPage');
+    this.tracker.trackView('vista de registro')
   }
 
 }

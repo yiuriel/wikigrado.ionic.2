@@ -30,7 +30,7 @@ export class TestPage {
   }
 
   answerSelect(index, subindex, answer) {
-    this.tracker.trackEvent('test page', this.tracker.CLICK_ACTION, this.testQuestions[index][subindex].question, answer)
+    // this.tracker.trackEvent('test page', this.tracker.CLICK_ACTION, this.testQuestions[index][subindex].question, answer)
     this.updateTest(index, subindex, answer);
   }
 
@@ -87,7 +87,7 @@ export class TestPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad TestPage');
-    this.tracker.trackView('test page')
+    this.tracker.trackView('vista del test')
   }
 
 }
