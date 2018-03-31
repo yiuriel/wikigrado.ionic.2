@@ -96,4 +96,5 @@
     <plugin name="cordova-plugin-nativegeocoder" spec="^3.1.1">
         <variable name="LOCATION_WHEN_IN_USE_DESCRIPTION" value="Use geocoder service" />
     </plugin>
+    <plugin name="cordova-plugin-inappbrowser" spec="^2.0.2" />
 </widget>

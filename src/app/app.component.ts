@@ -18,6 +18,7 @@ import { GradosPage } from '../pages/grados/grados';
 import { UniversidadesPage } from '../pages/universidades/universidades';
 import { ColegiosMayoresPage } from '../pages/colegios-mayores/colegios-mayores';
 import { FavoritosPage } from '../pages/favoritos/favoritos';
+import { SimulatesplashPage } from '../pages/simulatesplash/simulatesplash';
 
 @Component({
   templateUrl: 'app.html',
@@ -26,7 +27,7 @@ import { FavoritosPage } from '../pages/favoritos/favoritos';
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = InitialSliderPage;
+  rootPage: any = SimulatesplashPage;
 
   pages: Array<{icon: string, title: string, component: any}>;
 

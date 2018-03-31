@@ -13,9 +13,25 @@ export class GradosVideosProvider {
       setTimeout(() => {
         resolve([
           {
-            videoUrl: 'https://player.vimeo.com/video/250951635',
+            "career": "Grado en Ingeniería Telematica",
+            "university": "Universidad Politécnica de Madrid",
+            "address": "Calle Ramiro de Maeztu, 7, 28040 Madrid",
+            "telephone": "+34913366000",
+            "location": {
+              "lat": 40.4486372,
+              "long": -3.7214685
+            },
+            "logo": "../../assets/imgs/university-logos/universidad_politecnica_de_madrid.jpg",
+            "website": "http://www.upm.es",
+            "videoUrl": "https://player.vimeo.com/video/262027942",
             "hasVideo": true,
             "index": 0,
+            "type": "grado",
+          },
+          {
+            videoUrl: 'https://player.vimeo.com/video/250951635',
+            "hasVideo": true,
+            "index": 1,
             "type": "grado",
             career: "Grado en ingenieria de software",
             location:  {
@@ -26,7 +42,7 @@ export class GradosVideosProvider {
           {
             videoUrl: 'https://player.vimeo.com/video/252883728',
             "hasVideo": true,
-            "index": 1,
+            "index": 2,
             "type": "grado",
             career: "Grado en filosofia",
             location:  {
@@ -37,7 +53,7 @@ export class GradosVideosProvider {
           {
             videoUrl: 'https://player.vimeo.com/video/251032750',
             "hasVideo": true,
-            "index": 2,
+            "index": 3,
             "type": "grado",
             career: "Grado en diseño de videojuegos y Productos Interactivos",
             location:  {
@@ -48,7 +64,7 @@ export class GradosVideosProvider {
           {
             "career": "Grado en Abierto",
             "hasVideo": false,
-            "index": 3,
+            "index": 4,
             "type": "grado",
             "location": {
               "lat": null,
@@ -59,7 +75,7 @@ export class GradosVideosProvider {
           {
             "career": "Grado en Administración de Empresas",
             "hasVideo": false,
-            "index": 4,
+            "index": 5,
             "type": "grado",
             "location": {
               "lat": null,
@@ -70,7 +86,7 @@ export class GradosVideosProvider {
           {
             "career": "Grado en Administración de Empresas y Gestión de la Innovación",
             "hasVideo": false,
-            "index": 5,
+            "index": 6,
             "type": "grado",
             "location": {
               "lat": null,
@@ -81,7 +97,7 @@ export class GradosVideosProvider {
           {
             "career": "Grado en Administración y Dirección de Empresa",
             "hasVideo": false,
-            "index": 6,
+            "index": 7,
             "type": "grado",
             "location": {
               "lat": null,
@@ -92,7 +108,7 @@ export class GradosVideosProvider {
           {
             "career": "Grado en Administración y Dirección de Empresas Tecnológicas",
             "hasVideo": false,
-            "index": 7,
+            "index": 8,
             "type": "grado",
             "location": {
               "lat": null,
@@ -103,7 +119,7 @@ export class GradosVideosProvider {
           {
             "career": "Grado en Administración y Gestión Pública",
             "hasVideo": false,
-            "index": 8,
+            "index": 9,
             "type": "grado",
             "location": {
               "lat": null,
@@ -114,7 +130,7 @@ export class GradosVideosProvider {
           {
             "career": "Grado en Administración, Dirección de Empresas",
             "hasVideo": false,
-            "index": 9,
+            "index": 10,
             "type": "grado",
             "location": {
               "lat": null,
@@ -125,7 +141,7 @@ export class GradosVideosProvider {
           {
             "career": "Grado en Análisis de Negocios/ Business Analytics",
             "hasVideo": false,
-            "index": 10,
+            "index": 11,
             "type": "grado",
             "location": {
               "lat": null,
@@ -136,7 +152,7 @@ export class GradosVideosProvider {
           {
             "career": "Grado en Análisis Económico",
             "hasVideo": false,
-            "index": 11,
+            "index": 12,
             "type": "grado",
             "location": {
               "lat": null,
@@ -147,7 +163,7 @@ export class GradosVideosProvider {
           {
             "career": "Grado en Animación",
             "hasVideo": false,
-            "index": 12,
+            "index": 13,
             "type": "grado",
             "location": {
               "lat": null,
@@ -158,7 +174,7 @@ export class GradosVideosProvider {
           {
             "career": "Grado en Animación y Desarrollo de Videojuegos",
             "hasVideo": false,
-            "index": 13,
+            "index": 14,
             "type": "grado",
             "location": {
               "lat": null,
@@ -169,7 +185,7 @@ export class GradosVideosProvider {
           {
             "career": "Grado en Antropología y evolución humana",
             "hasVideo": false,
-            "index": 14,
+            "index": 15,
             "type": "grado",
             "location": {
               "lat": null,
@@ -180,7 +196,7 @@ export class GradosVideosProvider {
           {
             "career": "Grado en Antropología Social",
             "hasVideo": false,
-            "index": 15,
+            "index": 16,
             "type": "grado",
             "location": {
               "lat": null,
@@ -191,7 +207,7 @@ export class GradosVideosProvider {
           {
             "career": "Grado en Antropología Social y Cultural",
             "hasVideo": false,
-            "index": 16,
+            "index": 17,
             "type": "grado",
             "location": {
               "lat": null,
@@ -202,7 +218,7 @@ export class GradosVideosProvider {
           {
             "career": "Grado en Antropología y Evolución Humana",
             "hasVideo": false,
-            "index": 17,
+            "index": 18,
             "type": "grado",
             "location": {
               "lat": null,
@@ -213,7 +229,7 @@ export class GradosVideosProvider {
           {
             "career": "Grado en Arqueología",
             "hasVideo": false,
-            "index": 18,
+            "index": 19,
             "type": "grado",
             "location": {
               "lat": null,
@@ -224,7 +240,7 @@ export class GradosVideosProvider {
           {
             "career": "Grado en Arquitectura",
             "hasVideo": false,
-            "index": 19,
+            "index": 20,
             "type": "grado",
             "location": {
               "lat": null,
@@ -235,7 +251,7 @@ export class GradosVideosProvider {
           {
             "career": "Grado en Arquitectura Naval",
             "hasVideo": false,
-            "index": 20,
+            "index": 21,
             "type": "grado",
             "location": {
               "lat": null,
@@ -246,7 +262,7 @@ export class GradosVideosProvider {
           {
             "career": "Grado en Arquitectura Naval e Ingeniería de Sistemas Marinos",
             "hasVideo": false,
-            "index": 21,
+            "index": 22,
             "type": "grado",
             "location": {
               "lat": null,
@@ -257,7 +273,7 @@ export class GradosVideosProvider {
           {
             "career": "Grado en Arquitectura Naval e Ingeniería Marítima",
             "hasVideo": false,
-            "index": 22,
+            "index": 23,
             "type": "grado",
             "location": {
               "lat": null,
@@ -268,7 +284,7 @@ export class GradosVideosProvider {
           {
             "career": "Grado en Arquitectura Técnica",
             "hasVideo": false,
-            "index": 23,
+            "index": 24,
             "type": "grado",
             "location": {
               "lat": null,
@@ -279,7 +295,7 @@ export class GradosVideosProvider {
           {
             "career": "Grado en Arquitectura Técnica y Edificación",
             "hasVideo": false,
-            "index": 24,
+            "index": 25,
             "type": "grado",
             "location": {
               "lat": null,
@@ -290,7 +306,7 @@ export class GradosVideosProvider {
           {
             "career": "Grado en Arte",
             "hasVideo": false,
-            "index": 25,
+            "index": 26,
             "type": "grado",
             "location": {
               "lat": null,
@@ -301,7 +317,7 @@ export class GradosVideosProvider {
           {
             "career": "Grado en Arte Electrónico y Digital",
             "hasVideo": false,
-            "index": 26,
+            "index": 27,
             "type": "grado",
             "location": {
               "lat": null,
@@ -312,7 +328,7 @@ export class GradosVideosProvider {
           {
             "career": "Grado en Artes Escénicas",
             "hasVideo": false,
-            "index": 27,
+            "index": 28,
             "type": "grado",
             "location": {
               "lat": null,
@@ -323,7 +339,7 @@ export class GradosVideosProvider {
           {
             "career": "Grado en Artes Escénicas y Mediáticas",
             "hasVideo": false,
-            "index": 28,
+            "index": 29,
             "type": "grado",
             "location": {
               "lat": null,
@@ -334,7 +350,7 @@ export class GradosVideosProvider {
           {
             "career": "Grado en Artes Visuales y Danza",
             "hasVideo": false,
-            "index": 29,
+            "index": 30,
             "type": "grado",
             "location": {
               "lat": null,
@@ -345,7 +361,7 @@ export class GradosVideosProvider {
           {
             "career": "Grado en Artes y Diseño",
             "hasVideo": false,
-            "index": 30,
+            "index": 31,
             "type": "grado",
             "location": {
               "lat": null,
@@ -356,7 +372,7 @@ export class GradosVideosProvider {
           {
             "career": "Grado en Asistencia de Dirección-Management Assistance",
             "hasVideo": false,
-            "index": 31,
+            "index": 32,
             "type": "grado",
             "location": {
               "lat": null,
@@ -367,7 +383,7 @@ export class GradosVideosProvider {
           {
             "career": "Grado en Audiovisual y Multimedia",
             "hasVideo": false,
-            "index": 32,
+            "index": 33,
             "type": "grado",
             "location": {
               "lat": null,
@@ -378,7 +394,7 @@ export class GradosVideosProvider {
           {
             "career": "Grado en Bellas Artes",
             "hasVideo": false,
-            "index": 33,
+            "index": 34,
             "type": "grado",
             "location": {
               "lat": null,
@@ -389,7 +405,7 @@ export class GradosVideosProvider {
           {
             "career": "Grado en Bioinformática",
             "hasVideo": false,
-            "index": 34,
+            "index": 35,
             "type": "grado",
             "location": {
               "lat": null,
@@ -400,7 +416,7 @@ export class GradosVideosProvider {
           {
             "career": "Grado en Biología",
             "hasVideo": false,
-            "index": 35,
+            "index": 36,
             "type": "grado",
             "location": {
               "lat": null,
@@ -411,7 +427,7 @@ export class GradosVideosProvider {
           {
             "career": "Grado en Biología Ambiental ",
             "hasVideo": false,
-            "index": 36,
+            "index": 37,
             "type": "grado",
             "location": {
               "lat": null,
@@ -422,7 +438,7 @@ export class GradosVideosProvider {
           {
             "career": "Grado en Biología Humana",
             "hasVideo": false,
-            "index": 37,
+            "index": 38,
             "type": "grado",
             "location": {
               "lat": null,
@@ -433,7 +449,7 @@ export class GradosVideosProvider {
           {
             "career": "Grado en Biología Sanitaria",
             "hasVideo": false,
-            "index": 38,
+            "index": 39,
             "type": "grado",
             "location": {
               "lat": null,
@@ -444,7 +460,7 @@ export class GradosVideosProvider {
           {
             "career": "Grado en Biomedicina",
             "hasVideo": false,
-            "index": 39,
+            "index": 40,
             "type": "grado",
             "location": {
               "lat": null,
@@ -455,7 +471,7 @@ export class GradosVideosProvider {
           {
             "career": "Grado en Biomedicina Básica y Experimental",
             "hasVideo": false,
-            "index": 40,
+            "index": 41,
             "type": "grado",
             "location": {
               "lat": null,
@@ -466,7 +482,7 @@ export class GradosVideosProvider {
           {
             "career": "Grado en Bioquímica",
             "hasVideo": false,
-            "index": 41,
+            "index": 42,
             "type": "grado",
             "location": {
               "lat": null,
@@ -477,7 +493,7 @@ export class GradosVideosProvider {
           {
             "career": "Grado en Bioquímica y Biología Molecular",
             "hasVideo": false,
-            "index": 42,
+            "index": 43,
             "type": "grado",
             "location": {
               "lat": null,
@@ -488,7 +504,7 @@ export class GradosVideosProvider {
           {
             "career": "Grado en Bioquímica y Ciencias Biomédicas",
             "hasVideo": false,
-            "index": 43,
+            "index": 44,
             "type": "grado",
             "location": {
               "lat": null,
@@ -499,7 +515,7 @@ export class GradosVideosProvider {
           {
             "career": "Grado en Biotecnología",
             "hasVideo": false,
-            "index": 44,
+            "index": 45,
             "type": "grado",
             "location": {
               "lat": null,
@@ -510,7 +526,7 @@ export class GradosVideosProvider {
           {
             "career": "Grado en Ciencia Política y Administración Pública",
             "hasVideo": false,
-            "index": 45,
+            "index": 46,
             "type": "grado",
             "location": {
               "lat": null,
@@ -521,7 +537,7 @@ export class GradosVideosProvider {
           {
             "career": "Grado en Ciencia Política y de la Administración",
             "hasVideo": false,
-            "index": 46,
+            "index": 47,
             "type": "grado",
             "location": {
               "lat": null,
@@ -532,17 +548,6 @@ export class GradosVideosProvider {
           {
             "career": "Grado en Ciencia Política y Gestión Pública",
             "hasVideo": false,
-            "index": 47,
-            "type": "grado",
-            "location": {
-              "lat": null,
-              "long": null
-            },
-            "videoUrl": null
-          },
-          {
-            "career": "Grado en Ciencias Sociales",
-            "hasVideo": false,
             "index": 48,
             "type": "grado",
             "location": {
@@ -552,7 +557,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Ciencia y Producción Animal",
+            "career": "Grado en Ciencias Sociales",
             "hasVideo": false,
             "index": 49,
             "type": "grado",
@@ -563,7 +568,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Ciencia y Tecnología de los Alimentos",
+            "career": "Grado en Ciencia y Producción Animal",
             "hasVideo": false,
             "index": 50,
             "type": "grado",
@@ -574,7 +579,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Ciencia, Gestión e Ingeniería de Servicio",
+            "career": "Grado en Ciencia y Tecnología de los Alimentos",
             "hasVideo": false,
             "index": 51,
             "type": "grado",
@@ -585,7 +590,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Ciencias Agrarias y Bioeconomía",
+            "career": "Grado en Ciencia, Gestión e Ingeniería de Servicio",
             "hasVideo": false,
             "index": 52,
             "type": "grado",
@@ -596,7 +601,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Ciencias Ambientales",
+            "career": "Grado en Ciencias Agrarias y Bioeconomía",
             "hasVideo": false,
             "index": 53,
             "type": "grado",
@@ -607,7 +612,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Ciencias Biomédicas",
+            "career": "Grado en Ciencias Ambientales",
             "hasVideo": false,
             "index": 54,
             "type": "grado",
@@ -618,7 +623,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Ciencias Culinarias y Gastronómicas",
+            "career": "Grado en Ciencias Biomédicas",
             "hasVideo": false,
             "index": 55,
             "type": "grado",
@@ -629,7 +634,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Ciencias de la Actividad Física y del Deporte",
+            "career": "Grado en Ciencias Culinarias y Gastronómicas",
             "hasVideo": false,
             "index": 56,
             "type": "grado",
@@ -640,7 +645,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Ciencias de la Actividad Física y el Deporte",
+            "career": "Grado en Ciencias de la Actividad Física y del Deporte",
             "hasVideo": false,
             "index": 57,
             "type": "grado",
@@ -651,7 +656,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Ciencias de la Alimentación",
+            "career": "Grado en Ciencias de la Actividad Física y el Deporte",
             "hasVideo": false,
             "index": 58,
             "type": "grado",
@@ -662,7 +667,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Ciencias de la Cultura y Difusión Cultural",
+            "career": "Grado en Ciencias de la Alimentación",
             "hasVideo": false,
             "index": 59,
             "type": "grado",
@@ -673,7 +678,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Ciencias de la Seguridad",
+            "career": "Grado en Ciencias de la Cultura y Difusión Cultural",
             "hasVideo": false,
             "index": 60,
             "type": "grado",
@@ -684,7 +689,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Ciencias del Mar",
+            "career": "Grado en Ciencias de la Seguridad",
             "hasVideo": false,
             "index": 61,
             "type": "grado",
@@ -695,7 +700,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Ciencias del Trabajo",
+            "career": "Grado en Ciencias del Mar",
             "hasVideo": false,
             "index": 62,
             "type": "grado",
@@ -706,7 +711,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Ciencias del Trabajo y Recursos Humanos",
+            "career": "Grado en Ciencias del Trabajo",
             "hasVideo": false,
             "index": 63,
             "type": "grado",
@@ -717,7 +722,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Ciencias del Trabajo, Relaciones Laborales y Recursos Humanos",
+            "career": "Grado en Ciencias del Trabajo y Recursos Humanos",
             "hasVideo": false,
             "index": 64,
             "type": "grado",
@@ -728,7 +733,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Ciencias del Transporte y la Logística",
+            "career": "Grado en Ciencias del Trabajo, Relaciones Laborales y Recursos Humanos",
             "hasVideo": false,
             "index": 65,
             "type": "grado",
@@ -739,7 +744,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Ciencias Económicas",
+            "career": "Grado en Ciencias del Transporte y la Logística",
             "hasVideo": false,
             "index": 66,
             "type": "grado",
@@ -750,7 +755,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Ciencias Empresariales",
+            "career": "Grado en Ciencias Económicas",
             "hasVideo": false,
             "index": 67,
             "type": "grado",
@@ -761,7 +766,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Ciencias Empresariales - Management",
+            "career": "Grado en Ciencias Empresariales",
             "hasVideo": false,
             "index": 68,
             "type": "grado",
@@ -772,7 +777,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Ciencias Experimentales",
+            "career": "Grado en Ciencias Empresariales - Management",
             "hasVideo": false,
             "index": 69,
             "type": "grado",
@@ -783,7 +788,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Ciencias Gastronómicas",
+            "career": "Grado en Ciencias Experimentales",
             "hasVideo": false,
             "index": 70,
             "type": "grado",
@@ -794,7 +799,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Ciencias Jurídicas de las Administraciones Públicas",
+            "career": "Grado en Ciencias Gastronómicas",
             "hasVideo": false,
             "index": 71,
             "type": "grado",
@@ -805,7 +810,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Ciencias Políticas",
+            "career": "Grado en Ciencias Jurídicas de las Administraciones Públicas",
             "hasVideo": false,
             "index": 72,
             "type": "grado",
@@ -816,7 +821,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Ciencias Políticas y de la Administración Pública",
+            "career": "Grado en Ciencias Políticas",
             "hasVideo": false,
             "index": 73,
             "type": "grado",
@@ -827,7 +832,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Ciencias Políticas y de la Administración",
+            "career": "Grado en Ciencias Políticas y de la Administración Pública",
             "hasVideo": false,
             "index": 74,
             "type": "grado",
@@ -838,7 +843,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Ciencias Políticas y Gestión Pública",
+            "career": "Grado en Ciencias Políticas y de la Administración",
             "hasVideo": false,
             "index": 75,
             "type": "grado",
@@ -849,7 +854,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Ciencias Políticas y Sociología",
+            "career": "Grado en Ciencias Políticas y Gestión Pública",
             "hasVideo": false,
             "index": 76,
             "type": "grado",
@@ -860,7 +865,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Ciencias Sociales",
+            "career": "Grado en Ciencias Políticas y Sociología",
             "hasVideo": false,
             "index": 77,
             "type": "grado",
@@ -871,7 +876,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Ciencias y Lenguas de la Antigüedad",
+            "career": "Grado en Ciencias Sociales",
             "hasVideo": false,
             "index": 78,
             "type": "grado",
@@ -882,7 +887,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Ciencia y Tecnología de los Alimentos",
+            "career": "Grado en Ciencias y Lenguas de la Antigüedad",
             "hasVideo": false,
             "index": 79,
             "type": "grado",
@@ -893,7 +898,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Ciencias y Tecnologías de Telecomunicación ",
+            "career": "Grado en Ciencia y Tecnología de los Alimentos",
             "hasVideo": false,
             "index": 80,
             "type": "grado",
@@ -904,7 +909,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Cine",
+            "career": "Grado en Ciencias y Tecnologías de Telecomunicación ",
             "hasVideo": false,
             "index": 81,
             "type": "grado",
@@ -915,7 +920,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Cine y Medios Audiovisuales",
+            "career": "Grado en Cine",
             "hasVideo": false,
             "index": 82,
             "type": "grado",
@@ -926,7 +931,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Cine y Televisión",
+            "career": "Grado en Cine y Medios Audiovisuales",
             "hasVideo": false,
             "index": 83,
             "type": "grado",
@@ -937,7 +942,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Cinematografía y Artes Audiovisuales",
+            "career": "Grado en Cine y Televisión",
             "hasVideo": false,
             "index": 84,
             "type": "grado",
@@ -948,7 +953,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Comercio",
+            "career": "Grado en Cinematografía y Artes Audiovisuales",
             "hasVideo": false,
             "index": 85,
             "type": "grado",
@@ -959,7 +964,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Comercio Internacional",
+            "career": "Grado en Comercio",
             "hasVideo": false,
             "index": 86,
             "type": "grado",
@@ -970,7 +975,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Comercio y Marketing",
+            "career": "Grado en Comercio Internacional",
             "hasVideo": false,
             "index": 87,
             "type": "grado",
@@ -981,7 +986,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Composición Musical",
+            "career": "Grado en Comercio y Marketing",
             "hasVideo": false,
             "index": 88,
             "type": "grado",
@@ -992,7 +997,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Comunicación",
+            "career": "Grado en Composición Musical",
             "hasVideo": false,
             "index": 89,
             "type": "grado",
@@ -1003,7 +1008,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Comunicación Audiovisual",
+            "career": "Grado en Comunicación",
             "hasVideo": false,
             "index": 90,
             "type": "grado",
@@ -1014,7 +1019,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Comunicación Audiovisual y Multimedia",
+            "career": "Grado en Comunicación Audiovisual",
             "hasVideo": false,
             "index": 91,
             "type": "grado",
@@ -1025,7 +1030,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Comunicación Corporativa, Protocolo y Organización de Eventos",
+            "career": "Grado en Comunicación Audiovisual y Multimedia",
             "hasVideo": false,
             "index": 92,
             "type": "grado",
@@ -1036,7 +1041,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Comunicación Cultural ",
+            "career": "Grado en Comunicación Corporativa, Protocolo y Organización de Eventos",
             "hasVideo": false,
             "index": 93,
             "type": "grado",
@@ -1047,7 +1052,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Comunicación Digital",
+            "career": "Grado en Comunicación Cultural ",
             "hasVideo": false,
             "index": 94,
             "type": "grado",
@@ -1058,7 +1063,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Comunicación e Industrias Culturales",
+            "career": "Grado en Comunicación Digital",
             "hasVideo": false,
             "index": 95,
             "type": "grado",
@@ -1069,7 +1074,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Comunicación Internacional - Bachelor In Global Communication",
+            "career": "Grado en Comunicación e Industrias Culturales",
             "hasVideo": false,
             "index": 96,
             "type": "grado",
@@ -1080,7 +1085,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Comunicación y Periodismo Audiovisual",
+            "career": "Grado en Comunicación Internacional - Bachelor In Global Communication",
             "hasVideo": false,
             "index": 97,
             "type": "grado",
@@ -1091,7 +1096,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Comunicación y Relaciones Públicas",
+            "career": "Grado en Comunicación y Periodismo Audiovisual",
             "hasVideo": false,
             "index": 98,
             "type": "grado",
@@ -1102,7 +1107,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Conservación y Restauración de Bienes Culturales",
+            "career": "Grado en Comunicación y Relaciones Públicas",
             "hasVideo": false,
             "index": 99,
             "type": "grado",
@@ -1113,7 +1118,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Conservación y Restauración del Patrimonio Cultural",
+            "career": "Grado en Conservación y Restauración de Bienes Culturales",
             "hasVideo": false,
             "index": 100,
             "type": "grado",
@@ -1124,7 +1129,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Conservación-Restauración de Bienes Culturales",
+            "career": "Grado en Conservación y Restauración del Patrimonio Cultural",
             "hasVideo": false,
             "index": 101,
             "type": "grado",
@@ -1135,7 +1140,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Consultoría y Gestión de la Información",
+            "career": "Grado en Conservación-Restauración de Bienes Culturales",
             "hasVideo": false,
             "index": 102,
             "type": "grado",
@@ -1146,7 +1151,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Contabilidad y Finanzas",
+            "career": "Grado en Consultoría y Gestión de la Información",
             "hasVideo": false,
             "index": 103,
             "type": "grado",
@@ -1157,7 +1162,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Contenidos Digitales Interactivos",
+            "career": "Grado en Contabilidad y Finanzas",
             "hasVideo": false,
             "index": 104,
             "type": "grado",
@@ -1168,7 +1173,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Creación Artística para Videojuegos y Juegos Aplicados",
+            "career": "Grado en Contenidos Digitales Interactivos",
             "hasVideo": false,
             "index": 105,
             "type": "grado",
@@ -1179,7 +1184,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Creación Musical",
+            "career": "Grado en Creación Artística para Videojuegos y Juegos Aplicados",
             "hasVideo": false,
             "index": 106,
             "type": "grado",
@@ -1190,7 +1195,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Creación y Diseño",
+            "career": "Grado en Creación Musical",
             "hasVideo": false,
             "index": 107,
             "type": "grado",
@@ -1201,7 +1206,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Creación y Narración de Videojuegos",
+            "career": "Grado en Creación y Diseño",
             "hasVideo": false,
             "index": 108,
             "type": "grado",
@@ -1212,7 +1217,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Criminología",
+            "career": "Grado en Creación y Narración de Videojuegos",
             "hasVideo": false,
             "index": 109,
             "type": "grado",
@@ -1223,7 +1228,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Criminología y Políticas Públicas de Prevención",
+            "career": "Grado en Criminología",
             "hasVideo": false,
             "index": 110,
             "type": "grado",
@@ -1234,7 +1239,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Criminología y Seguridad",
+            "career": "Grado en Criminología y Políticas Públicas de Prevención",
             "hasVideo": false,
             "index": 111,
             "type": "grado",
@@ -1245,7 +1250,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Derecho",
+            "career": "Grado en Criminología y Seguridad",
             "hasVideo": false,
             "index": 112,
             "type": "grado",
@@ -1256,7 +1261,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Derecho / Bachelor of Laws",
+            "career": "Grado en Derecho",
             "hasVideo": false,
             "index": 113,
             "type": "grado",
@@ -1267,7 +1272,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Desarrollo, Gestión comercial y Estrategias de Mercado - Marketing",
+            "career": "Grado en Derecho / Bachelor of Laws",
             "hasVideo": false,
             "index": 114,
             "type": "grado",
@@ -1278,7 +1283,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Desarrollo de Videojuegos",
+            "career": "Grado en Desarrollo, Gestión comercial y Estrategias de Mercado - Marketing",
             "hasVideo": false,
             "index": 115,
             "type": "grado",
@@ -1289,7 +1294,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Dirección Comercial y Marketing",
+            "career": "Grado en Desarrollo de Videojuegos",
             "hasVideo": false,
             "index": 116,
             "type": "grado",
@@ -1300,7 +1305,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Dirección de Empresas ",
+            "career": "Grado en Dirección Comercial y Marketing",
             "hasVideo": false,
             "index": 117,
             "type": "grado",
@@ -1311,7 +1316,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Dirección de Empresas - BBA",
+            "career": "Grado en Dirección de Empresas ",
             "hasVideo": false,
             "index": 118,
             "type": "grado",
@@ -1322,7 +1327,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Dirección de Empresas Tecnológicas",
+            "career": "Grado en Dirección de Empresas - BBA",
             "hasVideo": false,
             "index": 119,
             "type": "grado",
@@ -1333,7 +1338,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Dirección de Operaciones Aéreas y Piloto Comercial",
+            "career": "Grado en Dirección de Empresas Tecnológicas",
             "hasVideo": false,
             "index": 120,
             "type": "grado",
@@ -1344,7 +1349,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Dirección Financiera y Contabilidad",
+            "career": "Grado en Dirección de Operaciones Aéreas y Piloto Comercial",
             "hasVideo": false,
             "index": 121,
             "type": "grado",
@@ -1355,7 +1360,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Dirección Internacional de Empresas",
+            "career": "Grado en Dirección Financiera y Contabilidad",
             "hasVideo": false,
             "index": 122,
             "type": "grado",
@@ -1366,7 +1371,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Dirección Internacional de Empresas de Turismo y Ocio",
+            "career": "Grado en Dirección Internacional de Empresas",
             "hasVideo": false,
             "index": 123,
             "type": "grado",
@@ -1377,7 +1382,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Dirección y Administración de Empresas",
+            "career": "Grado en Dirección Internacional de Empresas de Turismo y Ocio",
             "hasVideo": false,
             "index": 124,
             "type": "grado",
@@ -1388,7 +1393,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Dirección y Creación de Empresas",
+            "career": "Grado en Dirección y Administración de Empresas",
             "hasVideo": false,
             "index": 125,
             "type": "grado",
@@ -1399,7 +1404,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Dirección y Gestión de Empresas en el ámbito Digital",
+            "career": "Grado en Dirección y Creación de Empresas",
             "hasVideo": false,
             "index": 126,
             "type": "grado",
@@ -1410,7 +1415,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Dirección y Gestión Pública",
+            "career": "Grado en Dirección y Gestión de Empresas en el ámbito Digital",
             "hasVideo": false,
             "index": 127,
             "type": "grado",
@@ -1421,7 +1426,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Diseño",
+            "career": "Grado en Dirección y Gestión Pública",
             "hasVideo": false,
             "index": 128,
             "type": "grado",
@@ -1432,7 +1437,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Diseño / Design",
+            "career": "Grado en Diseño",
             "hasVideo": false,
             "index": 129,
             "type": "grado",
@@ -1443,7 +1448,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Diseño de Espacios y Arquitectura de Interiores/spatial And Interior Design",
+            "career": "Grado en Diseño / Design",
             "hasVideo": false,
             "index": 130,
             "type": "grado",
@@ -1454,7 +1459,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Diseño de Interiores",
+            "career": "Grado en Diseño de Espacios y Arquitectura de Interiores/spatial And Interior Design",
             "hasVideo": false,
             "index": 131,
             "type": "grado",
@@ -1465,7 +1470,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Diseño de Moda",
+            "career": "Grado en Diseño de Interiores",
             "hasVideo": false,
             "index": 132,
             "type": "grado",
@@ -1476,7 +1481,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Diseño de Producto",
+            "career": "Grado en Diseño de Moda",
             "hasVideo": false,
             "index": 133,
             "type": "grado",
@@ -1487,7 +1492,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Diseño de Productos Interactivos",
+            "career": "Grado en Diseño de Producto",
             "hasVideo": false,
             "index": 134,
             "type": "grado",
@@ -1498,7 +1503,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Diseño Digital",
+            "career": "Grado en Diseño de Productos Interactivos",
             "hasVideo": false,
             "index": 135,
             "type": "grado",
@@ -1509,7 +1514,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Diseño Integral y Gestión de la Imagen",
+            "career": "Grado en Diseño Digital",
             "hasVideo": false,
             "index": 136,
             "type": "grado",
@@ -1520,7 +1525,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Diseño Multimedia y Gráfico",
+            "career": "Grado en Diseño Integral y Gestión de la Imagen",
             "hasVideo": false,
             "index": 137,
             "type": "grado",
@@ -1531,7 +1536,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Diseño Visual de Contenidos Digitales",
+            "career": "Grado en Diseño Multimedia y Gráfico",
             "hasVideo": false,
             "index": 138,
             "type": "grado",
@@ -1542,7 +1547,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Diseño y Creación Digitales",
+            "career": "Grado en Diseño Visual de Contenidos Digitales",
             "hasVideo": false,
             "index": 139,
             "type": "grado",
@@ -1553,7 +1558,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Diseño y Desarrollo de Videojuegos",
+            "career": "Grado en Diseño y Creación Digitales",
             "hasVideo": false,
             "index": 140,
             "type": "grado",
@@ -1564,7 +1569,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Diseño y Producción de Videojuegos",
+            "career": "Grado en Diseño y Desarrollo de Videojuegos",
             "hasVideo": false,
             "index": 141,
             "type": "grado",
@@ -1575,7 +1580,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Diseño y Tecnologías Creativas",
+            "career": "Grado en Diseño y Producción de Videojuegos",
             "hasVideo": false,
             "index": 142,
             "type": "grado",
@@ -1586,7 +1591,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Economía",
+            "career": "Grado en Diseño y Tecnologías Creativas",
             "hasVideo": false,
             "index": 143,
             "type": "grado",
@@ -1597,7 +1602,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Economía Financiera y Actuarial",
+            "career": "Grado en Economía",
             "hasVideo": false,
             "index": 144,
             "type": "grado",
@@ -1608,7 +1613,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Economía y Finanzas",
+            "career": "Grado en Economía Financiera y Actuarial",
             "hasVideo": false,
             "index": 145,
             "type": "grado",
@@ -1619,7 +1624,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Economía y Gestión",
+            "career": "Grado en Economía y Finanzas",
             "hasVideo": false,
             "index": 146,
             "type": "grado",
@@ -1630,7 +1635,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Economía y Negocios Internacionales",
+            "career": "Grado en Economía y Gestión",
             "hasVideo": false,
             "index": 147,
             "type": "grado",
@@ -1641,7 +1646,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Edificación",
+            "career": "Grado en Economía y Negocios Internacionales",
             "hasVideo": false,
             "index": 148,
             "type": "grado",
@@ -1652,7 +1657,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Educación Infantil",
+            "career": "Grado en Edificación",
             "hasVideo": false,
             "index": 149,
             "type": "grado",
@@ -1663,7 +1668,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Educación Infantil - Infant Education",
+            "career": "Grado en Educación Infantil",
             "hasVideo": false,
             "index": 150,
             "type": "grado",
@@ -1674,7 +1679,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Educación Primaria",
+            "career": "Grado en Educación Infantil - Infant Education",
             "hasVideo": false,
             "index": 151,
             "type": "grado",
@@ -1685,7 +1690,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Educación Primaria - Primary Education",
+            "career": "Grado en Educación Primaria",
             "hasVideo": false,
             "index": 152,
             "type": "grado",
@@ -1696,7 +1701,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Educación Social",
+            "career": "Grado en Educación Primaria - Primary Education",
             "hasVideo": false,
             "index": 153,
             "type": "grado",
@@ -1707,7 +1712,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Empresa Internacional",
+            "career": "Grado en Educación Social",
             "hasVideo": false,
             "index": 154,
             "type": "grado",
@@ -1718,7 +1723,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Empresa y Tecnología",
+            "career": "Grado en Empresa Internacional",
             "hasVideo": false,
             "index": 155,
             "type": "grado",
@@ -1729,7 +1734,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Empresas y Actividades Turísticas",
+            "career": "Grado en Empresa y Tecnología",
             "hasVideo": false,
             "index": 156,
             "type": "grado",
@@ -1740,7 +1745,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Enfermería",
+            "career": "Grado en Empresas y Actividades Turísticas",
             "hasVideo": false,
             "index": 157,
             "type": "grado",
@@ -1751,7 +1756,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Enología",
+            "career": "Grado en Enfermería",
             "hasVideo": false,
             "index": 158,
             "type": "grado",
@@ -1762,7 +1767,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Español: Estudios Lingüísticos y Literarios",
+            "career": "Grado en Enología",
             "hasVideo": false,
             "index": 159,
             "type": "grado",
@@ -1773,7 +1778,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Español: Lengua y Literaturas",
+            "career": "Grado en Español: Estudios Lingüísticos y Literarios",
             "hasVideo": false,
             "index": 160,
             "type": "grado",
@@ -1784,7 +1789,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Estadística",
+            "career": "Grado en Español: Lengua y Literaturas",
             "hasVideo": false,
             "index": 161,
             "type": "grado",
@@ -1795,7 +1800,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Estadística Aplicada",
+            "career": "Grado en Estadística",
             "hasVideo": false,
             "index": 162,
             "type": "grado",
@@ -1806,7 +1811,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Estadística Empresarial",
+            "career": "Grado en Estadística Aplicada",
             "hasVideo": false,
             "index": 163,
             "type": "grado",
@@ -1817,7 +1822,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Estadística y Empresa",
+            "career": "Grado en Estadística Empresarial",
             "hasVideo": false,
             "index": 164,
             "type": "grado",
@@ -1828,7 +1833,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Estudios Árabes e Islámicos",
+            "career": "Grado en Estadística y Empresa",
             "hasVideo": false,
             "index": 165,
             "type": "grado",
@@ -1839,7 +1844,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Estudios Árabes y Hebreo",
+            "career": "Grado en Estudios Árabes e Islámicos",
             "hasVideo": false,
             "index": 166,
             "type": "grado",
@@ -1850,7 +1855,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Estudios Catalanes y Occitanos",
+            "career": "Grado en Estudios Árabes y Hebreo",
             "hasVideo": false,
             "index": 167,
             "type": "grado",
@@ -1861,7 +1866,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Estudios Clásicos",
+            "career": "Grado en Estudios Catalanes y Occitanos",
             "hasVideo": false,
             "index": 168,
             "type": "grado",
@@ -1872,7 +1877,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Estudios Clásicos y Románicos",
+            "career": "Grado en Estudios Clásicos",
             "hasVideo": false,
             "index": 169,
             "type": "grado",
@@ -1883,7 +1888,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Estudios de Arquitectura / Bachelor In Architectural Sutdies",
+            "career": "Grado en Estudios Clásicos y Románicos",
             "hasVideo": false,
             "index": 170,
             "type": "grado",
@@ -1894,7 +1899,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Estudios de la Arquitectura",
+            "career": "Grado en Estudios de Arquitectura / Bachelor In Architectural Sutdies",
             "hasVideo": false,
             "index": 171,
             "type": "grado",
@@ -1905,7 +1910,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Estudios de Asia Oriental",
+            "career": "Grado en Estudios de la Arquitectura",
             "hasVideo": false,
             "index": 172,
             "type": "grado",
@@ -1916,7 +1921,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Estudios de Asia y África Árabe, Chino y Japonés",
+            "career": "Grado en Estudios de Asia Oriental",
             "hasVideo": false,
             "index": 173,
             "type": "grado",
@@ -1927,7 +1932,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Estudios de Catalán y de Clásicas",
+            "career": "Grado en Estudios de Asia y África Árabe, Chino y Japonés",
             "hasVideo": false,
             "index": 174,
             "type": "grado",
@@ -1938,7 +1943,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Estudios de Catalán y Español",
+            "career": "Grado en Estudios de Catalán y de Clásicas",
             "hasVideo": false,
             "index": 175,
             "type": "grado",
@@ -1949,7 +1954,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Estudios de Español y de Clásicas",
+            "career": "Grado en Estudios de Catalán y Español",
             "hasVideo": false,
             "index": 176,
             "type": "grado",
@@ -1960,7 +1965,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Estudios de Francés y Catalán",
+            "career": "Grado en Estudios de Español y de Clásicas",
             "hasVideo": false,
             "index": 177,
             "type": "grado",
@@ -1971,7 +1976,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Estudios de Francés y de Clásicas",
+            "career": "Grado en Estudios de Francés y Catalán",
             "hasVideo": false,
             "index": 178,
             "type": "grado",
@@ -1982,7 +1987,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Estudios de Francés y Español",
+            "career": "Grado en Estudios de Francés y de Clásicas",
             "hasVideo": false,
             "index": 179,
             "type": "grado",
@@ -1993,7 +1998,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Estudios de Gallego y Español",
+            "career": "Grado en Estudios de Francés y Español",
             "hasVideo": false,
             "index": 180,
             "type": "grado",
@@ -2004,7 +2009,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Estudios de Inglés y Catalán",
+            "career": "Grado en Estudios de Gallego y Español",
             "hasVideo": false,
             "index": 181,
             "type": "grado",
@@ -2015,7 +2020,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Estudios de Inglés y de Clásicas",
+            "career": "Grado en Estudios de Inglés y Catalán",
             "hasVideo": false,
             "index": 182,
             "type": "grado",
@@ -2026,7 +2031,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Estudios de Inglés y Francés",
+            "career": "Grado en Estudios de Inglés y de Clásicas",
             "hasVideo": false,
             "index": 183,
             "type": "grado",
@@ -2037,7 +2042,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Estudios en Arquitectura",
+            "career": "Grado en Estudios de Inglés y Francés",
             "hasVideo": false,
             "index": 184,
             "type": "grado",
@@ -2048,7 +2053,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Estudios Franceses",
+            "career": "Grado en Estudios en Arquitectura",
             "hasVideo": false,
             "index": 185,
             "type": "grado",
@@ -2059,7 +2064,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Estudios Francófonos Aplicados",
+            "career": "Grado en Estudios Franceses",
             "hasVideo": false,
             "index": 186,
             "type": "grado",
@@ -2070,7 +2075,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Estudios Globales / Global Studies",
+            "career": "Grado en Estudios Francófonos Aplicados",
             "hasVideo": false,
             "index": 187,
             "type": "grado",
@@ -2081,7 +2086,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Estudios Hebreos y Arameos",
+            "career": "Grado en Estudios Globales / Global Studies",
             "hasVideo": false,
             "index": 188,
             "type": "grado",
@@ -2092,7 +2097,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Estudios Hispánicos",
+            "career": "Grado en Estudios Hebreos y Arameos",
             "hasVideo": false,
             "index": 189,
             "type": "grado",
@@ -2103,7 +2108,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Estudios Hispánicos, Lengua Española y sus Literaturas",
+            "career": "Grado en Estudios Hispánicos",
             "hasVideo": false,
             "index": 190,
             "type": "grado",
@@ -2114,7 +2119,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Estudios Hispánicos: Lengua y Literatura",
+            "career": "Grado en Estudios Hispánicos, Lengua Española y sus Literaturas",
             "hasVideo": false,
             "index": 191,
             "type": "grado",
@@ -2125,7 +2130,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Estudios Hispano-Alemanes",
+            "career": "Grado en Estudios Hispánicos: Lengua y Literatura",
             "hasVideo": false,
             "index": 192,
             "type": "grado",
@@ -2136,7 +2141,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Estudios Ingleses",
+            "career": "Grado en Estudios Hispano-Alemanes",
             "hasVideo": false,
             "index": 193,
             "type": "grado",
@@ -2147,7 +2152,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Estudios Internacionales de Economía y Empresa",
+            "career": "Grado en Estudios Ingleses",
             "hasVideo": false,
             "index": 194,
             "type": "grado",
@@ -2158,7 +2163,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Estudios Internacionales de Economía y Empresa / International Business Economics",
+            "career": "Grado en Estudios Internacionales de Economía y Empresa",
             "hasVideo": false,
             "index": 195,
             "type": "grado",
@@ -2169,7 +2174,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Estudios Internacionales",
+            "career": "Grado en Estudios Internacionales de Economía y Empresa / International Business Economics",
             "hasVideo": false,
             "index": 196,
             "type": "grado",
@@ -2180,7 +2185,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Estudios Italianos",
+            "career": "Grado en Estudios Internacionales",
             "hasVideo": false,
             "index": 197,
             "type": "grado",
@@ -2191,7 +2196,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Estudios Literarios ",
+            "career": "Grado en Estudios Italianos",
             "hasVideo": false,
             "index": 198,
             "type": "grado",
@@ -2202,7 +2207,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Estudios Portugueses y Brasileños",
+            "career": "Grado en Estudios Literarios ",
             "hasVideo": false,
             "index": 199,
             "type": "grado",
@@ -2213,7 +2218,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Estudios Semíticos e Islámicos",
+            "career": "Grado en Estudios Portugueses y Brasileños",
             "hasVideo": false,
             "index": 200,
             "type": "grado",
@@ -2224,7 +2229,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Estudios Vascos",
+            "career": "Grado en Estudios Semíticos e Islámicos",
             "hasVideo": false,
             "index": 201,
             "type": "grado",
@@ -2235,7 +2240,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Farmacia",
+            "career": "Grado en Estudios Vascos",
             "hasVideo": false,
             "index": 202,
             "type": "grado",
@@ -2246,7 +2251,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Filología",
+            "career": "Grado en Farmacia",
             "hasVideo": false,
             "index": 203,
             "type": "grado",
@@ -2257,7 +2262,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Filología Bíblica Trilingüe",
+            "career": "Grado en Filología",
             "hasVideo": false,
             "index": 204,
             "type": "grado",
@@ -2268,7 +2273,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Filología Catalana",
+            "career": "Grado en Filología Bíblica Trilingüe",
             "hasVideo": false,
             "index": 205,
             "type": "grado",
@@ -2279,7 +2284,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Filología Catalana y Occitana",
+            "career": "Grado en Filología Catalana",
             "hasVideo": false,
             "index": 206,
             "type": "grado",
@@ -2290,7 +2295,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Filología Clásica",
+            "career": "Grado en Filología Catalana y Occitana",
             "hasVideo": false,
             "index": 207,
             "type": "grado",
@@ -2301,7 +2306,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Filología Hispánica",
+            "career": "Grado en Filología Clásica",
             "hasVideo": false,
             "index": 208,
             "type": "grado",
@@ -2312,7 +2317,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Filología Moderna. Inglés",
+            "career": "Grado en Filología Hispánica",
             "hasVideo": false,
             "index": 209,
             "type": "grado",
@@ -2323,7 +2328,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Filología Vasca-Euskal Filologia",
+            "career": "Grado en Filología Moderna. Inglés",
             "hasVideo": false,
             "index": 210,
             "type": "grado",
@@ -2334,7 +2339,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Filosofía",
+            "career": "Grado en Filología Vasca-Euskal Filologia",
             "hasVideo": false,
             "index": 211,
             "type": "grado",
@@ -2345,7 +2350,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Filosofía, Política y Economía",
+            "career": "Grado en Filosofía",
             "hasVideo": false,
             "index": 212,
             "type": "grado",
@@ -2356,7 +2361,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Finanzas",
+            "career": "Grado en Filosofía, Política y Economía",
             "hasVideo": false,
             "index": 213,
             "type": "grado",
@@ -2367,7 +2372,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Finanzas y Contabilidad",
+            "career": "Grado en Finanzas",
             "hasVideo": false,
             "index": 214,
             "type": "grado",
@@ -2378,7 +2383,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Finanzas y Seguros",
+            "career": "Grado en Finanzas y Contabilidad",
             "hasVideo": false,
             "index": 215,
             "type": "grado",
@@ -2389,7 +2394,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Finanzas, Banca y Seguros",
+            "career": "Grado en Finanzas y Seguros",
             "hasVideo": false,
             "index": 216,
             "type": "grado",
@@ -2400,7 +2405,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Fiscalidad y Administración Pública",
+            "career": "Grado en Finanzas, Banca y Seguros",
             "hasVideo": false,
             "index": 217,
             "type": "grado",
@@ -2411,7 +2416,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Física",
+            "career": "Grado en Fiscalidad y Administración Pública",
             "hasVideo": false,
             "index": 218,
             "type": "grado",
@@ -2422,7 +2427,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Fisioterapia",
+            "career": "Grado en Física",
             "hasVideo": false,
             "index": 219,
             "type": "grado",
@@ -2433,7 +2438,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Fotografía",
+            "career": "Grado en Fisioterapia",
             "hasVideo": false,
             "index": 220,
             "type": "grado",
@@ -2444,7 +2449,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Fotografía y Creación Digital ",
+            "career": "Grado en Fotografía",
             "hasVideo": false,
             "index": 221,
             "type": "grado",
@@ -2455,7 +2460,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Fundamentos de la Arquitectura",
+            "career": "Grado en Fotografía y Creación Digital ",
             "hasVideo": false,
             "index": 222,
             "type": "grado",
@@ -2466,7 +2471,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Fundamentos de Arquitectura y Urbanismo",
+            "career": "Grado en Fundamentos de la Arquitectura",
             "hasVideo": false,
             "index": 223,
             "type": "grado",
@@ -2477,7 +2482,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Gallego y Portugués: Estudios Lingüísticos y Literarios",
+            "career": "Grado en Fundamentos de Arquitectura y Urbanismo",
             "hasVideo": false,
             "index": 224,
             "type": "grado",
@@ -2488,7 +2493,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Gastronomía",
+            "career": "Grado en Gallego y Portugués: Estudios Lingüísticos y Literarios",
             "hasVideo": false,
             "index": 225,
             "type": "grado",
@@ -2499,7 +2504,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Gastronomía / Gastronomy",
+            "career": "Grado en Gastronomía",
             "hasVideo": false,
             "index": 226,
             "type": "grado",
@@ -2510,7 +2515,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Gastronomía y Artes Culinarias",
+            "career": "Grado en Gastronomía / Gastronomy",
             "hasVideo": false,
             "index": 227,
             "type": "grado",
@@ -2521,7 +2526,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Genética",
+            "career": "Grado en Gastronomía y Artes Culinarias",
             "hasVideo": false,
             "index": 228,
             "type": "grado",
@@ -2532,7 +2537,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Geografía",
+            "career": "Grado en Genética",
             "hasVideo": false,
             "index": 229,
             "type": "grado",
@@ -2543,7 +2548,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Geografía e Historia",
+            "career": "Grado en Geografía",
             "hasVideo": false,
             "index": 230,
             "type": "grado",
@@ -2554,7 +2559,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Geografía y Gestión del Territorio ",
+            "career": "Grado en Geografía e Historia",
             "hasVideo": false,
             "index": 231,
             "type": "grado",
@@ -2565,7 +2570,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Geografía y Medio Ambiente",
+            "career": "Grado en Geografía y Gestión del Territorio ",
             "hasVideo": false,
             "index": 232,
             "type": "grado",
@@ -2576,7 +2581,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Geografía y Ordenación del Territorio",
+            "career": "Grado en Geografía y Medio Ambiente",
             "hasVideo": false,
             "index": 233,
             "type": "grado",
@@ -2587,7 +2592,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Geografía y Ordenación Territorial",
+            "career": "Grado en Geografía y Ordenación del Territorio",
             "hasVideo": false,
             "index": 234,
             "type": "grado",
@@ -2598,7 +2603,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Geografía, Ordenación del Territorio y Gestión del Medio Ambiente",
+            "career": "Grado en Geografía y Ordenación Territorial",
             "hasVideo": false,
             "index": 235,
             "type": "grado",
@@ -2609,7 +2614,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Geología",
+            "career": "Grado en Geografía, Ordenación del Territorio y Gestión del Medio Ambiente",
             "hasVideo": false,
             "index": 236,
             "type": "grado",
@@ -2620,7 +2625,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Gestión Aeronáutica",
+            "career": "Grado en Geología",
             "hasVideo": false,
             "index": 237,
             "type": "grado",
@@ -2631,7 +2636,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Gestión Comercial",
+            "career": "Grado en Gestión Aeronáutica",
             "hasVideo": false,
             "index": 238,
             "type": "grado",
@@ -2642,7 +2647,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Gestión Comercial y Marketing",
+            "career": "Grado en Gestión Comercial",
             "hasVideo": false,
             "index": 239,
             "type": "grado",
@@ -2653,7 +2658,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Gestión Cultural",
+            "career": "Grado en Gestión Comercial y Marketing",
             "hasVideo": false,
             "index": 240,
             "type": "grado",
@@ -2664,7 +2669,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Gestión de Empresas",
+            "career": "Grado en Gestión Cultural",
             "hasVideo": false,
             "index": 241,
             "type": "grado",
@@ -2675,7 +2680,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Gestión de Empresas de Comercio y Distribución",
+            "career": "Grado en Gestión de Empresas",
             "hasVideo": false,
             "index": 242,
             "type": "grado",
@@ -2686,7 +2691,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Gestión de Negocios",
+            "career": "Grado en Gestión de Empresas de Comercio y Distribución",
             "hasVideo": false,
             "index": 243,
             "type": "grado",
@@ -2697,7 +2702,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Gestión de Pequeñas y Medianas Empresas",
+            "career": "Grado en Gestión de Negocios",
             "hasVideo": false,
             "index": 244,
             "type": "grado",
@@ -2708,7 +2713,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Gestión de Seguridad Pública",
+            "career": "Grado en Gestión de Pequeñas y Medianas Empresas",
             "hasVideo": false,
             "index": 245,
             "type": "grado",
@@ -2719,7 +2724,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Gestión de Sistemas de Información / Bachelor In Management Information Systems",
+            "career": "Grado en Gestión de Seguridad Pública",
             "hasVideo": false,
             "index": 246,
             "type": "grado",
@@ -2730,7 +2735,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Gestión Económico-Financiera",
+            "career": "Grado en Gestión de Sistemas de Información / Bachelor In Management Information Systems",
             "hasVideo": false,
             "index": 247,
             "type": "grado",
@@ -2741,7 +2746,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Gestión Hotelera y Turística",
+            "career": "Grado en Gestión Económico-Financiera",
             "hasVideo": false,
             "index": 248,
             "type": "grado",
@@ -2752,7 +2757,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Gestión Informática Empresarial",
+            "career": "Grado en Gestión Hotelera y Turística",
             "hasVideo": false,
             "index": 249,
             "type": "grado",
@@ -2763,7 +2768,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Gestión Mercantil y Financiera",
+            "career": "Grado en Gestión Informática Empresarial",
             "hasVideo": false,
             "index": 250,
             "type": "grado",
@@ -2774,7 +2779,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Gestión Turística",
+            "career": "Grado en Gestión Mercantil y Financiera",
             "hasVideo": false,
             "index": 251,
             "type": "grado",
@@ -2785,7 +2790,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Gestión Turística y Hotelera",
+            "career": "Grado en Gestión Turística",
             "hasVideo": false,
             "index": 252,
             "type": "grado",
@@ -2796,7 +2801,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Gestión y Administración Pública",
+            "career": "Grado en Gestión Turística y Hotelera",
             "hasVideo": false,
             "index": 253,
             "type": "grado",
@@ -2807,7 +2812,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Gestión y Marketing Empresarial",
+            "career": "Grado en Gestión y Administración Pública",
             "hasVideo": false,
             "index": 254,
             "type": "grado",
@@ -2818,7 +2823,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Historia",
+            "career": "Grado en Gestión y Marketing Empresarial",
             "hasVideo": false,
             "index": 255,
             "type": "grado",
@@ -2829,7 +2834,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Historia del Arte",
+            "career": "Grado en Historia",
             "hasVideo": false,
             "index": 256,
             "type": "grado",
@@ -2840,7 +2845,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Historia del Arte y Patrimonio Histórico-Artístico",
+            "career": "Grado en Historia del Arte",
             "hasVideo": false,
             "index": 257,
             "type": "grado",
@@ -2851,7 +2856,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Historia y Ciencias de la Música",
+            "career": "Grado en Historia del Arte y Patrimonio Histórico-Artístico",
             "hasVideo": false,
             "index": 258,
             "type": "grado",
@@ -2862,7 +2867,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Historia y Geografía",
+            "career": "Grado en Historia y Ciencias de la Música",
             "hasVideo": false,
             "index": 259,
             "type": "grado",
@@ -2873,7 +2878,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Historia y Patrimonio",
+            "career": "Grado en Historia y Geografía",
             "hasVideo": false,
             "index": 260,
             "type": "grado",
@@ -2884,7 +2889,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Historia y Patrimonio Histórico",
+            "career": "Grado en Historia y Patrimonio",
             "hasVideo": false,
             "index": 261,
             "type": "grado",
@@ -2895,7 +2900,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Historia, Geografía e Historia del Arte ",
+            "career": "Grado en Historia y Patrimonio Histórico",
             "hasVideo": false,
             "index": 262,
             "type": "grado",
@@ -2906,7 +2911,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Humanidades",
+            "career": "Grado en Historia, Geografía e Historia del Arte ",
             "hasVideo": false,
             "index": 263,
             "type": "grado",
@@ -2917,7 +2922,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Humanidades y Patrimonio",
+            "career": "Grado en Humanidades",
             "hasVideo": false,
             "index": 264,
             "type": "grado",
@@ -2928,7 +2933,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Humanidades: Estudios Interculturales",
+            "career": "Grado en Humanidades y Patrimonio",
             "hasVideo": false,
             "index": 265,
             "type": "grado",
@@ -2939,7 +2944,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Humanidades: Historia Cultural",
+            "career": "Grado en Humanidades: Estudios Interculturales",
             "hasVideo": false,
             "index": 266,
             "type": "grado",
@@ -2950,7 +2955,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Información y Documentación",
+            "career": "Grado en Humanidades: Historia Cultural",
             "hasVideo": false,
             "index": 267,
             "type": "grado",
@@ -2961,7 +2966,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Informática y Servicios",
+            "career": "Grado en Información y Documentación",
             "hasVideo": false,
             "index": 268,
             "type": "grado",
@@ -2972,7 +2977,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Ingeniería Aeroespacial",
+            "career": "Grado en Informática y Servicios",
             "hasVideo": false,
             "index": 269,
             "type": "grado",
@@ -2983,7 +2988,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Ingeniería Aeroespacial en Aeronavegación",
+            "career": "Grado en Ingeniería Aeroespacial",
             "hasVideo": false,
             "index": 270,
             "type": "grado",
@@ -2994,7 +2999,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Ingeniería Aeroespacial en Aeronaves",
+            "career": "Grado en Ingeniería Aeroespacial en Aeronavegación",
             "hasVideo": false,
             "index": 271,
             "type": "grado",
@@ -3005,7 +3010,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Ingeniería Areoespacial en Transporte y Aeropuertos",
+            "career": "Grado en Ingeniería Aeroespacial en Aeronaves",
             "hasVideo": false,
             "index": 272,
             "type": "grado",
@@ -3016,7 +3021,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Ingeniería Agraria",
+            "career": "Grado en Ingeniería Areoespacial en Transporte y Aeropuertos",
             "hasVideo": false,
             "index": 273,
             "type": "grado",
@@ -3027,7 +3032,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Ingeniería Agraria y Alimentaria",
+            "career": "Grado en Ingeniería Agraria",
             "hasVideo": false,
             "index": 274,
             "type": "grado",
@@ -3038,7 +3043,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Ingeniería Agraria y del Medio Rural",
+            "career": "Grado en Ingeniería Agraria y Alimentaria",
             "hasVideo": false,
             "index": 275,
             "type": "grado",
@@ -3049,7 +3054,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Ingeniería Agraria y Energética",
+            "career": "Grado en Ingeniería Agraria y del Medio Rural",
             "hasVideo": false,
             "index": 276,
             "type": "grado",
@@ -3060,7 +3065,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Ingeniería Agrícola",
+            "career": "Grado en Ingeniería Agraria y Energética",
             "hasVideo": false,
             "index": 277,
             "type": "grado",
@@ -3071,7 +3076,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Ingeniería Agrícola y Agroalimentaria",
+            "career": "Grado en Ingeniería Agrícola",
             "hasVideo": false,
             "index": 278,
             "type": "grado",
@@ -3082,7 +3087,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Ingeniería Agroalimentaria",
+            "career": "Grado en Ingeniería Agrícola y Agroalimentaria",
             "hasVideo": false,
             "index": 279,
             "type": "grado",
@@ -3093,7 +3098,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Ingeniería Agroalimentaria y Agroambiental",
+            "career": "Grado en Ingeniería Agroalimentaria",
             "hasVideo": false,
             "index": 280,
             "type": "grado",
@@ -3104,7 +3109,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Ingeniería Agroalimentaria y del Medio Rural",
+            "career": "Grado en Ingeniería Agroalimentaria y Agroambiental",
             "hasVideo": false,
             "index": 281,
             "type": "grado",
@@ -3115,7 +3120,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Ingeniería Agroambiental",
+            "career": "Grado en Ingeniería Agroalimentaria y del Medio Rural",
             "hasVideo": false,
             "index": 282,
             "type": "grado",
@@ -3126,7 +3131,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Ingeniería Agroalimentaria y de Sistemas Biológicos",
+            "career": "Grado en Ingeniería Agroambiental",
             "hasVideo": false,
             "index": 283,
             "type": "grado",
@@ -3137,7 +3142,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Ingeniería Agroambiental y del Paisaje",
+            "career": "Grado en Ingeniería Agroalimentaria y de Sistemas Biológicos",
             "hasVideo": false,
             "index": 284,
             "type": "grado",
@@ -3148,7 +3153,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Ingeniería Agropecuaria y del Medio Rural",
+            "career": "Grado en Ingeniería Agroambiental y del Paisaje",
             "hasVideo": false,
             "index": 285,
             "type": "grado",
@@ -3159,7 +3164,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Ingeniería Ambiental",
+            "career": "Grado en Ingeniería Agropecuaria y del Medio Rural",
             "hasVideo": false,
             "index": 286,
             "type": "grado",
@@ -3170,7 +3175,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Ingeniería Biomédica",
+            "career": "Grado en Ingeniería Ambiental",
             "hasVideo": false,
             "index": 287,
             "type": "grado",
@@ -3181,7 +3186,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Ingeniería Civil",
+            "career": "Grado en Ingeniería Biomédica",
             "hasVideo": false,
             "index": 288,
             "type": "grado",
@@ -3192,7 +3197,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Ingeniería Civil en Construcciones Civiles",
+            "career": "Grado en Ingeniería Civil",
             "hasVideo": false,
             "index": 289,
             "type": "grado",
@@ -3203,7 +3208,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Ingeniería Civil en Hidrología",
+            "career": "Grado en Ingeniería Civil en Construcciones Civiles",
             "hasVideo": false,
             "index": 290,
             "type": "grado",
@@ -3214,7 +3219,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Ingeniería Civil en Transportes y Servicios Urbanos",
+            "career": "Grado en Ingeniería Civil en Hidrología",
             "hasVideo": false,
             "index": 291,
             "type": "grado",
@@ -3225,7 +3230,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Ingeniería Civil y Territorial",
+            "career": "Grado en Ingeniería Civil en Transportes y Servicios Urbanos",
             "hasVideo": false,
             "index": 292,
             "type": "grado",
@@ -3236,7 +3241,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Ingeniería de Aeronavegación",
+            "career": "Grado en Ingeniería Civil y Territorial",
             "hasVideo": false,
             "index": 293,
             "type": "grado",
@@ -3247,7 +3252,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Ingeniería de Aeropuertos",
+            "career": "Grado en Ingeniería de Aeronavegación",
             "hasVideo": false,
             "index": 294,
             "type": "grado",
@@ -3258,7 +3263,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Ingeniería de Computadores",
+            "career": "Grado en Ingeniería de Aeropuertos",
             "hasVideo": false,
             "index": 295,
             "type": "grado",
@@ -3269,7 +3274,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Ingeniería de Diseño Industrial y Desarrollo del Producto",
+            "career": "Grado en Ingeniería de Computadores",
             "hasVideo": false,
             "index": 296,
             "type": "grado",
@@ -3280,7 +3285,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Ingeniería de Diseño Industrial y Desarrollo de Productos",
+            "career": "Grado en Ingeniería de Diseño Industrial y Desarrollo del Producto",
             "hasVideo": false,
             "index": 297,
             "type": "grado",
@@ -3291,7 +3296,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Ingeniería de Diseño y Tecnología Textil",
+            "career": "Grado en Ingeniería de Diseño Industrial y Desarrollo de Productos",
             "hasVideo": false,
             "index": 298,
             "type": "grado",
@@ -3302,7 +3307,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Ingeniería de Edificación",
+            "career": "Grado en Ingeniería de Diseño y Tecnología Textil",
             "hasVideo": false,
             "index": 299,
             "type": "grado",
@@ -3313,7 +3318,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Ingeniería de Energía",
+            "career": "Grado en Ingeniería de Edificación",
             "hasVideo": false,
             "index": 300,
             "type": "grado",
@@ -3324,7 +3329,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Ingeniería de Energías Renovables",
+            "career": "Grado en Ingeniería de Energía",
             "hasVideo": false,
             "index": 301,
             "type": "grado",
@@ -3335,7 +3340,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Ingeniería de Energía y Medio Ambiente",
+            "career": "Grado en Ingeniería de Energías Renovables",
             "hasVideo": false,
             "index": 302,
             "type": "grado",
@@ -3346,7 +3351,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Ingeniería de la Ciberseguridad",
+            "career": "Grado en Ingeniería de Energía y Medio Ambiente",
             "hasVideo": false,
             "index": 303,
             "type": "grado",
@@ -3357,7 +3362,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Ingeniería de la Construcción",
+            "career": "Grado en Ingeniería de la Ciberseguridad",
             "hasVideo": false,
             "index": 304,
             "type": "grado",
@@ -3368,7 +3373,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Ingeniería de la Edificación",
+            "career": "Grado en Ingeniería de la Construcción",
             "hasVideo": false,
             "index": 305,
             "type": "grado",
@@ -3379,7 +3384,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Ingeniería de la Energía",
+            "career": "Grado en Ingeniería de la Edificación",
             "hasVideo": false,
             "index": 306,
             "type": "grado",
@@ -3390,7 +3395,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Ingeniería de la Hortofruticultura y Jardinería",
+            "career": "Grado en Ingeniería de la Energía",
             "hasVideo": false,
             "index": 307,
             "type": "grado",
@@ -3401,7 +3406,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Ingeniería de la Salud",
+            "career": "Grado en Ingeniería de la Hortofruticultura y Jardinería",
             "hasVideo": false,
             "index": 308,
             "type": "grado",
@@ -3412,7 +3417,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Ingeniería de la Seguridad",
+            "career": "Grado en Ingeniería de la Salud",
             "hasVideo": false,
             "index": 309,
             "type": "grado",
@@ -3423,7 +3428,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Ingeniería de la Tecnología de Minas y Energía",
+            "career": "Grado en Ingeniería de la Seguridad",
             "hasVideo": false,
             "index": 310,
             "type": "grado",
@@ -3434,7 +3439,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Ingeniería de la Tecnología Minera",
+            "career": "Grado en Ingeniería de la Tecnología de Minas y Energía",
             "hasVideo": false,
             "index": 311,
             "type": "grado",
@@ -3445,7 +3450,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Ingeniería de las Explotaciones Agropecuarias",
+            "career": "Grado en Ingeniería de la Tecnología Minera",
             "hasVideo": false,
             "index": 312,
             "type": "grado",
@@ -3456,7 +3461,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Ingeniería de las Industrias Agrarias y Alimentarias",
+            "career": "Grado en Ingeniería de las Explotaciones Agropecuarias",
             "hasVideo": false,
             "index": 313,
             "type": "grado",
@@ -3467,7 +3472,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Ingeniería de las Industrias Agroalimentarias",
+            "career": "Grado en Ingeniería de las Industrias Agrarias y Alimentarias",
             "hasVideo": false,
             "index": 314,
             "type": "grado",
@@ -3478,7 +3483,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Ingeniería de las Tecnologías de la Información",
+            "career": "Grado en Ingeniería de las Industrias Agroalimentarias",
             "hasVideo": false,
             "index": 315,
             "type": "grado",
@@ -3489,7 +3494,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Ingeniería de las Tecnologías de Telecomunicación",
+            "career": "Grado en Ingeniería de las Tecnologías de la Información",
             "hasVideo": false,
             "index": 316,
             "type": "grado",
@@ -3500,7 +3505,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Ingeniería de las Tecnologías de la Información Geoespacial",
+            "career": "Grado en Ingeniería de las Tecnologías de Telecomunicación",
             "hasVideo": false,
             "index": 317,
             "type": "grado",
@@ -3511,7 +3516,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Ingeniería de los Recursos Energéticos, Combustibles y Explosivos",
+            "career": "Grado en Ingeniería de las Tecnologías de la Información Geoespacial",
             "hasVideo": false,
             "index": 318,
             "type": "grado",
@@ -3522,7 +3527,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Ingeniería de los Recursos Mineros",
+            "career": "Grado en Ingeniería de los Recursos Energéticos, Combustibles y Explosivos",
             "hasVideo": false,
             "index": 319,
             "type": "grado",
@@ -3533,7 +3538,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Ingeniería de los Recursos Mineros y Energéticos",
+            "career": "Grado en Ingeniería de los Recursos Mineros",
             "hasVideo": false,
             "index": 320,
             "type": "grado",
@@ -3544,7 +3549,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Ingeniería de Materiales",
+            "career": "Grado en Ingeniería de los Recursos Mineros y Energéticos",
             "hasVideo": false,
             "index": 321,
             "type": "grado",
@@ -3555,7 +3560,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Ingeniería de Obras Públicas",
+            "career": "Grado en Ingeniería de Materiales",
             "hasVideo": false,
             "index": 322,
             "type": "grado",
@@ -3566,7 +3571,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Ingeniería de Obras Públicas en Construcciones Civiles",
+            "career": "Grado en Ingeniería de Obras Públicas",
             "hasVideo": false,
             "index": 323,
             "type": "grado",
@@ -3577,7 +3582,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Ingeniería de Obras Públicas en Hidrología",
+            "career": "Grado en Ingeniería de Obras Públicas en Construcciones Civiles",
             "hasVideo": false,
             "index": 324,
             "type": "grado",
@@ -3588,7 +3593,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Ingeniería de Obras Públicas en Transportes y Servicios Urbanos",
+            "career": "Grado en Ingeniería de Obras Públicas en Hidrología",
             "hasVideo": false,
             "index": 325,
             "type": "grado",
@@ -3599,7 +3604,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Ingeniería de Organización",
+            "career": "Grado en Ingeniería de Obras Públicas en Transportes y Servicios Urbanos",
             "hasVideo": false,
             "index": 326,
             "type": "grado",
@@ -3610,7 +3615,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Ingeniería de Organización Industrial",
+            "career": "Grado en Ingeniería de Organización",
             "hasVideo": false,
             "index": 327,
             "type": "grado",
@@ -3621,7 +3626,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Ingeniería de Procesos Químicos Industriales",
+            "career": "Grado en Ingeniería de Organización Industrial",
             "hasVideo": false,
             "index": 328,
             "type": "grado",
@@ -3632,7 +3637,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Ingeniería de Recursos Energéticos y Mineros",
+            "career": "Grado en Ingeniería de Procesos Químicos Industriales",
             "hasVideo": false,
             "index": 329,
             "type": "grado",
@@ -3643,7 +3648,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Ingeniería de Recursos Minerales",
+            "career": "Grado en Ingeniería de Recursos Energéticos y Mineros",
             "hasVideo": false,
             "index": 330,
             "type": "grado",
@@ -3654,7 +3659,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Ingeniería de Recursos Minerales y Energía",
+            "career": "Grado en Ingeniería de Recursos Minerales",
             "hasVideo": false,
             "index": 331,
             "type": "grado",
@@ -3665,7 +3670,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Ingeniería de Recursos Mineros y Energéticos",
+            "career": "Grado en Ingeniería de Recursos Minerales y Energía",
             "hasVideo": false,
             "index": 332,
             "type": "grado",
@@ -3676,7 +3681,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Ingeniería de Redes de Telecomunicación",
+            "career": "Grado en Ingeniería de Recursos Mineros y Energéticos",
             "hasVideo": false,
             "index": 333,
             "type": "grado",
@@ -3687,7 +3692,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Ingeniería de Sistemas Aeroespaciales",
+            "career": "Grado en Ingeniería de Redes de Telecomunicación",
             "hasVideo": false,
             "index": 334,
             "type": "grado",
@@ -3698,7 +3703,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Ingeniería de Sistemas Audiovisuales",
+            "career": "Grado en Ingeniería de Sistemas Aeroespaciales",
             "hasVideo": false,
             "index": 335,
             "type": "grado",
@@ -3709,7 +3714,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Ingeniería de Sistemas Audiovisuales de Telecomunicación",
+            "career": "Grado en Ingeniería de Sistemas Audiovisuales",
             "hasVideo": false,
             "index": 336,
             "type": "grado",
@@ -3720,7 +3725,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Ingeniería de Sistemas Biológicos",
+            "career": "Grado en Ingeniería de Sistemas Audiovisuales de Telecomunicación",
             "hasVideo": false,
             "index": 337,
             "type": "grado",
@@ -3731,7 +3736,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Ingeniería de Sistemas de Comunicaciones",
+            "career": "Grado en Ingeniería de Sistemas Biológicos",
             "hasVideo": false,
             "index": 338,
             "type": "grado",
@@ -3742,7 +3747,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Ingeniería de Sistemas de Información",
+            "career": "Grado en Ingeniería de Sistemas de Comunicaciones",
             "hasVideo": false,
             "index": 339,
             "type": "grado",
@@ -3753,7 +3758,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Ingeniería de Sistemas de Telecomunicación",
+            "career": "Grado en Ingeniería de Sistemas de Información",
             "hasVideo": false,
             "index": 340,
             "type": "grado",
@@ -3764,7 +3769,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Ingeniería de Sistemas de Telecomunicación, Sonido e Imagen",
+            "career": "Grado en Ingeniería de Sistemas de Telecomunicación",
             "hasVideo": false,
             "index": 341,
             "type": "grado",
@@ -3775,7 +3780,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Ingeniería de Sistemas Electrónicos",
+            "career": "Grado en Ingeniería de Sistemas de Telecomunicación, Sonido e Imagen",
             "hasVideo": false,
             "index": 342,
             "type": "grado",
@@ -3786,7 +3791,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Ingeniería de Sistemas TIC",
+            "career": "Grado en Ingeniería de Sistemas Electrónicos",
             "hasVideo": false,
             "index": 343,
             "type": "grado",
@@ -3797,7 +3802,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Ingeniería de Sistemas y Servicios de Telecomunicaciones",
+            "career": "Grado en Ingeniería de Sistemas TIC",
             "hasVideo": false,
             "index": 344,
             "type": "grado",
@@ -3808,7 +3813,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Ingeniería de Sonido e Imagen ",
+            "career": "Grado en Ingeniería de Sistemas y Servicios de Telecomunicaciones",
             "hasVideo": false,
             "index": 345,
             "type": "grado",
@@ -3819,7 +3824,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Ingeniería de Tecnología de Minas y Energía",
+            "career": "Grado en Ingeniería de Sonido e Imagen ",
             "hasVideo": false,
             "index": 346,
             "type": "grado",
@@ -3830,7 +3835,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Ingeniería de Tecnología y Diseño Textil ",
+            "career": "Grado en Ingeniería de Tecnología de Minas y Energía",
             "hasVideo": false,
             "index": 347,
             "type": "grado",
@@ -3841,7 +3846,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Ingeniería de Tecnologías de Caminos",
+            "career": "Grado en Ingeniería de Tecnología y Diseño Textil ",
             "hasVideo": false,
             "index": 348,
             "type": "grado",
@@ -3852,7 +3857,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Ingeniería de Tecnologías de Telecomunicación",
+            "career": "Grado en Ingeniería de Tecnologías de Caminos",
             "hasVideo": false,
             "index": 349,
             "type": "grado",
@@ -3863,7 +3868,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Ingeniería de Tecnologías Específicas de Telecomunicación",
+            "career": "Grado en Ingeniería de Tecnologías de Telecomunicación",
             "hasVideo": false,
             "index": 350,
             "type": "grado",
@@ -3874,7 +3879,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Ingeniería de Tecnologías Industriales",
+            "career": "Grado en Ingeniería de Tecnologías Específicas de Telecomunicación",
             "hasVideo": false,
             "index": 351,
             "type": "grado",
@@ -3885,7 +3890,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Ingeniería de Tecnologías Mineras",
+            "career": "Grado en Ingeniería de Tecnologías Industriales",
             "hasVideo": false,
             "index": 352,
             "type": "grado",
@@ -3896,7 +3901,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Ingeniería de Tecnologías y Servicios de Telecomunicación",
+            "career": "Grado en Ingeniería de Tecnologías Mineras",
             "hasVideo": false,
             "index": 353,
             "type": "grado",
@@ -3907,7 +3912,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Ingeniería del Automóvil",
+            "career": "Grado en Ingeniería de Tecnologías y Servicios de Telecomunicación",
             "hasVideo": false,
             "index": 354,
             "type": "grado",
@@ -3918,7 +3923,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Ingeniería del Medio Natural",
+            "career": "Grado en Ingeniería del Automóvil",
             "hasVideo": false,
             "index": 355,
             "type": "grado",
@@ -3929,7 +3934,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Ingeniería del Software",
+            "career": "Grado en Ingeniería del Medio Natural",
             "hasVideo": false,
             "index": 356,
             "type": "grado",
@@ -3940,7 +3945,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Ingeniería Eléctrica",
+            "career": "Grado en Ingeniería del Software",
             "hasVideo": false,
             "index": 357,
             "type": "grado",
@@ -3951,7 +3956,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Ingeniería Eléctrica y Electrónica",
+            "career": "Grado en Ingeniería Eléctrica",
             "hasVideo": false,
             "index": 358,
             "type": "grado",
@@ -3962,7 +3967,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Ingeniería Electromecánica",
+            "career": "Grado en Ingeniería Eléctrica y Electrónica",
             "hasVideo": false,
             "index": 359,
             "type": "grado",
@@ -3973,7 +3978,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Ingeniería Electrónica",
+            "career": "Grado en Ingeniería Electromecánica",
             "hasVideo": false,
             "index": 360,
             "type": "grado",
@@ -3984,7 +3989,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Ingeniería Electrónica de Comunicaciones",
+            "career": "Grado en Ingeniería Electrónica",
             "hasVideo": false,
             "index": 361,
             "type": "grado",
@@ -3995,7 +4000,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Ingeniería Electrónica de Telecomunicación",
+            "career": "Grado en Ingeniería Electrónica de Comunicaciones",
             "hasVideo": false,
             "index": 362,
             "type": "grado",
@@ -4006,7 +4011,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Ingeniería Electrónica Industrial",
+            "career": "Grado en Ingeniería Electrónica de Telecomunicación",
             "hasVideo": false,
             "index": 363,
             "type": "grado",
@@ -4017,7 +4022,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Ingeniería Electrónica Industrial y Automática",
+            "career": "Grado en Ingeniería Electrónica Industrial",
             "hasVideo": false,
             "index": 364,
             "type": "grado",
@@ -4028,7 +4033,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Ingeniería Electrónica y Automática",
+            "career": "Grado en Ingeniería Electrónica Industrial y Automática",
             "hasVideo": false,
             "index": 365,
             "type": "grado",
@@ -4039,7 +4044,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Ingeniería Electrónica y Automática Industrial",
+            "career": "Grado en Ingeniería Electrónica y Automática",
             "hasVideo": false,
             "index": 366,
             "type": "grado",
@@ -4050,7 +4055,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Ingeniería Electrónica, Robótica y Mecatrónica",
+            "career": "Grado en Ingeniería Electrónica y Automática Industrial",
             "hasVideo": false,
             "index": 367,
             "type": "grado",
@@ -4061,7 +4066,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Ingeniería en Desarrollo de Contenidos Digitales",
+            "career": "Grado en Ingeniería Electrónica, Robótica y Mecatrónica",
             "hasVideo": false,
             "index": 368,
             "type": "grado",
@@ -4072,7 +4077,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Ingeniería en Diseño Industrial ",
+            "career": "Grado en Ingeniería en Desarrollo de Contenidos Digitales",
             "hasVideo": false,
             "index": 369,
             "type": "grado",
@@ -4083,7 +4088,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Ingeniería en Diseño Industrial y Desarrollo de Producto",
+            "career": "Grado en Ingeniería en Diseño Industrial ",
             "hasVideo": false,
             "index": 370,
             "type": "grado",
@@ -4094,7 +4099,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Ingeniería en Diseño Industrial y Desarrollo del Producto",
+            "career": "Grado en Ingeniería en Diseño Industrial y Desarrollo de Producto",
             "hasVideo": false,
             "index": 371,
             "type": "grado",
@@ -4105,7 +4110,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Ingeniería en Diseño Mecánico",
+            "career": "Grado en Ingeniería en Diseño Industrial y Desarrollo del Producto",
             "hasVideo": false,
             "index": 372,
             "type": "grado",
@@ -4116,7 +4121,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Ingeniería en Edificación",
+            "career": "Grado en Ingeniería en Diseño Mecánico",
             "hasVideo": false,
             "index": 373,
             "type": "grado",
@@ -4127,7 +4132,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Ingeniería en Electrónica de Comunicaciones",
+            "career": "Grado en Ingeniería en Edificación",
             "hasVideo": false,
             "index": 374,
             "type": "grado",
@@ -4138,7 +4143,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Ingeniería en Electrónica Industrial",
+            "career": "Grado en Ingeniería en Electrónica de Comunicaciones",
             "hasVideo": false,
             "index": 375,
             "type": "grado",
@@ -4149,7 +4154,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Ingeniería en Electrónica Industrial y Automática",
+            "career": "Grado en Ingeniería en Electrónica Industrial",
             "hasVideo": false,
             "index": 376,
             "type": "grado",
@@ -4160,7 +4165,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Ingeniería en Geoinformación y Geomática",
+            "career": "Grado en Ingeniería en Electrónica Industrial y Automática",
             "hasVideo": false,
             "index": 377,
             "type": "grado",
@@ -4171,7 +4176,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Ingeniería en Geomática y Topografía",
+            "career": "Grado en Ingeniería en Geoinformación y Geomática",
             "hasVideo": false,
             "index": 378,
             "type": "grado",
@@ -4182,7 +4187,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Ingeniería en Informática",
+            "career": "Grado en Ingeniería en Geomática y Topografía",
             "hasVideo": false,
             "index": 379,
             "type": "grado",
@@ -4193,7 +4198,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Ingeniería en Informática en Tecnologías de la Información",
+            "career": "Grado en Ingeniería en Informática",
             "hasVideo": false,
             "index": 380,
             "type": "grado",
@@ -4204,7 +4209,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Ingeniería en Organización Industrial",
+            "career": "Grado en Ingeniería en Informática en Tecnologías de la Información",
             "hasVideo": false,
             "index": 381,
             "type": "grado",
@@ -4215,7 +4220,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Ingeniería en Propulsión y Servicios del Buque",
+            "career": "Grado en Ingeniería en Organización Industrial",
             "hasVideo": false,
             "index": 382,
             "type": "grado",
@@ -4226,7 +4231,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Ingeniería en Química Industrial",
+            "career": "Grado en Ingeniería en Propulsión y Servicios del Buque",
             "hasVideo": false,
             "index": 383,
             "type": "grado",
@@ -4237,7 +4242,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Ingeniería en Recursos Energéticos",
+            "career": "Grado en Ingeniería en Química Industrial",
             "hasVideo": false,
             "index": 384,
             "type": "grado",
@@ -4248,7 +4253,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Ingeniería en Recursos Energéticos y Mineros",
+            "career": "Grado en Ingeniería en Recursos Energéticos",
             "hasVideo": false,
             "index": 385,
             "type": "grado",
@@ -4259,7 +4264,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Ingeniería en Sistemas Audiovisuales ",
+            "career": "Grado en Ingeniería en Recursos Energéticos y Mineros",
             "hasVideo": false,
             "index": 386,
             "type": "grado",
@@ -4270,7 +4275,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Ingeniería en Sistemas Audiovisuales y Multimedia",
+            "career": "Grado en Ingeniería en Sistemas Audiovisuales ",
             "hasVideo": false,
             "index": 387,
             "type": "grado",
@@ -4281,7 +4286,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Ingeniería en Sistemas de Comunicación",
+            "career": "Grado en Ingeniería en Sistemas Audiovisuales y Multimedia",
             "hasVideo": false,
             "index": 388,
             "type": "grado",
@@ -4292,7 +4297,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Ingeniería en Sistemas Electrónicos",
+            "career": "Grado en Ingeniería en Sistemas de Comunicación",
             "hasVideo": false,
             "index": 389,
             "type": "grado",
@@ -4303,7 +4308,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Ingeniería en Sistemas de Telecomunicación",
+            "career": "Grado en Ingeniería en Sistemas Electrónicos",
             "hasVideo": false,
             "index": 390,
             "type": "grado",
@@ -4314,7 +4319,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Ingeniería en Sistemas de Telecomunicaciones",
+            "career": "Grado en Ingeniería en Sistemas de Telecomunicación",
             "hasVideo": false,
             "index": 391,
             "type": "grado",
@@ -4325,7 +4330,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Ingeniería en Sistemas y Tecnología Naval",
+            "career": "Grado en Ingeniería en Sistemas de Telecomunicaciones",
             "hasVideo": false,
             "index": 392,
             "type": "grado",
@@ -4336,7 +4341,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Ingeniería en Sonido e Imagen",
+            "career": "Grado en Ingeniería en Sistemas y Tecnología Naval",
             "hasVideo": false,
             "index": 393,
             "type": "grado",
@@ -4347,7 +4352,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Ingeniería en Sonido e Imagen en Telecomunicación",
+            "career": "Grado en Ingeniería en Sonido e Imagen",
             "hasVideo": false,
             "index": 394,
             "type": "grado",
@@ -4358,7 +4363,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Ingeniería en Tecnología de Telecomunicación",
+            "career": "Grado en Ingeniería en Sonido e Imagen en Telecomunicación",
             "hasVideo": false,
             "index": 395,
             "type": "grado",
@@ -4369,7 +4374,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Ingeniería en Tecnología Industrial",
+            "career": "Grado en Ingeniería en Tecnología de Telecomunicación",
             "hasVideo": false,
             "index": 396,
             "type": "grado",
@@ -4380,7 +4385,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Ingeniería en Tecnología Minera",
+            "career": "Grado en Ingeniería en Tecnología Industrial",
             "hasVideo": false,
             "index": 397,
             "type": "grado",
@@ -4391,7 +4396,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Ingeniería en Tecnología Naval",
+            "career": "Grado en Ingeniería en Tecnología Minera",
             "hasVideo": false,
             "index": 398,
             "type": "grado",
@@ -4402,7 +4407,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Ingeniería en Tecnologías Aeroespaciales",
+            "career": "Grado en Ingeniería en Tecnología Naval",
             "hasVideo": false,
             "index": 399,
             "type": "grado",
@@ -4413,7 +4418,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Ingeniería en Tecnologías Ambientales",
+            "career": "Grado en Ingeniería en Tecnologías Aeroespaciales",
             "hasVideo": false,
             "index": 400,
             "type": "grado",
@@ -4424,7 +4429,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Ingeniería en Tecnologías de Telecomunicación",
+            "career": "Grado en Ingeniería en Tecnologías Ambientales",
             "hasVideo": false,
             "index": 401,
             "type": "grado",
@@ -4435,7 +4440,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Ingeniería en Tecnologías Industriales",
+            "career": "Grado en Ingeniería en Tecnologías de Telecomunicación",
             "hasVideo": false,
             "index": 402,
             "type": "grado",
@@ -4446,7 +4451,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Ingeniería en Vehículos Aeroespaciales",
+            "career": "Grado en Ingeniería en Tecnologías Industriales",
             "hasVideo": false,
             "index": 403,
             "type": "grado",
@@ -4457,7 +4462,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Ingeniería Energética",
+            "career": "Grado en Ingeniería en Vehículos Aeroespaciales",
             "hasVideo": false,
             "index": 404,
             "type": "grado",
@@ -4468,7 +4473,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Ingeniería Física",
+            "career": "Grado en Ingeniería Energética",
             "hasVideo": false,
             "index": 405,
             "type": "grado",
@@ -4479,7 +4484,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Ingeniería Forestal",
+            "career": "Grado en Ingeniería Física",
             "hasVideo": false,
             "index": 406,
             "type": "grado",
@@ -4490,7 +4495,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Ingeniería Forestal y del Medio Natural - Explotaciones Forestales",
+            "career": "Grado en Ingeniería Forestal",
             "hasVideo": false,
             "index": 407,
             "type": "grado",
@@ -4501,7 +4506,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Ingeniería Forestal y del Medio Natural",
+            "career": "Grado en Ingeniería Forestal y del Medio Natural - Explotaciones Forestales",
             "hasVideo": false,
             "index": 408,
             "type": "grado",
@@ -4512,7 +4517,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Ingeniería Forestal: Industrias Forestales",
+            "career": "Grado en Ingeniería Forestal y del Medio Natural",
             "hasVideo": false,
             "index": 409,
             "type": "grado",
@@ -4523,7 +4528,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Ingeniería Geológica",
+            "career": "Grado en Ingeniería Forestal: Industrias Forestales",
             "hasVideo": false,
             "index": 410,
             "type": "grado",
@@ -4534,7 +4539,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Ingeniería Geomática",
+            "career": "Grado en Ingeniería Geológica",
             "hasVideo": false,
             "index": 411,
             "type": "grado",
@@ -4545,7 +4550,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Ingeniería Geomática y Topografía",
+            "career": "Grado en Ingeniería Geomática",
             "hasVideo": false,
             "index": 412,
             "type": "grado",
@@ -4556,7 +4561,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Ingeniería Geomática y Topográfica",
+            "career": "Grado en Ingeniería Geomática y Topografía",
             "hasVideo": false,
             "index": 413,
             "type": "grado",
@@ -4567,7 +4572,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Ingeniería Hortofrutícola y Jardinería",
+            "career": "Grado en Ingeniería Geomática y Topográfica",
             "hasVideo": false,
             "index": 414,
             "type": "grado",
@@ -4578,7 +4583,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Ingeniería Informática",
+            "career": "Grado en Ingeniería Hortofrutícola y Jardinería",
             "hasVideo": false,
             "index": 415,
             "type": "grado",
@@ -4589,7 +4594,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Ingeniería Informática - Ingeniería de Computadores",
+            "career": "Grado en Ingeniería Informática",
             "hasVideo": false,
             "index": 416,
             "type": "grado",
@@ -4600,7 +4605,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Ingeniería Informática - Ingeniería del Software",
+            "career": "Grado en Ingeniería Informática - Ingeniería de Computadores",
             "hasVideo": false,
             "index": 417,
             "type": "grado",
@@ -4611,7 +4616,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Ingeniería Informática - Tecnologías Informáticas",
+            "career": "Grado en Ingeniería Informática - Ingeniería del Software",
             "hasVideo": false,
             "index": 418,
             "type": "grado",
@@ -4622,7 +4627,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Ingeniería Informática de Gestión y Sistemas de Información",
+            "career": "Grado en Ingeniería Informática - Tecnologías Informáticas",
             "hasVideo": false,
             "index": 419,
             "type": "grado",
@@ -4633,7 +4638,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Ingeniería Informática de Servicios y Aplicaciones",
+            "career": "Grado en Ingeniería Informática de Gestión y Sistemas de Información",
             "hasVideo": false,
             "index": 420,
             "type": "grado",
@@ -4644,7 +4649,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Ingeniería Informática de Sistemas",
+            "career": "Grado en Ingeniería Informática de Servicios y Aplicaciones",
             "hasVideo": false,
             "index": 421,
             "type": "grado",
@@ -4655,7 +4660,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Ingeniería Informática del Software",
+            "career": "Grado en Ingeniería Informática de Sistemas",
             "hasVideo": false,
             "index": 422,
             "type": "grado",
@@ -4666,7 +4671,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Ingeniería Informática en Computación",
+            "career": "Grado en Ingeniería Informática del Software",
             "hasVideo": false,
             "index": 423,
             "type": "grado",
@@ -4677,7 +4682,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Ingeniería Informática en Ingeniería de Computadores",
+            "career": "Grado en Ingeniería Informática en Computación",
             "hasVideo": false,
             "index": 424,
             "type": "grado",
@@ -4688,7 +4693,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Ingeniería Informática en Ingeniería del Software",
+            "career": "Grado en Ingeniería Informática en Ingeniería de Computadores",
             "hasVideo": false,
             "index": 425,
             "type": "grado",
@@ -4699,7 +4704,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Ingeniería Informática en Sistemas de Información",
+            "career": "Grado en Ingeniería Informática en Ingeniería del Software",
             "hasVideo": false,
             "index": 426,
             "type": "grado",
@@ -4710,7 +4715,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Ingeniería Informática en Tecnologías de la Información",
+            "career": "Grado en Ingeniería Informática en Sistemas de Información",
             "hasVideo": false,
             "index": 427,
             "type": "grado",
@@ -4721,7 +4726,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Ingeniería Informática y Tecnologías Virtuales",
+            "career": "Grado en Ingeniería Informática en Tecnologías de la Información",
             "hasVideo": false,
             "index": 428,
             "type": "grado",
@@ -4732,7 +4737,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Ingeniería Marina",
+            "career": "Grado en Ingeniería Informática y Tecnologías Virtuales",
             "hasVideo": false,
             "index": 429,
             "type": "grado",
@@ -4743,7 +4748,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Ingeniería Marítima",
+            "career": "Grado en Ingeniería Marina",
             "hasVideo": false,
             "index": 430,
             "type": "grado",
@@ -4754,7 +4759,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Ingeniería Matemática",
+            "career": "Grado en Ingeniería Marítima",
             "hasVideo": false,
             "index": 431,
             "type": "grado",
@@ -4765,7 +4770,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Ingeniería Matemática en Ciencia de Datos / Mathematical Engineering On Data Science",
+            "career": "Grado en Ingeniería Matemática",
             "hasVideo": false,
             "index": 432,
             "type": "grado",
@@ -4776,7 +4781,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Ingeniería Mecánica",
+            "career": "Grado en Ingeniería Matemática en Ciencia de Datos / Mathematical Engineering On Data Science",
             "hasVideo": false,
             "index": 433,
             "type": "grado",
@@ -4787,7 +4792,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Ingeniería Mecatrónica",
+            "career": "Grado en Ingeniería Mecánica",
             "hasVideo": false,
             "index": 434,
             "type": "grado",
@@ -4798,7 +4803,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Ingeniería Mecatrónica y Robótica",
+            "career": "Grado en Ingeniería Mecatrónica",
             "hasVideo": false,
             "index": 435,
             "type": "grado",
@@ -4809,7 +4814,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Ingeniería Minera",
+            "career": "Grado en Ingeniería Mecatrónica y Robótica",
             "hasVideo": false,
             "index": 436,
             "type": "grado",
@@ -4820,7 +4825,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Ingeniería Minera y Energética",
+            "career": "Grado en Ingeniería Minera",
             "hasVideo": false,
             "index": 437,
             "type": "grado",
@@ -4831,7 +4836,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Ingeniería Multimedia",
+            "career": "Grado en Ingeniería Minera y Energética",
             "hasVideo": false,
             "index": 438,
             "type": "grado",
@@ -4842,7 +4847,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Ingeniería Náutica y Transporte Marítimo",
+            "career": "Grado en Ingeniería Multimedia",
             "hasVideo": false,
             "index": 439,
             "type": "grado",
@@ -4853,7 +4858,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Ingeniería Naval y Oceánica",
+            "career": "Grado en Ingeniería Náutica y Transporte Marítimo",
             "hasVideo": false,
             "index": 440,
             "type": "grado",
@@ -4864,7 +4869,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Ingeniería Química",
+            "career": "Grado en Ingeniería Naval y Oceánica",
             "hasVideo": false,
             "index": 441,
             "type": "grado",
@@ -4875,7 +4880,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Ingeniería Química Industrial",
+            "career": "Grado en Ingeniería Química",
             "hasVideo": false,
             "index": 442,
             "type": "grado",
@@ -4886,7 +4891,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Ingeniería Robótica",
+            "career": "Grado en Ingeniería Química Industrial",
             "hasVideo": false,
             "index": 443,
             "type": "grado",
@@ -4897,7 +4902,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Ingeniería Técnica de Telecomunicación",
+            "career": "Grado en Ingeniería Robótica",
             "hasVideo": false,
             "index": 444,
             "type": "grado",
@@ -4908,7 +4913,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Ingeniería Técnica Industrial",
+            "career": "Grado en Ingeniería Técnica de Telecomunicación",
             "hasVideo": false,
             "index": 445,
             "type": "grado",
@@ -4919,7 +4924,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Ingeniería Telemática",
+            "career": "Grado en Ingeniería Técnica Industrial",
             "hasVideo": false,
             "index": 446,
             "type": "grado",
@@ -4930,7 +4935,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Ingeniería y Ciencia Agronómica",
+            "career": "Grado en Ingeniería Telemática",
             "hasVideo": false,
             "index": 447,
             "type": "grado",
@@ -4941,7 +4946,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Ingeniería y Gestión Empresarial",
+            "career": "Grado en Ingeniería y Ciencia Agronómica",
             "hasVideo": false,
             "index": 448,
             "type": "grado",
@@ -4952,7 +4957,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Inglés",
+            "career": "Grado en Ingeniería y Gestión Empresarial",
             "hasVideo": false,
             "index": 449,
             "type": "grado",
@@ -4963,7 +4968,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Inglés: Estudios Lingüísticos y Literarios",
+            "career": "Grado en Inglés",
             "hasVideo": false,
             "index": 450,
             "type": "grado",
@@ -4974,7 +4979,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Innovación de Procesos y Productos Alimentarios",
+            "career": "Grado en Inglés: Estudios Lingüísticos y Literarios",
             "hasVideo": false,
             "index": 451,
             "type": "grado",
@@ -4985,7 +4990,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Innovación y Seguridad Alimentaria",
+            "career": "Grado en Innovación de Procesos y Productos Alimentarios",
             "hasVideo": false,
             "index": 452,
             "type": "grado",
@@ -4996,7 +5001,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Interpretación Musical",
+            "career": "Grado en Innovación y Seguridad Alimentaria",
             "hasVideo": false,
             "index": 453,
             "type": "grado",
@@ -5007,7 +5012,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Lengua de Signos Española y Comunidad Sorda",
+            "career": "Grado en Interpretación Musical",
             "hasVideo": false,
             "index": 454,
             "type": "grado",
@@ -5018,7 +5023,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Lengua Española y Literaturas Hispánicas",
+            "career": "Grado en Lengua de Signos Española y Comunidad Sorda",
             "hasVideo": false,
             "index": 455,
             "type": "grado",
@@ -5029,7 +5034,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Lengua Española y sus Literaturas",
+            "career": "Grado en Lengua Española y Literaturas Hispánicas",
             "hasVideo": false,
             "index": 456,
             "type": "grado",
@@ -5040,7 +5045,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Lengua y Cultura Vasca",
+            "career": "Grado en Lengua Española y sus Literaturas",
             "hasVideo": false,
             "index": 457,
             "type": "grado",
@@ -5051,7 +5056,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Lengua y Literatura Alemanas",
+            "career": "Grado en Lengua y Cultura Vasca",
             "hasVideo": false,
             "index": 458,
             "type": "grado",
@@ -5062,7 +5067,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Lengua y Literatura Catalanas",
+            "career": "Grado en Lengua y Literatura Alemanas",
             "hasVideo": false,
             "index": 459,
             "type": "grado",
@@ -5073,7 +5078,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Lengua y Literatura Española",
+            "career": "Grado en Lengua y Literatura Catalanas",
             "hasVideo": false,
             "index": 460,
             "type": "grado",
@@ -5084,7 +5089,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Lengua y Literatura Españolas",
+            "career": "Grado en Lengua y Literatura Española",
             "hasVideo": false,
             "index": 461,
             "type": "grado",
@@ -5095,7 +5100,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Lengua y Literatura Gallegas",
+            "career": "Grado en Lengua y Literatura Españolas",
             "hasVideo": false,
             "index": 462,
             "type": "grado",
@@ -5106,7 +5111,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Lengua y Literatura Hispánica",
+            "career": "Grado en Lengua y Literatura Gallegas",
             "hasVideo": false,
             "index": 463,
             "type": "grado",
@@ -5117,7 +5122,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Lengua y Literatura Hispánicas",
+            "career": "Grado en Lengua y Literatura Hispánica",
             "hasVideo": false,
             "index": 464,
             "type": "grado",
@@ -5128,7 +5133,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Lengua y Literatura Inglesas",
+            "career": "Grado en Lengua y Literatura Hispánicas",
             "hasVideo": false,
             "index": 465,
             "type": "grado",
@@ -5139,7 +5144,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Lenguas Aplicadas",
+            "career": "Grado en Lengua y Literatura Inglesas",
             "hasVideo": false,
             "index": 466,
             "type": "grado",
@@ -5150,7 +5155,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Lenguas Aplicadas a la Comunicación y al Marketing",
+            "career": "Grado en Lenguas Aplicadas",
             "hasVideo": false,
             "index": 467,
             "type": "grado",
@@ -5161,7 +5166,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Lenguas Aplicadas y Comunicación Intercultural",
+            "career": "Grado en Lenguas Aplicadas a la Comunicación y al Marketing",
             "hasVideo": false,
             "index": 468,
             "type": "grado",
@@ -5172,7 +5177,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Lenguas Aplicadas y Traducción (inglés)",
+            "career": "Grado en Lenguas Aplicadas y Comunicación Intercultural",
             "hasVideo": false,
             "index": 469,
             "type": "grado",
@@ -5183,7 +5188,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Lenguas Extranjeras",
+            "career": "Grado en Lenguas Aplicadas y Traducción (inglés)",
             "hasVideo": false,
             "index": 470,
             "type": "grado",
@@ -5194,7 +5199,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Lenguas Modernas",
+            "career": "Grado en Lenguas Extranjeras",
             "hasVideo": false,
             "index": 471,
             "type": "grado",
@@ -5205,7 +5210,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Lenguas Modernas y Gestión",
+            "career": "Grado en Lenguas Modernas",
             "hasVideo": false,
             "index": 472,
             "type": "grado",
@@ -5216,7 +5221,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Lenguas Modernas y su Literatura",
+            "career": "Grado en Lenguas Modernas y Gestión",
             "hasVideo": false,
             "index": 473,
             "type": "grado",
@@ -5227,7 +5232,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Lenguas Modernas y Traducción",
+            "career": "Grado en Lenguas Modernas y su Literatura",
             "hasVideo": false,
             "index": 474,
             "type": "grado",
@@ -5238,7 +5243,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Lenguas Modernas, Cultura y Comunicación",
+            "career": "Grado en Lenguas Modernas y Traducción",
             "hasVideo": false,
             "index": 475,
             "type": "grado",
@@ -5249,7 +5254,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Lenguas Románicas y sus Literaturas",
+            "career": "Grado en Lenguas Modernas, Cultura y Comunicación",
             "hasVideo": false,
             "index": 476,
             "type": "grado",
@@ -5260,7 +5265,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Lenguas y Literaturas Modernas",
+            "career": "Grado en Lenguas Románicas y sus Literaturas",
             "hasVideo": false,
             "index": 477,
             "type": "grado",
@@ -5271,7 +5276,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Lenguas y Literaturas Modernas - Francés",
+            "career": "Grado en Lenguas y Literaturas Modernas",
             "hasVideo": false,
             "index": 478,
             "type": "grado",
@@ -5282,7 +5287,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Lenguas y Literaturas Modernas - Portugués",
+            "career": "Grado en Lenguas y Literaturas Modernas - Francés",
             "hasVideo": false,
             "index": 479,
             "type": "grado",
@@ -5293,7 +5298,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Lenguas y Literaturas Modernas, Francés - Inglés",
+            "career": "Grado en Lenguas y Literaturas Modernas - Portugués",
             "hasVideo": false,
             "index": 480,
             "type": "grado",
@@ -5304,7 +5309,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Lenguas, Literaturas y Culturas Románicas",
+            "career": "Grado en Lenguas y Literaturas Modernas, Francés - Inglés",
             "hasVideo": false,
             "index": 481,
             "type": "grado",
@@ -5315,7 +5320,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Liderazgo Emprendedor e Innovación",
+            "career": "Grado en Lenguas, Literaturas y Culturas Románicas",
             "hasVideo": false,
             "index": 482,
             "type": "grado",
@@ -5326,7 +5331,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Lingüística ",
+            "career": "Grado en Liderazgo Emprendedor e Innovación",
             "hasVideo": false,
             "index": 483,
             "type": "grado",
@@ -5337,7 +5342,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Lingüística y Lenguas Aplicadas",
+            "career": "Grado en Lingüística ",
             "hasVideo": false,
             "index": 484,
             "type": "grado",
@@ -5348,7 +5353,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Literatura General y Comparada",
+            "career": "Grado en Lingüística y Lenguas Aplicadas",
             "hasVideo": false,
             "index": 485,
             "type": "grado",
@@ -5359,7 +5364,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Literaturas Comparadas",
+            "career": "Grado en Literatura General y Comparada",
             "hasVideo": false,
             "index": 486,
             "type": "grado",
@@ -5370,7 +5375,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Logística y negocios Marítimos",
+            "career": "Grado en Literaturas Comparadas",
             "hasVideo": false,
             "index": 487,
             "type": "grado",
@@ -5381,7 +5386,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Logopedia",
+            "career": "Grado en Logística y negocios Marítimos",
             "hasVideo": false,
             "index": 488,
             "type": "grado",
@@ -5392,7 +5397,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Maestro Educación Primaria",
+            "career": "Grado en Logopedia",
             "hasVideo": false,
             "index": 489,
             "type": "grado",
@@ -5403,7 +5408,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Maestro de Educación Infantil",
+            "career": "Grado en Maestro Educación Primaria",
             "hasVideo": false,
             "index": 490,
             "type": "grado",
@@ -5414,7 +5419,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Maestro/a de Educación Infantil",
+            "career": "Grado en Maestro de Educación Infantil",
             "hasVideo": false,
             "index": 491,
             "type": "grado",
@@ -5425,7 +5430,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Maestro de Educación Primaria",
+            "career": "Grado en Maestro/a de Educación Infantil",
             "hasVideo": false,
             "index": 492,
             "type": "grado",
@@ -5436,7 +5441,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Maestro/a de Educación Primaria",
+            "career": "Grado en Maestro de Educación Primaria",
             "hasVideo": false,
             "index": 493,
             "type": "grado",
@@ -5447,7 +5452,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Maestro en Educación Infantil",
+            "career": "Grado en Maestro/a de Educación Primaria",
             "hasVideo": false,
             "index": 494,
             "type": "grado",
@@ -5458,7 +5463,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Maestro/a en Educación Infantil",
+            "career": "Grado en Maestro en Educación Infantil",
             "hasVideo": false,
             "index": 495,
             "type": "grado",
@@ -5469,7 +5474,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Maestro en Educación Primaria",
+            "career": "Grado en Maestro/a en Educación Infantil",
             "hasVideo": false,
             "index": 496,
             "type": "grado",
@@ -5480,7 +5485,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Maestro/a en Educación Primaria",
+            "career": "Grado en Maestro en Educación Primaria",
             "hasVideo": false,
             "index": 497,
             "type": "grado",
@@ -5491,7 +5496,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Magisterio de Educación Infantil",
+            "career": "Grado en Maestro/a en Educación Primaria",
             "hasVideo": false,
             "index": 498,
             "type": "grado",
@@ -5502,7 +5507,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Magisterio de Educación Primaria",
+            "career": "Grado en Magisterio de Educación Infantil",
             "hasVideo": false,
             "index": 499,
             "type": "grado",
@@ -5513,7 +5518,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Magisterio en Educación Infantil",
+            "career": "Grado en Magisterio de Educación Primaria",
             "hasVideo": false,
             "index": 500,
             "type": "grado",
@@ -5524,7 +5529,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Magisterio en Educación Primaria",
+            "career": "Grado en Magisterio en Educación Infantil",
             "hasVideo": false,
             "index": 501,
             "type": "grado",
@@ -5535,7 +5540,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Marina Civil, Ingeniería Marina",
+            "career": "Grado en Magisterio en Educación Primaria",
             "hasVideo": false,
             "index": 502,
             "type": "grado",
@@ -5546,7 +5551,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Marina Civil, Ingeniería Náutica y Transporte Marítimo",
+            "career": "Grado en Marina Civil, Ingeniería Marina",
             "hasVideo": false,
             "index": 503,
             "type": "grado",
@@ -5557,7 +5562,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Marina Civil, Ingeniería Radioelectrónica",
+            "career": "Grado en Marina Civil, Ingeniería Náutica y Transporte Marítimo",
             "hasVideo": false,
             "index": 504,
             "type": "grado",
@@ -5568,7 +5573,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Marketing",
+            "career": "Grado en Marina Civil, Ingeniería Radioelectrónica",
             "hasVideo": false,
             "index": 505,
             "type": "grado",
@@ -5579,7 +5584,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Marketing e Investigación de Mercados",
+            "career": "Grado en Marketing",
             "hasVideo": false,
             "index": 506,
             "type": "grado",
@@ -5590,7 +5595,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Marketing y Comercialización Internacional",
+            "career": "Grado en Marketing e Investigación de Mercados",
             "hasVideo": false,
             "index": 507,
             "type": "grado",
@@ -5601,7 +5606,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Marketing y Comunicación",
+            "career": "Grado en Marketing y Comercialización Internacional",
             "hasVideo": false,
             "index": 508,
             "type": "grado",
@@ -5612,7 +5617,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Marketing y Comunicación Comercial",
+            "career": "Grado en Marketing y Comunicación",
             "hasVideo": false,
             "index": 509,
             "type": "grado",
@@ -5623,7 +5628,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Marketing y Comunicación Digital",
+            "career": "Grado en Marketing y Comunicación Comercial",
             "hasVideo": false,
             "index": 510,
             "type": "grado",
@@ -5634,7 +5639,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Marketing y Comunicación Empresarial",
+            "career": "Grado en Marketing y Comunicación Digital",
             "hasVideo": false,
             "index": 511,
             "type": "grado",
@@ -5645,7 +5650,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Marketing y Comunidades Digitales",
+            "career": "Grado en Marketing y Comunicación Empresarial",
             "hasVideo": false,
             "index": 512,
             "type": "grado",
@@ -5656,7 +5661,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Marketing y Dirección Comercial",
+            "career": "Grado en Marketing y Comunidades Digitales",
             "hasVideo": false,
             "index": 513,
             "type": "grado",
@@ -5667,7 +5672,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Marketing y Gestión Comercial",
+            "career": "Grado en Marketing y Dirección Comercial",
             "hasVideo": false,
             "index": 514,
             "type": "grado",
@@ -5678,7 +5683,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Matemática Computacional",
+            "career": "Grado en Marketing y Gestión Comercial",
             "hasVideo": false,
             "index": 515,
             "type": "grado",
@@ -5689,7 +5694,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Matemáticas",
+            "career": "Grado en Matemática Computacional",
             "hasVideo": false,
             "index": 516,
             "type": "grado",
@@ -5700,7 +5705,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Matemáticas e Informática",
+            "career": "Grado en Matemáticas",
             "hasVideo": false,
             "index": 517,
             "type": "grado",
@@ -5711,7 +5716,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Matemáticas y Estadística",
+            "career": "Grado en Matemáticas e Informática",
             "hasVideo": false,
             "index": 518,
             "type": "grado",
@@ -5722,7 +5727,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Medicina",
+            "career": "Grado en Matemáticas y Estadística",
             "hasVideo": false,
             "index": 519,
             "type": "grado",
@@ -5733,7 +5738,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Medios Audiovisuales",
+            "career": "Grado en Medicina",
             "hasVideo": false,
             "index": 520,
             "type": "grado",
@@ -5744,7 +5749,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Microbiología ",
+            "career": "Grado en Medios Audiovisuales",
             "hasVideo": false,
             "index": 521,
             "type": "grado",
@@ -5755,7 +5760,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Multimedia",
+            "career": "Grado en Microbiología ",
             "hasVideo": false,
             "index": 522,
             "type": "grado",
@@ -5766,7 +5771,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Multimedia y Artes Digitales",
+            "career": "Grado en Multimedia",
             "hasVideo": false,
             "index": 523,
             "type": "grado",
@@ -5777,7 +5782,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Musicología ",
+            "career": "Grado en Multimedia y Artes Digitales",
             "hasVideo": false,
             "index": 524,
             "type": "grado",
@@ -5788,7 +5793,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Nanociencia y Nanotecnolog��a",
+            "career": "Grado en Musicología ",
             "hasVideo": false,
             "index": 525,
             "type": "grado",
@@ -5799,7 +5804,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Negocios Internacionales\\ International Business",
+            "career": "Grado en Nanociencia y Nanotecnolog��a",
             "hasVideo": false,
             "index": 526,
             "type": "grado",
@@ -5810,7 +5815,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Negocios y Marketing Internacionales",
+            "career": "Grado en Negocios Internacionales\\ International Business",
             "hasVideo": false,
             "index": 527,
             "type": "grado",
@@ -5821,7 +5826,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Nutrición Humana y Dietética",
+            "career": "Grado en Negocios y Marketing Internacionales",
             "hasVideo": false,
             "index": 528,
             "type": "grado",
@@ -5832,7 +5837,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Odontología",
+            "career": "Grado en Nutrición Humana y Dietética",
             "hasVideo": false,
             "index": 529,
             "type": "grado",
@@ -5843,7 +5848,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Óptica y Optometría",
+            "career": "Grado en Odontología",
             "hasVideo": false,
             "index": 530,
             "type": "grado",
@@ -5854,7 +5859,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Óptica, Optometría y Audiología",
+            "career": "Grado en Óptica y Optometría",
             "hasVideo": false,
             "index": 531,
             "type": "grado",
@@ -5865,7 +5870,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Organización de Eventos, Protocolo y Relaciones Institucionales",
+            "career": "Grado en Óptica, Optometría y Audiología",
             "hasVideo": false,
             "index": 532,
             "type": "grado",
@@ -5876,7 +5881,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Paisajismo",
+            "career": "Grado en Organización de Eventos, Protocolo y Relaciones Institucionales",
             "hasVideo": false,
             "index": 533,
             "type": "grado",
@@ -5887,7 +5892,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Pedagogía",
+            "career": "Grado en Paisajismo",
             "hasVideo": false,
             "index": 534,
             "type": "grado",
@@ -5898,7 +5903,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Pedagogía de las Artes Visuales y la Danza",
+            "career": "Grado en Pedagogía",
             "hasVideo": false,
             "index": 535,
             "type": "grado",
@@ -5909,7 +5914,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Periodismo",
+            "career": "Grado en Pedagogía de las Artes Visuales y la Danza",
             "hasVideo": false,
             "index": 536,
             "type": "grado",
@@ -5920,7 +5925,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Periodismo y Comunicación Corporativa",
+            "career": "Grado en Periodismo",
             "hasVideo": false,
             "index": 537,
             "type": "grado",
@@ -5931,7 +5936,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Piloto de Aviación Comercial y Operaciones Aéreas",
+            "career": "Grado en Periodismo y Comunicación Corporativa",
             "hasVideo": false,
             "index": 538,
             "type": "grado",
@@ -5942,7 +5947,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Podología",
+            "career": "Grado en Piloto de Aviación Comercial y Operaciones Aéreas",
             "hasVideo": false,
             "index": 539,
             "type": "grado",
@@ -5953,7 +5958,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Protocolo y Organización de Eventos",
+            "career": "Grado en Podología",
             "hasVideo": false,
             "index": 540,
             "type": "grado",
@@ -5964,7 +5969,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Protocolo, Organización de Eventos y Comunicación Corporativa",
+            "career": "Grado en Protocolo y Organización de Eventos",
             "hasVideo": false,
             "index": 541,
             "type": "grado",
@@ -5975,7 +5980,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Proyectos de Interiorismo",
+            "career": "Grado en Protocolo, Organización de Eventos y Comunicación Corporativa",
             "hasVideo": false,
             "index": 542,
             "type": "grado",
@@ -5986,7 +5991,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Psicología",
+            "career": "Grado en Proyectos de Interiorismo",
             "hasVideo": false,
             "index": 543,
             "type": "grado",
@@ -5997,7 +6002,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Publicidad",
+            "career": "Grado en Psicología",
             "hasVideo": false,
             "index": 544,
             "type": "grado",
@@ -6008,7 +6013,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Publicidad, Marketing y Relaciones Púbicas",
+            "career": "Grado en Publicidad",
             "hasVideo": false,
             "index": 545,
             "type": "grado",
@@ -6019,7 +6024,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Publicidad, Relaciones Públicas y Marketing",
+            "career": "Grado en Publicidad, Marketing y Relaciones Púbicas",
             "hasVideo": false,
             "index": 546,
             "type": "grado",
@@ -6030,7 +6035,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Publicidad y Relaciones Públicas",
+            "career": "Grado en Publicidad, Relaciones Públicas y Marketing",
             "hasVideo": false,
             "index": 547,
             "type": "grado",
@@ -6041,7 +6046,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Química",
+            "career": "Grado en Publicidad y Relaciones Públicas",
             "hasVideo": false,
             "index": 548,
             "type": "grado",
@@ -6052,7 +6057,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Relaciones Internacionales",
+            "career": "Grado en Química",
             "hasVideo": false,
             "index": 549,
             "type": "grado",
@@ -6063,7 +6068,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Relaciones Internacionales / Bachelor in International Relations",
+            "career": "Grado en Relaciones Internacionales",
             "hasVideo": false,
             "index": 550,
             "type": "grado",
@@ -6074,7 +6079,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Relaciones Laborales",
+            "career": "Grado en Relaciones Internacionales / Bachelor in International Relations",
             "hasVideo": false,
             "index": 551,
             "type": "grado",
@@ -6085,7 +6090,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Relaciones Laborales y Desarrollo de Recursos Humanos",
+            "career": "Grado en Relaciones Laborales",
             "hasVideo": false,
             "index": 552,
             "type": "grado",
@@ -6096,7 +6101,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Relaciones Laborales y Empleo",
+            "career": "Grado en Relaciones Laborales y Desarrollo de Recursos Humanos",
             "hasVideo": false,
             "index": 553,
             "type": "grado",
@@ -6107,7 +6112,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Relaciones Laborales y Ocupación",
+            "career": "Grado en Relaciones Laborales y Empleo",
             "hasVideo": false,
             "index": 554,
             "type": "grado",
@@ -6118,7 +6123,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Relaciones Laborales y Recursos Humanos",
+            "career": "Grado en Relaciones Laborales y Ocupación",
             "hasVideo": false,
             "index": 555,
             "type": "grado",
@@ -6129,7 +6134,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Seguridad",
+            "career": "Grado en Relaciones Laborales y Recursos Humanos",
             "hasVideo": false,
             "index": 556,
             "type": "grado",
@@ -6140,7 +6145,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Seguridad Integral",
+            "career": "Grado en Seguridad",
             "hasVideo": false,
             "index": 557,
             "type": "grado",
@@ -6151,7 +6156,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Seguridad y Control de Riesgos",
+            "career": "Grado en Seguridad Integral",
             "hasVideo": false,
             "index": 558,
             "type": "grado",
@@ -6162,7 +6167,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Sistemas de Información",
+            "career": "Grado en Seguridad y Control de Riesgos",
             "hasVideo": false,
             "index": 559,
             "type": "grado",
@@ -6173,7 +6178,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Sociología",
+            "career": "Grado en Sistemas de Información",
             "hasVideo": false,
             "index": 560,
             "type": "grado",
@@ -6184,7 +6189,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Sociología Aplicada",
+            "career": "Grado en Sociología",
             "hasVideo": false,
             "index": 561,
             "type": "grado",
@@ -6195,7 +6200,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Técnicas Cuantitativas para la Economía y la Empresa",
+            "career": "Grado en Sociología Aplicada",
             "hasVideo": false,
             "index": 562,
             "type": "grado",
@@ -6206,7 +6211,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Tecnología de la Ingeniería Civil",
+            "career": "Grado en Técnicas Cuantitativas para la Economía y la Empresa",
             "hasVideo": false,
             "index": 563,
             "type": "grado",
@@ -6217,7 +6222,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Tecnologías de la Información para Empresas",
+            "career": "Grado en Tecnología de la Ingeniería Civil",
             "hasVideo": false,
             "index": 564,
             "type": "grado",
@@ -6228,7 +6233,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Tecnologías de la Información para la Salud",
+            "career": "Grado en Tecnologías de la Información para Empresas",
             "hasVideo": false,
             "index": 565,
             "type": "grado",
@@ -6239,7 +6244,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Tecnología de las Industrias Agrarias y Alimentarias",
+            "career": "Grado en Tecnologías de la Información para la Salud",
             "hasVideo": false,
             "index": 566,
             "type": "grado",
@@ -6250,7 +6255,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Tecnología e Innovación Alimentaria",
+            "career": "Grado en Tecnología de las Industrias Agrarias y Alimentarias",
             "hasVideo": false,
             "index": 567,
             "type": "grado",
@@ -6261,7 +6266,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Tecnología y Gestión Alimentaria",
+            "career": "Grado en Tecnología e Innovación Alimentaria",
             "hasVideo": false,
             "index": 568,
             "type": "grado",
@@ -6272,7 +6277,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Tecnologías de Telecomunicación",
+            "career": "Grado en Tecnología y Gestión Alimentaria",
             "hasVideo": false,
             "index": 569,
             "type": "grado",
@@ -6283,7 +6288,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Tecnologías Interactivas",
+            "career": "Grado en Tecnologías de Telecomunicación",
             "hasVideo": false,
             "index": 570,
             "type": "grado",
@@ -6294,7 +6299,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Tecnologías para la Sociedad de la Información",
+            "career": "Grado en Tecnologías Interactivas",
             "hasVideo": false,
             "index": 571,
             "type": "grado",
@@ -6305,7 +6310,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Terapia Ocupacional",
+            "career": "Grado en Tecnologías para la Sociedad de la Información",
             "hasVideo": false,
             "index": 572,
             "type": "grado",
@@ -6316,7 +6321,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Trabajo Social",
+            "career": "Grado en Terapia Ocupacional",
             "hasVideo": false,
             "index": 573,
             "type": "grado",
@@ -6327,7 +6332,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Traducción",
+            "career": "Grado en Trabajo Social",
             "hasVideo": false,
             "index": 574,
             "type": "grado",
@@ -6338,7 +6343,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Traducción e Interpretación",
+            "career": "Grado en Traducción",
             "hasVideo": false,
             "index": 575,
             "type": "grado",
@@ -6349,7 +6354,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Traducción e Interpretación: Inglés-Alemán",
+            "career": "Grado en Traducción e Interpretación",
             "hasVideo": false,
             "index": 576,
             "type": "grado",
@@ -6360,7 +6365,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Traducción e Interpretación: Inglés-Francés",
+            "career": "Grado en Traducción e Interpretación: Inglés-Alemán",
             "hasVideo": false,
             "index": 577,
             "type": "grado",
@@ -6371,7 +6376,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Traducción e Interpretación de Lengua de Signos Española",
+            "career": "Grado en Traducción e Interpretación: Inglés-Francés",
             "hasVideo": false,
             "index": 578,
             "type": "grado",
@@ -6382,7 +6387,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Traducción y Comunicación Intercultural",
+            "career": "Grado en Traducción e Interpretación de Lengua de Signos Española",
             "hasVideo": false,
             "index": 579,
             "type": "grado",
@@ -6393,7 +6398,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Traducción y Mediación Interlingüística",
+            "career": "Grado en Traducción y Comunicación Intercultural",
             "hasVideo": false,
             "index": 580,
             "type": "grado",
@@ -6404,7 +6409,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Traducción, Interpretación y Lenguas Aplicadas",
+            "career": "Grado en Traducción y Mediación Interlingüística",
             "hasVideo": false,
             "index": 581,
             "type": "grado",
@@ -6415,7 +6420,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Turismo",
+            "career": "Grado en Traducción, Interpretación y Lenguas Aplicadas",
             "hasVideo": false,
             "index": 582,
             "type": "grado",
@@ -6426,7 +6431,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Turismo y Gestión del Ocio ",
+            "career": "Grado en Turismo",
             "hasVideo": false,
             "index": 583,
             "type": "grado",
@@ -6437,7 +6442,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Turismo y Ocio",
+            "career": "Grado en Turismo y Gestión del Ocio ",
             "hasVideo": false,
             "index": 584,
             "type": "grado",
@@ -6448,7 +6453,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Turismo, Administración de Organizaciones y Recursos Turísticos",
+            "career": "Grado en Turismo y Ocio",
             "hasVideo": false,
             "index": 585,
             "type": "grado",
@@ -6459,7 +6464,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Urbanismo, Ordenación del Territorio y Sostenibilidad",
+            "career": "Grado en Turismo, Administración de Organizaciones y Recursos Turísticos",
             "hasVideo": false,
             "index": 586,
             "type": "grado",
@@ -6470,7 +6475,7 @@ export class GradosVideosProvider {
             "videoUrl": null
           },
           {
-            "career": "Grado en Veterinaria",
+            "career": "Grado en Urbanismo, Ordenación del Territorio y Sostenibilidad",
             "hasVideo": false,
             "index": 587,
             "type": "grado",
@@ -6479,9 +6484,20 @@ export class GradosVideosProvider {
               "long": null
             },
             "videoUrl": null
+          },
+          {
+            "career": "Grado en Veterinaria",
+            "hasVideo": false,
+            "index": 588,
+            "type": "grado",
+            "location": {
+              "lat": null,
+              "long": null
+            },
+            "videoUrl": null
           }
         ])
-      }, 2500);
+      }, 1000);
     })
   }
 

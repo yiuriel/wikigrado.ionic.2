@@ -15,35 +15,46 @@
 </ion-header>
 
 <ion-content padding>
-  <h1 text-center class="career-title" [innerHTML]="navParams.data.videoData.career"></h1>
-  <div *ngIf="!navParams.data.isColegioMayor">
-    <image-switch-iframe
+  <div [ngSwitch]="navParams.data.videoData.type">
+    <!-- type grados -->
+    <div *ngSwitchCase="'grado'">
+      <h1 text-center class="career-title" [innerHTML]="navParams.data.videoData.career"></h1>
+      <image-switch-iframe
       *ngIf="navParams.data.videoData.hasVideo"
       [url]="navParams.data.videoData.videoUrl"
       [career]="navParams.data.videoData.career"
       [width]="navParams.data.dimensionData.width"
       [height]="navParams.data.dimensionData.height">
-    </image-switch-iframe>
-    <h2 *ngIf="!navParams.data.videoData.hasVideo" color="light" text-center padding>
-      Aun no hay video sobre este grado
-    </h2>
-    <h4 color="light">algun titulo descriptivo de la carrera</h4>
-    <p color="light">alguna descripcion mas larga de la carrera</p>
-  </div>
+      </image-switch-iframe>
+      <h4 color="light" [innerHTML]="navParams.data.videoData.university"></h4>
+      <p color="light" [innerHTML]="navParams.data.videoData.address"></p>
+      <div *ngIf="navParams.data.videoData.telephone" padding-bottom>
+        <a color="light" (click)="callPhoneNumber(navParams.data.videoData.telephone)" [innerHTML]="navParams.data.videoData.telephone"></a>
+      </div>
+      <div *ngIf="navParams.data.videoData.website" padding-bottom>
+        <a color="light" (click)="openUrl(navParams.data.videoData.website)">
+          visitar sitio web de la universidad
+        </a>
+      </div>
+      <button *ngIf="navParams.data.videoData.location && navParams.data.videoData.location.lat && navParams.data.videoData.location.long" ion-button outline block color="light" (click)="viewLocation(navParams.data.videoData.location)">ver en el mapa</button>
+    </div>
 
-  <div *ngIf="navParams.data.isColegioMayor">
-    <image-switch-iframe
+    <!-- type colegio mayor -->
+    <div *ngSwitchCase="'colegio_mayor'">
+      <image-switch-iframe
       *ngIf="navParams.data.videoData.hasVideo"
       [url]="navParams.data.videoData.videoUrl"
       [career]="navParams.data.videoData.career"
       [width]="navParams.data.dimensionData.width"
       [height]="navParams.data.dimensionData.height">
-    </image-switch-iframe>
-    <h2 *ngIf="!navParams.data.videoData.hasVideo" color="light" text-center padding>
-      Aun no hay video sobre este colegio mayor
-    </h2>
-    <p color="light" [innerHTML]="navParams.data.videoData.description"></p>
+      </image-switch-iframe>
+      <h2 *ngIf="!navParams.data.videoData.hasVideo" color="light" text-center padding>
+        Aun no hay video sobre este colegio mayor
+      </h2>
+      <p color="light" [innerHTML]="navParams.data.videoData.description"></p>
+      <button *ngIf="navParams.data.videoData.location && navParams.data.videoData.location.lat && navParams.data.videoData.location.long" ion-button outline block color="light" (click)="viewLocation(navParams.data.videoData.location)">ver en el mapa</button>
+    </div>
   </div>
 
-  <button *ngIf="navParams.data.videoData.location && navParams.data.videoData.location.lat && navParams.data.videoData.location.long" ion-button outline block color="light" (click)="viewLocation(navParams.data.videoData.location)">ver en el mapa</button>
+
 </ion-content>

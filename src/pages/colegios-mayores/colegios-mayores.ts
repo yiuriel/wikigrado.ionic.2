@@ -47,9 +47,9 @@ export class ColegiosMayoresPage {
     this.videos = this.videosCached.filter(video => video.career.toLowerCase().indexOf(value.toLowerCase()) > -1)
   }
 
-  goToColegioMayor(universidad) {
-    if (universidad) {
-      let modal = this.modalCtrl.create(GradoPage, {videoData: universidad, dimensionData: this.dimensions, isColegioMayor: true});
+  goToColegioMayor(colegioMayor) {
+    if (colegioMayor) {
+      let modal = this.modalCtrl.create(GradoPage, {videoData: colegioMayor, dimensionData: this.dimensions, isColegioMayor: true});
       modal.onDidDismiss(() => {
         modal = null;
       })

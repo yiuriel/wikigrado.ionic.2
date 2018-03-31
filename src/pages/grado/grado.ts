@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NavController, NavParams, ViewController, Platform, ActionSheetController } from 'ionic-angular';
 import { LaunchNavigator, LaunchNavigatorOptions } from '@ionic-native/launch-navigator';
 import { AnalyticsProvider } from '../../providers/analytics/analytics';
+import { InAppBrowser } from '@ionic-native/in-app-browser';
 
 @Component({
   selector: 'page-grado',
@@ -11,7 +12,7 @@ export class GradoPage {
 
   appsAvailable: Array<string>
 
-  constructor(public navCtrl: NavController, public tracker: AnalyticsProvider, public navParams: NavParams, public platform: Platform, public actionSheetCtrl: ActionSheetController, public viewCtrl: ViewController, private launchNavigator: LaunchNavigator) {
+  constructor(public navCtrl: NavController, public tracker: AnalyticsProvider, public navParams: NavParams, public platform: Platform, public actionSheetCtrl: ActionSheetController, public viewCtrl: ViewController, private launchNavigator: LaunchNavigator, private iab: InAppBrowser) {
     this.appsAvailable = [];
   }
 
@@ -27,6 +28,14 @@ export class GradoPage {
         }
       })
     }
+  }
+
+  openUrl(url) {
+    this.iab.create(url, "_system", {closebuttoncaption: "ok"});
+  }
+
+  callPhoneNumber(number) {
+    window.open(`tel:${number}`, '_system');
   }
 
   viewLocation(location) {
@@ -56,7 +65,7 @@ export class GradoPage {
       app: app
     };
 
-    this.launchNavigator.navigate('Jujuy, AR', options).then(
+    this.launchNavigator.navigate([this.navParams.data.videoData.location.lat, this.navParams.data.videoData.location.long], options).then(
       success => console.log('Launched navigator'),
       error => console.log('Error launching navigator', error)
     );

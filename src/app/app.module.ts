@@ -7,6 +7,8 @@ import { LaunchNavigator } from '@ionic-native/launch-navigator';
 import { Geolocation } from '@ionic-native/geolocation';
 import { GoogleAnalytics } from '@ionic-native/google-analytics';
 import { NativeGeocoder } from '@ionic-native/native-geocoder';
+import { InAppBrowser } from '@ionic-native/in-app-browser';
+import { CallNumber } from '@ionic-native/call-number';
 
 import { ComponentsModule } from '../components/components.module'
 import { PipesModule } from '../pipes/pipes.module'
@@ -14,6 +16,7 @@ import { PipesModule } from '../pipes/pipes.module'
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
+import { SimulatesplashPage } from '../pages/simulatesplash/simulatesplash';
 import { InitialSliderPage } from '../pages/initial-slider/initial-slider';
 import { RegisterPage } from '../pages/register/register';
 import { LoginPage } from '../pages/login/login';
@@ -43,6 +46,7 @@ import { FavoritesProvider } from '../providers/favorites/favorites';
     MyApp,
     HomePage,
     ListPage,
+    SimulatesplashPage,
     InitialSliderPage,
     RegisterPage,
     LoginPage,
@@ -74,6 +78,7 @@ import { FavoritesProvider } from '../providers/favorites/favorites';
     MyApp,
     HomePage,
     ListPage,
+    SimulatesplashPage,
     InitialSliderPage,
     RegisterPage,
     LoginPage,
@@ -91,6 +96,8 @@ import { FavoritesProvider } from '../providers/favorites/favorites';
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
+    InAppBrowser,
+    CallNumber,
     Geolocation,
     NativeGeocoder,
     GoogleAnalytics,
