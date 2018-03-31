@@ -8,7 +8,6 @@ import { Geolocation } from '@ionic-native/geolocation';
 import { GoogleAnalytics } from '@ionic-native/google-analytics';
 import { NativeGeocoder } from '@ionic-native/native-geocoder';
 import { InAppBrowser } from '@ionic-native/in-app-browser';
-import { CallNumber } from '@ionic-native/call-number';
 
 import { ComponentsModule } from '../components/components.module'
 import { PipesModule } from '../pipes/pipes.module'
@@ -97,7 +96,6 @@ import { FavoritesProvider } from '../providers/favorites/favorites';
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     InAppBrowser,
-    CallNumber,
     Geolocation,
     NativeGeocoder,
     GoogleAnalytics,
