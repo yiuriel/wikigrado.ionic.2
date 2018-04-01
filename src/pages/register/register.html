@@ -12,29 +12,29 @@
 
             <ion-item>
               <ion-label stacked>Nombre</ion-label>
-              <ion-input name="firstname" required [(ngModel)]="user.firstname" type="text"></ion-input>
+              <ion-input name="firstname" required [(ngModel)]="user.first_name" type="text"></ion-input>
             </ion-item>
 
             <ion-item>
               <ion-label stacked>Apellido</ion-label>
-              <ion-input name="lastname" [(ngModel)]="user.lastname" type="text"></ion-input>
+              <ion-input name="lastname" required [(ngModel)]="user.last_name" type="text"></ion-input>
             </ion-item>
 
             <ion-item>
               <ion-label stacked>Edad</ion-label>
-              <ion-select name="age" [(ngModel)]="user.age" (ionChange)="onAgeChange(user.age)">
+              <ion-select name="age" required [(ngModel)]="user.age" (ionChange)="onAgeChange(user.age)">
                 <ion-option *ngFor="let age of ages" [value]="age" [innerHTML]="age"></ion-option>
               </ion-select>
             </ion-item>
 
             <ion-item>
               <ion-label stacked>Email</ion-label>
-              <ion-input name="email" [(ngModel)]="user.email" type="email"></ion-input>
+              <ion-input name="email" required [(ngModel)]="user.email" [email]="true" type="email"></ion-input>
             </ion-item>
 
             <ion-item>
               <ion-label stacked>Contraseña</ion-label>
-              <ion-input name="password" [(ngModel)]="user.password" type="password"></ion-input>
+              <ion-input name="password" required [(ngModel)]="user.password" type="password"></ion-input>
             </ion-item>
 
           </ion-list>

@@ -8,6 +8,7 @@ import { Geolocation } from '@ionic-native/geolocation';
 import { GoogleAnalytics } from '@ionic-native/google-analytics';
 import { NativeGeocoder } from '@ionic-native/native-geocoder';
 import { InAppBrowser } from '@ionic-native/in-app-browser';
+import { IonicStorageModule } from '@ionic/storage';
 
 import { ComponentsModule } from '../components/components.module'
 import { PipesModule } from '../pipes/pipes.module'
@@ -39,6 +40,7 @@ import { UniversidadesProvider } from '../providers/universidades/universidades'
 import { ColegiosMayoresProvider } from '../providers/colegios-mayores/colegios-mayores';
 import { AnalyticsProvider } from '../providers/analytics/analytics';
 import { FavoritesProvider } from '../providers/favorites/favorites';
+import { EnvProvider } from '../providers/env/env';
 
 @NgModule({
   declarations: [
@@ -69,6 +71,7 @@ import { FavoritesProvider } from '../providers/favorites/favorites';
         }
       }
     }),
+    IonicStorageModule.forRoot(),
     ComponentsModule,
     PipesModule,
   ],
@@ -107,7 +110,8 @@ import { FavoritesProvider } from '../providers/favorites/favorites';
     UniversidadesProvider,
     ColegiosMayoresProvider,
     AnalyticsProvider,
-    FavoritesProvider
+    FavoritesProvider,
+    EnvProvider
   ]
 })
 export class AppModule {}

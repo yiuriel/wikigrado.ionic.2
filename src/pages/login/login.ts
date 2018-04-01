@@ -17,7 +17,7 @@ export class LoginPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad LoginPage');
-    this.tracker.trackView('vista de login');
+    // this.tracker.trackView('vista de login');
   }
 
   goToHomePage() {

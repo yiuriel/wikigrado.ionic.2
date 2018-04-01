@@ -32,7 +32,7 @@ export class RegisterPictureStepPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad RegisterPictureStepPage');
-    this.tracker.trackView('vista de registro (foto)');
+    // this.tracker.trackView('vista de registro (foto)');
   }
 
 }

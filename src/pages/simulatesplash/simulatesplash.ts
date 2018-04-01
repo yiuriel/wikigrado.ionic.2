@@ -15,7 +15,7 @@ export class SimulatesplashPage {
     console.log('ionViewDidLoad SimulatesplashPage');
     setTimeout(() => {
       this.navCtrl.setRoot(InitialSliderPage);
-    }, 5000);
+    }, 2500);
   }
 
 }

@@ -45,7 +45,7 @@ export class InitialSliderPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad InitialSliderPage');
-    this.tracker.trackView('primera vista')
+    // this.tracker.trackView('primera vista')
   }
 
 }

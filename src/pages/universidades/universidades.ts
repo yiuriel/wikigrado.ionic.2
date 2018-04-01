@@ -18,7 +18,7 @@ export class UniversidadesPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad UniversidadesPage');
-    this.tracker.trackView('vista de universidades');
+    // this.tracker.trackView('vista de universidades');
 
     let loading = this.loadingCtrl.create({
       spinner: 'crescent'

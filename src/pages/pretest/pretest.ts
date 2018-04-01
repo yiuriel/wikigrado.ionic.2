@@ -16,7 +16,7 @@ export class PretestPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad PretestPage');
-    this.tracker.trackView('vista previa al test');
+    // this.tracker.trackView('vista previa al test');
   }
 
   goToTestPage() {
