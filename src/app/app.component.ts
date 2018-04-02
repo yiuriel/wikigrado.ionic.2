@@ -31,7 +31,7 @@ export class MyApp {
 
   pages: Array<{icon: string, title: string, component: any}>;
 
-  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen, private geolocation: Geolocation, private nativeGeocoder: NativeGeocoder, public tracker: AnalyticsProvider) {
+  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen, private geolocation: Geolocation, private nativeGeocoder: NativeGeocoder, public tracker: AnalyticsProvider, public userService: UserProvider) {
     this.initializeApp();
 
     const testMenuComponent = this.checkIfPretestOrTest();
@@ -76,6 +76,8 @@ export class MyApp {
       // }, (err) => {
       //   console.log('Error getting location ssss', JSON.stringify(err));
       // });
+
+      this.userService.verifySession();
     });
   }
 

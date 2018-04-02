@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild, ElementRef } from '@angular/core';
 import { NavController, NavParams, ToastController } from 'ionic-angular';
 import { UserProvider } from '../../providers/user/user';
 import { AnalyticsProvider } from '../../providers/analytics/analytics';
@@ -11,10 +11,10 @@ import { RegisterPictureStepPage } from '../register-picture-step/register-pictu
   templateUrl: 'register.html',
 })
 export class RegisterPage {
-
+  @ViewChild('registeremail') input: {[key: string]: any};
   ages: Array<number>
   toast: any;
-  user: { }
+  user: {[key: string]: any};
 
   constructor(public navCtrl: NavController, public tracker: AnalyticsProvider, public navParams: NavParams, public userService: UserProvider, public toastCtrl: ToastController ) {
     this.ages = Array.from(Array(100).keys());
@@ -25,13 +25,38 @@ export class RegisterPage {
     this.userService.register(this.user).subscribe(data => {
       // success
       if (data.hasOwnProperty("insertId")) {
-        this.userService.setUserData({...this.user, user_id: data.insertId});
+        this.userService.setUserData({...this.user, id: data.insertId});
         this.navCtrl.setRoot(PretestPage);
       } else {
         if (data.hasOwnProperty("available") && !data.available) {
           this.emailTakenToast();
+        } else {
+          this.retryToast();
         }
       }
+    });
+  }
+
+  checkEmail() {
+    if (this.user.email && this.input.valid) {
+      this.userService.checkEmail(this.user.email).subscribe(data => {
+        if (data.hasOwnProperty("available") && !data.available) {
+          this.emailTakenToast();
+        }
+      });
+    }
+  }
+
+  retryToast() {
+    this.toast = this.toastCtrl.create({
+      message: 'Hubo un error, vuelve a intentarlo porfavor',
+      duration: 5000,
+      position: 'bottom',
+      showCloseButton: true
+    });
+    this.toast.present();
+    this.toast.onDidDismiss(() => {
+      this.toast = null;
     });
   }
 
@@ -49,7 +74,7 @@ export class RegisterPage {
   }
 
   goToPicturePage() {
-    this.userService.setData(this.user);
+    this.userService.setUserData(this.user);
     this.navCtrl.push(RegisterPictureStepPage);
   }
 

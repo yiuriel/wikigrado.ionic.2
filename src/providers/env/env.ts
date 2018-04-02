@@ -14,7 +14,8 @@ export class EnvProvider {
       case 'local':
         return "http://localhost:3000";
       case 'production':
-        return 'http://0.0.0.0:3000';
+      default:
+        return 'http://185.166.213.147:3000';
     }
   }
 

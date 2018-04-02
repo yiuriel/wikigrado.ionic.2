@@ -29,7 +29,7 @@
 
             <ion-item>
               <ion-label stacked>Email</ion-label>
-              <ion-input name="email" required [(ngModel)]="user.email" [email]="true" type="email"></ion-input>
+              <ion-input name="email" required [(ngModel)]="user.email" (ionBlur)="checkEmail()" #registeremail="ngModel" [email]="true" type="email"></ion-input>
             </ion-item>
 
             <ion-item>
