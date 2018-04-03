@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { InitialSliderPage } from '../initial-slider/initial-slider';
+import { PretestPage } from '../../pages/pretest/pretest';
 import { UserProvider } from '../../providers/user/user';
 
 @Component({
@@ -18,6 +19,7 @@ export class SimulatesplashPage {
       const user_data = this.userService.getData();
       if (user_data) {
         clearTimeout(redirectTimeout);
+        this.navCtrl.setRoot(PretestPage);
       } else {
         this.navCtrl.setRoot(InitialSliderPage);
       }

@@ -78,7 +78,7 @@ export class MyApp {
                   subscription.unsubscribe();
                 }
               });
-            return this.nav.setRoot(PretestPage);
+            return;
           case 'error':
             return;
         }
