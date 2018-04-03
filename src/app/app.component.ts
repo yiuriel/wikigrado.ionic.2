@@ -9,16 +9,17 @@ import { HttpClientModule } from '@angular/common/http';
 import { UserProvider } from '../providers/user/user';
 import { AnalyticsProvider } from '../providers/analytics/analytics';
 
-import { InitialSliderPage } from '../pages/initial-slider/initial-slider';
+// import { InitialSliderPage } from '../pages/initial-slider/initial-slider';
 
 // pages for menu
-import { TestPage } from '../pages/test/test';
+// import { TestPage } from '../pages/test/test';
 import { PretestPage } from '../pages/pretest/pretest';
 import { GradosPage } from '../pages/grados/grados';
 import { UniversidadesPage } from '../pages/universidades/universidades';
 import { ColegiosMayoresPage } from '../pages/colegios-mayores/colegios-mayores';
 import { FavoritosPage } from '../pages/favoritos/favoritos';
 import { SimulatesplashPage } from '../pages/simulatesplash/simulatesplash';
+import 'rxjs/add/operator/filter';
 
 @Component({
   templateUrl: 'app.html',
@@ -59,25 +60,29 @@ export class MyApp {
 
       this.tracker.initService();
 
-      var options = {
-        enableHighAccuracy: true,
-        timeout: 5000,
-        maximumAge: 0
-      };
-      // this.geolocation.getCurrentPosition(options).then((resp) => {
-      //   alert(resp.coords.latitude)
-      //   this.nativeGeocoder.reverseGeocode(resp.coords.latitude, resp.coords.longitude)
-      //     .then(
-      //       (result: NativeGeocoderReverseResult) => console.log(JSON.stringify(result))
-      //     )
-      //     .catch(
-      //       (error: any) => console.log(error)
-      //     );
-      // }, (err) => {
-      //   console.log('Error getting location ssss', JSON.stringify(err));
-      // });
-
-      this.userService.verifySession();
+      // if user has data, update user data in service, and update session
+      this.userService.verifySession((type) => {
+        switch (type) {
+          case 'success':
+            // move this to a service and mix with userService
+            const options = {
+              enableHighAccuracy: false,
+              timeout: 20000,
+              maximumAge: 5000
+            };
+            const subscription = this.geolocation.watchPosition(options)
+              .filter((p) => p.coords !== undefined) //Filter Out Errors
+              .subscribe(position => {
+                if (position.coords) {
+                  this.userService.updateLatLong(position.coords);
+                  subscription.unsubscribe();
+                }
+              });
+            return this.nav.setRoot(PretestPage);
+          case 'error':
+            return;
+        }
+      });
     });
   }
 

@@ -1,5 +1,5 @@
-import { Component, ViewChild, ElementRef } from '@angular/core';
-import { NavController, NavParams, ToastController } from 'ionic-angular';
+import { Component, ViewChild } from '@angular/core';
+import { NavController, NavParams, ToastController, LoadingController } from 'ionic-angular';
 import { UserProvider } from '../../providers/user/user';
 import { AnalyticsProvider } from '../../providers/analytics/analytics';
 import { PretestPage } from '../pretest/pretest';
@@ -15,41 +15,59 @@ export class RegisterPage {
   ages: Array<number>
   toast: any;
   user: {[key: string]: any};
+  loader: any;
 
-  constructor(public navCtrl: NavController, public tracker: AnalyticsProvider, public navParams: NavParams, public userService: UserProvider, public toastCtrl: ToastController ) {
+  constructor(public navCtrl: NavController, public tracker: AnalyticsProvider, public navParams: NavParams, public userService: UserProvider, public toastCtrl: ToastController, public loadingCtrl: LoadingController ) {
     this.ages = Array.from(Array(100).keys());
     this.user = {};
   }
 
-  goToHomePage() {
-    this.userService.register(this.user).subscribe(data => {
-      // success
-      if (data.hasOwnProperty("insertId")) {
-        this.userService.setUserData({...this.user, id: data.insertId});
-        this.navCtrl.setRoot(PretestPage);
-      } else {
-        if (data.hasOwnProperty("available") && !data.available) {
-          this.emailTakenToast();
-        } else {
-          this.retryToast();
-        }
+  showLoader(text) {
+    this.loader = this.loadingCtrl.create({
+      content: text,
+      spinner: 'crescent',
+    });
+
+    this.loader.present();
+  }
+
+  hideLoader() {
+    setTimeout(() => {
+      this.loader.dismiss();
+    }, 50);
+  }
+
+  register() {
+    this.showLoader(null);
+    this.userService.register(this.user, (type) => {
+      this.hideLoader();
+      switch (type) {
+        case 'retryToast':
+        case 'error':
+          return this.retryToast();
+        case 'emailTakenToast':
+          return this.emailTakenToast();
+        case 'success':
+          return this.navCtrl.setRoot(PretestPage);
       }
     });
   }
 
   checkEmail() {
     if (this.user.email && this.input.valid) {
-      this.userService.checkEmail(this.user.email).subscribe(data => {
-        if (data.hasOwnProperty("available") && !data.available) {
+      this.userService.checkEmail(this.user.email, (type) => {
+        if (type === 'not-available') {
           this.emailTakenToast();
+        } else if (type === 'error') {
+          this.retryToast();
         }
-      });
+      })
     }
   }
 
   retryToast() {
     this.toast = this.toastCtrl.create({
-      message: 'Hubo un error, vuelve a intentarlo porfavor',
+      message: 'Hubo un error, vuelve a intentarlo más tarde.',
       duration: 5000,
       position: 'bottom',
       showCloseButton: true
