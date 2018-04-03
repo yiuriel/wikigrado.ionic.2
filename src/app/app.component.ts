@@ -3,7 +3,7 @@ import { Nav, Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { Geolocation } from '@ionic-native/geolocation';
-import { NativeGeocoder, NativeGeocoderReverseResult } from '@ionic-native/native-geocoder';
+// import { NativeGeocoder, NativeGeocoderReverseResult } from '@ionic-native/native-geocoder';
 
 import { HttpClientModule } from '@angular/common/http';
 import { UserProvider } from '../providers/user/user';
@@ -32,7 +32,7 @@ export class MyApp {
 
   pages: Array<{icon: string, title: string, component: any}>;
 
-  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen, private geolocation: Geolocation, private nativeGeocoder: NativeGeocoder, public tracker: AnalyticsProvider, public userService: UserProvider) {
+  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen, private geolocation: Geolocation, public tracker: AnalyticsProvider, public userService: UserProvider) {
     this.initializeApp();
 
     const testMenuComponent = this.checkIfPretestOrTest();
