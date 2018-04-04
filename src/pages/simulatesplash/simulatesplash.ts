@@ -16,15 +16,15 @@ export class SimulatesplashPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad SimulatesplashPage');
     const redirectTimeout = setTimeout(() => {
-      const user_data = this.userService.getData();
-      console.warn(JSON.stringify(user_data));
-      if (user_data) {
-        clearTimeout(redirectTimeout);
-        this.navCtrl.setRoot(PretestPage);
-      } else {
-        this.navCtrl.setRoot(InitialSliderPage);
-      }
-    }, 3000);
+      this.userService.getUserDataAsync().then(user_data => {
+        if (user_data) {
+          clearTimeout(redirectTimeout);
+          this.navCtrl.setRoot(PretestPage);
+        } else {
+          this.navCtrl.setRoot(InitialSliderPage);
+        }
+      });
+    }, 5000);
   }
 
 }

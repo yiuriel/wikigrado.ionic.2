@@ -22,21 +22,58 @@ export class RegisterPictureStepPage {
 
   takePicture() {
     const options: CameraOptions = {
-      quality: 25,
+      quality: 35,
       destinationType: this.camera.DestinationType.DATA_URL,
       encodingType: this.camera.EncodingType.JPEG,
-      mediaType: this.camera.MediaType.PICTURE
+      mediaType: this.camera.MediaType.PICTURE,
+      targetWidth: 150,
+      targetHeight: 150,
     }
 
     this.camera.getPicture(options).then((imageData) => {
       // imageData is either a base64 encoded string or a file URI
       // If it's base64:
-      this.image = 'data:image/jpeg;base64,' + imageData;
-      // console.warn({...this.userService.getData(), image: this.image});
-      this.userService.setData({...this.userService.getData(), image: this.image});
+      let base64image = 'data:image/jpeg;base64,' + imageData;
+      this.generateFromImage(base64image, 300, 300, .75, data => {
+        this.image = data;
+        this.userService.setData({...this.userService.getData(), image: this.image});
+      });
     }, (err) => {
       // Handle error
     });
+  }
+
+  generateFromImage(img, MAX_WIDTH: number = 700, MAX_HEIGHT: number = 700, quality: number = 1, callback) {
+    var canvas: any = document.createElement("canvas");
+    var image = new Image();
+
+    image.onload = () => {
+      var width = image.width;
+      var height = image.height;
+
+      if (width > height) {
+        if (width > MAX_WIDTH) {
+          height *= MAX_WIDTH / width;
+          width = MAX_WIDTH;
+        }
+      } else {
+        if (height > MAX_HEIGHT) {
+          width *= MAX_HEIGHT / height;
+          height = MAX_HEIGHT;
+        }
+      }
+      canvas.width = width;
+      canvas.height = height;
+      var ctx = canvas.getContext("2d");
+
+      ctx.drawImage(image, 0, 0, width, height);
+
+      // IMPORTANT: 'jpeg' NOT 'jpg'
+      var dataUrl = canvas.toDataURL('image/jpeg', quality);
+
+      callback(dataUrl)
+    }
+    image.src = img;
   }
 
   showLoader(text) {

@@ -24,6 +24,9 @@ page-register-picture-step {
       ion-grid {
         min-height: 100%;
         justify-content: center;
+        ion-row {
+          img {}
+        }
       }
       .item {
         background-color: transparent;
