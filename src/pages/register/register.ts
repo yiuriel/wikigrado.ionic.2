@@ -32,9 +32,7 @@ export class RegisterPage {
   }
 
   hideLoader() {
-    setTimeout(() => {
-      this.loader.dismiss();
-    }, 50);
+    this.loader.dismiss();
   }
 
   register() {
@@ -92,7 +90,7 @@ export class RegisterPage {
   }
 
   goToPicturePage() {
-    this.userService.setUserData(this.user);
+    this.userService.setCurrentData(this.user);
     this.navCtrl.push(RegisterPictureStepPage);
   }
 

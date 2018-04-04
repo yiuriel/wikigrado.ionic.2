@@ -9,6 +9,7 @@ import { GoogleAnalytics } from '@ionic-native/google-analytics';
 import { NativeGeocoder } from '@ionic-native/native-geocoder';
 import { InAppBrowser } from '@ionic-native/in-app-browser';
 import { IonicStorageModule } from '@ionic/storage';
+import { Camera } from '@ionic-native/camera';
 
 import { ComponentsModule } from '../components/components.module'
 import { PipesModule } from '../pipes/pipes.module'
@@ -35,12 +36,10 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { UserProvider } from '../providers/user/user';
 import { TestQuestionsProvider } from '../providers/test-questions/test-questions';
-import { GradosVideosProvider } from '../providers/grados-videos/grados-videos';
-import { UniversidadesProvider } from '../providers/universidades/universidades';
-import { ColegiosMayoresProvider } from '../providers/colegios-mayores/colegios-mayores';
 import { AnalyticsProvider } from '../providers/analytics/analytics';
 import { FavoritesProvider } from '../providers/favorites/favorites';
 import { EnvProvider } from '../providers/env/env';
+import { AllAppDataProvider } from '../providers/all-app-data/all-app-data';
 
 @NgModule({
   declarations: [
@@ -102,16 +101,15 @@ import { EnvProvider } from '../providers/env/env';
     Geolocation,
     NativeGeocoder,
     GoogleAnalytics,
+    Camera,
     ScreenOrientation,
     LaunchNavigator,
     UserProvider,
     TestQuestionsProvider,
-    GradosVideosProvider,
-    UniversidadesProvider,
-    ColegiosMayoresProvider,
     AnalyticsProvider,
     FavoritesProvider,
-    EnvProvider
+    EnvProvider,
+    AllAppDataProvider
   ]
 })
 export class AppModule {}

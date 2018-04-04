@@ -8,18 +8,15 @@
     <ion-row align-items-start>
       <ion-col>
         <form #pictureForm="ngForm" id="picture-form">
-          <div id="file-input-wrapper">
-            <ion-input name="picture" id="picture" (change)="pictureUpload($event, picture)" type="file"></ion-input>
-          </div>
           <div id="file-button-ux">
-            <button ion-button block outline color="dark">cargar foto</button>
+            <button ion-button block outline color="dark" (click)="takePicture()">tomar foto</button>
           </div>
         </form>
       </ion-col>
     </ion-row>
     <ion-row>
       <ion-col>
-        <div *ngIf="fileName">{{fileName}}</div>
+        <img [src]="image" />
       </ion-col>
     </ion-row>
     <ion-row align-items-end>
@@ -27,7 +24,7 @@
         <button ion-button round small outline color="danger" (click)="goToRegisterPage()">volver</button>
       </ion-col>
       <ion-col text-right>
-        <button ion-button round small color="danger" [disabled]="!fileName" (click)="goToHomePage()">finalizar</button>
+        <button ion-button round small color="danger" [disabled]="!image" (click)="goToHomePage()">finalizar registro</button>
       </ion-col>
     </ion-row>
   </ion-grid>

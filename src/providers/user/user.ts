@@ -14,7 +14,7 @@ export class UserProvider {
 
   constructor( private http: HttpClient, private env: EnvProvider, private storage: Storage ) {
     console.log('Hello UserProvider Provider');
-    this.BASEURL = this.env.getEnvironmentUrl(null) + "/users";
+    this.BASEURL = this.env.getEnvironmentUrl('production') + "/users";
     this.CHECKEMAILURL = this.BASEURL + "/check_email";
     this.LOGINURL = this.BASEURL + "/login";
   }
@@ -52,6 +52,10 @@ export class UserProvider {
     return this.data;
   }
 
+  setCurrentData(data) {
+    this.setData(data);
+  }
+
   setUserData(data) {
     this.setData(data);
     this.storage.set('user_data', data);
@@ -73,9 +77,9 @@ export class UserProvider {
   }
 
   updateSession() {
-    let UPDATE_SESSION_URL = this.BASEURL + "/" + this.data.id + "/update_session";
+    let UPDATE_SESSION_URL = this.BASEURL + "/update_session";
     const httpOptions = this.getCommonHeaders();
-    const data = {app_enabled_param: true};
+    const data = {app_enabled_param: true, email: this.data.email};
     return this.http.put<{[key: string]: any}>(UPDATE_SESSION_URL, data, httpOptions)
   }
 
@@ -101,8 +105,8 @@ export class UserProvider {
       if (response.error && response.status && response.name === "HttpErrorResponse") {
         callback('error');
       } else {
-        if (response.hasOwnProperty("insertId")) {
-          this.setUserData({...user, id: response.insertId});
+        if (response.email && response.session_expires) {
+          this.setUserData({email: user.email, session_expires: response.session_expires});
         } else {
           if (response.hasOwnProperty("available") && !data.available) {
             callback('emailTakenToast');
@@ -121,8 +125,8 @@ export class UserProvider {
     const httpOptions = this.getCommonHeaders();
     const data = {...user, app_enabled_param: true};
     this.http.post<{[key: string]: any}>(this.LOGINURL, data, httpOptions).subscribe(data => {
-      if (data.length) {
-        this.setUserDataAsync(data[0]).then(success => {
+      if (data) {
+        this.setUserDataAsync(data).then(success => {
           this.verifySession(() => {});
           callback('success');
         })

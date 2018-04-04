@@ -1,7 +1,7 @@
 import { Component, ElementRef } from '@angular/core';
 import { NavController, NavParams, LoadingController, ModalController } from 'ionic-angular';
 import { GradoPage } from '../grado/grado';
-import { ColegiosMayoresProvider } from '../../providers/colegios-mayores/colegios-mayores';
+import { AllAppDataProvider } from '../../providers/all-app-data/all-app-data';
 import { AnalyticsProvider } from '../../providers/analytics/analytics';
 
 @Component({
@@ -14,7 +14,7 @@ export class ColegiosMayoresPage {
   videosCached: Array<{videoUrl: string, description: string, location: {any}, career: string}>
   dimensions: {width: number, height: number}
 
-  constructor(public navCtrl: NavController, public tracker: AnalyticsProvider, public navParams: NavParams, private domElem: ElementRef, public modalCtrl: ModalController, public colegiosMayoresService: ColegiosMayoresProvider, public loadingCtrl: LoadingController) {
+  constructor(public navCtrl: NavController, public tracker: AnalyticsProvider, public navParams: NavParams, private domElem: ElementRef, public modalCtrl: ModalController, public allAppDataService: AllAppDataProvider, public loadingCtrl: LoadingController) {
   }
 
   ionViewDidLoad() {
@@ -26,25 +26,17 @@ export class ColegiosMayoresPage {
       height: (width * 9) / 16,
     }
 
-    let loading = this.loadingCtrl.create({
-      spinner: 'crescent'
-    });
-    loading.present();
-
-    this.getColegiosMayoresFromService(loading);
+    this.getColegiosMayoresFromService();
   }
 
-  getColegiosMayoresFromService(loading) {
-    this.colegiosMayoresService.getVideos().then((videos) => {
-      this.videos = videos;
-      this.videosCached = [].concat(this.videos);
-      loading.dismiss();
-    });
+  getColegiosMayoresFromService() {
+    this.videos = this.allAppDataService.getDataBasedOnType('colegio_mayor');
+    this.videosCached = [].concat(this.videos);
   }
 
   getColegiosMayores($event) {
     const value = $event.value;
-    this.videos = this.videosCached.filter(video => video.career.toLowerCase().indexOf(value.toLowerCase()) > -1)
+    this.videos = this.allAppDataService.getDataBasedOnTypeAndValue('colegio_mayor', value);
   }
 
   goToColegioMayor(colegioMayor) {

@@ -13,6 +13,7 @@ import { AnalyticsProvider } from '../providers/analytics/analytics';
 
 // pages for menu
 // import { TestPage } from '../pages/test/test';
+import { LoginPage } from '../pages/login/login';
 import { PretestPage } from '../pages/pretest/pretest';
 import { GradosPage } from '../pages/grados/grados';
 import { UniversidadesPage } from '../pages/universidades/universidades';
@@ -61,6 +62,7 @@ export class MyApp {
       this.tracker.initService();
 
       // if user has data, update user data in service, and update session
+      // this.userService.clearStorage();
       this.userService.verifySession((type) => {
         switch (type) {
           case 'success':
@@ -84,6 +86,11 @@ export class MyApp {
         }
       });
     });
+  }
+
+  logout() {
+    this.userService.clearStorage();
+    this.nav.setRoot(LoginPage, {showVolver: false});
   }
 
   openPage(page) {

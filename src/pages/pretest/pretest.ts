@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { Geolocation } from '@ionic-native/geolocation';
-import { NativeGeocoder, NativeGeocoderReverseResult } from '@ionic-native/native-geocoder';
+// import { NativeGeocoder, NativeGeocoderReverseResult } from '@ionic-native/native-geocoder';
 import { TestPage } from '../test/test';
 import { AnalyticsProvider } from '../../providers/analytics/analytics';
 
@@ -10,8 +10,8 @@ import { AnalyticsProvider } from '../../providers/analytics/analytics';
   templateUrl: 'pretest.html',
 })
 export class PretestPage {
-
-  constructor(public navCtrl: NavController, public navParams: NavParams, private geolocation: Geolocation, private nativeGeocoder: NativeGeocoder, public tracker: AnalyticsProvider) {
+  // private nativeGeocoder: NativeGeocoder
+  constructor(public navCtrl: NavController, public navParams: NavParams, private geolocation: Geolocation, public tracker: AnalyticsProvider) {
   }
 
   ionViewDidLoad() {

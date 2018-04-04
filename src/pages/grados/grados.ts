@@ -1,7 +1,7 @@
 import { Component, ElementRef } from '@angular/core';
 import { NavController, NavParams, ModalController, LoadingController } from 'ionic-angular';
 import { GradoPage } from '../grado/grado';
-import { GradosVideosProvider } from '../../providers/grados-videos/grados-videos';
+import { AllAppDataProvider } from '../../providers/all-app-data/all-app-data';
 import { AnalyticsProvider } from '../../providers/analytics/analytics';
 
 @Component({
@@ -14,7 +14,7 @@ export class GradosPage {
   videosCached: Array<{videoUrl: string, hasVideo: boolean, career: string}>
   dimensions: {width: number, height: number}
 
-  constructor(public navCtrl: NavController, public tracker: AnalyticsProvider, public navParams: NavParams, public modalCtrl: ModalController, public gradosVideosService :GradosVideosProvider, private domElem: ElementRef, public loadingCtrl: LoadingController) {}
+  constructor(public navCtrl: NavController, public tracker: AnalyticsProvider, public navParams: NavParams, public modalCtrl: ModalController, public allAppDataService :AllAppDataProvider, private domElem: ElementRef, public loadingCtrl: LoadingController) {}
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad GradosPage');
@@ -28,25 +28,17 @@ export class GradosPage {
       height: (width * 9) / 16,
     }
 
-    let loading = this.loadingCtrl.create({
-      spinner: 'crescent'
-    });
-    loading.present();
-
-    this.getAllVideos(loading);
+    this.getAllVideos();
   }
 
-  getAllVideos(loading) {
-    this.gradosVideosService.getVideos().then(videos => {
-      this.videos = videos;
-      this.videosCached = [].concat(this.videos);
-      loading.dismiss();
-    });
+  getAllVideos() {
+    this.videos = this.allAppDataService.getDataBasedOnType('grado');
+    this.videosCached = [].concat(this.videos);
   }
 
   filterGrades($event) {
     const value = $event.value;
-    this.videos = this.videosCached.filter(video => video.career.toLowerCase().indexOf(value.toLowerCase()) > -1)
+    this.videos = this.allAppDataService.getDataBasedOnTypeAndValue('grado', value);
   }
 
   goToGrade(video) {

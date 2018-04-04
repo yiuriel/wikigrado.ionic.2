@@ -12,9 +12,12 @@ export class LoginPage {
   user: {email:string, password: string}
   toast: any;
   loader: any;
+  showVolver: any;
 
   constructor(public navCtrl: NavController, public userService: UserProvider, public navParams: NavParams, public toastCtrl: ToastController, public loadingCtrl: LoadingController) {
     this.user = {email: "", password: ""}
+
+    this.showVolver = this.navParams.data.hasOwnProperty("showVolver") || false;
   }
 
   ionViewDidLoad() {
@@ -31,9 +34,7 @@ export class LoginPage {
   }
 
   hideLoader() {
-    setTimeout(() => {
-      this.loader.dismiss();
-    }, 50);
+    this.loader.dismiss();
   }
 
   login() {

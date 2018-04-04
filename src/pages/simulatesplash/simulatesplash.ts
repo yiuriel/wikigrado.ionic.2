@@ -17,6 +17,7 @@ export class SimulatesplashPage {
     console.log('ionViewDidLoad SimulatesplashPage');
     const redirectTimeout = setTimeout(() => {
       const user_data = this.userService.getData();
+      console.warn(JSON.stringify(user_data));
       if (user_data) {
         clearTimeout(redirectTimeout);
         this.navCtrl.setRoot(PretestPage);
