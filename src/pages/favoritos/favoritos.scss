@@ -6,6 +6,15 @@ page-favoritos {
     background-size: cover;
     .scroll-content {
       background-color: rgba(255,255,255,0.75);
+
+      .profile-pic {
+        width: 100px;
+        height: 100px;
+        margin: 25px auto;
+        background-position: center center;
+        background-repeat: no-repeat;
+        border-radius: 50%;
+      }
       .career-title {
         color: white;
       }

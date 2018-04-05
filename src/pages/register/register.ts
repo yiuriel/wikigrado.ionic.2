@@ -19,6 +19,7 @@ export class RegisterPage {
 
   constructor(public navCtrl: NavController, public tracker: AnalyticsProvider, public navParams: NavParams, public userService: UserProvider, public toastCtrl: ToastController, public loadingCtrl: LoadingController ) {
     this.ages = Array.from(Array(100).keys());
+    this.ages.shift();
     this.user = {};
   }
 

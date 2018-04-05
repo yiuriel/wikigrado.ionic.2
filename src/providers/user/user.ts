@@ -1,6 +1,5 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { HttpHeaders } from '@angular/common/http';
 import { EnvProvider } from '../env/env';
 import { Storage } from '@ionic/storage';
 
@@ -22,18 +21,22 @@ export class UserProvider {
   verifySession(callback) {
     this.storage.get('user_data').then((data) => {
       if (data) {
+        console.log("session data start");
         this.setUserData(data);
         this.updateSession().subscribe(response => {
           if (response.hasOwnProperty("affectedRows") && response.hasOwnProperty("session_expires") && response.affectedRows > 0) {
+            console.log("update session success");
             const newData = {...this.data, session_expires: response.session_expires};
             this.setUserData(newData);
             callback('logged-in');
           } else {
+            console.error("update session error in update session");
             this.clearStorage();
             callback('error');
           }
         });
       } else {
+        console.error("update session error no data");
         this.clearStorage();
         callback('error');
       }
@@ -101,22 +104,29 @@ export class UserProvider {
   register(user, callback) {
     const httpOptions = this.getCommonHeaders();
     const data = {...user, app_enabled_param: true};
+    console.log("start register");
     this.http.post<{[key: string]: any}>(this.BASEURL, data, httpOptions).subscribe(response => {
       if (response.error && response.status && response.name === "HttpErrorResponse") {
+        console.error("error register");
         callback('error');
       } else {
         if (response.email && response.session_expires) {
-          this.setUserData({email: user.email, session_expires: response.session_expires});
+          console.log("set data register");
+          this.setUserData(response);
         } else {
           if (response.hasOwnProperty("available") && !data.available) {
+            console.warn("email taken register");
             callback('emailTakenToast');
           } else {
+            console.error("retry register");
             callback('retryToast');
           }
         }
+        console.log("success register");
         callback('success');
       }
     }, error => {
+      console.error("error register");
       callback('error');
     })
   }
@@ -124,7 +134,9 @@ export class UserProvider {
   login(user, callback) {
     const httpOptions = this.getCommonHeaders();
     const data = {...user, app_enabled_param: true};
+    console.log("start login");
     this.http.post<{[key: string]: any}>(this.LOGINURL, data, httpOptions).subscribe(data => {
+      console.log("success login");
       if (data) {
         this.setUserDataAsync(data).then(success => {
           this.verifySession(() => {});
@@ -133,8 +145,10 @@ export class UserProvider {
       }
     }, errorData => {
       if (errorData.error && errorData.error.hasOwnProperty("user_not_found") && errorData.error.user_not_found) {
+        console.error("wrong login");
         callback('wrongLoginToast');
       } else {
+        console.error("error login", JSON.stringify(errorData));
         callback('error');
       }
     })
