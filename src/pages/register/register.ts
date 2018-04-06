@@ -91,8 +91,11 @@ export class RegisterPage {
   }
 
   goToPicturePage() {
-    this.userService.setCurrentData(this.user);
-    this.navCtrl.push(RegisterPictureStepPage);
+    this.userService.setUserData(this.user, (success, error) => {
+      if (!error) {
+        this.navCtrl.push(RegisterPictureStepPage);
+      }
+    });
   }
 
   goBack() {

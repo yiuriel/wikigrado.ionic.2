@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { ToastController } from 'ionic-angular';
+import { OrientationVideosAfterTestPage } from '../orientation-videos-after-test/orientation-videos-after-test';
 import { TestQuestionsProvider } from '../../providers/test-questions/test-questions';
 import { AnalyticsProvider } from '../../providers/analytics/analytics';
 
@@ -101,7 +102,7 @@ export class TestPage {
     const second_orieantation = Object.keys(repetitions).reduce((a, b) => repetitions[a] > repetitions[b] ? a : b);
     delete repetitions[second_orieantation];
     console.warn(first_orieantation, second_orieantation, types, repetitions);
-    alert("orientaciones: " + first_orieantation + " y " + second_orieantation);
+    this.navCtrl.setRoot(OrientationVideosAfterTestPage, {animate: true});
   }
 
   ionViewDidLoad() {

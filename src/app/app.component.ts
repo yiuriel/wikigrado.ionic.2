@@ -20,6 +20,7 @@ import { UniversidadesPage } from '../pages/universidades/universidades';
 import { ColegiosMayoresPage } from '../pages/colegios-mayores/colegios-mayores';
 import { FavoritosPage } from '../pages/favoritos/favoritos';
 import { SimulatesplashPage } from '../pages/simulatesplash/simulatesplash';
+import { UserProfilePage } from '../pages/user-profile/user-profile';
 import 'rxjs/add/operator/filter';
 
 @Component({
@@ -44,6 +45,7 @@ export class MyApp {
       { icon: 'md-school', title: 'Grados y Salidas Profesionales', component: GradosPage },
       { icon: 'md-ribbon', title: 'Universidades', component: UniversidadesPage },
       { icon: 'md-paper', title: 'Colegios Mayores', component: ColegiosMayoresPage },
+      { icon: 'person', title: 'Perfil', component: UserProfilePage },
       { icon: 'md-star', title: 'Favoritos', component: FavoritosPage },
     ];
   }

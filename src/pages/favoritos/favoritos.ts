@@ -14,20 +14,25 @@ export class FavoritosPage {
   userData: {[key: string]: any}
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public userService: UserProvider, public favoritesService: FavoritesProvider, public allAppDataService: AllAppDataProvider) {
-    this.userData = this.userService.getData() || {first_name: "", last_name: "", image: ""};
-    this.favoritesService.getFavorites(this.userData.user_id, (type, data) => {
-      if (data) {
-        let res = [];
-        data.forEach(item => {
-          let founditem = this.allAppDataService.getDataBasedOnTypeAndIndex(item.item_type_in_app, item.item_id_in_app);
-          if (founditem) {
-            res = res.concat(founditem);
+    this.userService.getUserData((data, error) => {
+      if (!error) {
+        this.userData = data;
+        this.favoritesService.getFavorites(this.userData.user_id, (type, data) => {
+          if (data) {
+            let res = [];
+            data.forEach(item => {
+              let founditem = this.allAppDataService.getDataBasedOnTypeAndIndex(item.item_type_in_app, item.item_id_in_app);
+              if (founditem) {
+                res = res.concat(founditem);
+              }
+            });
+            this.favorites = res;
           }
         });
-        console.warn(res);
-        this.favorites = res;
+      } else {
+        this.userData = {first_name: "", last_name: "", image: ""};
       }
-    });
+    })
   }
 
   ionViewDidLoad() {

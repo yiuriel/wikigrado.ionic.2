@@ -31,6 +31,8 @@ import { UniversidadesPage } from '../pages/universidades/universidades';
 import { UniversidadPage } from '../pages/universidad/universidad';
 import { ColegiosMayoresPage } from '../pages/colegios-mayores/colegios-mayores';
 import { FavoritosPage } from '../pages/favoritos/favoritos';
+import { UserProfilePage } from '../pages/user-profile/user-profile';
+import { OrientationVideosAfterTestPage } from '../pages/orientation-videos-after-test/orientation-videos-after-test';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -59,6 +61,8 @@ import { AllAppDataProvider } from '../providers/all-app-data/all-app-data';
     ColegiosMayoresPage,
     FavoritosPage,
     RegisterPictureStepPage,
+    UserProfilePage,
+    OrientationVideosAfterTestPage,
   ],
   imports: [
     BrowserModule,
@@ -92,6 +96,8 @@ import { AllAppDataProvider } from '../providers/all-app-data/all-app-data';
     ColegiosMayoresPage,
     FavoritosPage,
     RegisterPictureStepPage,
+    UserProfilePage,
+    OrientationVideosAfterTestPage,
   ],
   providers: [
     StatusBar,

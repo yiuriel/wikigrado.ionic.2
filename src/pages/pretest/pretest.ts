@@ -18,9 +18,9 @@ export class PretestPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad PretestPage');
     // this.tracker.trackView('vista previa al test');
-    this.userService.getUserDataAsync().then(data => {
+    this.userService.getUserData((data, error) => {
       this.image = data.image;
-    });
+    })
   }
 
   goToTestPage() {

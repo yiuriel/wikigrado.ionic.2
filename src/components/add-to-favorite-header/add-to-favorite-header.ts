@@ -18,9 +18,11 @@ export class AddToFavoriteHeaderComponent {
     this.add = true;
 
     this.userData = null;
-    this.userService.getUserDataAsync().then(user_data => {
-      this.userData = user_data;
-    });
+    this.userService.getUserData((data, error) => {
+      if (!error) {
+        this.userData = data;
+      }
+    })
   }
 
   addToFavorite() {

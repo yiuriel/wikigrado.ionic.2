@@ -36,7 +36,15 @@ export class RegisterPictureStepPage {
       let base64image = 'data:image/jpeg;base64,' + imageData;
       this.generateFromImage(base64image, 300, 300, .75, data => {
         this.image = data;
-        this.userService.setData({...this.userService.getData(), image: this.image});
+        this.userService.getUserData((data, error) => {
+          if (!error) {
+            this.userService.setUserData({...data, image: this.image}, (success, error) => {
+              if (!error) {
+                console.log("set data success")
+              }
+            });
+          }
+        })
       });
     }, (err) => {
       // Handle error
@@ -91,16 +99,18 @@ export class RegisterPictureStepPage {
 
   goToHomePage() {
     this.showLoader(null);
-    this.userService.register(this.userService.getData(), (type) => {
-      this.hideLoader();
-      switch (type) {
-        case 'retryToast':
-        case 'error':
+    this.userService.getUserData((data, error) => {
+      this.userService.register(data, (type) => {
+        this.hideLoader();
+        switch (type) {
+          case 'retryToast':
+          case 'error':
           return this.retryToast();
-        case 'success':
+          case 'success':
           return this.navCtrl.setRoot(PretestPage);
-      }
-    });
+        }
+      });
+    })
   }
 
   retryToast() {

@@ -22,18 +22,20 @@ export class UserProvider {
     this.storage.get('user_data').then((data) => {
       if (data) {
         console.log("session data start");
-        this.setUserData(data);
-        this.updateSession().subscribe(response => {
-          if (response.hasOwnProperty("affectedRows") && response.hasOwnProperty("session_expires") && response.affectedRows > 0) {
-            console.log("update session success");
-            const newData = {...this.data, session_expires: response.session_expires};
-            this.setUserData(newData);
-            callback('logged-in');
-          } else {
-            console.error("update session error in update session");
-            this.clearStorage();
-            callback('error');
-          }
+        this.setUserData(data, () => {
+          this.updateSession().subscribe(response => {
+            if (response.hasOwnProperty("affectedRows") && response.hasOwnProperty("session_expires") && response.affectedRows > 0) {
+              console.log("update session success");
+              const newData = {...this.data, session_expires: response.session_expires};
+              this.setUserData(newData, () => {
+                callback('logged-in');
+              });
+            } else {
+              console.error("update session error in update session");
+              this.clearStorage();
+              callback('error');
+            }
+          });
         });
       } else {
         console.error("update session error no data");
@@ -47,30 +49,25 @@ export class UserProvider {
     this.storage.clear();
   }
 
-  getUserDataAsync() {
-    return this.storage.get('user_data');
-  }
-
-  getData() {
-    return this.data;
-  }
-
-  setCurrentData(data) {
-    this.setData(data);
-  }
-
-  setUserData(data) {
-    this.setData(data);
-    this.storage.set('user_data', data);
-  }
-
-  setUserDataAsync(data) {
-    this.setData(data);
-    return this.storage.set('user_data', data);
-  }
-
-  setData(data) {
+  setUserData(data, callback) {
     this.data = data;
+    this.storage.set('user_data', data).then(success => {
+      callback(success, null);
+    }, error => {
+      callback(null, error);
+    })
+  }
+
+  getUserData(callback) {
+    if (this.data) {
+      return callback(this.data, null);
+    } else {
+      this.storage.get('user_data').then(data => {
+        callback(data, null);
+      }, error => {
+        callback(null, error);
+      });
+    }
   }
 
   isSessionExpired() {
@@ -112,7 +109,11 @@ export class UserProvider {
       } else {
         if (response.email && response.session_expires) {
           console.log("set data register");
-          this.setUserData(response);
+          this.setUserData(response, (data, error) => {
+            if (!error) {
+              console.log("set data successfully");
+            }
+          });
         } else {
           if (response.hasOwnProperty("available") && !data.available) {
             console.warn("email taken register");
@@ -138,10 +139,10 @@ export class UserProvider {
     this.http.post<{[key: string]: any}>(this.LOGINURL, data, httpOptions).subscribe(data => {
       console.log("success login");
       if (data) {
-        this.setUserDataAsync(data).then(success => {
+        this.setUserData(data, () => {
           this.verifySession(() => {});
           callback('success');
-        })
+        });
       }
     }, errorData => {
       if (errorData.error && errorData.error.hasOwnProperty("user_not_found") && errorData.error.user_not_found) {
