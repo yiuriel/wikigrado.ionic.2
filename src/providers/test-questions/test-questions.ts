@@ -4,7 +4,7 @@ import { Injectable } from '@angular/core';
 @Injectable()
 export class TestQuestionsProvider {
 
-  testQuestions: Array<Array<{question: string, answers:Array<{value: string, name: string}>}>>;
+  testQuestions: Array<Array<{question: string, answers:Array<{value: string, type: string, name: string}>}>>;
 
   constructor(public http: HttpClient) {
     this.testQuestions = [
@@ -14,10 +14,12 @@ export class TestQuestionsProvider {
           answers: [
             {
               value: "1",
+              type: 'A',
               name: "Si"
             },
             {
               value: "0",
+              type: 'A',
               name: "No"
             }
           ]
@@ -27,10 +29,12 @@ export class TestQuestionsProvider {
           answers: [
             {
               value: "1",
+              type: 'B',
               name: "Si"
             },
             {
               value: "0",
+              type: 'B',
               name: "No"
             }
           ]
@@ -40,10 +44,12 @@ export class TestQuestionsProvider {
           answers: [
             {
               value: "1",
+              type: 'C',
               name: "Si"
             },
             {
               value: "0",
+              type: 'C',
               name: "No"
             }
           ]
@@ -53,10 +59,12 @@ export class TestQuestionsProvider {
           answers: [
             {
               value: "1",
+              type: 'D',
               name: "Si"
             },
             {
               value: "0",
+              type: 'D',
               name: "No"
             }
           ]
@@ -66,10 +74,12 @@ export class TestQuestionsProvider {
           answers: [
             {
               value: "1",
+              type: 'E',
               name: "Si"
             },
             {
               value: "0",
+              type: 'E',
               name: "No"
             }
           ]
@@ -81,10 +91,12 @@ export class TestQuestionsProvider {
           answers: [
             {
               value: "1",
+              type: 'A',
               name: "Si"
             },
             {
               value: "0",
+              type: 'A',
               name: "No"
             }
           ]
@@ -94,10 +106,12 @@ export class TestQuestionsProvider {
           answers: [
             {
               value: "1",
+              type: 'B',
               name: "Si"
             },
             {
               value: "0",
+              type: 'B',
               name: "No"
             }
           ]
@@ -107,10 +121,12 @@ export class TestQuestionsProvider {
           answers: [
             {
               value: "1",
+              type: 'C',
               name: "Si"
             },
             {
               value: "0",
+              type: 'C',
               name: "No"
             }
           ]
@@ -120,10 +136,12 @@ export class TestQuestionsProvider {
           answers: [
             {
               value: "1",
+              type: 'D',
               name: "Si"
             },
             {
               value: "0",
+              type: 'D',
               name: "No"
             }
           ]
@@ -133,10 +151,12 @@ export class TestQuestionsProvider {
           answers: [
             {
               value: "1",
+              type: 'E',
               name: "Si"
             },
             {
               value: "0",
+              type: 'E',
               name: "No"
             }
           ]
@@ -148,10 +168,12 @@ export class TestQuestionsProvider {
           answers: [
             {
               value: "1",
+              type: 'A',
               name: "Si"
             },
             {
               value: "0",
+              type: 'A',
               name: "No"
             }
           ]
@@ -161,10 +183,12 @@ export class TestQuestionsProvider {
           answers: [
             {
               value: "1",
+              type: 'B',
               name: "Si"
             },
             {
               value: "0",
+              type: 'B',
               name: "No"
             }
           ]
@@ -174,10 +198,12 @@ export class TestQuestionsProvider {
           answers: [
             {
               value: "1",
+              type: 'C',
               name: "Si"
             },
             {
               value: "0",
+              type: 'C',
               name: "No"
             }
           ]
@@ -187,10 +213,12 @@ export class TestQuestionsProvider {
           answers: [
             {
               value: "1",
+              type: 'D',
               name: "Si"
             },
             {
               value: "0",
+              type: 'D',
               name: "No"
             }
           ]
@@ -200,10 +228,12 @@ export class TestQuestionsProvider {
           answers: [
             {
               value: "1",
+              type: 'E',
               name: "Si"
             },
             {
               value: "0",
+              type: 'E',
               name: "No"
             }
           ]
@@ -215,10 +245,12 @@ export class TestQuestionsProvider {
           answers: [
             {
               value: "1",
+              type: 'A',
               name: "Si"
             },
             {
               value: "0",
+              type: 'A',
               name: "No"
             }
           ]
@@ -228,10 +260,12 @@ export class TestQuestionsProvider {
           answers: [
             {
               value: "1",
+              type: 'B',
               name: "Si"
             },
             {
               value: "0",
+              type: 'B',
               name: "No"
             }
           ]
@@ -241,10 +275,12 @@ export class TestQuestionsProvider {
           answers: [
             {
               value: "1",
+              type: 'C',
               name: "Si"
             },
             {
               value: "0",
+              type: 'C',
               name: "No"
             }
           ]
@@ -254,10 +290,12 @@ export class TestQuestionsProvider {
           answers: [
             {
               value: "1",
+              type: 'D',
               name: "Si"
             },
             {
               value: "0",
+              type: 'D',
               name: "No"
             }
           ]
@@ -267,10 +305,12 @@ export class TestQuestionsProvider {
           answers: [
             {
               value: "1",
+              type: 'E',
               name: "Si"
             },
             {
               value: "0",
+              type: 'E',
               name: "No"
             }
           ]
@@ -282,10 +322,12 @@ export class TestQuestionsProvider {
           answers: [
             {
               value: "1",
+              type: 'A',
               name: "Si"
             },
             {
               value: "0",
+              type: 'A',
               name: "No"
             }
           ]
@@ -295,10 +337,12 @@ export class TestQuestionsProvider {
           answers: [
             {
               value: "1",
+              type: 'B',
               name: "Si"
             },
             {
               value: "0",
+              type: 'B',
               name: "No"
             }
           ]
@@ -308,10 +352,12 @@ export class TestQuestionsProvider {
           answers: [
             {
               value: "1",
+              type: 'C',
               name: "Si"
             },
             {
               value: "0",
+              type: 'C',
               name: "No"
             }
           ]
@@ -321,10 +367,12 @@ export class TestQuestionsProvider {
           answers: [
             {
               value: "1",
+              type: 'D',
               name: "Si"
             },
             {
               value: "0",
+              type: 'D',
               name: "No"
             }
           ]
@@ -334,10 +382,12 @@ export class TestQuestionsProvider {
           answers: [
             {
               value: "1",
+              type: 'E',
               name: "Si"
             },
             {
               value: "0",
+              type: 'E',
               name: "No"
             }
           ]

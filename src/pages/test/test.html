@@ -31,7 +31,7 @@
           </button>
         </ion-col>
         <ion-col text-right *ngIf="testProgress == 100 && activeCardIndex == testQuestions.length - 1">
-          <button ion-button color="danger" outline icon-end>
+          <button ion-button [disabled]="nextButtonDisable[i] == 'disabled'" color="danger" outline icon-end (click)="checkAnswers()">
             finalizar
             <ion-icon name='ios-arrow-dropright-outline'></ion-icon>
           </button>
