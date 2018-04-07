@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
-import { ToastController } from 'ionic-angular';
+import { NavController, NavParams, ToastController, LoadingController } from 'ionic-angular';
 import { OrientationVideosAfterTestPage } from '../orientation-videos-after-test/orientation-videos-after-test';
 import { TestQuestionsProvider } from '../../providers/test-questions/test-questions';
 import { AnalyticsProvider } from '../../providers/analytics/analytics';
+import { UserProvider } from '../../providers/user/user';
 
 @Component({
   selector: 'page-test',
@@ -19,8 +19,9 @@ export class TestPage {
   toast: any;
   questionsPageData: string;
   questionsAnsweredData: string;
+  loader: any;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private testService: TestQuestionsProvider, public toastCtrl: ToastController, public tracker: AnalyticsProvider) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public userService: UserProvider, private testService: TestQuestionsProvider, public toastCtrl: ToastController, public tracker: AnalyticsProvider, public loadingCtrl: LoadingController) {
     this.activeCardIndex = 0;
     this.testQuestions = this.testService.getQuestions();
     this.testProgress = 0;
@@ -46,7 +47,7 @@ export class TestPage {
     }
     this.testAnswers[index][subindex] = {value: answer.value, type: answer.type};
     this.testProgress = this.updateProgress(this.testAnswers);
-    this.nextButtonDisable[index] = (this.testAnswers[index].filter(obj => obj.value.toString() === "1").length > 2) ? "disabled" : "";
+    this.nextButtonDisable[index] = (this.testAnswers[index].filter(obj => obj.value.toString() === "1").length > 3) ? "disabled" : "";
 
     if (this.nextButtonDisable[index] === "disabled" && !this.toast) {
       this.showToast();
@@ -58,7 +59,20 @@ export class TestPage {
 
   showToast() {
     this.toast = this.toastCtrl.create({
-      message: 'Solo puedes elegir "Si" 2 (dos) veces por pantalla',
+      message: 'Solo puedes elegir "Si" 3 (tres) veces por pantalla',
+      duration: 5000,
+      position: 'middle',
+      showCloseButton: true
+    });
+    this.toast.present();
+    this.toast.onDidDismiss(() => {
+      this.toast = null;
+    });
+  }
+
+  showErrorToast() {
+    this.toast = this.toastCtrl.create({
+      message: 'Hubo un error, vuelve a intentarlo mas tarde',
       duration: 5000,
       position: 'middle',
       showCloseButton: true
@@ -97,17 +111,62 @@ export class TestPage {
       }
       repetitions[type] += 1;
     });
-    const first_orieantation = Object.keys(repetitions).reduce((a, b) => repetitions[a] > repetitions[b] ? a : b);
-    delete repetitions[first_orieantation];
-    const second_orieantation = Object.keys(repetitions).reduce((a, b) => repetitions[a] > repetitions[b] ? a : b);
-    delete repetitions[second_orieantation];
-    console.warn(first_orieantation, second_orieantation, types, repetitions);
-    this.navCtrl.setRoot(OrientationVideosAfterTestPage, {animate: true});
+
+    let first_orientation = this.getOrientation(repetitions);
+    let second_orientation = this.getOrientation(repetitions);
+    let third_orientation = this.getOrientation(repetitions);
+
+    if ((first_orientation.number > second_orientation.number) || second_orientation.number > third_orientation.number) {
+      third_orientation.orientation = null;
+    }
+
+    this.showLoader('calculando el resultado del test');
+    this.userService.updateUserOrientations(
+      {
+        first_orientation: first_orientation.orientation,
+        second_orientation: second_orientation.orientation,
+        third_orientation: third_orientation.orientation
+      },
+      (success, error) => {
+        this.hideLoader();
+        if (!error) {
+          this.navCtrl.setRoot(OrientationVideosAfterTestPage, {animate: true});
+        } else {
+          this.showErrorToast();
+        }
+      })
+
+  }
+
+  getOrientation(repetitions) {
+    let keyToRemove = "";
+    let min = 0;
+    Object.keys(repetitions).forEach((key, index) => {
+      if (repetitions[key] > min) {
+        min = repetitions[key];
+        keyToRemove = key;
+      }
+    });
+    delete repetitions[keyToRemove];
+    return {orientation: keyToRemove, number: min};
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad TestPage');
     this.tracker.trackView('vista del test')
+  }
+
+  showLoader(text) {
+    this.loader = this.loadingCtrl.create({
+      content: text,
+      spinner: 'crescent',
+    });
+
+    this.loader.present();
+  }
+
+  hideLoader() {
+    this.loader.dismiss();
   }
 
 }

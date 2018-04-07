@@ -10,37 +10,44 @@ export class UserProvider {
   BASEURL: string;
   CHECKEMAILURL: string;
   LOGINURL: string;
+  UPDATELATLONG: string;
+  UPDATEORIENTATIONS: string;
+  UPDATEAVATAR: string;
 
   constructor( private http: HttpClient, private env: EnvProvider, private storage: Storage ) {
     console.log('Hello UserProvider Provider');
     this.BASEURL = this.env.getEnvironmentUrl('production') + "/users";
     this.CHECKEMAILURL = this.BASEURL + "/check_email";
     this.LOGINURL = this.BASEURL + "/login";
+    this.UPDATELATLONG = this.BASEURL + "/update_lat_long";
+    this.UPDATEORIENTATIONS = this.BASEURL + "/set_orientations";
+    this.UPDATEAVATAR = this.BASEURL + "/image";
   }
 
   verifySession(callback) {
     this.storage.get('user_data').then((data) => {
       if (data) {
-        console.log("session data start");
         this.setUserData(data, () => {
           this.updateSession().subscribe(response => {
-            if (response.hasOwnProperty("affectedRows") && response.hasOwnProperty("session_expires") && response.affectedRows > 0) {
-              console.log("update session success");
-              const newData = {...this.data, session_expires: response.session_expires};
-              this.setUserData(newData, () => {
-                callback('logged-in');
+            if (response[0]) {
+              const user = response[0];
+              // console.log("update session success", user);
+              this.setUserData(user, () => {
+                callback(user, null);
               });
             } else {
-              console.error("update session error in update session");
+              // console.error("update session error in update session");
               this.clearStorage();
-              callback('error');
+              callback(null, {error: 1});
             }
+          }, error => {
+            callback(null, error);
           });
         });
       } else {
         console.error("update session error no data");
         this.clearStorage();
-        callback('error');
+        callback(null, {error: 1});
       }
     });
   }
@@ -79,7 +86,7 @@ export class UserProvider {
   updateSession() {
     let UPDATE_SESSION_URL = this.BASEURL + "/update_session";
     const httpOptions = this.getCommonHeaders();
-    const data = {app_enabled_param: true, email: this.data.email};
+    const data = {app_enabled_param: true, email: this.data.email, id: this.data.id};
     return this.http.put<{[key: string]: any}>(UPDATE_SESSION_URL, data, httpOptions)
   }
 
@@ -104,31 +111,22 @@ export class UserProvider {
     console.log("start register");
     this.http.post<{[key: string]: any}>(this.BASEURL, data, httpOptions).subscribe(response => {
       if (response.error && response.status && response.name === "HttpErrorResponse") {
-        console.error("error register");
-        callback('error');
+        callback(null, {error: 1});
       } else {
         if (response.email && response.session_expires) {
-          console.log("set data register");
-          this.setUserData(response, (data, error) => {
-            if (!error) {
-              console.log("set data successfully");
-            }
-          });
+          this.setUserData(response, (data, error) => {});
         } else {
           if (response.hasOwnProperty("available") && !data.available) {
-            console.warn("email taken register");
-            callback('emailTakenToast');
+            callback(null, {error: 'emailTakenToast'});
           } else {
-            console.error("retry register");
-            callback('retryToast');
+            callback(null, {error: 'retryToast'});
           }
         }
-        console.log("success register");
-        callback('success');
+        console.log("end register");
+        callback(data, null);
       }
     }, error => {
-      console.error("error register");
-      callback('error');
+      callback(null, {error: 1});
     })
   }
 
@@ -155,8 +153,86 @@ export class UserProvider {
     })
   }
 
-  updateLatLong(coords) {
-    console.log("update coords", coords);
+  updateUser(user, callback) {
+    this.getUserData((data, error) => {
+      if (!error) {
+        const httpOptions = this.getCommonHeaders();
+        const newData = {...data, ...user, app_enabled_param: true};
+        this.http.put<{[key: string]: any}>(this.BASEURL, newData, httpOptions).subscribe(data => {
+          if (data && data[0]) {
+            callback(data[0]);
+          }
+        }, error => {
+          callback(null, error);
+        })
+      }
+    });
+  }
+
+  updateUserOrientations(orientations, callback) {
+    this.getUserData((data, error) => {
+      if (!error) {
+        const httpOptions = this.getCommonHeaders();
+        const newData = {id: data.id, ...orientations, app_enabled_param: true};
+        this.http.put<{[key: string]: any}>(this.UPDATEORIENTATIONS, newData, httpOptions).subscribe(data => {
+          if (data && data[0]) {
+            callback(data[0]);
+          }
+        }, error => {
+          callback(null, error);
+        })
+      }
+    });
+  }
+
+  updateLatLong(coords, callback) {
+    // console.log("update coords", coords);
+    const httpOptions = this.getCommonHeaders();
+    this.getUserData((data, error) => {
+      if (!error) {
+        const user = {id: data.id, app_enabled_param: true, latitude: coords.latitude, longitude: coords.longitude};
+        this.http.put<{[key: string]: any}>(this.UPDATELATLONG, user, httpOptions).subscribe(update => {
+          console.log("success update lat long");
+          if (update) {
+            // console.log(user, update);
+            this.setUserData({...data, ...user}, () => {
+              callback(user, null);
+            });
+          } else {
+            callback(null, {error: 1});
+          }
+        }, error => {
+          callback(null, error);
+        })
+      }
+    })
+  }
+
+  updateAvatar(image, callback) {
+    const httpOptions = this.getCommonHeaders();
+    this.getUserData((data, error) => {
+      if (!error) {
+        const user = {image: image, app_enabled_param: true, id: data.id};
+        this.http.put<{[key: string]: any}>(this.UPDATEAVATAR, user, httpOptions).subscribe(updateAvatar => {
+          if (updateAvatar) {
+            // console.log(user, updateAvatar);
+            const newUserData = {...data, image: image};
+            // console.warn(JSON.stringify(newUserData));
+            this.setUserData(newUserData, (data, error) => {
+              if (!error) {
+                callback(newUserData, null);
+              } else {
+                callback(null, error);
+              }
+            });
+          } else {
+            callback(null, {error: 1});
+          }
+        }, error => {
+          callback(null, error);
+        });
+      }
+    });
   }
 
   getCommonHeaders() {

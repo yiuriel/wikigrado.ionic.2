@@ -1,7 +1,9 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, ViewChild } from '@angular/core';
 import { LoadingController } from 'ionic-angular';
 import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
 import { AnalyticsProvider } from '../../providers/analytics/analytics';
+import { ScreenOrientation } from '@ionic-native/screen-orientation';
+// import Player from '@vimeo/player';
 
 @Component({
   selector: 'image-switch-iframe',
@@ -14,10 +16,12 @@ export class ImageSwitchIframeComponent {
   @Input('url') url: string;
   @Input('career') career: string;
 
+  @ViewChild('videoFrame') videoFrame: any;
+
   active: boolean;
   actualUrl: SafeUrl;
 
-  constructor(public loadingCtrl: LoadingController, public tracker: AnalyticsProvider, private sanitizer: DomSanitizer) {
+  constructor(public loadingCtrl: LoadingController, public tracker: AnalyticsProvider, private sanitizer: DomSanitizer, private screenOrientation: ScreenOrientation) {
     console.log('Hello ImageSwitchIframeComponent Component');
     this.active = false;
   }
@@ -26,6 +30,21 @@ export class ImageSwitchIframeComponent {
     this.actualUrl = this.sanitizer.bypassSecurityTrustResourceUrl(this.url)
     this.active = true;
     this.tracker.trackEvent('video', 'ver video', this.career, 1);
+    // setTimeout(() => {
+    //   let player = new Player(this.videoFrame.nativeElement);
+    //   player.on('play', () => {
+    //     this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.LANDSCAPE);
+    //   });
+    //   player.on('ended', () => {
+    //     this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT);
+    //   });
+    //   player.on('error', () => {
+    //     this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT);
+    //   });
+    //   player.on('pause', () => {
+    //     this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT);
+    //   });
+    // }, 1000);
   }
 
 }

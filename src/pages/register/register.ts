@@ -37,17 +37,20 @@ export class RegisterPage {
   }
 
   register() {
-    this.showLoader(null);
-    this.userService.register(this.user, (type) => {
+    this.showLoader('registrando . . .');
+    this.userService.register(this.user, (success, error) => {
       this.hideLoader();
-      switch (type) {
-        case 'retryToast':
-        case 'error':
-          return this.retryToast();
-        case 'emailTakenToast':
-          return this.emailTakenToast();
-        case 'success':
-          return this.navCtrl.setRoot(PretestPage);
+      if (error) {
+        switch (error.error) {
+          case 'retryToast':
+          case 'error':
+          case 1:
+            return this.retryToast();
+          case 'emailTakenToast':
+            return this.emailTakenToast();
+        }
+      } else {
+        this.navCtrl.setRoot(PretestPage);
       }
     });
   }

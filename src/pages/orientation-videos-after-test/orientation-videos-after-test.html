@@ -1,5 +1,12 @@
 <ion-header customheader header-title="Videos de orientacion"></ion-header>
 
 <ion-content padding>
-
+  <div *ngFor="let video of videos;" padding-bottom>
+    <h2 [innerHTML]="video.orientation"></h2>
+    <image-switch-iframe
+    [url]="video.url"
+    [width]="dimensions.width"
+    [height]="dimensions.height">
+    </image-switch-iframe>
+  </div>
 </ion-content>

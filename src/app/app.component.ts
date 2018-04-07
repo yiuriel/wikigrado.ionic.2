@@ -3,7 +3,6 @@ import { Nav, Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { Geolocation } from '@ionic-native/geolocation';
-// import { NativeGeocoder, NativeGeocoderReverseResult } from '@ionic-native/native-geocoder';
 
 import { HttpClientModule } from '@angular/common/http';
 import { UserProvider } from '../providers/user/user';
@@ -21,6 +20,7 @@ import { ColegiosMayoresPage } from '../pages/colegios-mayores/colegios-mayores'
 import { FavoritosPage } from '../pages/favoritos/favoritos';
 import { SimulatesplashPage } from '../pages/simulatesplash/simulatesplash';
 import { UserProfilePage } from '../pages/user-profile/user-profile';
+import { OrientationVideosAfterTestPage } from '../pages/orientation-videos-after-test/orientation-videos-after-test';
 import 'rxjs/add/operator/filter';
 
 @Component({
@@ -51,7 +51,8 @@ export class MyApp {
   }
 
   checkIfPretestOrTest() {
-    return PretestPage;
+    // return PretestPage;
+    return OrientationVideosAfterTestPage;
   }
 
   initializeApp() {
@@ -62,31 +63,6 @@ export class MyApp {
       this.splashScreen.hide();
 
       this.tracker.initService();
-
-      // if user has data, update user data in service, and update session
-      // this.userService.clearStorage();
-      this.userService.verifySession((type) => {
-        switch (type) {
-          case 'success':
-            // move this to a service and mix with userService
-            const options = {
-              enableHighAccuracy: false,
-              timeout: 20000,
-              maximumAge: 5000
-            };
-            const subscription = this.geolocation.watchPosition(options)
-              .filter((p) => p.coords !== undefined) //Filter Out Errors
-              .subscribe(position => {
-                if (position.coords) {
-                  this.userService.updateLatLong(position.coords);
-                  subscription.unsubscribe();
-                }
-              });
-            return;
-          case 'error':
-            return;
-        }
-      });
     });
   }
 

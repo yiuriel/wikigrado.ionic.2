@@ -1,8 +1,10 @@
 <div [style.width.px]="width" [style.height.px]="height" class="image-switch-iframe-wrapper">
   <div class="box padding" *ngIf="!active" (click)="switchActive()">
-    {{career}}
+    <p *ngIf="career" [innerHTML]="career"></p>
+    <p *ngIf="!career">ver video</p>
   </div>
   <iframe
+    #videoFrame
     *ngIf="active"
     [src]="actualUrl"
     [width]="width"

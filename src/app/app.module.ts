@@ -42,6 +42,8 @@ import { AnalyticsProvider } from '../providers/analytics/analytics';
 import { FavoritesProvider } from '../providers/favorites/favorites';
 import { EnvProvider } from '../providers/env/env';
 import { AllAppDataProvider } from '../providers/all-app-data/all-app-data';
+import { CanvasProvider } from '../providers/canvas/canvas';
+import { OrientationVideosProvider } from '../providers/orientation-videos/orientation-videos';
 
 @NgModule({
   declarations: [
@@ -115,7 +117,9 @@ import { AllAppDataProvider } from '../providers/all-app-data/all-app-data';
     AnalyticsProvider,
     FavoritesProvider,
     EnvProvider,
-    AllAppDataProvider
+    AllAppDataProvider,
+    CanvasProvider,
+    OrientationVideosProvider
   ]
 })
 export class AppModule {}

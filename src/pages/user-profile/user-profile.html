@@ -1,5 +1,51 @@
 <ion-header customheader header-title="Perfil"></ion-header>
 
 <ion-content padding>
+  <form #userEditForm="ngForm">
+    <ion-grid>
+      <ion-row padding-bottom>
+        <ion-col>
+          <div class="image-wrapper">
+            <img *ngIf="user.image" class="user-image" [src]="user.image" />
+            <ion-icon *ngIf="!user.image" class="profile-icon" name="person"></ion-icon>
+            <button ion-button block color="dark" (click)="changePicture()">
+              <ion-icon name="camera"></ion-icon>
+            </button>
+          </div>
+        </ion-col>
+      </ion-row>
+      <ion-row padding-top>
+        <ion-col>
+          <ion-list>
+            <ion-item>
+              <ion-label stacked>Nombre</ion-label>
+              <ion-input name="firstname" required [(ngModel)]="user.first_name" type="text"></ion-input>
+            </ion-item>
 
+            <ion-item>
+              <ion-label stacked>Apellido</ion-label>
+              <ion-input name="lastname" required [(ngModel)]="user.last_name" type="text"></ion-input>
+            </ion-item>
+
+            <ion-item>
+              <ion-label stacked>Edad</ion-label>
+              <ion-select name="age" required [(ngModel)]="user.age">
+                <ion-option *ngFor="let age of ages" [value]="age" [innerHTML]="age"></ion-option>
+              </ion-select>
+            </ion-item>
+
+            <ion-item>
+              <ion-label stacked>Email</ion-label>
+              <ion-input name="email" disabled [(ngModel)]="user.email" type="email"></ion-input>
+            </ion-item>
+          </ion-list>
+        </ion-col>
+      </ion-row>
+      <ion-row align-items-end text-center>
+        <ion-col>
+          <button ion-button round small outline color="danger" [disabled]="!userEditForm.form.valid" (click)="updateUser()">guardar cambios</button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </form>
 </ion-content>
