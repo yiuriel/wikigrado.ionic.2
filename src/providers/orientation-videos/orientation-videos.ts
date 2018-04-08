@@ -26,6 +26,14 @@ export class OrientationVideosProvider {
       {
         orientation: 'humanidades',
         url: 'https://player.vimeo.com/video/250955010'
+      },
+      {
+        orientation: 'sociales',
+        url: 'https://player.vimeo.com/video/250976505'
+      },
+      {
+        orientation: 'salud',
+        url: 'https://player.vimeo.com/video/250969615'
       }
     ];
   }

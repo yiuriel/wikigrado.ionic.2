@@ -7,6 +7,7 @@ import { Geolocation } from '@ionic-native/geolocation';
 import { HttpClientModule } from '@angular/common/http';
 import { UserProvider } from '../providers/user/user';
 import { AnalyticsProvider } from '../providers/analytics/analytics';
+import { TestStorageProvider } from '../providers/test-storage/test-storage';
 
 // import { InitialSliderPage } from '../pages/initial-slider/initial-slider';
 
@@ -34,25 +35,34 @@ export class MyApp {
 
   pages: Array<{icon: string, title: string, component: any}>;
 
-  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen, private geolocation: Geolocation, public tracker: AnalyticsProvider, public userService: UserProvider) {
+  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen, public tracker: AnalyticsProvider, public userService: UserProvider, public testStorageService: TestStorageProvider) {
     this.initializeApp();
 
-    const testMenuComponent = this.checkIfPretestOrTest();
+    let testMenuComponent;
+    this.checkIfPretestOrTest((component) => {
+      testMenuComponent = component;
 
-    // used for an example of ngFor and navigation
-    this.pages = [
-      { icon: 'md-book', title: 'Test de Personalidad', component: testMenuComponent },
-      { icon: 'md-school', title: 'Grados y Salidas Profesionales', component: GradosPage },
-      { icon: 'md-ribbon', title: 'Universidades', component: UniversidadesPage },
-      { icon: 'md-paper', title: 'Colegios Mayores', component: ColegiosMayoresPage },
-      { icon: 'person', title: 'Perfil', component: UserProfilePage },
-      { icon: 'md-star', title: 'Favoritos', component: FavoritosPage },
-    ];
+      this.pages = [
+        { icon: 'md-book', title: 'Test de Personalidad', component: testMenuComponent },
+        { icon: 'md-school', title: 'Grados y Salidas Profesionales', component: GradosPage },
+        { icon: 'md-ribbon', title: 'Universidades', component: UniversidadesPage },
+        { icon: 'md-paper', title: 'Colegios Mayores', component: ColegiosMayoresPage },
+        { icon: 'person', title: 'Perfil', component: UserProfilePage },
+        { icon: 'md-star', title: 'Favoritos', component: FavoritosPage },
+      ];
+    });
   }
 
-  checkIfPretestOrTest() {
-    // return PretestPage;
-    return OrientationVideosAfterTestPage;
+  checkIfPretestOrTest(callback) {
+    this.testStorageService.getTestDone((value, error) => {
+      if (!error) {
+        if (value) {
+          callback(OrientationVideosAfterTestPage);
+        } else {
+          callback(PretestPage);
+        }
+      }
+    })
   }
 
   initializeApp() {

@@ -6,6 +6,11 @@ page-orientation-videos-after-test {
     background-size: cover;
     .scroll-content {
       background-color: rgba(255, 255, 255, 0.6);
+      .separator {
+        margin: 16px auto;
+        height: 1px;
+        background-color: black;
+      }
     }
   }
 }

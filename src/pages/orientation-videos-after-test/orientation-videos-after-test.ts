@@ -1,5 +1,6 @@
 import { Component, ElementRef } from '@angular/core';
 import { NavController, NavParams, ToastController, LoadingController } from 'ionic-angular';
+import { TestPage } from '../test/test';
 import { UserProvider } from '../../providers/user/user';
 import { AnalyticsProvider } from '../../providers/analytics/analytics';
 import { OrientationVideosProvider } from '../../providers/orientation-videos/orientation-videos';
@@ -31,7 +32,10 @@ export class OrientationVideosAfterTestPage {
 
     const orientations = [this.user.first_orientation, this.user.second_orientation, this.user.third_orientation].filter(orientation => orientation !== null);
     this.videos = this.orientationVideosService.getVideosBasedOnOrientations(orientations);
-    console.log(this.videos);
+  }
+
+  retakeTest() {
+    this.navCtrl.setRoot(TestPage, {animate: true})
   }
 
   ionViewDidLoad() {

@@ -44,6 +44,7 @@ import { EnvProvider } from '../providers/env/env';
 import { AllAppDataProvider } from '../providers/all-app-data/all-app-data';
 import { CanvasProvider } from '../providers/canvas/canvas';
 import { OrientationVideosProvider } from '../providers/orientation-videos/orientation-videos';
+import { TestStorageProvider } from '../providers/test-storage/test-storage';
 
 @NgModule({
   declarations: [
@@ -119,7 +120,8 @@ import { OrientationVideosProvider } from '../providers/orientation-videos/orien
     EnvProvider,
     AllAppDataProvider,
     CanvasProvider,
-    OrientationVideosProvider
+    OrientationVideosProvider,
+    TestStorageProvider
   ]
 })
 export class AppModule {}

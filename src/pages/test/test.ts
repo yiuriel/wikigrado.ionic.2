@@ -4,6 +4,7 @@ import { OrientationVideosAfterTestPage } from '../orientation-videos-after-test
 import { TestQuestionsProvider } from '../../providers/test-questions/test-questions';
 import { AnalyticsProvider } from '../../providers/analytics/analytics';
 import { UserProvider } from '../../providers/user/user';
+import { TestStorageProvider } from '../../providers/test-storage/test-storage';
 
 @Component({
   selector: 'page-test',
@@ -21,7 +22,7 @@ export class TestPage {
   questionsAnsweredData: string;
   loader: any;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public userService: UserProvider, private testService: TestQuestionsProvider, public toastCtrl: ToastController, public tracker: AnalyticsProvider, public loadingCtrl: LoadingController) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public userService: UserProvider, private testService: TestQuestionsProvider, public toastCtrl: ToastController, public tracker: AnalyticsProvider, public loadingCtrl: LoadingController, public testStorageService: TestStorageProvider) {
     this.activeCardIndex = 0;
     this.testQuestions = this.testService.getQuestions();
     this.testProgress = 0;
@@ -130,7 +131,11 @@ export class TestPage {
       (success, error) => {
         this.hideLoader();
         if (!error) {
-          this.navCtrl.setRoot(OrientationVideosAfterTestPage, {animate: true});
+          this.testStorageService.setTestDone(true, (value, error) => {
+            if (!error) {
+              this.navCtrl.setRoot(OrientationVideosAfterTestPage, {animate: true});
+            }
+          })
         } else {
           this.showErrorToast();
         }

@@ -1,9 +1,11 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams, Platform } from 'ionic-angular';
 import { InitialSliderPage } from '../initial-slider/initial-slider';
+import { OrientationVideosAfterTestPage } from '../../pages/orientation-videos-after-test/orientation-videos-after-test';
 import { PretestPage } from '../../pages/pretest/pretest';
 import { UserProvider } from '../../providers/user/user';
 import { Storage } from '@ionic/storage';
+import { TestStorageProvider } from '../../providers/test-storage/test-storage';
 import { Geolocation } from '@ionic-native/geolocation';
 // import { NativeGeocoder, NativeGeocoderReverseResult } from '@ionic-native/native-geocoder';
 
@@ -13,7 +15,17 @@ import { Geolocation } from '@ionic-native/geolocation';
 })
 export class SimulatesplashPage {
 
-  constructor(public platform: Platform, public navCtrl: NavController, public navParams: NavParams, public userService: UserProvider, private geolocation: Geolocation, private storage: Storage) {
+  testpage: any;
+
+  constructor(public platform: Platform, public navCtrl: NavController, public navParams: NavParams, public userService: UserProvider, private geolocation: Geolocation, private storage: Storage, public testStorageService: TestStorageProvider) {
+    this.testpage = PretestPage;
+    this.testStorageService.getTestDone((value, error) => {
+      if (!error) {
+        if (value) {
+          this.testpage = OrientationVideosAfterTestPage;
+        }
+      }
+    })
   }
 
   ionViewDidLoad() {
@@ -23,7 +35,7 @@ export class SimulatesplashPage {
       const redirectTimeout = setTimeout(() => {
         if (success) {
           clearTimeout(redirectTimeout);
-          this.navCtrl.setRoot(PretestPage);
+          this.navCtrl.setRoot(this.testpage);
         } else {
           this.navCtrl.setRoot(InitialSliderPage);
         }
