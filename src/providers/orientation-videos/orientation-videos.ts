@@ -17,23 +17,28 @@ export class OrientationVideosProvider {
     this.videos = [
       {
         orientation: 'arte',
+        career: 'Grados Artísticos',
         url: 'https://player.vimeo.com/video/250976505'
       },
       {
         orientation: 'tecnologia',
+        career: 'Grados en Ingenierías',
         url: 'https://player.vimeo.com/video/250969615'
       },
       {
         orientation: 'humanidades',
+        career: 'Grados en Humanidades',
         url: 'https://player.vimeo.com/video/250955010'
       },
       {
         orientation: 'sociales',
-        url: 'https://player.vimeo.com/video/250976505'
+        career: 'Grados en Ciencias Sociales',
+        url: 'https://player.vimeo.com/video/247694448'
       },
       {
         orientation: 'salud',
-        url: 'https://player.vimeo.com/video/250969615'
+        career: 'Grados en Ciencias de la Salud',
+        url: 'https://player.vimeo.com/video/247675245'
       }
     ];
   }

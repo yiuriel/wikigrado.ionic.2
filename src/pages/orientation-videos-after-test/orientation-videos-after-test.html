@@ -4,7 +4,7 @@
   <h2 padding-top padding-bottom>Estos son los videos de orientacion de acuerdo al resultado de tu test de personalidad</h2>
   <div class="separator"></div>
   <div *ngFor="let video of videos;" padding-top padding-bottom>
-    <h4 [innerHTML]="video.orientation"></h4>
+    <h4 [innerHTML]="video.career"></h4>
     <image-switch-iframe
     [url]="video.url"
     [width]="dimensions.width"

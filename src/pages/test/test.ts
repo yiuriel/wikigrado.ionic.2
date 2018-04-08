@@ -121,7 +121,7 @@ export class TestPage {
       third_orientation.orientation = null;
     }
 
-    this.showLoader('calculando el resultado del test');
+    this.showLoader('obteniendo el resultado del test');
     this.userService.updateUserOrientations(
       {
         first_orientation: first_orientation.orientation,

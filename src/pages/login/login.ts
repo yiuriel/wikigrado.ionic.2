@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NavController, NavParams, ToastController, LoadingController } from 'ionic-angular';
 import { PretestPage } from '../pretest/pretest';
 import { UserProvider } from '../../providers/user/user';
+import { TestStorageProvider } from '../../providers/test-storage/test-storage';
 
 @Component({
   selector: 'page-login',
@@ -14,7 +15,7 @@ export class LoginPage {
   loader: any;
   showVolver: any;
 
-  constructor(public navCtrl: NavController, public userService: UserProvider, public navParams: NavParams, public toastCtrl: ToastController, public loadingCtrl: LoadingController) {
+  constructor(public navCtrl: NavController, public userService: UserProvider, public navParams: NavParams, public toastCtrl: ToastController, public loadingCtrl: LoadingController, public testStorageService: TestStorageProvider) {
     this.user = {email: "", password: ""}
 
     this.showVolver = this.navParams.data.hasOwnProperty("showVolver") || false;
@@ -38,16 +39,26 @@ export class LoginPage {
   }
 
   login() {
-    this.showLoader(null);
-    this.userService.login(this.user, (type) => {
+    this.showLoader('conectando . . .');
+    this.userService.login(this.user, (data, error) => {
       this.hideLoader();
-      switch(type) {
-        case 'success':
-          return this.navCtrl.setRoot(PretestPage);
-        case 'wrongLoginToast':
-          return this.wrongLoginToast();
-        case 'error':
-          return this.retryToast();
+      if (error) {
+        switch(error.error) {
+          case 'wrongLoginToast':
+            return this.wrongLoginToast();
+          case 'error':
+            return this.retryToast();
+        }
+      } else {
+        if (data.first_orientation) {
+          this.testStorageService.setTestDone(true, (value, failed) => {
+            if (!failed) {
+              this.navCtrl.setRoot(PretestPage);
+            }
+          })
+        } else {
+          this.navCtrl.setRoot(PretestPage);
+        }
       }
     });
   }

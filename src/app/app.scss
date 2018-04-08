@@ -24,14 +24,6 @@
   background-color: map-get($colors, danger);
 }
 
-[color="light"] {
-  color: map-get($colors, light);
-}
-
-[color="danger"] {
-  color: map-get($colors, danger);
-}
-
 .menu-background {
   background-image: url('../assets/imgs/menu.jpg');
   background-position: center;

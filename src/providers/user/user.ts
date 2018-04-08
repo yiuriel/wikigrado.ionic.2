@@ -135,20 +135,17 @@ export class UserProvider {
     const data = {...user, app_enabled_param: true};
     console.log("start login");
     this.http.post<{[key: string]: any}>(this.LOGINURL, data, httpOptions).subscribe(data => {
-      console.log("success login");
       if (data) {
         this.setUserData(data, () => {
           this.verifySession(() => {});
-          callback('success');
+          callback(data, null);
         });
       }
     }, errorData => {
       if (errorData.error && errorData.error.hasOwnProperty("user_not_found") && errorData.error.user_not_found) {
-        console.error("wrong login");
-        callback('wrongLoginToast');
+        callback(null, {error: 'wrongLoginToast'});
       } else {
-        console.error("error login", JSON.stringify(errorData));
-        callback('error');
+        callback(null, {error: 'error'});
       }
     })
   }
