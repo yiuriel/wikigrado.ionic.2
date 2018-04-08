@@ -1,8 +1,7 @@
 import { Component, ViewChild } from '@angular/core';
-import { Nav, Platform } from 'ionic-angular';
+import { Nav, Platform, MenuController } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-import { Geolocation } from '@ionic-native/geolocation';
 
 import { HttpClientModule } from '@angular/common/http';
 import { UserProvider } from '../providers/user/user';
@@ -12,7 +11,6 @@ import { TestStorageProvider } from '../providers/test-storage/test-storage';
 // import { InitialSliderPage } from '../pages/initial-slider/initial-slider';
 
 // pages for menu
-// import { TestPage } from '../pages/test/test';
 import { LoginPage } from '../pages/login/login';
 import { PretestPage } from '../pages/pretest/pretest';
 import { GradosPage } from '../pages/grados/grados';
@@ -35,7 +33,7 @@ export class MyApp {
 
   pages: Array<{icon: string, title: string, component: any}>;
 
-  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen, public tracker: AnalyticsProvider, public userService: UserProvider, public testStorageService: TestStorageProvider) {
+  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen, public tracker: AnalyticsProvider, public userService: UserProvider, public testStorageService: TestStorageProvider, public menuCtrl: MenuController) {
     this.initializeApp();
 
     let testMenuComponent;
@@ -43,7 +41,7 @@ export class MyApp {
       testMenuComponent = component;
 
       this.pages = [
-        { icon: 'md-book', title: 'Test de Personalidad', component: testMenuComponent },
+        { icon: 'md-book', title: 'Test de Personalidad', component: {function: this.checkIfPretestOrTest} },
         { icon: 'md-school', title: 'Grados y Salidas Profesionales', component: GradosPage },
         { icon: 'md-ribbon', title: 'Universidades', component: UniversidadesPage },
         { icon: 'md-paper', title: 'Colegios Mayores', component: ColegiosMayoresPage },
@@ -84,6 +82,14 @@ export class MyApp {
   openPage(page) {
     // Reset the content nav to have just this page
     // we wouldn't want the back button to show in this scenario
-    this.nav.setRoot(page.component);
+    if (page.component && page.component.function) {
+      page.component.function.call(this, (component) => {
+        this.menuCtrl.close();
+        this.nav.setRoot(component);
+      })
+    } else {
+      this.menuCtrl.close();
+      this.nav.setRoot(page.component);
+    }
   }
 }

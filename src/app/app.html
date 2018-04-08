@@ -2,7 +2,7 @@
 
   <ion-content class="menu-background">
     <div *ngFor="let p of pages">
-      <button menuClose ion-button icon-start clear color="danger" (click)="openPage(p)">
+      <button ion-button icon-start clear color="danger" (click)="openPage(p)">
         <ion-icon [name]="p.icon"></ion-icon>
         {{p.title}}
       </button>
