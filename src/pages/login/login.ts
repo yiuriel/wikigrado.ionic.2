@@ -1,8 +1,10 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams, ToastController, LoadingController } from 'ionic-angular';
+import { NavController, NavParams } from 'ionic-angular';
 import { PretestPage } from '../pretest/pretest';
 import { UserProvider } from '../../providers/user/user';
 import { TestStorageProvider } from '../../providers/test-storage/test-storage';
+import { LoaderProvider } from '../../providers/loader/loader';
+import { ToasterProvider } from '../../providers/toaster/toaster';
 
 @Component({
   selector: 'page-login',
@@ -11,13 +13,10 @@ import { TestStorageProvider } from '../../providers/test-storage/test-storage';
 export class LoginPage {
 
   user: {email:string, password: string}
-  toast: any;
-  loader: any;
   showVolver: any;
 
-  constructor(public navCtrl: NavController, public userService: UserProvider, public navParams: NavParams, public toastCtrl: ToastController, public loadingCtrl: LoadingController, public testStorageService: TestStorageProvider) {
+  constructor(public navCtrl: NavController, public userService: UserProvider, public navParams: NavParams, public toasterService: ToasterProvider, public loaderService: LoaderProvider, public testStorageService: TestStorageProvider) {
     this.user = {email: "", password: ""}
-
     this.showVolver = this.navParams.data.hasOwnProperty("showVolver") || false;
   }
 
@@ -25,29 +24,16 @@ export class LoginPage {
     console.log('ionViewDidLoad LoginPage');
   }
 
-  showLoader(text) {
-    this.loader = this.loadingCtrl.create({
-      content: text,
-      spinner: 'crescent',
-    });
-
-    this.loader.present();
-  }
-
-  hideLoader() {
-    this.loader.dismiss();
-  }
-
   login() {
-    this.showLoader('conectando...');
+    this.loaderService.showLoader({content:'conectando...'});
     this.userService.login(this.user, (data, error) => {
-      this.hideLoader();
+      this.loaderService.hideLoader();
       if (error) {
         switch(error.error) {
           case 'wrongLoginToast':
-            return this.wrongLoginToast();
+            return this.loaderService.showLoader({content: 'Hubo un error, vuelve a intentarlo más tarde.'});
           case 'error':
-            return this.retryToast();
+            return this.loaderService.showLoader({content: 'Puede que los datos sean incorrectos, asegurate de haberlos escrito bien.'});
         }
       } else {
         if (data.first_orientation) {
@@ -60,32 +46,6 @@ export class LoginPage {
           this.navCtrl.setRoot(PretestPage);
         }
       }
-    });
-  }
-
-  retryToast() {
-    this.toast = this.toastCtrl.create({
-      message: 'Hubo un error, vuelve a intentarlo más tarde.',
-      duration: 5000,
-      position: 'bottom',
-      showCloseButton: true
-    });
-    this.toast.present();
-    this.toast.onDidDismiss(() => {
-      this.toast = null;
-    });
-  }
-
-  wrongLoginToast() {
-    this.toast = this.toastCtrl.create({
-      message: 'Puede que los datos sean incorrectos, asegurate de haberlos escrito bien.',
-      duration: 5000,
-      position: 'bottom',
-      showCloseButton: true
-    });
-    this.toast.present();
-    this.toast.onDidDismiss(() => {
-      this.toast = null;
     });
   }
 

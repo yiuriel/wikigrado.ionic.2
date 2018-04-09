@@ -1,10 +1,12 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams, ToastController, LoadingController } from 'ionic-angular';
+import { NavController, NavParams } from 'ionic-angular';
 import { OrientationVideosAfterTestPage } from '../orientation-videos-after-test/orientation-videos-after-test';
 import { TestQuestionsProvider } from '../../providers/test-questions/test-questions';
 import { AnalyticsProvider } from '../../providers/analytics/analytics';
 import { UserProvider } from '../../providers/user/user';
 import { TestStorageProvider } from '../../providers/test-storage/test-storage';
+import { LoaderProvider } from '../../providers/loader/loader';
+import { ToasterProvider } from '../../providers/toaster/toaster';
 
 @Component({
   selector: 'page-test',
@@ -17,12 +19,11 @@ export class TestPage {
   testAnswers: Array<Array<{[key: string]: any}>>;
   testProgress: number;
   nextButtonDisable: Array<string>;
-  toast: any;
   questionsPageData: string;
   questionsAnsweredData: string;
-  loader: any;
+  userData: any;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public userService: UserProvider, private testService: TestQuestionsProvider, public toastCtrl: ToastController, public tracker: AnalyticsProvider, public loadingCtrl: LoadingController, public testStorageService: TestStorageProvider) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public userService: UserProvider, private testService: TestQuestionsProvider, public toasterService: ToasterProvider, public tracker: AnalyticsProvider, public loaderService: LoaderProvider, public testStorageService: TestStorageProvider) {
     this.activeCardIndex = 0;
     this.testQuestions = this.testService.getQuestions();
     this.testProgress = 0;
@@ -30,6 +31,11 @@ export class TestPage {
     this.nextButtonDisable = [];
     this.updateQuestionsPageData();
     this.updateQuestionsAnsweredData(0);
+    this.userService.getUserData((data, error) => {
+      if (!error) {
+        this.userData = data;
+      }
+    })
   }
 
   answerSelect(index, subindex, answer) {
@@ -50,38 +56,12 @@ export class TestPage {
     this.testProgress = this.updateProgress(this.testAnswers);
     this.nextButtonDisable[index] = (this.testAnswers[index].filter(obj => obj.value.toString() === "1").length > 3) ? "disabled" : "";
 
-    if (this.nextButtonDisable[index] === "disabled" && !this.toast) {
-      this.showToast();
+    if (this.nextButtonDisable[index] === "disabled") {
+      this.loaderService.showLoader({content: 'Solo puedes elegir "Si" 3 (tres) veces por pantalla'});
     }
 
     const questionsAnswered = this.getAnsweredLength(this.testAnswers);
     this.updateQuestionsAnsweredData(questionsAnswered.length);
-  }
-
-  showToast() {
-    this.toast = this.toastCtrl.create({
-      message: 'Solo puedes elegir "Si" 3 (tres) veces por pantalla',
-      duration: 5000,
-      position: 'middle',
-      showCloseButton: true
-    });
-    this.toast.present();
-    this.toast.onDidDismiss(() => {
-      this.toast = null;
-    });
-  }
-
-  showErrorToast() {
-    this.toast = this.toastCtrl.create({
-      message: 'Hubo un error, vuelve a intentarlo mas tarde',
-      duration: 5000,
-      position: 'middle',
-      showCloseButton: true
-    });
-    this.toast.present();
-    this.toast.onDidDismiss(() => {
-      this.toast = null;
-    });
   }
 
   updateProgress(values) {
@@ -121,7 +101,7 @@ export class TestPage {
       third_orientation.orientation = null;
     }
 
-    this.showLoader('obteniendo el resultado del test...');
+    this.loaderService.showLoader({content:'obteniendo el resultado del test...'});
     const orientations = {
       first_orientation: first_orientation.orientation,
       second_orientation: second_orientation.orientation,
@@ -130,7 +110,7 @@ export class TestPage {
     this.userService.updateUserOrientations(
       orientations,
       (success, error) => {
-        this.hideLoader();
+        this.loaderService.hideLoader();
         if (!error) {
           this.userService.setUserData(success, (ok, userDataError) => {
             if (!userDataError) {
@@ -139,15 +119,22 @@ export class TestPage {
                   this.navCtrl.setRoot(OrientationVideosAfterTestPage, {animate: true});
                 }
               })
+              this.trackOrientations(orientations, success);
             } else {
-              this.showErrorToast();
+              this.loaderService.showLoader({content: 'Hubo un error, vuelve a intentarlo mas tarde'});
             }
           })
         } else {
-          this.showErrorToast();
+          this.loaderService.showLoader({content: 'Hubo un error, vuelve a intentarlo mas tarde'});
         }
-      });
-      this.trackOrientations(orientations);
+      }
+    );
+  }
+
+  ionViewWillLeave() {
+    if (this.testProgress < 100) {
+      this.tracker.trackEvent('Test de orientacion', 'sin resultados', 'dejar el test sin terminar', this.userData.age);
+    }
   }
 
   getOrientation(repetitions) {
@@ -164,29 +151,15 @@ export class TestPage {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad TestPage');
-    this.tracker.trackView('vista del test')
+    this.tracker.trackView('vista del test');
   }
 
-  trackOrientations(orientations) {
-    // this.tracker.trackEvent();
-    // this.tracker.trackEvent();
+  trackOrientations(orientations, userData) {
+    this.tracker.trackEvent('Test de orientacion', 'resultados', orientations.first_orientation, userData.age);
+    this.tracker.trackEvent('Test de orientacion', 'resultados', orientations.second_orientation, userData.age);
     if (orientations.third_orientation) {
-      // this.tracker.trackEvent();
+      this.tracker.trackEvent('Test de orientacion', 'resultados', orientations.third_orientation, userData.age);
     }
-  }
-
-  showLoader(text) {
-    this.loader = this.loadingCtrl.create({
-      content: text,
-      spinner: 'crescent',
-    });
-
-    this.loader.present();
-  }
-
-  hideLoader() {
-    this.loader.dismiss();
   }
 
 }

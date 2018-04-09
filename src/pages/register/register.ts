@@ -1,10 +1,11 @@
 import { Component, ViewChild } from '@angular/core';
-import { NavController, NavParams, ToastController, LoadingController } from 'ionic-angular';
+import { NavController, NavParams } from 'ionic-angular';
 import { UserProvider } from '../../providers/user/user';
 import { AnalyticsProvider } from '../../providers/analytics/analytics';
 import { PretestPage } from '../pretest/pretest';
 import { RegisterPictureStepPage } from '../register-picture-step/register-picture-step';
-
+import { LoaderProvider } from '../../providers/loader/loader';
+import { ToasterProvider } from '../../providers/toaster/toaster';
 
 @Component({
   selector: 'page-register',
@@ -13,41 +14,25 @@ import { RegisterPictureStepPage } from '../register-picture-step/register-pictu
 export class RegisterPage {
   @ViewChild('registeremail') input: {[key: string]: any};
   ages: Array<number>
-  toast: any;
   user: {[key: string]: any};
-  loader: any;
 
-  constructor(public navCtrl: NavController, public tracker: AnalyticsProvider, public navParams: NavParams, public userService: UserProvider, public toastCtrl: ToastController, public loadingCtrl: LoadingController ) {
-    this.ages = Array.from(Array(100).keys());
-    this.ages.shift();
+  constructor(public navCtrl: NavController, public tracker: AnalyticsProvider, public navParams: NavParams, public userService: UserProvider, public toasterService: ToasterProvider, public loaderService: LoaderProvider ) {
+    this.ages = Array.from(Array(100).keys()).slice(13, 100);
     this.user = {};
   }
 
-  showLoader(text) {
-    this.loader = this.loadingCtrl.create({
-      content: text,
-      spinner: 'crescent',
-    });
-
-    this.loader.present();
-  }
-
-  hideLoader() {
-    this.loader.dismiss();
-  }
-
   register() {
-    this.showLoader('registrando...');
+    this.loaderService.showLoader({content:'registrando...'});
     this.userService.register(this.user, (success, error) => {
-      this.hideLoader();
+      this.loaderService.hideLoader();
       if (error) {
         switch (error.error) {
           case 'retryToast':
           case 'error':
           case 1:
-            return this.retryToast();
+            return this.loaderService.showLoader({content: 'Hubo un error, vuelve a intentarlo más tarde.'});
           case 'emailTakenToast':
-            return this.emailTakenToast();
+            return this.loaderService.showLoader({content: 'Ya existe un usuario con este email'});
         }
       } else {
         this.navCtrl.setRoot(PretestPage);
@@ -59,38 +44,12 @@ export class RegisterPage {
     if (this.user.email && this.input.valid) {
       this.userService.checkEmail(this.user.email, (type) => {
         if (type === 'not-available') {
-          this.emailTakenToast();
+          this.loaderService.showLoader({content: 'Ya existe un usuario con este email'});
         } else if (type === 'error') {
-          this.retryToast();
+          this.loaderService.showLoader({content: 'Hubo un error, vuelve a intentarlo más tarde.'});
         }
       })
     }
-  }
-
-  retryToast() {
-    this.toast = this.toastCtrl.create({
-      message: 'Hubo un error, vuelve a intentarlo más tarde.',
-      duration: 5000,
-      position: 'bottom',
-      showCloseButton: true
-    });
-    this.toast.present();
-    this.toast.onDidDismiss(() => {
-      this.toast = null;
-    });
-  }
-
-  emailTakenToast() {
-    this.toast = this.toastCtrl.create({
-      message: 'Ya existe un usuario con este email',
-      duration: 5000,
-      position: 'bottom',
-      showCloseButton: true
-    });
-    this.toast.present();
-    this.toast.onDidDismiss(() => {
-      this.toast = null;
-    });
   }
 
   goToPicturePage() {
@@ -105,13 +64,8 @@ export class RegisterPage {
     this.navCtrl.pop();
   }
 
-  onAgeChange(age) {
-    // console.warn(age);
-  }
-
   ionViewDidLoad() {
     console.log('ionViewDidLoad RegisterPage');
-    // this.tracker.trackView('vista de registro')
   }
 
 }

@@ -1,10 +1,12 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams, LoadingController, ToastController } from 'ionic-angular';
+import { NavController, NavParams } from 'ionic-angular';
 import { UserProvider } from '../../providers/user/user';
 import { AnalyticsProvider } from '../../providers/analytics/analytics';
 import { CanvasProvider } from '../../providers/canvas/canvas';
 import { PretestPage } from '../pretest/pretest';
 import { Camera, CameraOptions } from '@ionic-native/camera';
+import { LoaderProvider } from '../../providers/loader/loader';
+import { ToasterProvider } from '../../providers/toaster/toaster';
 
 @Component({
   selector: 'page-register-picture-step',
@@ -14,10 +16,8 @@ export class RegisterPictureStepPage {
 
   fileName: string;
   image: string;
-  loader: any;
-  toast: any;
 
-  constructor(public navCtrl: NavController, public tracker: AnalyticsProvider, public canvasService: CanvasProvider, public navParams: NavParams, public userService: UserProvider, private camera: Camera, public toastCtrl: ToastController, public loadingCtrl: LoadingController ) {
+  constructor(public navCtrl: NavController, public tracker: AnalyticsProvider, public canvasService: CanvasProvider, public navParams: NavParams, public userService: UserProvider, private camera: Camera, public toasterService: ToasterProvider, public loaderService: LoaderProvider ) {
   }
 
   takePicture() {
@@ -51,49 +51,23 @@ export class RegisterPictureStepPage {
     });
   }
 
-  showLoader(text) {
-    this.loader = this.loadingCtrl.create({
-      content: text,
-      spinner: 'crescent',
-    });
-
-    this.loader.present();
-  }
-
-  hideLoader() {
-    this.loader.dismiss();
-  }
-
   goToHomePage() {
-    this.showLoader('finalizando registrando...');
+    this.loaderService.showLoader({content:'finalizando registrando...'});
     this.userService.getUserData((data, error) => {
       this.userService.register(data, (success, error) => {
-        this.hideLoader();
+        this.loaderService.hideLoader();
         if (error) {
           switch (error.error) {
             case 'retryToast':
             case 'error':
             case 1:
-              return this.retryToast();
+              return this.loaderService.showLoader({content: 'Hubo un error, vuelve a intentarlo más tarde.'});
           }
         } else {
           return this.navCtrl.setRoot(PretestPage);
         }
       });
     })
-  }
-
-  retryToast() {
-    this.toast = this.toastCtrl.create({
-      message: 'Hubo un error, vuelve a intentarlo más tarde.',
-      duration: 5000,
-      position: 'bottom',
-      showCloseButton: true
-    });
-    this.toast.present();
-    this.toast.onDidDismiss(() => {
-      this.toast = null;
-    });
   }
 
   goToRegisterPage() {

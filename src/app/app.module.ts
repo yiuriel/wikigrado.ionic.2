@@ -44,6 +44,8 @@ import { AllAppDataProvider } from '../providers/all-app-data/all-app-data';
 import { CanvasProvider } from '../providers/canvas/canvas';
 import { OrientationVideosProvider } from '../providers/orientation-videos/orientation-videos';
 import { TestStorageProvider } from '../providers/test-storage/test-storage';
+import { LoaderProvider } from '../providers/loader/loader';
+import { ToasterProvider } from '../providers/toaster/toaster';
 
 @NgModule({
   declarations: [
@@ -118,7 +120,9 @@ import { TestStorageProvider } from '../providers/test-storage/test-storage';
     AllAppDataProvider,
     CanvasProvider,
     OrientationVideosProvider,
-    TestStorageProvider
+    TestStorageProvider,
+    LoaderProvider,
+    ToasterProvider
   ]
 })
 export class AppModule {}

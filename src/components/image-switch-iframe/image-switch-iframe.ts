@@ -2,7 +2,7 @@ import { Component, Input, ViewChild } from '@angular/core';
 import { LoadingController } from 'ionic-angular';
 import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
 import { AnalyticsProvider } from '../../providers/analytics/analytics';
-import { ScreenOrientation } from '@ionic-native/screen-orientation';
+// import { ScreenOrientation } from '@ionic-native/screen-orientation';
 // import Player from '@vimeo/player';
 
 @Component({
@@ -20,9 +20,8 @@ export class ImageSwitchIframeComponent {
 
   active: boolean;
   actualUrl: SafeUrl;
-
-  constructor(public loadingCtrl: LoadingController, public tracker: AnalyticsProvider, private sanitizer: DomSanitizer, private screenOrientation: ScreenOrientation) {
-    console.log('Hello ImageSwitchIframeComponent Component');
+  // private screenOrientation: ScreenOrientation
+  constructor(public loadingCtrl: LoadingController, public tracker: AnalyticsProvider, private sanitizer: DomSanitizer) {
     this.active = false;
   }
 

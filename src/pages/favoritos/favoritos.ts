@@ -1,9 +1,10 @@
 import { Component, ElementRef } from '@angular/core';
-import { NavController, NavParams, ModalController, LoadingController } from 'ionic-angular';
+import { NavController, NavParams, ModalController } from 'ionic-angular';
 import { FavoritesProvider } from '../../providers/favorites/favorites'
 import { UserProvider } from '../../providers/user/user';
 import { AllAppDataProvider } from '../../providers/all-app-data/all-app-data';
 import { GradoPage } from '../grado/grado';
+import { LoaderProvider } from '../../providers/loader/loader';
 
 @Component({
   selector: 'page-favoritos',
@@ -16,13 +17,13 @@ export class FavoritosPage {
   dimensions: {width: number, height: number}
   loader: any;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public userService: UserProvider, public favoritesService: FavoritesProvider, public allAppDataService: AllAppDataProvider, public modalCtrl: ModalController, private domElem: ElementRef, public loadingCtrl: LoadingController) {
-    this.showLoader('cargando...');
+  constructor(public navCtrl: NavController, public navParams: NavParams, public userService: UserProvider, public favoritesService: FavoritesProvider, public allAppDataService: AllAppDataProvider, public modalCtrl: ModalController, private domElem: ElementRef, public loaderService: LoaderProvider) {
+    this.loaderService.showLoader({content:'cargando...'});
     this.userService.getUserData((data, error) => {
       if (!error) {
         this.userData = data;
         this.getFavorites((done, error) => {
-          this.hideLoader();
+          this.loaderService.hideLoader();
         });
       }
     })
@@ -56,9 +57,9 @@ export class FavoritosPage {
     if (item) {
       let modal = this.modalCtrl.create(GradoPage, {videoData: item, dimensionData: this.dimensions});
       modal.onDidDismiss(() => {
-        this.showLoader('cargando...');
+        this.loaderService.showLoader({content:'cargando...'});
         this.getFavorites(() => {
-          this.hideLoader();
+          this.loaderService.hideLoader();
         });
         modal = null;
       })
@@ -68,19 +69,6 @@ export class FavoritosPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad FavoritosPage');
-  }
-
-  showLoader(text) {
-    this.loader = this.loadingCtrl.create({
-      content: text,
-      spinner: 'crescent',
-    });
-
-    this.loader.present();
-  }
-
-  hideLoader() {
-    this.loader.dismiss();
   }
 
 }
