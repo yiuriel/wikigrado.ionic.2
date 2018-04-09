@@ -1,8 +1,7 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>
-      <span *ngIf="navParams.data.isColegioMayor">Colegio Mayor</span>
-      <span *ngIf="!navParams.data.isColegioMayor">Grado</span>
+      <span [innerHTML]="navParams.data.videoData.type | noSnakeCase"></span>
     </ion-title>
     <ion-buttons start>
       <button ion-button (click)="dismiss()">
@@ -53,6 +52,18 @@
       </h2>
       <p color="light" [innerHTML]="navParams.data.videoData.description"></p>
       <button *ngIf="navParams.data.videoData.location && navParams.data.videoData.location.lat && navParams.data.videoData.location.long" ion-button outline block color="light" (click)="viewLocation(navParams.data.videoData.location)">ver en el mapa</button>
+    </div>
+
+    <div *ngSwitchCase="'universidad'">
+      <h2 text-center color="light" [innerHTML]="navParams.data.videoData.universidad"></h2>
+      <div *ngIf="navParams.data.videoData.carreras.length">
+        <h4 text-center color="light">Carreras de esta universidad:</h4>
+        <ion-list>
+          <ion-item *ngFor="let carrera of navParams.data.videoData.carreras;">
+            {{ carrera }}
+          </ion-item>
+        </ion-list>
+      </div>
     </div>
   </div>
 

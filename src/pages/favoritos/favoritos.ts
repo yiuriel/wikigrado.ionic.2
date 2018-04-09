@@ -1,8 +1,9 @@
-import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { Component, ElementRef } from '@angular/core';
+import { NavController, NavParams, ModalController } from 'ionic-angular';
 import { FavoritesProvider } from '../../providers/favorites/favorites'
 import { UserProvider } from '../../providers/user/user';
 import { AllAppDataProvider } from '../../providers/all-app-data/all-app-data';
+import { GradoPage } from '../grado/grado';
 
 @Component({
   selector: 'page-favoritos',
@@ -12,27 +13,49 @@ export class FavoritosPage {
 
   favorites: Array<{[key: string]: any}>
   userData: {[key: string]: any}
+  dimensions: {width: number, height: number}
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public userService: UserProvider, public favoritesService: FavoritesProvider, public allAppDataService: AllAppDataProvider) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public userService: UserProvider, public favoritesService: FavoritesProvider, public allAppDataService: AllAppDataProvider, public modalCtrl: ModalController, private domElem: ElementRef) {
     this.userService.getUserData((data, error) => {
       if (!error) {
         this.userData = data;
-        this.favoritesService.getFavorites(this.userData.user_id, (type, data) => {
-          if (data) {
-            let res = [];
-            data.forEach(item => {
-              let founditem = this.allAppDataService.getDataBasedOnTypeAndIndex(item.item_type_in_app, item.item_id_in_app);
-              if (founditem) {
-                res = res.concat(founditem);
-              }
-            });
-            this.favorites = res;
-          }
-        });
-      } else {
-        this.userData = {first_name: "", last_name: "", image: ""};
+        this.getFavorites();
       }
     })
+  }
+
+  getFavorites() {
+    this.favoritesService.getFavorites(this.userData.id, (favorites, favoritesError) => {
+      if (!favoritesError) {
+        let res = [];
+        favorites.forEach(item => {
+          let founditem = this.allAppDataService.getDataBasedOnTypeAndIndex(item.item_type_in_app, item.item_id_in_app);
+          if (founditem) {
+            res = res.concat(founditem);
+          }
+        });
+        this.favorites = res;
+      }
+    });
+  }
+
+  ionViewDidEnter() {
+    let width = this.domElem.nativeElement.offsetWidth - 32;
+    this.dimensions = {
+      width: width,
+      height: (width * 9) / 16,
+    }
+  }
+
+  viewFavorite(item) {
+    if (item) {
+      let modal = this.modalCtrl.create(GradoPage, {videoData: item, dimensionData: this.dimensions});
+      modal.onDidDismiss(() => {
+        this.getFavorites();
+        modal = null;
+      })
+      modal.present();
+    }
   }
 
   ionViewDidLoad() {

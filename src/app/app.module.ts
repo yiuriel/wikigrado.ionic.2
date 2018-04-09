@@ -28,7 +28,6 @@ import { PretestPage } from '../pages/pretest/pretest';
 import { GradosPage } from '../pages/grados/grados';
 import { GradoPage } from '../pages/grado/grado';
 import { UniversidadesPage } from '../pages/universidades/universidades';
-import { UniversidadPage } from '../pages/universidad/universidad';
 import { ColegiosMayoresPage } from '../pages/colegios-mayores/colegios-mayores';
 import { FavoritosPage } from '../pages/favoritos/favoritos';
 import { UserProfilePage } from '../pages/user-profile/user-profile';
@@ -60,7 +59,6 @@ import { TestStorageProvider } from '../providers/test-storage/test-storage';
     GradosPage,
     GradoPage,
     UniversidadesPage,
-    UniversidadPage,
     ColegiosMayoresPage,
     FavoritosPage,
     RegisterPictureStepPage,
@@ -95,7 +93,6 @@ import { TestStorageProvider } from '../providers/test-storage/test-storage';
     GradosPage,
     GradoPage,
     UniversidadesPage,
-    UniversidadPage,
     ColegiosMayoresPage,
     FavoritosPage,
     RegisterPictureStepPage,

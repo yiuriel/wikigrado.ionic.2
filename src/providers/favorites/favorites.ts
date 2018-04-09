@@ -10,6 +10,8 @@ export class FavoritesProvider {
   favorites: Array<{[key: string]: any}>
   BASEURL: string;
   ADDFAVORITEURL: string;
+  REMOVEFAVORITEURL: string;
+  CHECKFAVORITEURL: string;
 
   constructor(public http: HttpClient, private env: EnvProvider, private storage: Storage, public allAppDataService: AllAppDataProvider) {
     console.log('Hello FavoritesProvider Provider');
@@ -17,42 +19,41 @@ export class FavoritesProvider {
 
     this.BASEURL = this.env.getEnvironmentUrl('production') + "/favorites";
     this.ADDFAVORITEURL = this.BASEURL + "/add/";
+    this.REMOVEFAVORITEURL = this.BASEURL + "/remove/";
+    this.CHECKFAVORITEURL = this.BASEURL + "/check/";
   }
 
   getFavorites(user_id, callback) {
     this.http.get(this.BASEURL + "/" + user_id).subscribe(favorites => {
-      callback('success', favorites);
+      callback(favorites, null);
     }, error => {
-      console.log(error);
-      callback('error');
+      callback(null, error);
+    });
+  }
+
+  checkFavorite(item, user_id, callback) {
+    this.http.get(this.CHECKFAVORITEURL + user_id + "/" + item.type + "/" + item.index).subscribe(response => {
+      callback(response, null);
+    }, error => {
+      callback(null, error);
     });
   }
 
   addFavorite(item, user_id, callback) {
     const data = {item_id_in_app: item.index, item_type_in_app: item.type, app_enabled_param: true};
     this.http.post(this.ADDFAVORITEURL + user_id, data, this.getCommonHeaders()).subscribe(response => {
-      console.log(response);
-      callback('success', response);
+      callback(response, null);
     }, error => {
-      console.log(error);
-      callback('error');
+      callback(null, error);
     });
-    console.warn(item, " --> add");
   }
 
-  removeFavorite(item) {
-    this.removeFromFavorites(item);
-    console.warn(this.favorites, " --> remove");
-  }
-
-  exists(item) {
-    return this.favorites.filter(favorite => favorite.index === item.index && favorite.type === item.type).length > 0
-  }
-
-  removeFromFavorites(item) {
-    const index = this.favorites.findIndex(favorite => favorite.index === item.index && favorite.type === item.type)
-    // console.warn(index, this.favorites[index], item);
-    this.favorites.splice(index, 1);
+  removeFavorite(item, user_id, callback) {
+    this.http.delete(this.REMOVEFAVORITEURL + user_id + "/" + item.type + "/" + item.index, this.getCommonHeaders()).subscribe(response => {
+      callback(response, null);
+    }, error => {
+      callback(null, error);
+    });
   }
 
   getCommonHeaders() {

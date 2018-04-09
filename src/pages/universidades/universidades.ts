@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams, LoadingController, ModalController } from 'ionic-angular';
 import { AllAppDataProvider } from '../../providers/all-app-data/all-app-data';
-import { UniversidadPage } from '../universidad/universidad';
+import { GradoPage } from '../grado/grado';
 import { AnalyticsProvider } from '../../providers/analytics/analytics';
 
 @Component({
@@ -39,7 +39,7 @@ export class UniversidadesPage {
 
   goToUniversidad(universidad) {
     if (universidad) {
-      let modal = this.modalCtrl.create(UniversidadPage, {universidadData: universidad});
+      let modal = this.modalCtrl.create(GradoPage, {videoData: universidad});
       modal.onDidDismiss(() => {
         modal = null;
       })

@@ -65,7 +65,7 @@ export class RegisterPictureStepPage {
   }
 
   goToHomePage() {
-    this.showLoader('finalizando registrando . . .');
+    this.showLoader('finalizando registrando...');
     this.userService.getUserData((data, error) => {
       this.userService.register(data, (success, error) => {
         this.hideLoader();

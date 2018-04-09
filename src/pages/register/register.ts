@@ -37,7 +37,7 @@ export class RegisterPage {
   }
 
   register() {
-    this.showLoader('registrando . . .');
+    this.showLoader('registrando...');
     this.userService.register(this.user, (success, error) => {
       this.hideLoader();
       if (error) {

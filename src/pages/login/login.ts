@@ -39,7 +39,7 @@ export class LoginPage {
   }
 
   login() {
-    this.showLoader('conectando . . .');
+    this.showLoader('conectando...');
     this.userService.login(this.user, (data, error) => {
       this.hideLoader();
       if (error) {

@@ -57,7 +57,7 @@ export class UserProfilePage {
       // imageData is either a base64 encoded string or a file URI
       // If it's base64:
       let base64image = 'data:image/jpeg;base64,' + imageData;
-      this.showLoader('cambiando imagen');
+      this.showLoader('cambiando imagen...');
       this.canvasService.generateFromImage(base64image, 300, 300, .75, data => {
         this.user.image = data;
         this.userService.updateAvatar(data, (success, error) => {
@@ -75,7 +75,7 @@ export class UserProfilePage {
   }
 
   updateUser() {
-    this.showLoader('actualizando usuario');
+    this.showLoader('actualizando usuario...');
     this.userService.updateUser(this.user, (user, error) => {
       if (!error) {
         this.userService.setUserData(user, (storageSuccess, storageError) => {
