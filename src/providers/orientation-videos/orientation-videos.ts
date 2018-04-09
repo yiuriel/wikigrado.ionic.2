@@ -22,7 +22,7 @@ export class OrientationVideosProvider {
       },
       {
         orientation: 'tecnologia',
-        career: 'Grados en Ingenierías',
+        career: 'Grados en Tecnologias',
         url: 'https://player.vimeo.com/video/250969615'
       },
       {

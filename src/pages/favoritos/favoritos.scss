@@ -7,13 +7,33 @@ page-favoritos {
     .scroll-content {
       background-color: rgba(255,255,255,0.75);
 
-      .profile-pic {
-        width: 100px;
-        height: 100px;
-        margin: 25px auto;
-        background-position: center center;
-        background-repeat: no-repeat;
+      .image-wrapper {
+        width: 120px;
+        height: 120px;
         border-radius: 50%;
+        margin: auto;
+        position: relative;
+        overflow: hidden;
+        text-align: center;
+        background-color: white;
+        .user-image {
+          position: absolute;
+          top: -25%;
+          left: 0;
+          width: 100%;
+          height: auto;
+        }
+        .profile-icon {
+          font-size: 10em;
+          color: map-get($colors, danger);
+        }
+        [ion-button] {
+          position: absolute;
+          bottom: -5px;
+          ion-icon {
+            font-size: 2em;
+          }
+        }
       }
       .career-title {
         color: white;

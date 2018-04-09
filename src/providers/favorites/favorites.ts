@@ -2,7 +2,6 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { EnvProvider } from '../env/env';
 import { AllAppDataProvider } from '../all-app-data/all-app-data';
-import { Storage } from '@ionic/storage';
 
 @Injectable()
 export class FavoritesProvider {
@@ -13,7 +12,7 @@ export class FavoritesProvider {
   REMOVEFAVORITEURL: string;
   CHECKFAVORITEURL: string;
 
-  constructor(public http: HttpClient, private env: EnvProvider, private storage: Storage, public allAppDataService: AllAppDataProvider) {
+  constructor(public http: HttpClient, private env: EnvProvider, public allAppDataService: AllAppDataProvider) {
     console.log('Hello FavoritesProvider Provider');
     this.favorites = [];
 

@@ -122,25 +122,32 @@ export class TestPage {
     }
 
     this.showLoader('obteniendo el resultado del test...');
+    const orientations = {
+      first_orientation: first_orientation.orientation,
+      second_orientation: second_orientation.orientation,
+      third_orientation: third_orientation.orientation
+    };
     this.userService.updateUserOrientations(
-      {
-        first_orientation: first_orientation.orientation,
-        second_orientation: second_orientation.orientation,
-        third_orientation: third_orientation.orientation
-      },
+      orientations,
       (success, error) => {
         this.hideLoader();
         if (!error) {
-          this.testStorageService.setTestDone(true, (value, error) => {
-            if (!error) {
-              this.navCtrl.setRoot(OrientationVideosAfterTestPage, {animate: true});
+          this.userService.setUserData(success, (ok, userDataError) => {
+            if (!userDataError) {
+              this.testStorageService.setTestDone(true, (value, error) => {
+                if (!error) {
+                  this.navCtrl.setRoot(OrientationVideosAfterTestPage, {animate: true});
+                }
+              })
+            } else {
+              this.showErrorToast();
             }
           })
         } else {
           this.showErrorToast();
         }
-      })
-
+      });
+      this.trackOrientations(orientations);
   }
 
   getOrientation(repetitions) {
@@ -159,6 +166,14 @@ export class TestPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad TestPage');
     this.tracker.trackView('vista del test')
+  }
+
+  trackOrientations(orientations) {
+    // this.tracker.trackEvent();
+    // this.tracker.trackEvent();
+    if (orientations.third_orientation) {
+      // this.tracker.trackEvent();
+    }
   }
 
   showLoader(text) {

@@ -17,7 +17,11 @@ page-user-profile {
         }
       }
       .user-image {
+        position: absolute;
+        top: -25%;
+        left: 0;
         width: 100%;
+        height: auto;
       }
       .image-wrapper {
         width: 150px;
