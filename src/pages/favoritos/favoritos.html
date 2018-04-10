@@ -5,10 +5,7 @@
     <ion-row>
       <ion-col text-center>
         <h2 [innerHTML]="'Bienvenido ' + userData.first_name + ' ' + userData.last_name"></h2>
-        <div class="image-wrapper">
-          <img *ngIf="userData.image" class="user-image" [src]="userData.image" />
-          <ion-icon *ngIf="!userData.image" class="profile-icon" name="person"></ion-icon>
-        </div>
+        <img [src]="avatars[avatar]" />
       </ion-col>
     </ion-row>
     <ion-row *ngFor="let favorite of favorites;">

@@ -1,5 +1,5 @@
-import { Component, ElementRef } from '@angular/core';
-import { NavController, NavParams, ModalController } from 'ionic-angular';
+import { Component, ElementRef, ViewChild } from '@angular/core';
+import { NavController, NavParams, ModalController, Slides } from 'ionic-angular';
 import { FavoritesProvider } from '../../providers/favorites/favorites'
 import { UserProvider } from '../../providers/user/user';
 import { AllAppDataProvider } from '../../providers/all-app-data/all-app-data';
@@ -12,6 +12,9 @@ import { LoaderProvider } from '../../providers/loader/loader';
 })
 export class FavoritosPage {
 
+  @ViewChild(Slides) slides: Slides;
+  avatars: Array<string>
+  avatar: number;
   favorites: Array<{[key: string]: any}>
   userData: {[key: string]: any}
   dimensions: {width: number, height: number}
@@ -22,11 +25,18 @@ export class FavoritosPage {
     this.userService.getUserData((data, error) => {
       if (!error) {
         this.userData = data;
+        this.avatar = data.avatar;
         this.getFavorites((done, error) => {
           this.loaderService.hideLoader();
         });
       }
     })
+
+    this.avatars = ['assets/imgs/avatar/1.png','assets/imgs/avatar/2.png','assets/imgs/avatar/3.png','assets/imgs/avatar/4.png','assets/imgs/avatar/5.png','assets/imgs/avatar/6.png','assets/imgs/avatar/7.png','assets/imgs/avatar/8.png','assets/imgs/avatar/9.png','assets/imgs/avatar/10.png','assets/imgs/avatar/11.png']
+  }
+
+  slideChanged() {
+    this.avatar = this.slides.getActiveIndex();
   }
 
   getFavorites(callback) {

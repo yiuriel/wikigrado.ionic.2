@@ -31,9 +31,9 @@ export class LoginPage {
       if (error) {
         switch(error.error) {
           case 'wrongLoginToast':
-            return this.loaderService.showLoader({content: 'Hubo un error, vuelve a intentarlo más tarde.'});
+            return this.toasterService.showToast({message: 'Hubo un error, vuelve a intentarlo más tarde.'});
           case 'error':
-            return this.loaderService.showLoader({content: 'Puede que los datos sean incorrectos, asegurate de haberlos escrito bien.'});
+            return this.toasterService.showToast({message: 'Puede que los datos sean incorrectos, asegurate de haberlos escrito bien.'});
         }
       } else {
         if (data.first_orientation) {

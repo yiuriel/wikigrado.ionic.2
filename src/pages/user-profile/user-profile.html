@@ -5,13 +5,11 @@
     <ion-grid>
       <ion-row padding-bottom>
         <ion-col>
-          <div class="image-wrapper">
-            <img *ngIf="user.image" class="user-image" [src]="user.image" />
-            <ion-icon *ngIf="!user.image" class="profile-icon" name="person"></ion-icon>
-            <button ion-button block color="dark" (click)="changePicture()">
-              <ion-icon name="camera"></ion-icon>
-            </button>
-          </div>
+          <ion-slides (ionSlideDidChange)="slideChanged()" [initialSlide]="avatar">
+            <ion-slide *ngFor="let avatar of avatars;">
+              <img [src]="avatar" />
+            </ion-slide>
+          </ion-slides>
         </ion-col>
       </ion-row>
       <ion-row padding-top>

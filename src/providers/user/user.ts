@@ -16,7 +16,7 @@ export class UserProvider {
 
   constructor( private http: HttpClient, private env: EnvProvider, private storage: Storage ) {
     console.log('Hello UserProvider Provider');
-    this.BASEURL = this.env.getEnvironmentUrl('production') + "/users";
+    this.BASEURL = this.env.getEnvironmentUrl('local') + "/users";
     this.CHECKEMAILURL = this.BASEURL + "/check_email";
     this.LOGINURL = this.BASEURL + "/login";
     this.UPDATELATLONG = this.BASEURL + "/update_lat_long";
@@ -205,15 +205,15 @@ export class UserProvider {
     })
   }
 
-  updateAvatar(image, callback) {
+  updateAvatar(avatar, callback) {
     const httpOptions = this.getCommonHeaders();
     this.getUserData((data, error) => {
       if (!error) {
-        const user = {image: image, app_enabled_param: true, id: data.id};
+        const user = {avatar: avatar, app_enabled_param: true, id: data.id};
         this.http.put<{[key: string]: any}>(this.UPDATEAVATAR, user, httpOptions).subscribe(updateAvatar => {
           if (updateAvatar) {
             // console.log(user, updateAvatar);
-            const newUserData = {...data, image: image};
+            const newUserData = {...data, avatar: avatar};
             // console.warn(JSON.stringify(newUserData));
             this.setUserData(newUserData, (data, error) => {
               if (!error) {

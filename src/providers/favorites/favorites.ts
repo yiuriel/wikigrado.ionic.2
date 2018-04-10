@@ -16,7 +16,7 @@ export class FavoritesProvider {
     console.log('Hello FavoritesProvider Provider');
     this.favorites = [];
 
-    this.BASEURL = this.env.getEnvironmentUrl('production') + "/favorites";
+    this.BASEURL = this.env.getEnvironmentUrl('local') + "/favorites";
     this.ADDFAVORITEURL = this.BASEURL + "/add/";
     this.REMOVEFAVORITEURL = this.BASEURL + "/remove/";
     this.CHECKFAVORITEURL = this.BASEURL + "/check/";

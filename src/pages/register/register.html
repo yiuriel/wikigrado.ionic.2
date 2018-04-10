@@ -22,7 +22,7 @@
 
             <ion-item>
               <ion-label stacked>Edad</ion-label>
-              <ion-select name="age" required [(ngModel)]="user.age" (ionChange)="onAgeChange(user.age)">
+              <ion-select name="age" required [(ngModel)]="user.age">
                 <ion-option *ngFor="let age of ages" [value]="age" [innerHTML]="age"></ion-option>
               </ion-select>
             </ion-item>
@@ -37,19 +37,26 @@
               <ion-input name="password" required [(ngModel)]="user.password" type="password"></ion-input>
             </ion-item>
 
+            <ion-item>
+              <p color="danger" padding-bottom>Elige tu avatar</p>
+              <ion-slides (ionSlideDidChange)="slideChanged()">
+                <ion-slide *ngFor="let avatar of avatars;">
+                  <img [src]="avatar" />
+                </ion-slide>
+              </ion-slides>
+            </ion-item>
+
           </ion-list>
         </form>
       </ion-col>
     </ion-row>
     <ion-row align-items-end text-center>
-      <ion-col>
+      <!-- <ion-col>
         <button ion-button round small outline color="danger" [disabled]="!userForm.form.valid" (click)="goToPicturePage()">subir foto</button>
-      </ion-col>
+      </ion-col> -->
       <ion-col text-right>
         <button ion-button round small color="danger" [disabled]="!userForm.form.valid" (click)="register()">registrarme</button>
       </ion-col>
-    </ion-row>
-    <ion-row text-center>
       <ion-col>
         <button ion-button round small outline color="danger" (click)="goBack()">volver</button>
       </ion-col>
