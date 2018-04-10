@@ -18,7 +18,6 @@ export class GradosPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad GradosPage');
-    // this.tracker.trackView('vista de grados');
   }
 
   ionViewDidEnter() {

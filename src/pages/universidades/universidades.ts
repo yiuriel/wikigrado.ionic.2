@@ -18,7 +18,6 @@ export class UniversidadesPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad UniversidadesPage');
-    // this.tracker.trackView('vista de universidades');
 
     this.getUniversidadesFromService();
   }

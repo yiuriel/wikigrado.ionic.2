@@ -18,7 +18,6 @@ export class GradoPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad GradoPage');
-    // this.tracker.trackView('vista singular de ' + (this.navParams.data.videoData.type));
     if (this.platform.is("mobile") && !this.platform.is("mobileweb")) {
       this.launchNavigator.availableApps().then(res => {
         for (let app in res) {
