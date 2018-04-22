@@ -13,13 +13,15 @@ export class UserProvider {
   UPDATELATLONG: string;
   UPDATEORIENTATIONS: string;
   UPDATEAVATAR: string;
+  UPDATECITYCOUNTRY: string;
 
   constructor( private http: HttpClient, private env: EnvProvider, private storage: Storage ) {
     console.log('Hello UserProvider Provider');
-    this.BASEURL = this.env.getEnvironmentUrl('production') + "/users";
+    this.BASEURL = this.env.getEnvironmentUrl('local') + "/users";
     this.CHECKEMAILURL = this.BASEURL + "/check_email";
     this.LOGINURL = this.BASEURL + "/login";
     this.UPDATELATLONG = this.BASEURL + "/update_lat_long";
+    this.UPDATECITYCOUNTRY = this.BASEURL + "/update_demographic";
     this.UPDATEORIENTATIONS = this.BASEURL + "/set_orientations";
     this.UPDATEAVATAR = this.BASEURL + "/image";
   }
@@ -192,6 +194,28 @@ export class UserProvider {
           console.log("success update lat long");
           if (update) {
             // console.log(user, update);
+            this.setUserData({...data, ...user}, () => {
+              callback(user, null);
+            });
+          } else {
+            callback(null, {error: 1});
+          }
+        }, error => {
+          callback(null, error);
+        })
+      }
+    })
+  }
+
+  updateCityCountry(city, country, callback) {
+    const httpOptions = this.getCommonHeaders();
+    this.getUserData((data, error) => {
+      if (!error) {
+        const user = {id: data.id, app_enabled_param: true, city: city, country: country};
+        this.http.put<{[key: string]: any}>(this.UPDATECITYCOUNTRY, user, httpOptions).subscribe(update => {
+          console.warn("success update city and country");
+          if (update) {
+            console.log(user, update);
             this.setUserData({...data, ...user}, () => {
               callback(user, null);
             });

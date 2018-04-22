@@ -3,7 +3,6 @@ import { NavController, NavParams, Slides } from 'ionic-angular';
 import { UserProvider } from '../../providers/user/user';
 import { AnalyticsProvider } from '../../providers/analytics/analytics';
 import { PretestPage } from '../pretest/pretest';
-import { RegisterPictureStepPage } from '../register-picture-step/register-picture-step';
 import { LoaderProvider } from '../../providers/loader/loader';
 import { ToasterProvider } from '../../providers/toaster/toaster';
 

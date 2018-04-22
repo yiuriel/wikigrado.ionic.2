@@ -7,7 +7,7 @@ import { UserProvider } from '../../providers/user/user';
 import { Storage } from '@ionic/storage';
 import { TestStorageProvider } from '../../providers/test-storage/test-storage';
 import { Geolocation } from '@ionic-native/geolocation';
-// import { NativeGeocoder, NativeGeocoderReverseResult } from '@ionic-native/native-geocoder';
+import { NativeGeocoder, NativeGeocoderReverseResult } from '@ionic-native/native-geocoder';
 
 @Component({
   selector: 'page-simulatesplash',
@@ -17,7 +17,7 @@ export class SimulatesplashPage {
 
   testpage: any;
 
-  constructor(public platform: Platform, public navCtrl: NavController, public navParams: NavParams, public userService: UserProvider, private geolocation: Geolocation, private storage: Storage, public testStorageService: TestStorageProvider) {
+  constructor(public platform: Platform, public navCtrl: NavController, public navParams: NavParams, public userService: UserProvider, private geolocation: Geolocation, private storage: Storage, public testStorageService: TestStorageProvider, private nativeGeocoder: NativeGeocoder) {
     this.testpage = PretestPage;
     this.testStorageService.getTestDone((value, error) => {
       if (!error) {
@@ -31,7 +31,6 @@ export class SimulatesplashPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad SimulatesplashPage');
     this.checkUserData((success, error) => {
-      // console.warn(success, error)
       const redirectTimeout = setTimeout(() => {
         if (success) {
           clearTimeout(redirectTimeout);
@@ -48,23 +47,32 @@ export class SimulatesplashPage {
       this.storage.ready().then(() => {
         this.userService.verifySession((sessionSuccess, sessionError) => {
           if (!sessionError) {
-            const options = {
-              enableHighAccuracy: false,
-              timeout: 20000,
-              maximumAge: 5000
-            };
-            const subscription = this.geolocation.watchPosition(options)
-            .filter((p) => p.coords !== undefined) //Filter Out Errors
-            .subscribe(position => {
-              if (position.coords) {
-                this.userService.updateLatLong(position.coords, (success, error) => {
-                  if (!error) {
-                    console.log(success);
-                  }
-                });
-                subscription.unsubscribe();
-              }
-            });
+            if (sessionSuccess.latitude && sessionSuccess.longitude) {
+              this.nativeGeocoder.reverseGeocode(sessionSuccess.latitude, sessionSuccess.longitude)
+                .then((result: NativeGeocoderReverseResult) => {
+                  this.doCityCountryCall(result);
+                })
+                .catch((error: any) => console.log(error));
+            } else {
+              const options = {
+                enableHighAccuracy: false,
+                timeout: 20000,
+                maximumAge: 5000
+              };
+              const subscription = this.geolocation.watchPosition(options)
+              .filter((p) => p.coords !== undefined) //Filter Out Errors
+              .subscribe(position => {
+                if (position.coords) {
+                  this.nativeGeocoder.reverseGeocode(position.coords.latitude, position.coords.longitude)
+                    .then((result: NativeGeocoderReverseResult) => {
+                      this.doCityCountryCall(result);
+                    })
+                    .catch((error: any) => console.log(error));
+                  this.userService.updateLatLong(position.coords, (success, error) => {});
+                  subscription.unsubscribe();
+                }
+              });
+            }
             callback(sessionSuccess, null);
           } else {
             callback(null, sessionError);
@@ -74,6 +82,21 @@ export class SimulatesplashPage {
         callback(null, error);
       })
     });
+  }
+
+  doCityCountryCall(result) {
+    if (result && result[0]) {
+      const first = result[0];
+      this.userService.updateCityCountry(
+        first.subAdministrativeArea + ", " + first.administrativeArea,
+        first.countryName,
+        (cityCountrySuccess, error) => {
+          if (!error) {
+            console.log(cityCountrySuccess);
+          }
+        }
+      )
+    }
   }
 
 }

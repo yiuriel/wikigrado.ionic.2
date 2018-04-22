@@ -98,4 +98,5 @@
     <plugin name="cordova-plugin-inappbrowser" spec="^2.0.2" />
     <plugin name="cordova-plugin-camera" spec="^4.0.2" />
     <plugin name="cordova-plugin-screen-orientation" spec="^3.0.1" />
+    <allow-navigation href="http://192.168.0.213:8101" />
 </widget>

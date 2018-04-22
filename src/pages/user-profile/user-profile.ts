@@ -2,7 +2,7 @@ import { Component, ViewChild } from '@angular/core';
 import { NavController, NavParams, Slides } from 'ionic-angular';
 import { UserProvider } from '../../providers/user/user';
 import { CanvasProvider } from '../../providers/canvas/canvas';
-import { Camera, CameraOptions } from '@ionic-native/camera';
+// import { Camera, CameraOptions } from '@ionic-native/camera';
 import { LoaderProvider } from '../../providers/loader/loader';
 import { ToasterProvider } from '../../providers/toaster/toaster';
 
@@ -18,7 +18,7 @@ export class UserProfilePage {
   user: {[key: string]: any};
   ages: Array<number>
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public userService: UserProvider, private camera: Camera, public canvasService: CanvasProvider, public toasterService: ToasterProvider, public loaderService: LoaderProvider) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public userService: UserProvider, public canvasService: CanvasProvider, public toasterService: ToasterProvider, public loaderService: LoaderProvider) {
     this.userService.getUserData((data, error) => {
       if (!error) {
         this.user = data;
