@@ -56,7 +56,7 @@ export class TestPage {
     this.nextButtonDisable[index] = (this.testAnswers[index].filter(obj => obj.value.toString() === "1").length > 3) ? "disabled" : "";
 
     if (this.nextButtonDisable[index] === "disabled") {
-      this.loaderService.showLoader({content: 'Solo puedes elegir "Si" 3 (tres) veces por pantalla'});
+      this.toasterService.showToast({message: 'Solo puedes elegir "Si" 3 (tres) veces por pantalla'});
     }
 
     const questionsAnswered = this.getAnsweredLength(this.testAnswers);
