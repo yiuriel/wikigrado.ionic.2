@@ -33,6 +33,11 @@
   }
 }
 
+.form-error {
+  padding: 16px;
+  color: map-get($colors, danger);
+}
+
 .hidden {
   display: none !important;
   visibility: hidden !important;
