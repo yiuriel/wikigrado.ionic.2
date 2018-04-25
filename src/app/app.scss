@@ -20,6 +20,13 @@
 
 }
 
+.passIcon{
+  font-size: 2.5rem !important;
+  position: relative !important;
+  top: 16px !important;
+  margin: 0 auto !important;
+}
+
 .swiper-pagination-bullet-active {
   background-color: map-get($colors, danger);
 }

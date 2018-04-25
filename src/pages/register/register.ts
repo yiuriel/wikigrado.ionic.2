@@ -3,7 +3,7 @@ import { NavController, NavParams, Slides } from 'ionic-angular';
 import { UserProvider } from '../../providers/user/user';
 import { AnalyticsProvider } from '../../providers/analytics/analytics';
 import { PretestPage } from '../pretest/pretest';
-import { RegisterPictureStepPage } from '../register-picture-step/register-picture-step';
+// import { RegisterPictureStepPage } from '../register-picture-step/register-picture-step';
 import { LoaderProvider } from '../../providers/loader/loader';
 import { ToasterProvider } from '../../providers/toaster/toaster';
 
@@ -18,12 +18,19 @@ export class RegisterPage {
   avatars: Array<string>
   avatar: number;
   user: {[key: string]: any};
+  passwordType: string = 'password';
+  passwordIcon: string = 'eye-off';
 
   constructor(public navCtrl: NavController, public tracker: AnalyticsProvider, public navParams: NavParams, public userService: UserProvider, public toasterService: ToasterProvider, public loaderService: LoaderProvider ) {
     this.ages = Array.from(Array(100).keys()).slice(13, 100);
     this.user = {};
 
     this.avatars = ['assets/imgs/avatar/1.png','assets/imgs/avatar/2.png','assets/imgs/avatar/3.png','assets/imgs/avatar/4.png','assets/imgs/avatar/5.png','assets/imgs/avatar/6.png','assets/imgs/avatar/7.png','assets/imgs/avatar/8.png','assets/imgs/avatar/9.png','assets/imgs/avatar/10.png','assets/imgs/avatar/11.png']
+  }
+
+  hideShowPassword() {
+    this.passwordType = this.passwordType === 'text' ? 'password' : 'text';
+    this.passwordIcon = this.passwordIcon === 'eye-off' ? 'eye' : 'eye-off';
   }
 
   slideChanged() {

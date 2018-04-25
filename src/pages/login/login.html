@@ -21,7 +21,8 @@
 
             <ion-item>
               <ion-label stacked>Contraseña</ion-label>
-              <ion-input #password="ngModel" minlength="1" maxlength="14" required name="password" [(ngModel)]="user.password" type="password"></ion-input>
+              <ion-input #password="ngModel" minlength="1" maxlength="14" required name="password" [(ngModel)]="user.password" [type]="passwordType"></ion-input>
+              <ion-icon item-end [name]="passwordIcon" class="passIcon" (click)='hideShowPassword()'></ion-icon>
             </ion-item>
             <div class="form-error" *ngIf="password.invalid && (password.dirty || password.touched)">
               <div *ngIf="password.errors.required">la contrase&ntilde;a es obligatoria. debe tener entre 8 y 14 caracteres.</div>

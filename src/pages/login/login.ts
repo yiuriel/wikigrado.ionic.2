@@ -14,10 +14,17 @@ export class LoginPage {
 
   user: {email:string, password: string}
   showVolver: any;
+  passwordType: string = 'password';
+  passwordIcon: string = 'eye-off';
 
   constructor(public navCtrl: NavController, public userService: UserProvider, public navParams: NavParams, public toasterService: ToasterProvider, public loaderService: LoaderProvider, public testStorageService: TestStorageProvider) {
     this.user = {email: "", password: ""}
     this.showVolver = this.navParams.data.hasOwnProperty("showVolver") || false;
+  }
+
+  hideShowPassword() {
+    this.passwordType = this.passwordType === 'text' ? 'password' : 'text';
+    this.passwordIcon = this.passwordIcon === 'eye-off' ? 'eye' : 'eye-off';
   }
 
   ionViewDidLoad() {
