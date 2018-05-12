@@ -20,6 +20,14 @@
 
 }
 
+ion-toast .toast-wrapper {
+  background-color: rgba(0, 0, 0, 0.65) !important;
+}
+
+ion-loading .loading-wrapper {
+  background-color: rgba(248, 248, 248, 0.65) !important;
+}
+
 .passIcon{
   font-size: 2.5rem !important;
   position: relative !important;

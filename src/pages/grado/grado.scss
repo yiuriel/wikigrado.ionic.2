@@ -15,8 +15,25 @@ page-grado {
       .no-video {
         font-size: 1.5em;
       }
+
       a {
         text-decoration: underline;
+      }
+
+      .university-link {
+        padding: 0 1.5em;
+        &.has-logo {
+          .button-inner {
+            align-items: center;
+            justify-content: space-between;
+            img {
+              max-height: 40px;
+            }
+          }
+        }
+        .button-inner {
+          color: black;
+        }
       }
 
       .universities_list {

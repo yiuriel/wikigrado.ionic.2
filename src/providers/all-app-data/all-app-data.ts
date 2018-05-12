@@ -21,7 +21,6 @@ export class AllAppDataProvider {
     this.getAllData((data, error) => {
       if (!error) {
         this.allData = data;
-        console.warn(data);
       }
     });
   }
@@ -36,10 +35,13 @@ export class AllAppDataProvider {
 
   get(key) {
     let result = [];
-    const keys = Object.keys(this.allData[key]);
-    keys.forEach(id_key => {
-      result.push(this.allData[key][id_key])
-    });
+    if (this.allData[key]) {
+      const keys = Object.keys(this.allData[key]);
+      keys.forEach(id_key => {
+        result.push(this.allData[key][id_key])
+      });
+      return result;
+    }
     return result;
   }
 

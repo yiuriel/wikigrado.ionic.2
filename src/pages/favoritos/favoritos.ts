@@ -15,11 +15,10 @@ export class FavoritosPage {
   @ViewChild(Slides) slides: Slides;
   avatars: Array<string>
   avatar: number;
-  favorites: Array<{[key: string]: any}>
+  favorites: Array<{[key: string]: any}> = [];
   userData: {[key: string]: any}
   dimensions: {width: number, height: number}
   loader: any;
-  wordMap: any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public userService: UserProvider, public favoritesService: FavoritesProvider, public allAppDataService: AllAppDataProvider, public modalCtrl: ModalController, private domElem: ElementRef, public loaderService: LoaderProvider) {
     this.loaderService.showLoader({content:'cargando...'});
@@ -34,12 +33,6 @@ export class FavoritosPage {
     })
 
     this.avatars = ['assets/imgs/avatar/1.png','assets/imgs/avatar/2.png','assets/imgs/avatar/3.png','assets/imgs/avatar/4.png','assets/imgs/avatar/5.png','assets/imgs/avatar/6.png','assets/imgs/avatar/7.png','assets/imgs/avatar/8.png','assets/imgs/avatar/9.png','assets/imgs/avatar/10.png','assets/imgs/avatar/11.png']
-
-    this.wordMap = {
-      'grado': 'grades',
-      'universidad': 'universities',
-      'colegio': 'college',
-    };
   }
 
   slideChanged() {
@@ -51,7 +44,7 @@ export class FavoritosPage {
       if (!favoritesError) {
         let res = [];
         favorites.forEach(item => {
-          let founditem = this.allAppDataService.getDataBasedOnTypeAndIndex(this.wordMap[item.type], item.favorite_id);
+          let founditem = this.allAppDataService.getDataBasedOnTypeAndIndex(item.type, item.favorite_id);
           if (founditem) {
             res = res.concat([{...founditem, type: item.type}]);
           }

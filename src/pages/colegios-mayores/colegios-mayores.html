@@ -9,10 +9,10 @@
   </ion-list>
 
   <ion-list>
-    <ion-item *ngFor="let video of videos;let i = index;" class="career">
-      <a (click)="goToColegioMayor(video)">
+    <ion-item *ngFor="let college of colleges;let i = index;" class="career">
+      <a (click)="goToColegioMayor(college)">
         <ion-icon name="film"></ion-icon>
-        <span class="career-title" [innerHTML]="video.career"></span>
+        <span class="career-title" [innerHTML]="college.career"></span>
       </a>
     </ion-item>
   </ion-list>

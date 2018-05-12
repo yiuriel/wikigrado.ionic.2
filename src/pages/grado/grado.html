@@ -2,9 +2,9 @@
   <ion-toolbar>
     <ion-title>
       <div [ngSwitch]="navParams.data.data.type">
-        <span *ngSwitchCase="'grado'">Grado</span>
-        <span *ngSwitchCase="'universidad'">Universidad</span>
-        <span *ngSwitchCase="'colegio'">Colegio Mayor</span>
+        <span *ngSwitchCase="'grades'">Grado</span>
+        <span *ngSwitchCase="'universities'">Universidad</span>
+        <span *ngSwitchCase="'colleges'">Colegio Mayor</span>
       </div>
     </ion-title>
     <ion-buttons start>
@@ -20,7 +20,7 @@
 <ion-content padding>
   <div [ngSwitch]="navParams.data.data.type">
     <!-- type grados -->
-    <div *ngSwitchCase="'grado'">
+    <div *ngSwitchCase="'grades'">
       <h1 text-center class="career-title" [innerHTML]="navParams.data.data.grade"></h1>
       <image-switch-iframe
       *ngIf="navParams.data.data.video"
@@ -37,17 +37,18 @@
             <a color="light" (click)="callPhoneNumber(university.telephone)" [innerHTML]="university.telephone"></a>
           </div>
           <div *ngIf="university.website" padding-bottom>
-            <a color="light" (click)="openUrl(university.website)">
-              visitar sitio web de la universidad
-            </a>
+            <button ion-button color="light" [class.has-logo]="university.logo" block class="university-link" (click)="openUrl(university.website)">
+              <img [src]="'assets/imgs/university-logos/' + university.logo" *ngIf="university.logo" />
+              <span>visitar sitio web de la universidad</span>
+            </button>
           </div>
-          <button *ngIf="university.lat && university.lng" ion-button outline block color="light" (click)="viewLocation({lat: university.lat, lng: university.lng})">ver en el mapa</button>
+          <button *ngIf="university.latitude && university.longitude" ion-button outline block color="light" (click)="viewLocation({lat: university.latitude, lng: university.longitude})">ver en el mapa</button>
         </li>
       </ul>
     </div>
 
     <!-- type colegio mayor -->
-    <div *ngSwitchCase="'colegio_mayor'">
+    <div *ngSwitchCase="'colleges'">
       <image-switch-iframe
       *ngIf="navParams.data.data.video"
       [url]="navParams.data.data.video"
@@ -59,10 +60,10 @@
         Aun no hay video sobre este colegio mayor
       </h2>
       <p color="light" [innerHTML]="navParams.data.data.description"></p>
-      <button *ngIf="navParams.data.data.location && navParams.data.data.location.lat && navParams.data.data.location.lng" ion-button outline block color="light" (click)="viewLocation(navParams.data.data.location)">ver en el mapa</button>
+      <button *ngIf="navParams.data.data.location && navParams.data.data.location.latitude && navParams.data.data.location.longitude" ion-button outline block color="light" (click)="viewLocation(navParams.data.data.location)">ver en el mapa</button>
     </div>
 
-    <div *ngSwitchCase="'universidad'">
+    <div *ngSwitchCase="'universities'">
       <h2 text-center color="light" [innerHTML]="navParams.data.data.university"></h2>
       <div *ngIf="navParams.data.data.grades.length">
         <h4 text-center color="light">Grados de esta universidad:</h4>

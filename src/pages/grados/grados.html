@@ -8,11 +8,11 @@
     </ion-item>
   </ion-list>
 
-  <ion-list [virtualScroll]="videos">
-    <ion-item *virtualItem="let video" class="career">
-      <a [class.has-video]="video.video" (click)="goToGrade(video)">
-        <ion-icon name="videocam" *ngIf="video.video"></ion-icon>
-        <span class="career-title" [innerHTML]="video.grade"></span>
+  <ion-list [virtualScroll]="grades">
+    <ion-item *virtualItem="let grade" class="career">
+      <a [class.has-video]="grade.video" (click)="goToGrade(grade)">
+        <ion-icon name="videocam" *ngIf="grade.video"></ion-icon>
+        <span class="career-title" [innerHTML]="grade.grade"></span>
       </a>
     </ion-item>
   </ion-list>

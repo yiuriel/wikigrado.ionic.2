@@ -64,7 +64,7 @@ export class GradoPage {
       app: app
     };
 
-    this.launchNavigator.navigate([location.lat, location.lng], options).then(
+    this.launchNavigator.navigate([location.latitude, location.longitude], options).then(
       success => console.log('Launched navigator'),
       error => console.log('Error launching navigator', error)
     );
