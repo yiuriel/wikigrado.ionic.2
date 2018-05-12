@@ -30,7 +30,7 @@ export class GradoPage {
   }
 
   openUrl(url) {
-    this.iab.create(url, "_system", {closebuttoncaption: "ok"});
+    this.iab.create(url, "_blank", {closebuttoncaption: "ok"});
   }
 
   callPhoneNumber(number) {
@@ -42,7 +42,7 @@ export class GradoPage {
       return {
         text: app.replace(/_/g, " "),
         handler: () => {
-          this.openApp(app)
+          this.openApp(app, location)
         }
       }
     })
@@ -59,12 +59,12 @@ export class GradoPage {
     actionSheet.present();
   }
 
-  openApp(app) {
+  openApp(app, location) {
     let options: LaunchNavigatorOptions = {
       app: app
     };
 
-    this.launchNavigator.navigate([this.navParams.data.videoData.location.lat, this.navParams.data.videoData.location.long], options).then(
+    this.launchNavigator.navigate([location.lat, location.lng], options).then(
       success => console.log('Launched navigator'),
       error => console.log('Error launching navigator', error)
     );

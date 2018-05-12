@@ -10,8 +10,8 @@ import { AnalyticsProvider } from '../../providers/analytics/analytics';
 })
 export class GradosPage {
 
-  videos: Array<{videoUrl: string, hasVideo: boolean, career: string}>
-  videosCached: Array<{videoUrl: string, hasVideo: boolean, career: string}>
+  videos: Array<{[key: string]: any}>
+  videosCached: Array<{[key: string]: any}>
   dimensions: {width: number, height: number}
 
   constructor(public navCtrl: NavController, public tracker: AnalyticsProvider, public navParams: NavParams, public modalCtrl: ModalController, public allAppDataService :AllAppDataProvider, private domElem: ElementRef, public loadingCtrl: LoadingController) {}
@@ -31,18 +31,25 @@ export class GradosPage {
   }
 
   getAllVideos() {
-    this.videos = this.allAppDataService.getDataBasedOnType('grado');
+    this.videos = this.allAppDataService.get('grades');
     this.videosCached = [].concat(this.videos);
   }
 
   filterGrades($event) {
     const value = $event.value;
-    this.videos = this.allAppDataService.getDataBasedOnTypeAndValue('grado', value);
+    if (value) {
+      this.videos = this.videosCached.filter(cache => {
+        return cache.grade.indexOf(value) > -1
+      });
+    } else {
+      this.videos = [].concat(this.videosCached);
+    }
   }
 
-  goToGrade(video) {
-    if (video) {
-      let modal = this.modalCtrl.create(GradoPage, {videoData: video, dimensionData: this.dimensions});
+  goToGrade(grade) {
+    if (grade) {
+      let gradeWithUnivs = this.allAppDataService.getGradeWithUniversities(grade);
+      let modal = this.modalCtrl.create(GradoPage, {data: {...gradeWithUnivs, type: 'grado', index: gradeWithUnivs.grade_id}, dimensionData: this.dimensions});
       modal.onDidDismiss(() => {
         modal = null;
       })

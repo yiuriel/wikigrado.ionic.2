@@ -61,7 +61,7 @@ export class RegisterPictureStepPage {
             case 'retryToast':
             case 'error':
             case 1:
-              return this.loaderService.showLoader({content: 'Hubo un error, vuelve a intentarlo más tarde.'});
+              return this.toasterService.showToast({message: 'Hubo un error, vuelve a intentarlo más tarde.'});
           }
         } else {
           return this.navCtrl.setRoot(PretestPage);

@@ -16,7 +16,7 @@ export class UserProvider {
 
   constructor( private http: HttpClient, private env: EnvProvider, private storage: Storage ) {
     console.log('Hello UserProvider Provider');
-    this.BASEURL = this.env.getEnvironmentUrl('production') + "/users";
+    this.BASEURL = this.env.getEnvironmentUrl('local') + "/users";
     this.CHECKEMAILURL = this.BASEURL + "/check_email";
     this.LOGINURL = this.BASEURL + "/login";
     this.UPDATELATLONG = this.BASEURL + "/update_lat_long";

@@ -1,7 +1,11 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>
-      <span [innerHTML]="navParams.data.videoData.type | noSnakeCase"></span>
+      <div [ngSwitch]="navParams.data.data.type">
+        <span *ngSwitchCase="'grado'">Grado</span>
+        <span *ngSwitchCase="'universidad'">Universidad</span>
+        <span *ngSwitchCase="'colegio'">Colegio Mayor</span>
+      </div>
     </ion-title>
     <ion-buttons start>
       <button ion-button (click)="dismiss()">
@@ -9,58 +13,62 @@
         <ion-icon name="md-close" showWhen="android, windows"></ion-icon>
       </button>
     </ion-buttons>
-    <ion-buttons end addtofavoriteheader [favoriteItem]="navParams.data.videoData"></ion-buttons>
+    <ion-buttons end addtofavoriteheader [favoriteItem]="navParams.data.data"></ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content padding>
-  <div [ngSwitch]="navParams.data.videoData.type">
+  <div [ngSwitch]="navParams.data.data.type">
     <!-- type grados -->
     <div *ngSwitchCase="'grado'">
-      <h1 text-center class="career-title" [innerHTML]="navParams.data.videoData.career"></h1>
+      <h1 text-center class="career-title" [innerHTML]="navParams.data.data.grade"></h1>
       <image-switch-iframe
-      *ngIf="navParams.data.videoData.hasVideo"
-      [url]="navParams.data.videoData.videoUrl"
-      [career]="navParams.data.videoData.career"
+      *ngIf="navParams.data.data.video"
+      [url]="navParams.data.data.video"
+      [career]="navParams.data.data.career"
       [width]="navParams.data.dimensionData.width"
       [height]="navParams.data.dimensionData.height">
       </image-switch-iframe>
-      <h4 color="light" [innerHTML]="navParams.data.videoData.university"></h4>
-      <p color="light" [innerHTML]="navParams.data.videoData.address"></p>
-      <div *ngIf="navParams.data.videoData.telephone" padding-bottom>
-        <a color="light" (click)="callPhoneNumber(navParams.data.videoData.telephone)" [innerHTML]="navParams.data.videoData.telephone"></a>
-      </div>
-      <div *ngIf="navParams.data.videoData.website" padding-bottom>
-        <a color="light" (click)="openUrl(navParams.data.videoData.website)">
-          visitar sitio web de la universidad
-        </a>
-      </div>
-      <button *ngIf="navParams.data.videoData.location && navParams.data.videoData.location.lat && navParams.data.videoData.location.long" ion-button outline block color="light" (click)="viewLocation(navParams.data.videoData.location)">ver en el mapa</button>
+      <ul class="universities_list">
+        <li *ngFor="let university of navParams.data.data.universities">
+          <h4 color="light" [innerHTML]="university.university"></h4>
+          <p color="light" [innerHTML]="university.address"></p>
+          <div *ngIf="university.telephone" padding-bottom>
+            <a color="light" (click)="callPhoneNumber(university.telephone)" [innerHTML]="university.telephone"></a>
+          </div>
+          <div *ngIf="university.website" padding-bottom>
+            <a color="light" (click)="openUrl(university.website)">
+              visitar sitio web de la universidad
+            </a>
+          </div>
+          <button *ngIf="university.lat && university.lng" ion-button outline block color="light" (click)="viewLocation({lat: university.lat, lng: university.lng})">ver en el mapa</button>
+        </li>
+      </ul>
     </div>
 
     <!-- type colegio mayor -->
     <div *ngSwitchCase="'colegio_mayor'">
       <image-switch-iframe
-      *ngIf="navParams.data.videoData.hasVideo"
-      [url]="navParams.data.videoData.videoUrl"
-      [career]="navParams.data.videoData.career"
+      *ngIf="navParams.data.data.video"
+      [url]="navParams.data.data.video"
+      [career]="navParams.data.data.career"
       [width]="navParams.data.dimensionData.width"
       [height]="navParams.data.dimensionData.height">
       </image-switch-iframe>
-      <h2 *ngIf="!navParams.data.videoData.hasVideo" color="light" text-center padding>
+      <h2 *ngIf="!navParams.data.data.video" color="light" text-center padding>
         Aun no hay video sobre este colegio mayor
       </h2>
-      <p color="light" [innerHTML]="navParams.data.videoData.description"></p>
-      <button *ngIf="navParams.data.videoData.location && navParams.data.videoData.location.lat && navParams.data.videoData.location.long" ion-button outline block color="light" (click)="viewLocation(navParams.data.videoData.location)">ver en el mapa</button>
+      <p color="light" [innerHTML]="navParams.data.data.description"></p>
+      <button *ngIf="navParams.data.data.location && navParams.data.data.location.lat && navParams.data.data.location.lng" ion-button outline block color="light" (click)="viewLocation(navParams.data.data.location)">ver en el mapa</button>
     </div>
 
     <div *ngSwitchCase="'universidad'">
-      <h2 text-center color="light" [innerHTML]="navParams.data.videoData.universidad"></h2>
-      <div *ngIf="navParams.data.videoData.carreras.length">
-        <h4 text-center color="light">Carreras de esta universidad:</h4>
+      <h2 text-center color="light" [innerHTML]="navParams.data.data.university"></h2>
+      <div *ngIf="navParams.data.data.grades.length">
+        <h4 text-center color="light">Grados de esta universidad:</h4>
         <ion-list>
-          <ion-item *ngFor="let carrera of navParams.data.videoData.carreras;">
-            {{ carrera }}
+          <ion-item *ngFor="let grade of navParams.data.data.grades;">
+            {{ grade.grade }}
           </ion-item>
         </ion-list>
       </div>

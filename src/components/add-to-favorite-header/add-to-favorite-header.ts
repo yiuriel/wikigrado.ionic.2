@@ -42,7 +42,7 @@ export class AddToFavoriteHeaderComponent {
       this.favoritesService.addFavorite(this.favoriteItem, this.userData.id, (success, error) => {
         this.loaderService.hideLoader();
         if (error) {
-          this.loaderService.showLoader({content: 'Hubo un error, vuelve a intentarlo más tarde.'});
+          this.toasterService.showToast({message: 'Hubo un error, vuelve a intentarlo más tarde.'});
         } else {
           this.add = !this.add;
         }
@@ -54,7 +54,7 @@ export class AddToFavoriteHeaderComponent {
         if (!error) {
           this.add = !this.add;
         } else {
-          this.loaderService.showLoader({content: 'Hubo un error, vuelve a intentarlo más tarde.'});
+          this.toasterService.showToast({message: 'Hubo un error, vuelve a intentarlo más tarde.'});
         }
       });
     }

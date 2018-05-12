@@ -46,9 +46,9 @@ export class RegisterPage {
           case 'retryToast':
           case 'error':
           case 1:
-            return this.loaderService.showLoader({content: 'Hubo un error, vuelve a intentarlo más tarde.'});
+            return this.toasterService.showToast({message: 'Hubo un error, vuelve a intentarlo más tarde.'});
           case 'emailTakenToast':
-            return this.loaderService.showLoader({content: 'Ya existe un usuario con este email'});
+            return this.toasterService.showToast({message: 'Ya existe un usuario con este email'});
         }
       } else {
         this.navCtrl.setRoot(PretestPage);
@@ -60,9 +60,9 @@ export class RegisterPage {
     if (this.user.email && this.input.valid) {
       this.userService.checkEmail(this.user.email, (type) => {
         if (type === 'not-available') {
-          this.loaderService.showLoader({content: 'Ya existe un usuario con este email'});
+          this.toasterService.showToast({message: 'Ya existe un usuario con este email'});
         } else if (type === 'error') {
-          this.loaderService.showLoader({content: 'Hubo un error, vuelve a intentarlo más tarde.'});
+          this.toasterService.showToast({message: 'Hubo un error, vuelve a intentarlo más tarde.'});
         }
       })
     }

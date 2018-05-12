@@ -120,11 +120,11 @@ export class TestPage {
               })
               this.trackOrientations(orientations, success);
             } else {
-              this.loaderService.showLoader({content: 'Hubo un error, vuelve a intentarlo mas tarde'});
+              this.toasterService.showToast({message: 'Hubo un error, vuelve a intentarlo más tarde.'});
             }
           })
         } else {
-          this.loaderService.showLoader({content: 'Hubo un error, vuelve a intentarlo mas tarde'});
+          this.toasterService.showToast({message: 'Hubo un error, vuelve a intentarlo más tarde.'});
         }
       }
     );

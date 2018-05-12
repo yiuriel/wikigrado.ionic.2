@@ -18,6 +18,19 @@ page-grado {
       a {
         text-decoration: underline;
       }
+
+      .universities_list {
+        padding-left: 0;
+        list-style: none;
+        li {
+          padding-left: 0;
+          padding: 1em 0;
+          border-bottom: 1px solid map-get($colors, 'danger');
+          &:last-child {
+            border-bottom: 0;
+          }
+        }
+      }
     }
   }
 

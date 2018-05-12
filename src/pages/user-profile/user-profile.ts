@@ -52,7 +52,7 @@ export class UserProfilePage {
           }
         })
       } else {
-        this.loaderService.showLoader({content: 'Hubo un error, vuelve a intentarlo más tarde.'});
+        this.toasterService.showToast({message: 'Hubo un error, vuelve a intentarlo más tarde.'});
       }
       this.loaderService.hideLoader();
     });

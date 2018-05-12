@@ -7,6 +7,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { UserProvider } from '../providers/user/user';
 import { AnalyticsProvider } from '../providers/analytics/analytics';
 import { TestStorageProvider } from '../providers/test-storage/test-storage';
+import { AllAppDataProvider } from '../providers/all-app-data/all-app-data';
 
 // import { InitialSliderPage } from '../pages/initial-slider/initial-slider';
 
@@ -33,7 +34,7 @@ export class MyApp {
 
   pages: Array<{icon: string, title: string, component: any}>;
 
-  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen, public tracker: AnalyticsProvider, public userService: UserProvider, public testStorageService: TestStorageProvider, public menuCtrl: MenuController) {
+  constructor(public platform: Platform, public allAppDataService :AllAppDataProvider, public statusBar: StatusBar, public splashScreen: SplashScreen, public tracker: AnalyticsProvider, public userService: UserProvider, public testStorageService: TestStorageProvider, public menuCtrl: MenuController) {
     this.initializeApp();
 
     let testMenuComponent;
