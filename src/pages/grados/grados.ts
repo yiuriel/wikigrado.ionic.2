@@ -49,7 +49,7 @@ export class GradosPage {
   goToGrade(grade) {
     if (grade) {
       let gradeWithUnivs = this.allAppDataService.getGradeWithUniversities(grade);
-      let modal = this.modalCtrl.create(GradoPage, {data: {...gradeWithUnivs, type: 'grado', index: gradeWithUnivs.grade_id}, dimensionData: this.dimensions});
+      let modal = this.modalCtrl.create(GradoPage, {data: {...gradeWithUnivs, type: 'grado', index: gradeWithUnivs.id}, dimensionData: this.dimensions});
       modal.onDidDismiss(() => {
         modal = null;
       })

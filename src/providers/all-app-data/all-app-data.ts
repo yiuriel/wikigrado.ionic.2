@@ -44,8 +44,8 @@ export class AllAppDataProvider {
   }
 
   getGradeWithUniversities(grade) {
-    if (!this.grades_computed[grade.grade_id]) {
-      this.grades_computed[grade.grade_id] = 1;
+    if (!this.grades_computed[grade.id]) {
+      this.grades_computed[grade.id] = 1;
       let gradeWithUniversities = Object.assign({}, grade);
       gradeWithUniversities.universities.forEach((univ, i) => {
         const univObject = Object.assign({}, this.allData['universities'][univ], {grades: null})
@@ -74,7 +74,8 @@ export class AllAppDataProvider {
   }
 
   getDataBasedOnTypeAndIndex(type, index) {
-    return this.allData.filter(chunk => chunk.type === type && chunk.index === index);
+    const data = this.get(type);
+    return data.find(chunk => chunk.id === index);
   }
 
   getDataBasedOnTypeAndValue(type, value) {

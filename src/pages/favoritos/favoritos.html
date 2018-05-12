@@ -10,19 +10,23 @@
     </ion-row>
     <ion-row *ngFor="let favorite of favorites;">
       <ion-col>
-        <h3 [innerHTML]="favorite.type | noSnakeCase"></h3>
+        <div [ngSwitch]="favorite.type">
+          <span *ngSwitchCase="'grado'">Grado</span>
+          <span *ngSwitchCase="'universidad'">Universidad</span>
+          <span *ngSwitchCase="'colegio'">Colegio Mayor</span>
+        </div>
         <div [ngSwitch]="favorite.type">
           <div *ngSwitchCase="'universidad'">
-            <p [innerHTML]="favorite.universidad"></p>
+            <p [innerHTML]="favorite.university"></p>
             <button ion-button round small outline color="danger" (click)="viewFavorite(favorite)">ver</button>
             <button ion-button round small color="danger">borrar</button>
           </div>
           <div *ngSwitchCase="'grado'">
-            <p [innerHTML]="favorite.career"></p>
+            <p [innerHTML]="favorite.grade"></p>
             <button ion-button round small outline color="danger" (click)="viewFavorite(favorite)">ver</button>
             <button ion-button round small color="danger">borrar</button>
           </div>
-          <div *ngSwitchCase="'colegio_mayor'">
+          <div *ngSwitchCase="'colegio'">
             <p [innerHTML]="favorite.career"></p>
             <button ion-button round small outline color="danger" (click)="viewFavorite(favorite)">ver</button>
             <button ion-button round small color="danger">borrar</button>
