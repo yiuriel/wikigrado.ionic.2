@@ -2,22 +2,28 @@
   <ion-slides pager>
     <ion-slide *ngFor="let slide of slidesData; let i = index;">
       <ion-toolbar>
+        <ion-buttons start>
+          <img style="width: 40px;" src="../assets/imgs/medium-logo.png" />
+        </ion-buttons>
         <ion-buttons end>
           <button ion-button color="primary" (click)="goToSlide(i + 1)">siguiente</button>
         </ion-buttons>
       </ion-toolbar>
       <!-- <h2 class="slide-title" [innerHTML]="slide.title"></h2> -->
-      <p [innerHTML]="slide.description"></p>
+      <p boxxed padding justify [innerHTML]="slide.description"></p>
     </ion-slide>
     <ion-slide class="last-slide">
+      <div padding margin-bottom>
+        <img src="../assets/imgs/large-logo.png" />
+      </div>
       <div padding>
-        <button ion-button large round icon-end color="danger" (click)="goToRegisterPage()">
+        <button ion-button opacity round icon-end color="danger" (click)="goToRegisterPage()">
           registrarme
           <ion-icon name="md-log-in"></ion-icon>
         </button>
       </div>
       <div>
-        <button ion-button large round icon-end color="danger" (click)="goToLoginPage()">
+        <button ion-button opacity round icon-end color="danger" (click)="goToLoginPage()">
           login
           <ion-icon name="md-log-in"></ion-icon>
         </button>

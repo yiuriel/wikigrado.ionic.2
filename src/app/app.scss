@@ -20,9 +20,18 @@
 
 }
 
+[boxxed] {
+  background-color: rgba(245,61,61,0.25);
+  border-radius: 15px;
+}
+
+[boxxed-white] {
+  background-color: rgba(255,255,255,0.45);
+  border-radius: 15px;
+}
+
 [justify] {
   text-align: justify;
-  padding: 16px;
 }
 
 ion-toast .toast-wrapper {
@@ -50,7 +59,14 @@ ion-loading .loading-wrapper {
   background-position: center;
   background-size: contain;
   .scroll-content {
-    background-color: rgba(255, 255, 255, 0.65)
+    background-color: rgba(255, 255, 255, 0.65);
+    flex-direction: column;
+    justify-content: space-around;
+    display: flex;
+    padding-left: 30px;
+    button {
+      font-size: 1.8rem;
+    }
   }
 }
 
@@ -66,4 +82,18 @@ ion-loading .loading-wrapper {
 
 ion-list + ion-list.list {
   margin-top: 35px;
+}
+
+button[back-button] {
+  color: #777;
+  border: 0;
+}
+
+button.button[color="danger"][opacity] {
+  background-color: rgba(245, 61, 61, .75);
+  color: white;
+}
+
+[stacked].label {
+  font-size: 1.5rem !important;
 }

@@ -56,7 +56,7 @@
             </div>
 
             <ion-item>
-              <p color="danger" padding-bottom>Elige tu avatar</p>
+              <p color="danger" stacked class="label" padding-bottom>Elige tu avatar</p>
               <ion-slides (ionSlideDidChange)="slideChanged()">
                 <ion-slide *ngFor="let avatar of avatars;">
                   <img [src]="avatar" />
@@ -73,10 +73,10 @@
         <button ion-button round small outline color="danger" [disabled]="!userForm.form.valid" (click)="goToPicturePage()">subir foto</button>
       </ion-col> -->
       <ion-col text-right>
-        <button ion-button round color="danger" [disabled]="!userForm.form.valid" (click)="register()">registrarme</button>
+        <button ion-button round color="danger" opacity [disabled]="!userForm.form.valid" (click)="register()">registrarme</button>
       </ion-col>
       <ion-col>
-        <button ion-button round outline color="danger" (click)="goBack()">volver</button>
+        <button ion-button round outline color="dark" opacity back-button (click)="goBack()">volver</button>
       </ion-col>
     </ion-row>
   </ion-grid>
