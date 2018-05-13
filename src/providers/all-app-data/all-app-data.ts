@@ -16,7 +16,7 @@ export class AllAppDataProvider {
     this.grades_computed = [];
     this.universities_computed = [];
 
-    this.BASEURL = this.env.getEnvironmentUrl('local') + "/data";
+    this.BASEURL = this.env.getEnvironmentUrl('production') + "/data";
 
     this.getAllData((data, error) => {
       if (!error) {
