@@ -41,7 +41,7 @@ export class UniversidadesPage {
   goToUniversidad(universidad) {
     if (universidad) {
       let univWithGrades = this.allAppDataService.getUniversityWithGrades(universidad);
-      let modal = this.modalCtrl.create(GradoPage, {data: {...univWithGrades, type: 'universidad', index: univWithGrades.id}});
+      let modal = this.modalCtrl.create(GradoPage, {data: {...univWithGrades, type: 'universities', index: univWithGrades.id}});
       modal.onDidDismiss(() => {
         modal = null;
       })

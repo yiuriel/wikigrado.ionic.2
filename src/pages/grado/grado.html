@@ -65,6 +65,19 @@
 
     <div *ngSwitchCase="'universities'">
       <h2 text-center color="light" [innerHTML]="navParams.data.data.university"></h2>
+      <div padding-bottom>
+        <p color="light" [innerHTML]="navParams.data.data.address"></p>
+        <div *ngIf="navParams.data.data.telephone" padding-bottom>
+          <a color="light" (click)="callPhoneNumber(navParams.data.data.telephone)" [innerHTML]="navParams.data.data.telephone"></a>
+        </div>
+        <div *ngIf="navParams.data.data.website" padding-bottom>
+          <button ion-button color="light" [class.has-logo]="navParams.data.data.logo" block class="university-link" (click)="openUrl(university.website)">
+            <img [src]="'assets/imgs/university-logos/' + navParams.data.data.logo" *ngIf="navParams.data.data.logo" />
+            <span>visitar sitio web de la universidad</span>
+          </button>
+        </div>
+        <button *ngIf="navParams.data.data.latitude && navParams.data.data.longitude" ion-button outline block color="light" (click)="viewLocation({lat: navParams.data.data.latitude, lng: navParams.data.data.longitude})">ver en el mapa</button>
+      </div>
       <div *ngIf="navParams.data.data.grades.length">
         <h4 text-center color="light">Grados de esta universidad:</h4>
         <ion-list>

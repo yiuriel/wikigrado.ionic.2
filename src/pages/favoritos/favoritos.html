@@ -23,19 +23,15 @@
         <div [ngSwitch]="favorite.type">
           <div *ngSwitchCase="'universities'">
             <p [innerHTML]="favorite.university"></p>
-            <button ion-button round small outline color="danger" (click)="viewFavorite(favorite)">ver</button>
-            <button ion-button round small color="danger">borrar</button>
           </div>
           <div *ngSwitchCase="'grades'">
             <p [innerHTML]="favorite.grade"></p>
-            <button ion-button round small outline color="danger" (click)="viewFavorite(favorite)">ver</button>
-            <button ion-button round small color="danger">borrar</button>
           </div>
           <div *ngSwitchCase="'colleges'">
             <p [innerHTML]="favorite.career"></p>
-            <button ion-button round small outline color="danger" (click)="viewFavorite(favorite)">ver</button>
-            <button ion-button round small color="danger">borrar</button>
           </div>
+          <button ion-button round small outline color="danger" (click)="viewFavorite(favorite)">ver</button>
+          <button ion-button round small color="danger" (click)="deleteFavorite(favorite)">borrar</button>
         </div>
       </ion-col>
     </ion-row>
