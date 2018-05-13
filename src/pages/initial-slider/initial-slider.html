@@ -10,14 +10,18 @@
       <p [innerHTML]="slide.description"></p>
     </ion-slide>
     <ion-slide class="last-slide">
-      <button ion-button small large round icon-end color="danger" (click)="goToRegisterPage()">
-        registrarme
-        <ion-icon name="md-log-in"></ion-icon>
-      </button>
-      <button ion-button small large round icon-end color="danger" (click)="goToLoginPage()">
-        login
-        <ion-icon name="md-log-in"></ion-icon>
-      </button>
+      <div padding>
+        <button ion-button large round icon-end color="danger" (click)="goToRegisterPage()">
+          registrarme
+          <ion-icon name="md-log-in"></ion-icon>
+        </button>
+      </div>
+      <div>
+        <button ion-button large round icon-end color="danger" (click)="goToLoginPage()">
+          login
+          <ion-icon name="md-log-in"></ion-icon>
+        </button>
+      </div>
     </ion-slide>
   </ion-slides>
 </ion-content>

@@ -32,8 +32,8 @@
           </ion-list>
 
           <div text-center>
-            <button *ngIf="!showVolver" ion-button round small outline color="danger" (click)="goBack()">volver</button>
-            <button ion-button round small color="danger" [disabled]="!userForm.form.valid" (click)="login()">login</button>
+            <button ion-button round color="danger" [disabled]="!userForm.form.valid" (click)="login()">login</button>
+            <button *ngIf="!showVolver" ion-button round outline color="dark" (click)="goBack()">volver</button>
           </div>
         </form>
       </ion-col>

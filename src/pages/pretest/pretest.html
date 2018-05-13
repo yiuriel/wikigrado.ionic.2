@@ -3,9 +3,10 @@
 <ion-content padding text-center>
   <img src="assets/imgs/large-logo-2.png" style="width: 35%;" alt="logo-wikigrado" />
   <h1>Bienvenido a wikigrado</h1>
-  <h5 *ngIf="!test_done">
-    ¿Quieres conocer el bachillerato y el grado que mejor se adapta a tu personalidad? Orientadores de la prestigiosa Universidad de Navarra contestan al test de de orientación académica con el que se inicia esta app. Si quieres una versión más completa, sigue este enlace. <a href="https://www.unav.edu/web/admision-y-ayudas/test-online-de-orientacion"></a>enlace al test de orientación
+  <h5 *ngIf="!test_done" justify padding>
+    ¿Quieres conocer el bachillerato y el grado que mejor se adapta a tu personalidad?<br/><br/>Orientadores de la prestigiosa Universidad de Navarra contestan al test de orientación académica con el que se inicia esta app.
   </h5>
+  <h5 *ngIf="!test_done" justify padding>Si quieres una versión más completa, sigue este <a href="https://www.unav.edu/web/admision-y-ayudas/test-online-de-orientacion">enlace</a>.</h5>
   <h5 *ngIf="test_done">puedes realizar el test de personalidad nuevamente</h5>
   <button ion-button outline color="danger" *ngIf="!test_done" margin-top (click)="goToTestPage()">Realizar Test</button>
   <button ion-button outline color="danger" *ngIf="test_done" margin-top (click)="goToTestPage()">Realizar nuevamente el test</button>

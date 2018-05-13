@@ -10,6 +10,9 @@ page-login {
         min-height: 100%;
         justify-content: center;
       }
+      .list > .item-block:first-child {
+        border-top: 0;
+      }
       .item {
         background-color: transparent;
         .label[stacked] {
