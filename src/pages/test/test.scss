@@ -1,6 +1,6 @@
 page-test, page-pretest {
   ion-content {
-    background-image: url('../../assets/imgs/test.jpg');
+    background-image: url('../../assets/imgs/register.jpg');
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
@@ -8,6 +8,10 @@ page-test, page-pretest {
       background-color: rgba(255, 255, 255, 0.6);
       ion-card {
         border-radius: 15px;
+        background-color: rgba(255,255,255,0.3);
+      }
+      ion-item {
+        background-color: rgba(255,255,255,0.3);
       }
       ion-card-header {
         white-space: normal;
