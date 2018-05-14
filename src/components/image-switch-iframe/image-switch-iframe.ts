@@ -23,6 +23,10 @@ export class ImageSwitchIframeComponent {
   // private screenOrientation: ScreenOrientation
   constructor(public loadingCtrl: LoadingController, public tracker: AnalyticsProvider, private sanitizer: DomSanitizer) {
     this.active = false;
+
+    setTimeout(() => {
+      this.switchActive();
+    }, 100)
   }
 
   switchActive() {

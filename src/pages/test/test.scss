@@ -6,23 +6,24 @@ page-test, page-pretest {
     background-size: cover;
     .scroll-content {
       background-color: rgba(255, 255, 255, 0.6);
+      ion-card {
+        border-radius: 15px;
+      }
       ion-card-header {
         white-space: normal;
-        background-color: #F53d3d;
-        color: white;
       }
       .pages-data {
         border-bottom: 1px solid #EEE;
       }
 
-      .list > .item-block:first-child {
-        border-top: 0;
-      }
-
-      .list > .item-block:last-child,
-      .list > .item-wrapper:last-child .item-block {
-        border-bottom: 0;
-      }
+      // .list > .item-block:first-child {
+      //   border-top: 0;
+      // }
+      //
+      // .list > .item-block:last-child,
+      // .list > .item-wrapper:last-child .item-block {
+      //   border-bottom: 0;
+      // }
     }
   }
 }

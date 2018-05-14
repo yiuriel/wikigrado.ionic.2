@@ -4,7 +4,8 @@
   </button>
   <ion-title>{{headerTitle}}</ion-title>
   <ion-buttons end *ngIf="!removeHeaderIcon">
-    <button ion-button icon-only color="royal" (click)="goToUserProfile()">
+    <button ion-button icon-only color="light" (click)="goToUserProfile()">
+      <span [innerHTML]="username"></span>
       <img [src]="avatars[avatar]" class="user-profile" />
     </button>
   </ion-buttons>

@@ -15,6 +15,7 @@ export class CustomHeaderComponent {
   text: string;
   avatars: any;
   avatar: any;
+  username: any;
 
   constructor(public navCtrl: NavController, public userService: UserProvider) {
     console.log('Hello CustomHeaderComponent Component');
@@ -23,6 +24,7 @@ export class CustomHeaderComponent {
     this.userService.getUserData((data, error) => {
       if (!error) {
         this.avatar = data.avatar;
+        this.username = data.first_name;
       }
     });
   }

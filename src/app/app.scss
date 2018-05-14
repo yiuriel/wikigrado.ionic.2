@@ -70,6 +70,10 @@ ion-loading .loading-wrapper {
   }
 }
 
+ion-title .toolbar-title {
+  font-weight: 400;
+}
+
 .form-error {
   padding: 16px;
   color: map-get($colors, danger);
