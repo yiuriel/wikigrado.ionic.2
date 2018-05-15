@@ -14,6 +14,7 @@ import { AllAppDataProvider } from '../providers/all-app-data/all-app-data';
 // pages for menu
 import { LoginPage } from '../pages/login/login';
 import { PretestPage } from '../pages/pretest/pretest';
+import { TestPage } from '../pages/test/test';
 import { GradosPage } from '../pages/grados/grados';
 import { UniversidadesPage } from '../pages/universidades/universidades';
 import { ColegiosMayoresPage } from '../pages/colegios-mayores/colegios-mayores';
@@ -42,12 +43,12 @@ export class MyApp {
       testMenuComponent = component;
 
       this.pages = [
+        { icon: 'md-home', title: 'Inicio', component: PretestPage },
         { icon: 'md-book', title: 'Test de Personalidad', component: {function: this.checkIfPretestOrTest} },
         { icon: 'md-school', title: 'Grados y Salidas Profesionales', component: GradosPage },
         { icon: 'md-ribbon', title: 'Universidades', component: UniversidadesPage },
         { icon: 'md-paper', title: 'Colegios Mayores', component: ColegiosMayoresPage },
         { icon: 'person', title: 'Perfil', component: UserProfilePage },
-        { icon: 'md-star', title: 'Favoritos', component: FavoritosPage },
       ];
     });
   }
@@ -58,7 +59,7 @@ export class MyApp {
         if (value) {
           callback(OrientationVideosAfterTestPage);
         } else {
-          callback(PretestPage);
+          callback(TestPage);
         }
       }
     })

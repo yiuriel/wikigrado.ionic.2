@@ -8,13 +8,16 @@ page-test, page-pretest {
       background-color: rgba(255, 255, 255, 0.6);
       ion-card {
         border-radius: 15px;
-        background-color: rgba(255,255,255,0.3);
+        background-color: rgba(255,255,255,0.2);
       }
       ion-item {
-        background-color: rgba(255,255,255,0.3);
+        background-color: rgba(255,255,255,0);
       }
-      ion-card-header {
+      ion-card-header,
+      .pages-data {
+        background-color: rgba(255,255,255,0);
         white-space: normal;
+        color: white;
       }
       .pages-data {
         border-bottom: 1px solid #EEE;

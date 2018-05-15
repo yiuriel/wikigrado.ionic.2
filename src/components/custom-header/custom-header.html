@@ -2,10 +2,10 @@
   <button ion-button menuToggle color="danger">
     <img src="assets/imgs/small-logo.png" class="app-menu-logo" />
   </button>
-  <ion-title>{{headerTitle}}</ion-title>
+  <ion-title></ion-title>
   <ion-buttons end *ngIf="!removeHeaderIcon">
     <button ion-button icon-only color="light" (click)="goToUserProfile()">
-      <span [innerHTML]="username"></span>
+      <span [innerHTML]="username" style="max-width: 200px;text-overflow: ellipsis;width: 200px;overflow: hidden;"></span>
       <img [src]="avatars[avatar]" class="user-profile" />
     </button>
   </ion-buttons>

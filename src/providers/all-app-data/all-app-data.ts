@@ -40,7 +40,20 @@ export class AllAppDataProvider {
       keys.forEach(id_key => {
         result.push(this.allData[key][id_key])
       });
-      return result;
+
+      if (key === "grades") {
+        let withVideo = result.filter(row => row.video).sort((prev, next) => {
+          if (prev.grade[0].toLowerCase() < next.grade[0].toLowerCase())
+            return -1;
+          if (prev.grade[0].toLowerCase() > next.grade[0].toLowerCase())
+            return 1;
+          return 0;
+        });
+        let noVideo = result.filter(row => !row.video);
+        return withVideo.concat(noVideo);
+      } else {
+        return result;
+      }
     }
     return result;
   }
