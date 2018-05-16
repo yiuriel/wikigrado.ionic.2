@@ -65,6 +65,8 @@ public favoritesService: FavoritesProvider, public allAppDataService: AllAppData
         trueItem = this.allAppDataService.getUniversityWithGrades(item);
       } else if (item.type === "grades") {
         trueItem = this.allAppDataService.getGradeWithUniversities(item);
+      } else {
+        trueItem = item;
       }
       let modal = this.modalCtrl.create(GradoPage, {data: trueItem, dimensionData: this.dimensions});
       modal.onDidDismiss(() => {

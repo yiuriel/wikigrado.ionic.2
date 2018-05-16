@@ -75,7 +75,7 @@
             <p [innerHTML]="favorite.grade"></p>
           </div>
           <div *ngSwitchCase="'colleges'">
-            <p [innerHTML]="favorite.career"></p>
+            <p [innerHTML]="favorite.name"></p>
           </div>
           <button ion-button round small outline color="danger" (click)="viewFavorite(favorite)">ver</button>
           <button ion-button round small color="danger" (click)="deleteFavorite(favorite)">borrar</button>

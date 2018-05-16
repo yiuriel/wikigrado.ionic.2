@@ -12,7 +12,7 @@
     <ion-item *virtualItem="let grade" class="career">
       <a [class.has-video]="grade.video" (click)="goToGrade(grade)">
         <ion-icon name="videocam" *ngIf="grade.video"></ion-icon>
-        <span class="career-title" [innerHTML]="grade.grade"></span>
+        <span class="career-title" [innerHTML]="'Grado en ' + grade.grade"></span>
       </a>
     </ion-item>
   </ion-list>

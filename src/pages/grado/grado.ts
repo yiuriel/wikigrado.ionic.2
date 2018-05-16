@@ -11,9 +11,14 @@ import { InAppBrowser } from '@ionic-native/in-app-browser';
 export class GradoPage {
 
   appsAvailable: Array<string>
+  item: any;
+  dimensionData: any;
 
   constructor(public navCtrl: NavController, public tracker: AnalyticsProvider, public navParams: NavParams, public platform: Platform, public actionSheetCtrl: ActionSheetController, public viewCtrl: ViewController, private launchNavigator: LaunchNavigator, private iab: InAppBrowser) {
     this.appsAvailable = [];
+
+    this.item = this.navParams.data.data;
+    this.dimensionData = this.navParams.data.dimensionData;
   }
 
   ionViewDidLoad() {

@@ -39,7 +39,7 @@ export class GradosPage {
     const value = $event.value;
     if (value) {
       this.grades = this.gradesCached.filter(cache => {
-        return cache.grade.indexOf(value) > -1
+        return cache.grade.toLowerCase().indexOf(value.toLowerCase()) > -1
       });
     } else {
       this.grades = [].concat(this.gradesCached);

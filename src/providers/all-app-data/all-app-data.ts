@@ -6,7 +6,9 @@ import { Injectable } from '@angular/core';
 export class AllAppDataProvider {
 
   BASEURL: string;
+  COLLEGESURL: string;
   allData: {[key: string]: any}
+  collegesData: {[key: string]: any}
   grades_computed: Array<number>;
   universities_computed: Array<number>;
 
@@ -17,10 +19,17 @@ export class AllAppDataProvider {
     this.universities_computed = [];
 
     this.BASEURL = this.env.getEnvironmentUrl('production') + "/data";
+    this.COLLEGESURL = this.BASEURL + "/colleges";
 
     this.getAllData((data, error) => {
       if (!error) {
         this.allData = data;
+      }
+    });
+
+    this.getCollegesData((data, error) => {
+      if (!error) {
+        this.collegesData = data;
       }
     });
   }
@@ -31,6 +40,18 @@ export class AllAppDataProvider {
     }, error => {
       callback(null, error);
     });
+  }
+
+  getCollegesData(callback) {
+    this.http.get(this.COLLEGESURL + "/").subscribe(data => {
+      callback(data, null);
+    }, error => {
+      callback(null, error);
+    });
+  }
+
+  getColleges() {
+    return this.collegesData;
   }
 
   get(key) {
@@ -63,6 +84,11 @@ export class AllAppDataProvider {
       this.grades_computed[grade.id] = 1;
       let gradeWithUniversities = Object.assign({}, grade);
       gradeWithUniversities.universities.forEach((univ, i) => {
+        Object.keys(this.allData['universities'][univ]).forEach(key => {
+          if (this.allData['universities'][univ][key] === "NULL") {
+            this.allData['universities'][univ][key] = null;
+          }
+        });
         const univObject = Object.assign({}, this.allData['universities'][univ], {grades: null})
         gradeWithUniversities.universities[i] = univObject;
       });
@@ -74,7 +100,13 @@ export class AllAppDataProvider {
   getUniversityWithGrades(university) {
     if (!this.universities_computed[university.id]) {
       this.universities_computed[university.id] = 1;
-      let universityWithUniversities = Object.assign({}, university);
+      let nullMappedUniversity = university;
+      Object.keys(nullMappedUniversity).forEach(key => {
+        if (nullMappedUniversity[key] === "NULL") {
+          nullMappedUniversity[key] = null;
+        }
+      });
+      let universityWithUniversities = Object.assign({}, nullMappedUniversity);
       universityWithUniversities.grades.forEach((grade, i) => {
         const gradeObject = Object.assign({}, this.allData['grades'][grade], {universities: null})
         universityWithUniversities.grades[i] = gradeObject;
@@ -89,6 +121,9 @@ export class AllAppDataProvider {
   }
 
   getDataBasedOnTypeAndIndex(type, index) {
+    if (type === 'colleges') {
+      return this.collegesData.find(college => college.id === index);
+    }
     const data = this.get(type);
     return data.find(chunk => chunk.id === index);
   }

@@ -12,7 +12,7 @@
     <ion-item *ngFor="let college of colleges;let i = index;" class="career">
       <a (click)="goToColegioMayor(college)">
         <ion-icon name="film"></ion-icon>
-        <span class="career-title" [innerHTML]="college.career"></span>
+        <span class="career-title" [innerHTML]="college.name"></span>
       </a>
     </ion-item>
   </ion-list>

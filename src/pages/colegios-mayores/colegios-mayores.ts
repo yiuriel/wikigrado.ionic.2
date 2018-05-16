@@ -10,8 +10,8 @@ import { AnalyticsProvider } from '../../providers/analytics/analytics';
 })
 export class ColegiosMayoresPage {
 
-  colleges: Array<{videoUrl: string, description: string, location: {any}, career: string}>
-  collegesCached: Array<{videoUrl: string, description: string, location: {any}, career: string}>
+  colleges: {[key: string]: any}
+  collegesCached: {[key: string]: any}
   dimensions: {width: number, height: number}
 
   constructor(public navCtrl: NavController, public tracker: AnalyticsProvider, public navParams: NavParams, private domElem: ElementRef, public modalCtrl: ModalController, public allAppDataService: AllAppDataProvider, public loadingCtrl: LoadingController) {
@@ -29,7 +29,7 @@ export class ColegiosMayoresPage {
   }
 
   getColegiosMayoresFromService() {
-    this.colleges = this.allAppDataService.get('colleges');
+    this.colleges = this.allAppDataService.getColleges();
     this.collegesCached = [].concat(this.colleges);
   }
 
@@ -46,7 +46,7 @@ export class ColegiosMayoresPage {
 
   goToColegioMayor(colegioMayor) {
     if (colegioMayor) {
-      let modal = this.modalCtrl.create(GradoPage, {videoData: colegioMayor, dimensionData: this.dimensions, isColegioMayor: true});
+      let modal = this.modalCtrl.create(GradoPage, {data: {...colegioMayor, type: 'colleges', index: colegioMayor.id}, dimensionData: this.dimensions});
       modal.onDidDismiss(() => {
         modal = null;
       })
