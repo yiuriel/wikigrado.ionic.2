@@ -15,6 +15,7 @@ export class ImageSwitchIframeComponent {
   @Input('height') height: number;
   @Input('url') url: string;
   @Input('career') career: string;
+  @Input('name') name: string;
 
   @ViewChild('videoFrame') videoFrame: any;
 
@@ -32,7 +33,7 @@ export class ImageSwitchIframeComponent {
   switchActive() {
     this.actualUrl = this.sanitizer.bypassSecurityTrustResourceUrl(this.url)
     this.active = true;
-    this.tracker.trackEvent('video', 'ver video', this.career, 1);
+    this.tracker.trackEvent('video', 'ver video', this.name, 1);
     // setTimeout(() => {
     //   let player = new Player(this.videoFrame.nativeElement);
     //   player.on('play', () => {
