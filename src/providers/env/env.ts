@@ -15,7 +15,7 @@ export class EnvProvider {
         return "http://localhost:3000";
       case 'production':
       default:
-        return 'http://wikigrado.es:3000';
+        return 'https://wikigrado.es';
     }
   }
 

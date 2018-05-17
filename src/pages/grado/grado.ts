@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams, ViewController, Platform, ActionSheetController } from 'ionic-angular';
+import { NavController, NavParams, ViewController, Platform, ActionSheetController, ModalController } from 'ionic-angular';
 import { LaunchNavigator, LaunchNavigatorOptions } from '@ionic-native/launch-navigator';
 import { AnalyticsProvider } from '../../providers/analytics/analytics';
 import { InAppBrowser } from '@ionic-native/in-app-browser';
+import { AllAppDataProvider } from '../../providers/all-app-data/all-app-data';
 
 @Component({
   selector: 'page-grado',
@@ -14,7 +15,7 @@ export class GradoPage {
   item: any;
   dimensionData: any;
 
-  constructor(public navCtrl: NavController, public tracker: AnalyticsProvider, public navParams: NavParams, public platform: Platform, public actionSheetCtrl: ActionSheetController, public viewCtrl: ViewController, private launchNavigator: LaunchNavigator, private iab: InAppBrowser) {
+  constructor(public navCtrl: NavController, public tracker: AnalyticsProvider, public navParams: NavParams, public platform: Platform, public actionSheetCtrl: ActionSheetController, public viewCtrl: ViewController, private launchNavigator: LaunchNavigator, private iab: InAppBrowser, public allAppDataService: AllAppDataProvider, public modalCtrl: ModalController) {
     this.appsAvailable = [];
 
     this.item = this.navParams.data.data;
@@ -73,6 +74,18 @@ export class GradoPage {
       success => console.log('Launched navigator'),
       error => console.log('Error launching navigator', error)
     );
+  }
+
+  goTo(obj, type) {
+    if (obj) {
+      let preObjectToPass = this.allAppDataService.getDataBasedOnTypeAndIndex(type, obj.id);
+      let objToPass = type === 'universities' ? this.allAppDataService.getUniversityWithGrades(preObjectToPass) : this.allAppDataService.getGradeWithUniversities(preObjectToPass);
+      let modal = this.modalCtrl.create(GradoPage, {data: {...objToPass, type, index: objToPass.id}, dimensionData: this.dimensionData});
+      modal.onDidDismiss(() => {
+        modal = null;
+      })
+      modal.present();
+    }
   }
 
   dismiss() {

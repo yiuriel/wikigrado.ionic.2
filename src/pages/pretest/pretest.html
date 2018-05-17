@@ -16,6 +16,6 @@
     </p>
   </h5>
   <h5 *ngIf="test_done">puedes realizar el test de personalidad nuevamente</h5>
-  <button ion-button outline color="danger" round *ngIf="!test_done" margin-top (click)="goToTestPage()">Realizar Test</button>
-  <button ion-button outline color="danger" round *ngIf="test_done" margin-top (click)="goToTestPage()">Realizar nuevamente el test</button>
+  <button ion-button color="danger" round *ngIf="!test_done" margin-top (click)="goToTestPage()">Realizar Test</button>
+  <button ion-button color="danger" round *ngIf="test_done" margin-top (click)="goToTestPage()">Realizar nuevamente el test</button>
 </ion-content>
