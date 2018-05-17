@@ -20,6 +20,18 @@ page-grado {
         text-decoration: underline;
       }
 
+      .grade-data {
+        border: 1px solid wheat;
+        &-title {
+          padding-bottom: 4px;
+          color: antiquewhite;
+        }
+        &-value {
+          color: white;
+          font-size: 1.1em;
+        }
+      }
+
       .university-link {
         padding: 0 1.5em;
         &.has-logo {

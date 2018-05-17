@@ -72,6 +72,11 @@ export class AllAppDataProvider {
         });
         let noVideo = result.filter(row => !row.video);
         return withVideo.concat(noVideo);
+      } else if (key === "universities") {
+        let centers = result.filter(row => row.university.toLowerCase().indexOf("centro") > -1);
+        let centerIds = centers.map(row => row.id);
+        let universities = result.filter(row => centerIds.indexOf(row.id) === -1);
+        return universities.concat(centers);
       } else {
         return result;
       }
@@ -83,6 +88,13 @@ export class AllAppDataProvider {
     if (!this.grades_computed[grade.id]) {
       this.grades_computed[grade.id] = 1;
       let gradeWithUniversities = Object.assign({}, grade);
+      let nullMappedGrade = gradeWithUniversities;
+      Object.keys(nullMappedGrade).forEach(key => {
+        if (nullMappedGrade[key] === "NULL") {
+          nullMappedGrade[key] = null;
+        }
+      });
+
       gradeWithUniversities.universities.forEach((univ, i) => {
         Object.keys(this.allData['universities'][univ]).forEach(key => {
           if (this.allData['universities'][univ][key] === "NULL") {

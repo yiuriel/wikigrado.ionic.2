@@ -31,7 +31,7 @@ export class UniversidadesPage {
     const value = $event.value;
     if (value) {
       this.universidades = this.universidadesCached.filter(cache => {
-        return cache.university.indexOf(value) > -1
+        return cache.university.toLowerCase().indexOf(value.toLowerCase()) > -1
       });
     } else {
       this.universidades = [].concat(this.universidadesCached);

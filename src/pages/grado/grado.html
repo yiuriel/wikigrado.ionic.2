@@ -29,6 +29,22 @@
       [width]="dimensionData.width"
       [height]="dimensionData.height">
       </image-switch-iframe>
+      <ion-grid>
+        <ion-row justify-content-center>
+          <ion-col class="grade-data" margin-left margin-right margin-top *ngIf="item.duracion">
+            <ion-row class="grade-data-title" justify-content-center>Duracion</ion-row>
+            <ion-row class="grade-data-value" justify-content-center [innerHTML]="item.duracion"></ion-row>
+          </ion-col>
+          <ion-col class="grade-data" margin-left margin-right margin-top *ngIf="item.creditos">
+            <ion-row class="grade-data-title" justify-content-center>Creditos</ion-row>
+            <ion-row class="grade-data-value" justify-content-center [innerHTML]="item.creditos"></ion-row>
+          </ion-col>
+          <ion-col class="grade-data" margin-left margin-right margin-top *ngIf="item.idiomas">
+            <ion-row class="grade-data-title" justify-content-center>Idiomas</ion-row>
+            <ion-row class="grade-data-value" justify-content-center [innerHTML]="item.idiomas"></ion-row>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
       <ul class="universities_list">
         <li *ngFor="let university of item.universities">
           <h4 color="light" [innerHTML]="university.university"></h4>
