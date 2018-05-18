@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef } from '@angular/core';
 import { NavController, NavParams, LoadingController, ModalController } from 'ionic-angular';
 import { AllAppDataProvider } from '../../providers/all-app-data/all-app-data';
 import { GradoPage } from '../grado/grado';
@@ -12,14 +12,23 @@ export class UniversidadesPage {
 
   universidades: Array<{[key: string]: any}>
   universidadesCached: Array<{[key: string]: any}>
+  dimensions: {width: number, height: number}
 
-  constructor(public navCtrl: NavController, public tracker: AnalyticsProvider, public navParams: NavParams, public modalCtrl: ModalController, public allAppDataService: AllAppDataProvider, public loadingCtrl: LoadingController) {
+  constructor(public navCtrl: NavController, private domElem: ElementRef, public tracker: AnalyticsProvider, public navParams: NavParams, public modalCtrl: ModalController, public allAppDataService: AllAppDataProvider, public loadingCtrl: LoadingController) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad UniversidadesPage');
 
     this.getUniversidadesFromService();
+  }
+
+  ionViewDidEnter() {
+    let width = this.domElem.nativeElement.offsetWidth - 32;
+    this.dimensions = {
+      width: width,
+      height: (width * 9) / 16,
+    }
   }
 
   getUniversidadesFromService() {
@@ -41,7 +50,7 @@ export class UniversidadesPage {
   goToUniversidad(universidad) {
     if (universidad) {
       let univWithGrades = this.allAppDataService.getUniversityWithGrades(universidad);
-      let modal = this.modalCtrl.create(GradoPage, {data: {...univWithGrades, type: 'universities', index: univWithGrades.id}});
+      let modal = this.modalCtrl.create(GradoPage, {data: {...univWithGrades, type: 'universities', index: univWithGrades.id}, dimensionData: this.dimensions});
       modal.onDidDismiss(() => {
         modal = null;
       })
