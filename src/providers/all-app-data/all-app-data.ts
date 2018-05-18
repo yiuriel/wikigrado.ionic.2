@@ -96,12 +96,12 @@ export class AllAppDataProvider {
       });
 
       gradeWithUniversities.universities.forEach((univ, i) => {
-        Object.keys(this.allData['universities'][univ]).forEach(key => {
-          if (this.allData['universities'][univ][key] === "NULL") {
-            this.allData['universities'][univ][key] = null;
+        Object.keys(this.allData['universities'][univ.id]).forEach(key => {
+          if (this.allData['universities'][univ.id][key] === "NULL") {
+            this.allData['universities'][univ.id][key] = null;
           }
         });
-        const univObject = Object.assign({}, this.allData['universities'][univ], {grades: null})
+        const univObject = Object.assign({}, this.allData['universities'][univ.id], {grades: null})
         gradeWithUniversities.universities[i] = univObject;
       });
       return gradeWithUniversities;

@@ -25,7 +25,7 @@
       <image-switch-iframe
       *ngIf="item.video"
       [url]="item.video"
-      [url]="item.name"
+      [name]="item.name"
       [width]="dimensionData.width"
       [height]="dimensionData.height">
       </image-switch-iframe>
@@ -59,7 +59,7 @@
             </button>
           </div>
           <div padding-bottom>
-            <button ion-button round color="danger" block (click)="goTo(university, 'universities')">ver en la app</button>
+            <button ion-button round color="danger" block (click)="goTo(university, 'universities')">ver universidad en la app</button>
           </div>
           <button round *ngIf="university.latitude && university.longitude" ion-button round outline block color="light" (click)="viewLocation({latitude: university.latitude, longitudr: university.longitude})">ver en el mapa</button>
         </li>
@@ -72,7 +72,7 @@
       <image-switch-iframe
       *ngIf="item.video"
       [url]="item.video"
-      [url]="item.name"
+      [name]="item.name"
       [width]="dimensionData.width"
       [height]="dimensionData.height">
       </image-switch-iframe>

@@ -68,6 +68,11 @@ export class AnalyticsProvider {
     this.ga.setAppVersion(version);
   }
 
+  setUserId(id) {
+    console.log('setUserId', this.ready);
+    this.ga.setUserId(id);
+  }
+
   trackEvent(category, action, label, value) {
     console.log('trackEvent', this.ready);
     this.ga.trackEvent(category, action, label, value);

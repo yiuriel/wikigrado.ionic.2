@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { EnvProvider } from '../env/env';
+import { AnalyticsProvider } from '../analytics/analytics';
 import { Storage } from '@ionic/storage';
 
 @Injectable()
@@ -14,7 +15,7 @@ export class UserProvider {
   UPDATEORIENTATIONS: string;
   UPDATEAVATAR: string;
 
-  constructor( private http: HttpClient, private env: EnvProvider, private storage: Storage ) {
+  constructor( private http: HttpClient, private env: EnvProvider, private storage: Storage, private tracker: AnalyticsProvider ) {
     console.log('Hello UserProvider Provider');
     this.BASEURL = this.env.getEnvironmentUrl('production') + "/users";
     this.CHECKEMAILURL = this.BASEURL + "/check_email";
@@ -59,6 +60,7 @@ export class UserProvider {
   setUserData(data, callback) {
     this.data = data;
     this.storage.set('user_data', data).then(success => {
+      this.tracker.setUserId(data.id);
       callback(success, null);
     }, error => {
       callback(null, error);
