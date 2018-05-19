@@ -1,8 +1,6 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
 import { NavController, NavParams, ModalController, Slides } from 'ionic-angular';
 import { UserProvider } from '../../providers/user/user';
-import { CanvasProvider } from '../../providers/canvas/canvas';
-import { Camera, CameraOptions } from '@ionic-native/camera';
 import { LoaderProvider } from '../../providers/loader/loader';
 import { ToasterProvider } from '../../providers/toaster/toaster';
 import { AllAppDataProvider } from '../../providers/all-app-data/all-app-data';
@@ -24,7 +22,7 @@ export class UserProfilePage {
   dimensions: {width: number, height: number}
   loader: any;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public userService: UserProvider, private camera: Camera, public canvasService: CanvasProvider, public toasterService: ToasterProvider, public loaderService: LoaderProvider,
+  constructor(public navCtrl: NavController, public navParams: NavParams, public userService: UserProvider, public toasterService: ToasterProvider, public loaderService: LoaderProvider,
 public favoritesService: FavoritesProvider, public allAppDataService: AllAppDataProvider, public modalCtrl: ModalController, private domElem: ElementRef) {
     this.loaderService.showLoader({content:'cargando...'});
     this.userService.getUserData((data, error) => {

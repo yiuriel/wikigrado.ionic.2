@@ -2,9 +2,9 @@
   <ion-toolbar>
     <ion-title>
       <div [ngSwitch]="item.type">
-        <span *ngSwitchCase="'grades'">Grado</span>
+        <!-- <span *ngSwitchCase="'grades'">Grado</span>
         <span *ngSwitchCase="'universities'">Universidad</span>
-        <span *ngSwitchCase="'colleges'">Colegio Mayor</span>
+        <span *ngSwitchCase="'colleges'">Colegio Mayor</span> -->
       </div>
     </ion-title>
     <ion-buttons start>
@@ -18,7 +18,18 @@
 </ion-header>
 
 <ion-content padding>
-  <div [ngSwitch]="item.type">
+  <ion-fab top center edge>
+    <button ion-fab mini color="danger"><ion-icon name="md-share"></ion-icon></button>
+    <ion-fab-list side="left">
+      <button ion-fab color="dark" (click)="shareVia(item, 'facebook')"><ion-icon name="logo-facebook"></ion-icon></button>
+      <button ion-fab color="dark" (click)="shareVia(item, 'twitter')"><ion-icon name="logo-twitter"></ion-icon></button>
+    </ion-fab-list>
+    <ion-fab-list side="right">
+      <button ion-fab color="dark" (click)="shareVia(item, 'whatsapp')"><ion-icon name="logo-whatsapp"></ion-icon></button>
+      <button ion-fab color="dark" (click)="shareVia(item, 'email')"><ion-icon name="md-mail"></ion-icon></button>
+    </ion-fab-list>
+  </ion-fab>
+  <div [ngSwitch]="item.type" padding-top>
     <!-- type grados -->
     <div *ngSwitchCase="'grades'">
       <h1 text-center class="career-title" [innerHTML]="item.grade"></h1>
@@ -80,7 +91,24 @@
         Aun no hay video sobre este colegio mayor
       </h2>
       <p color="light" [innerHTML]="item.address"></p>
-      <button round *ngIf="item.latitude && item.longitude" ion-button round outline block color="light" (click)="viewLocation({latitude: item.latitude, longitudr: item.longitude})">ver en el mapa</button>
+      <div *ngIf="item.telephone" padding-bottom>
+        <a color="light" (click)="callPhoneNumber(item.telephone)" [innerHTML]="item.telephone"></a>
+      </div>
+      <div *ngIf="item.email" padding-bottom>
+        <a color="light" (click)="sendMail(item.email)" [innerHTML]="item.email"></a>
+      </div>
+      <div padding-bottom>
+        <div *ngIf="item.telephone" padding-bottom>
+          <a color="light" (click)="callPhoneNumber(item.telephone)" [innerHTML]="item.telephone"></a>
+        </div>
+        <div *ngIf="item.website" padding-bottom>
+          <button ion-button round color="light" [class.has-logo]="item.logo" block class="university-link" (click)="openUrl(university.website)">
+            <img [src]="'assets/imgs/university-logos/' + item.logo" *ngIf="item.logo" />
+            <span>visitar sitio web del colegio</span>
+          </button>
+        </div>
+        <button round *ngIf="item.latitude && item.longitude" ion-button outline block color="light" (click)="viewLocation({lat: item.latitude, lng: item.longitude})">ver en el mapa</button>
+      </div>
     </div>
 
     <div *ngSwitchCase="'universities'">
@@ -89,6 +117,9 @@
         <p color="light" [innerHTML]="item.address"></p>
         <div *ngIf="item.telephone" padding-bottom>
           <a color="light" (click)="callPhoneNumber(item.telephone)" [innerHTML]="item.telephone"></a>
+        </div>
+        <div *ngIf="item.email" padding-bottom>
+          <a color="light" (click)="sendMail(item.email)" [innerHTML]="item.email"></a>
         </div>
         <div *ngIf="item.website" padding-bottom>
           <button ion-button round color="light" [class.has-logo]="item.logo" block class="university-link" (click)="openUrl(university.website)">

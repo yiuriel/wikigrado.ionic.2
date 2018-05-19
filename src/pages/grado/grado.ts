@@ -4,6 +4,7 @@ import { LaunchNavigator, LaunchNavigatorOptions } from '@ionic-native/launch-na
 import { AnalyticsProvider } from '../../providers/analytics/analytics';
 import { InAppBrowser } from '@ionic-native/in-app-browser';
 import { AllAppDataProvider } from '../../providers/all-app-data/all-app-data';
+import { SocialSharing } from '@ionic-native/social-sharing';
 
 @Component({
   selector: 'page-grado',
@@ -15,11 +16,23 @@ export class GradoPage {
   item: any;
   dimensionData: any;
 
-  constructor(public navCtrl: NavController, public tracker: AnalyticsProvider, public navParams: NavParams, public platform: Platform, public actionSheetCtrl: ActionSheetController, public viewCtrl: ViewController, private launchNavigator: LaunchNavigator, private iab: InAppBrowser, public allAppDataService: AllAppDataProvider, public modalCtrl: ModalController) {
+  constructor(public navCtrl: NavController, private social: SocialSharing, public tracker: AnalyticsProvider, public navParams: NavParams, public platform: Platform, public actionSheetCtrl: ActionSheetController, public viewCtrl: ViewController, private launchNavigator: LaunchNavigator, private iab: InAppBrowser, public allAppDataService: AllAppDataProvider, public modalCtrl: ModalController) {
     this.appsAvailable = [];
 
     this.item = this.navParams.data.data;
     this.dimensionData = this.navParams.data.dimensionData;
+  }
+
+  shareVia(item, shareType) {
+    this.social.canShareVia(shareType).then((success) => {
+      console.warn(success);
+    }).catch(error => {
+      console.warn(JSON.stringify(error));
+    });
+  }
+
+  sendMail(mail) {
+    window.open(`mailto:${mail}`, '_system');
   }
 
   ionViewDidLoad() {

@@ -90,9 +90,9 @@
       "cordova-plugin-market": {}
     },
     "platforms": [
-      "ios",
       "android",
-      "browser"
+      "browser",
+      "ios"
     ]
   }
 }

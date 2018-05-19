@@ -8,7 +8,7 @@
     </ion-item>
   </ion-list>
 
-  <ion-list [virtualScroll]="grades">
+  <ion-list [virtualScroll]="grades" [approxItemHeight]="'54px'">
     <ion-item *virtualItem="let grade" class="career">
       <a [class.has-video]="grade.video" (click)="goToGrade(grade)">
         <ion-icon name="videocam" *ngIf="grade.video"></ion-icon>

@@ -41,6 +41,7 @@
         <splash density="port-xxxhdpi" src="resources/android/splash/drawable-port-xxxhdpi-screen.png" />
     </platform>
     <platform name="ios">
+        <allow-navigation href="*" />
         <allow-intent href="itms:*" />
         <allow-intent href="itms-apps:*" />
         <icon height="57" src="resources/ios/icon/icon.png" width="57" />
@@ -88,7 +89,6 @@
     <plugin name="cordova-plugin-geolocation" spec="^4.0.1">
         <variable name="GEOLOCATION_USAGE_DESCRIPTION" value="Nos gustaria acceder a tu ubicación" />
     </plugin>
-    <engine name="ios" spec="~4.5.4" />
     <engine name="android" spec="~7.0.0" />
     <plugin name="cordova-plugin-google-analytics" spec="^1.8.3" />
     <engine name="browser" spec="~5.0.3" />
@@ -100,4 +100,6 @@
     <plugin name="cordova-plugin-screen-orientation" spec="^3.0.1" />
     <plugin name="cordova-plugin-x-socialsharing" spec="^5.4.0" />
     <plugin name="cordova-plugin-market" spec="^1.2.0" />
+    <allow-navigation href="http://192.168.0.213:8100" />
+    <engine name="ios" spec="~4.5.4" />
 </widget>

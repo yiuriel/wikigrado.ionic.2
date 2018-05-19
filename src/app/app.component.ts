@@ -18,7 +18,7 @@ import { TestPage } from '../pages/test/test';
 import { GradosPage } from '../pages/grados/grados';
 import { UniversidadesPage } from '../pages/universidades/universidades';
 import { ColegiosMayoresPage } from '../pages/colegios-mayores/colegios-mayores';
-import { FavoritosPage } from '../pages/favoritos/favoritos';
+// import { FavoritosPage } from '../pages/favoritos/favoritos';
 import { SimulatesplashPage } from '../pages/simulatesplash/simulatesplash';
 import { UserProfilePage } from '../pages/user-profile/user-profile';
 import { OrientationVideosAfterTestPage } from '../pages/orientation-videos-after-test/orientation-videos-after-test';
