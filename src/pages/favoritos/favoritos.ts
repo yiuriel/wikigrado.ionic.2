@@ -22,7 +22,7 @@ export class FavoritosPage {
   loader: any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public userService: UserProvider, public favoritesService: FavoritesProvider, public allAppDataService: AllAppDataProvider, public modalCtrl: ModalController, private domElem: ElementRef, public loaderService: LoaderProvider, public toasterService: ToasterProvider) {
-    this.loaderService.showLoader({content:'cargando...'});
+    this.loaderService.showLoader({content:'Cargando...'});
     this.userService.getUserData((data, error) => {
       if (!error) {
         this.userData = data;
@@ -69,7 +69,7 @@ export class FavoritosPage {
       //{data: {...gradeWithUnivs, type: 'grado', index: gradeWithUnivs.id}, dimensionData: this.dimensions}
       let modal = this.modalCtrl.create(GradoPage, {data: item, dimensionData: this.dimensions});
       modal.onDidDismiss(() => {
-        this.loaderService.showLoader({content:'cargando...'});
+        this.loaderService.showLoader({content:'Cargando...'});
         this.getFavorites(() => {
           this.loaderService.hideLoader();
         });

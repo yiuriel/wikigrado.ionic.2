@@ -24,7 +24,7 @@ export class UserProfilePage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public userService: UserProvider, public toasterService: ToasterProvider, public loaderService: LoaderProvider,
 public favoritesService: FavoritesProvider, public allAppDataService: AllAppDataProvider, public modalCtrl: ModalController, private domElem: ElementRef) {
-    this.loaderService.showLoader({content:'cargando...'});
+    this.loaderService.showLoader({content:'Cargando...'});
     this.userService.getUserData((data, error) => {
       if (!error) {
         this.user = data;
@@ -68,7 +68,7 @@ public favoritesService: FavoritesProvider, public allAppDataService: AllAppData
       }
       let modal = this.modalCtrl.create(GradoPage, {data: trueItem, dimensionData: this.dimensions});
       modal.onDidDismiss(() => {
-        this.loaderService.showLoader({content:'cargando...'});
+        this.loaderService.showLoader({content:'Cargando...'});
         this.getFavorites(() => {
           this.loaderService.hideLoader();
         });

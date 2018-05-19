@@ -21,9 +21,9 @@
 }
 
 .scroll-content {
-  background: #fc4a1a;
-  background: -webkit-gradient(linear, left top, right top, from(rgba(247, 183, 51, .8)), to(rgba(252, 74, 26, .8)));
-  background: linear-gradient(to right, rgba(247, 183, 51, .8), rgba(252, 74, 26, .8));
+  background: rgb(44, 206, 214);
+  background: -webkit-gradient(linear, left top, right top, from(rgba(44, 206, 214, 0.8)), to(rgba(32, 116, 204, 0.8)));
+  background: linear-gradient(to right, rgba(44, 206, 214, 0.8), rgba(32, 116, 204, 0.8));
   border-color: white;
 }
 
@@ -31,7 +31,7 @@
 ion-menu .button,
 ion-item .button,
 ion-item ion-label {
-  color: rgba(255,255,255,0.85) !important;
+  color: rgba(0,0,0,0.75) !important;
 }
 
 [boxxed] {
@@ -63,6 +63,7 @@ ion-loading .loading-wrapper {
   top: 11px !important;
   margin: 0 auto !important;
   padding: 5px;
+  color: white;
 }
 
 .swiper-pagination-bullet-active {
@@ -104,15 +105,15 @@ ion-list + ion-list.list {
 }
 
 button[back-button] {
-  color: #777;
+  color: #333;
   border: 0;
 }
 
 button.button[color="danger"][opacity] {
-  background-color: rgba(245, 61, 61, .75);
+  background-color: rgba(245, 61, 61, .85);
   color: white;
 }
 
 [stacked].label {
-  font-size: 1.5rem !important;
+  font-size: 1.6rem !important;
 }

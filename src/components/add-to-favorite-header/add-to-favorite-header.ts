@@ -20,7 +20,7 @@ export class AddToFavoriteHeaderComponent {
     this.add = true;
 
     this.userData = null;
-    this.loaderService.showLoader({content:'cargando...'});
+    this.loaderService.showLoader({content:'Cargando...'});
     this.userService.getUserData((data, error) => {
       if (!error) {
         this.userData = data;
@@ -38,7 +38,7 @@ export class AddToFavoriteHeaderComponent {
 
   addToFavorite() {
     if (this.add) {
-      this.loaderService.showLoader({content:'guardando favorito...'});
+      this.loaderService.showLoader({content:'Guardando favorito...'});
       this.favoritesService.addFavorite(this.favoriteItem, this.userData.id, (success, error) => {
         this.loaderService.hideLoader();
         if (error) {

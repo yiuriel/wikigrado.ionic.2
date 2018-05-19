@@ -25,7 +25,7 @@ export class AnalyticsProvider {
 
   initService() {
     console.log("INIT ANALYTICS SERVICE")
-    this.ga.startTrackerWithId('UA-116499272-1')
+    this.ga.startTrackerWithId('UA-119556846-1')
       .then(() => {
         console.log('Google analytics is ready now');
         this.ready = true;

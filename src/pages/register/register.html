@@ -14,16 +14,16 @@
               <ion-label stacked>Nombre</ion-label>
               <ion-input #firstname="ngModel" name="firstname" minlength="3" required [(ngModel)]="user.first_name" type="text"></ion-input>
             </ion-item>
-            <div class="form-error" *ngIf="firstname.invalid && (firstname.dirty || firstname.touched)">
-              <div *ngIf="firstname.errors.required">el nombre es requerido.</div>
+            <div class="form-error" *ngIf="firstname.invalid && (firstname.dirty || firstname.touched) && firstname.errors">
+              <div *ngIf="firstname.errors.required">El nombre es requerido.</div>
             </div>
 
             <ion-item>
               <ion-label stacked>Apellido</ion-label>
               <ion-input #lastname="ngModel" name="lastname" minlength="3" required [(ngModel)]="user.last_name" type="text"></ion-input>
             </ion-item>
-            <div class="form-error" *ngIf="lastname.invalid && (lastname.dirty || lastname.touched)">
-              <div *ngIf="lastname.errors.required">el apellido es requerido.</div>
+            <div class="form-error" *ngIf="lastname.invalid && (lastname.dirty || lastname.touched) && lastname.errors">
+              <div *ngIf="lastname.errors.required">El apellido es requerido.</div>
             </div>
 
             <ion-item>
@@ -32,27 +32,27 @@
                 <ion-option *ngFor="let age of ages" [value]="age" [innerHTML]="age"></ion-option>
               </ion-select>
             </ion-item>
-            <div class="form-error" *ngIf="age.invalid && (age.dirty || age.touched)">
-              <div *ngIf="age.errors.required">la edad es requerida.</div>
+            <div class="form-error" *ngIf="age.invalid && (age.dirty || age.touched) && age.errors">
+              <div *ngIf="age.errors.required">La edad es requerida.</div>
             </div>
 
             <ion-item>
               <ion-label stacked>Email</ion-label>
               <ion-input #email="ngModel" name="email" minlength="3" required [(ngModel)]="user.email" (ionBlur)="checkEmail()" #registeremail="ngModel" [email]="true" type="email"></ion-input>
             </ion-item>
-            <div class="form-error" *ngIf="email.invalid && (email.dirty || email.touched)">
-              <div *ngIf="email.errors.required">el email es requerido.</div>
-              <div *ngIf="email.errors.email && email.errors.minlength">el formato del email es incorrecto.</div>
+            <div class="form-error" *ngIf="email.invalid && (email.dirty || email.touched) && email.errors">
+              <div *ngIf="email.errors.required">El email es requerido.</div>
+              <div *ngIf="email.errors.email && email.errors.minlength">El formato del email es incorrecto.</div>
             </div>
 
             <ion-item>
-              <ion-label stacked>Contraseña</ion-label>
+              <ion-label stacked>Contrase&ntilde;a</ion-label>
               <ion-input #password="ngModel" name="password" minlength="8" maxlength="14" required [(ngModel)]="user.password" [type]="passwordType"></ion-input>
               <ion-icon item-end [name]="passwordIcon" class="passIcon" (click)='hideShowPassword()'></ion-icon>
             </ion-item>
-            <div class="form-error" *ngIf="password.invalid && (password.dirty || password.touched)">
-              <div *ngIf="password.errors.required">la contrase&ntilde;a es obligatoria. debe tener entre 8 y 14 caracteres.</div>
-              <div *ngIf="password.errors.minlength">la contrase&ntilde;a debe tener al menos 8.</div>
+            <div class="form-error" *ngIf="password.invalid && (password.dirty || password.touched) && password.errors">
+              <div *ngIf="password.errors.required">La contrase&ntilde;a es obligatoria. debe tener entre 8 y 14 caracteres.</div>
+              <div *ngIf="password.errors.minlength">La contrase&ntilde;a debe tener al menos 8.</div>
             </div>
 
             <ion-item>
@@ -73,10 +73,10 @@
         <button ion-button round small outline color="danger" [disabled]="!userForm.form.valid" (click)="goToPicturePage()">subir foto</button>
       </ion-col> -->
       <ion-col text-right>
-        <button ion-button round color="danger" opacity [disabled]="!userForm.form.valid" (click)="register()">registrarme</button>
+        <button ion-button round color="danger" opacity [disabled]="!userForm.form.valid" (click)="register()">Registrarme</button>
       </ion-col>
       <ion-col>
-        <button ion-button round outline color="dark" opacity back-button (click)="goBack()">volver</button>
+        <button ion-button round outline color="dark" opacity back-button (click)="goBack()">Volver</button>
       </ion-col>
     </ion-row>
   </ion-grid>

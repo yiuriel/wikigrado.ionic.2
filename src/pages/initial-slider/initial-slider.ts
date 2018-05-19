@@ -18,19 +18,11 @@ export class InitialSliderPage {
     this.slidesData = [
       {
         title: "Guia 1",
-        description: "La App de Wikigrado está pensada para que a través de los vídeos, puedas conocer toda la oferta de grados y universidades de España.",
+        description: "La App Wikigrado está pensada para que, a través de vídeos, conozcas  qué vas a estudiar en cada grado universitario.<br/><br/>Y algo muy importante! Profesionales en activo te explicarán de qué vas a poder trabajar y cómo son esos trabajos",
       },
       {
         title: "Guia 2",
-        description: "Con videos superdinamicos, podrás conocer en que consiste cada grado y además, verás ejemplos reales con sus salidas laborales.",
-      },
-      {
-        title: "Guia 3",
-        description: "Registrándote, tendrás tu historial, favoritos, avatar y mas...",
-      },
-      {
-        title: "Guia 4",
-        description: "Podrás hacer una búsqueda muy precisa tanto de las universidades, como de los grados que se imparten en cada una. Bienvenido a Wikigrado.<br/><br/> Comenzamos? Hay un test de orientación, esperándote...",
+        description: "Desde Registrándote ... hasta esperandote.",
       }
     ];
   }

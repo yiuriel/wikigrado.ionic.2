@@ -21,7 +21,7 @@ page-colegios-mayores {
           background-color: transparent;
           padding-left: 0;
           input {
-            color: white;
+            color: black;
           }
           ion-label {
             color: map-get($colors, danger);
@@ -29,7 +29,7 @@ page-colegios-mayores {
           &.career {
             color: map-get($colors, danger);
             a {
-              color: white;
+              color: black;
               text-decoration: none;
               font-size: 1.2em;
               display: flex;
@@ -40,7 +40,7 @@ page-colegios-mayores {
               }
               ion-icon {
                 margin-right: .2em;
-                font-size: 8em;
+                font-size: 2em;
                 color: map-get($colors, danger);
               }
             }

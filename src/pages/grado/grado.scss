@@ -10,7 +10,7 @@ page-grado {
         background-color: rgba(255, 255, 255, 0.5);
       }
       .career-title {
-        color: white;
+        color: black;
       }
       .no-video {
         font-size: 1.5em;
@@ -21,13 +21,13 @@ page-grado {
       }
 
       .grade-data {
-        border: 1px solid wheat;
+        border: 1px solid black;
         &-title {
           padding-bottom: 4px;
-          color: antiquewhite;
+          color: #333;
         }
         &-value {
-          color: white;
+          color: #333;
           font-size: 1.1em;
         }
       }
@@ -64,7 +64,7 @@ page-grado {
   }
 
   .toolbar-title {
-    color: white;
+    color: black;
   }
   .toolbar-background {
     background-color: #333;
@@ -73,6 +73,6 @@ page-grado {
     color: map-get($colors, danger);
   }
   [color="light"] {
-    color: map-get($colors, light);
+    color: map-get($colors, dark);
   }
 }

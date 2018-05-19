@@ -1,11 +1,11 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>
-      <div [ngSwitch]="item.type">
-        <!-- <span *ngSwitchCase="'grades'">Grado</span>
+      <!-- <div [ngSwitch]="item.type">
+        <span *ngSwitchCase="'grades'">Grado</span>
         <span *ngSwitchCase="'universities'">Universidad</span>
-        <span *ngSwitchCase="'colleges'">Colegio Mayor</span> -->
-      </div>
+        <span *ngSwitchCase="'colleges'">Colegio Mayor</span>
+      </div> -->
     </ion-title>
     <ion-buttons start>
       <button ion-button (click)="dismiss()">
@@ -56,25 +56,33 @@
           </ion-col>
         </ion-row>
       </ion-grid>
-      <ul class="universities_list">
-        <li *ngFor="let university of item.universities">
-          <h4 color="light" [innerHTML]="university.university"></h4>
-          <p color="light" [innerHTML]="university.address"></p>
-          <div *ngIf="university.telephone" padding-bottom>
-            <a color="light" (click)="callPhoneNumber(university.telephone)" [innerHTML]="university.telephone"></a>
+      <div padding>
+        <div *ngIf="item.main_university">
+          <h4 color="light" [innerHTML]="item.main_university.university"></h4>
+          <p color="light" [innerHTML]="item.main_university.address"></p>
+          <div *ngIf="item.main_university.telephone" padding-bottom>
+            <a color="light" (click)="callPhoneNumber(item.main_university.telephone)" [innerHTML]="item.main_university.telephone"></a>
           </div>
-          <div *ngIf="university.website" padding-bottom>
-            <button ion-button round color="light" [class.has-logo]="university.logo" block class="university-link" (click)="openUrl(university.website)">
-              <img [src]="'assets/imgs/university-logos/' + university.logo" *ngIf="university.logo" />
-              <span>visitar sitio web de la universidad</span>
+          <div *ngIf="item.main_university.website" padding-bottom>
+            <button ion-button round color="light" [class.has-logo]="item.main_university.logo" block class="university-link" (click)="openUrl(item.main_university.website)">
+              <img [src]="'assets/imgs/university-logos/' + item.main_university.logo" *ngIf="item.main_university.logo" />
+              <span>Ir al sitio web de la universidad</span>
             </button>
           </div>
           <div padding-bottom>
-            <button ion-button round color="danger" block (click)="goTo(university, 'universities')">ver universidad en la app</button>
+            <button ion-button round color="danger" block (click)="goTo(item.main_university, 'universities')">Ver en la app</button>
           </div>
-          <button round *ngIf="university.latitude && university.longitude" ion-button round outline block color="light" (click)="viewLocation({latitude: university.latitude, longitudr: university.longitude})">ver en el mapa</button>
-        </li>
-      </ul>
+          <button round *ngIf="item.main_university.latitude && item.main_university.longitude" ion-button outline block color="light" (click)="viewLocation({latitude: item.main_university.latitude, longitudr: item.main_university.longitude})">Ver en el mapa</button>
+        </div>
+      </div>
+      <div *ngIf="item.list && item.list.length">
+        <h4 text-center color="light">Universidades que dan este grado:</h4>
+        <ion-list>
+          <ion-item *ngFor="let university of item.list;" (click)="goTo(university, 'universities');">
+            {{ university.university }}
+          </ion-item>
+        </ion-list>
+      </div>
     </div>
 
     <!-- type colegio mayor -->
@@ -104,10 +112,10 @@
         <div *ngIf="item.website" padding-bottom>
           <button ion-button round color="light" [class.has-logo]="item.logo" block class="university-link" (click)="openUrl(university.website)">
             <img [src]="'assets/imgs/university-logos/' + item.logo" *ngIf="item.logo" />
-            <span>visitar sitio web del colegio</span>
+            <span>Ir al sitio web del colegio</span>
           </button>
         </div>
-        <button round *ngIf="item.latitude && item.longitude" ion-button outline block color="light" (click)="viewLocation({lat: item.latitude, lng: item.longitude})">ver en el mapa</button>
+        <button round *ngIf="item.latitude && item.longitude" ion-button outline block color="light" (click)="viewLocation({lat: item.latitude, lng: item.longitude})">Ver en el mapa</button>
       </div>
     </div>
 
@@ -124,10 +132,10 @@
         <div *ngIf="item.website" padding-bottom>
           <button ion-button round color="light" [class.has-logo]="item.logo" block class="university-link" (click)="openUrl(university.website)">
             <img [src]="'assets/imgs/university-logos/' + item.logo" *ngIf="item.logo" />
-            <span>visitar sitio web de la universidad</span>
+            <span>Ir al sitio web de la universidad</span>
           </button>
         </div>
-        <button round *ngIf="item.latitude && item.longitude" ion-button outline block color="light" (click)="viewLocation({lat: item.latitude, lng: item.longitude})">ver en el mapa</button>
+        <button round *ngIf="item.latitude && item.longitude" ion-button outline block color="light" (click)="viewLocation({lat: item.latitude, lng: item.longitude})">Ver en el mapa</button>
       </div>
       <div *ngIf="item.grades.length">
         <h4 text-center color="light">Grados de esta universidad:</h4>

@@ -21,18 +21,18 @@
         <ion-col *ngIf="activeCardIndex > 0">
           <button ion-button round color="danger" [disabled]="nextButtonDisable[i] == 'disabled'" outline icon-start (click)="handleActiveIndex(-1)">
             <ion-icon name='ios-arrow-dropleft-outline'></ion-icon>
-            anterior
+            Anterior
           </button>
         </ion-col>
         <ion-col text-right *ngIf="activeCardIndex < testQuestions.length - 1">
           <button ion-button round color="danger" [disabled]="nextButtonDisable[i] == 'disabled'" outline icon-end (click)="handleActiveIndex(1)">
-            siguiente
+            Siguiente
             <ion-icon name='ios-arrow-dropright-outline'></ion-icon>
           </button>
         </ion-col>
         <ion-col text-right *ngIf="testProgress == 100 && activeCardIndex == testQuestions.length - 1">
           <button ion-button round [disabled]="nextButtonDisable[i] == 'disabled'" color="danger" outline icon-end (click)="checkAnswers()">
-            finalizar
+            Finalizar
             <ion-icon name='ios-arrow-dropright-outline'></ion-icon>
           </button>
         </ion-col>

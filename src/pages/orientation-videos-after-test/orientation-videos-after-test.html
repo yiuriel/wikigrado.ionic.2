@@ -6,6 +6,7 @@
   <div *ngFor="let video of videos;" padding-top padding-bottom>
     <h4 [innerHTML]="video.career"></h4>
     <image-switch-iframe
+    [name]="video.career"
     [url]="video.url"
     [width]="dimensions.width"
     [height]="dimensions.height">
@@ -13,7 +14,7 @@
   </div>
   <div class="separator"></div>
   <div padding>
-    <h5>si quieres puedes volver a hacer el test, tal vez obtengas un resultado diferente</h5>
-    <button ion-button round color="danger" (click)="retakeTest()">realizar test</button>
+    <h5>Si quieres puedes volver a hacer el test.</h5>
+    <button ion-button round color="danger" (click)="retakeTest()">Realizar test</button>
   </div>
 </ion-content>

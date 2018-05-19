@@ -85,28 +85,32 @@ export class AllAppDataProvider {
   }
 
   getGradeWithUniversities(grade) {
-    if (!this.grades_computed[grade.id]) {
-      this.grades_computed[grade.id] = 1;
-      let gradeWithUniversities = Object.assign({}, grade);
-      let nullMappedGrade = gradeWithUniversities;
-      Object.keys(nullMappedGrade).forEach(key => {
-        if (nullMappedGrade[key] === "NULL") {
-          nullMappedGrade[key] = null;
+    // this.grades_computed[grade.id] = 1;
+    let gradeWithUniversities = Object.assign({}, grade);
+    let nullMappedGrade = gradeWithUniversities;
+    Object.keys(nullMappedGrade).forEach(key => {
+      if (nullMappedGrade[key] === "NULL") {
+        nullMappedGrade[key] = null;
+      }
+    });
+
+    gradeWithUniversities.universities.forEach((univ, i) => {
+      Object.keys(this.allData['universities'][univ.id]).forEach(key => {
+        if (this.allData['universities'][univ.id][key] === "NULL") {
+          this.allData['universities'][univ.id][key] = null;
         }
       });
-
-      gradeWithUniversities.universities.forEach((univ, i) => {
-        Object.keys(this.allData['universities'][univ.id]).forEach(key => {
-          if (this.allData['universities'][univ.id][key] === "NULL") {
-            this.allData['universities'][univ.id][key] = null;
-          }
-        });
-        const univObject = Object.assign({}, this.allData['universities'][univ.id], {grades: null})
-        gradeWithUniversities.universities[i] = univObject;
-      });
-      return gradeWithUniversities;
-    }
-    return grade;
+      const univObject = Object.assign({}, this.allData['universities'][univ.id], {grades: null})
+      if (univ.paid_for_it) {
+        gradeWithUniversities.main_university = univObject;
+      } else {
+        if (!gradeWithUniversities.list) {
+          gradeWithUniversities.list = [];
+        }
+        gradeWithUniversities.list.push(univObject);
+      }
+    });
+    return gradeWithUniversities;
   }
 
   getUniversityWithGrades(university) {

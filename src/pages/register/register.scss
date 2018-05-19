@@ -20,7 +20,7 @@ page-register {
         background-color: transparent;
         .label[stacked],
         [color="danger"] {
-          color: map-get($colors, danger);
+          color: map-get($colors, light);
         }
         p {
           font-size: 1.2rem;

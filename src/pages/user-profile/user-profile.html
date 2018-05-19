@@ -41,7 +41,7 @@
       </ion-row>
       <ion-row align-items-end text-center>
         <ion-col>
-          <button ion-button round outline color="danger" [disabled]="!userEditForm.form.valid" (click)="updateUser()">guardar cambios</button>
+          <button ion-button round outline color="danger" [disabled]="!userEditForm.form.valid" (click)="updateUser()">Guardar cambios</button>
         </ion-col>
       </ion-row>
     </ion-grid>
@@ -77,8 +77,8 @@
           <div *ngSwitchCase="'colleges'">
             <p [innerHTML]="favorite.name"></p>
           </div>
-          <button ion-button round small outline color="danger" (click)="viewFavorite(favorite)">ver</button>
-          <button ion-button round small color="danger" (click)="deleteFavorite(favorite)">borrar</button>
+          <button ion-button round small outline color="danger" (click)="viewFavorite(favorite)">Ver</button>
+          <button ion-button round small color="danger" (click)="deleteFavorite(favorite)">Borrar</button>
         </div>
       </ion-col>
     </ion-row>
