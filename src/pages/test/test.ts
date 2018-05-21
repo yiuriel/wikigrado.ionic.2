@@ -69,6 +69,7 @@ export class TestPage {
   }
 
   getAnsweredLength(values) {
+    console.warn(values);
     return [].concat.apply([], values).filter(obj => obj.value);
   }
 

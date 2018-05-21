@@ -22,7 +22,7 @@ export class InitialSliderPage {
       },
       {
         title: "Guia 2",
-        description: "Desde Registrándote ... hasta esperandote.",
+        description: "Registrándote, tendrás tu historial, favoritos, avatar...y mas.<br/><br/>Podrás hacer una búsqueda muy precisa tanto de las universidades, como de los grados que se imparten en cada una. Bienvenido a Wikigrado.<br/><br/>Comenzamos? Hay un test de orientación, esperándote...",
       }
     ];
   }
