@@ -1,19 +1,21 @@
 <ion-header customheader header-title="Grados y Salidas Profesionales"></ion-header>
 
 <ion-content padding class="grados-y-salidas">
-  <ion-list>
-    <ion-item>
-      <ion-label color="danger" stacked>Busca entre todos los grados</ion-label>
-      <ion-input type="text" (ionChange)="filterGrades($event)"></ion-input>
-    </ion-item>
-  </ion-list>
+  <ion-content>
+    <ion-list>
+      <ion-item>
+        <ion-label color="danger" stacked>Busca entre todos los grados</ion-label>
+        <ion-input type="text" (ionChange)="filterGrades($event)"></ion-input>
+      </ion-item>
+    </ion-list>
 
-  <ion-list [virtualScroll]="grades" [approxItemHeight]="'54px'">
-    <ion-item *virtualItem="let grade" class="career">
-      <a [class.has-video]="grade.video" (click)="goToGrade(grade)">
-        <ion-icon name="videocam" *ngIf="grade.video"></ion-icon>
-        <span class="career-title" [innerHTML]="'Grado en ' + grade.grade"></span>
-      </a>
-    </ion-item>
-  </ion-list>
+    <ion-list [virtualScroll]="grades" [approxItemHeight]="'54px'" class="list-no-border">
+      <ion-item *virtualItem="let grade" class="career">
+        <a [class.has-video]="grade.video" (click)="goToGrade(grade)">
+          <ion-icon name="videocam" *ngIf="grade.video"></ion-icon>
+          <span class="career-title" [innerHTML]="'Grado en ' + grade.grade"></span>
+        </a>
+      </ion-item>
+    </ion-list>
+  </ion-content>
 </ion-content>

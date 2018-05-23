@@ -1,48 +1,48 @@
-// http://ionicframework.com/docs/theming/
-
-
-// App Global Sass
-// --------------------------------------------------
-// Put style rules here that you want to apply globally. These
-// styles are for the entire app and not just one component.
-// Additionally, this file can be also used as an entry point
-// to import other Sass files to be included in the output CSS.
-//
-// Shared Sass variables, which can be used to adjust Ionic's
-// default Sass variables, belong in "theme/variables.scss".
-//
-// To declare rules for a specific mode, create a child rule
-// for the .md, .ios, or .wp mode classes. The mode class is
-// automatically applied to the <body> element in the app.
-
 .platform-ios11,
 .platform-ios10 {
 
 }
 
-.scroll-content {
-  background: rgb(44, 206, 214);
-  background: -webkit-gradient(linear, left top, right top, from(rgba(44, 206, 214, 0.8)), to(rgba(32, 116, 204, 0.8)));
-  background: linear-gradient(to right, rgba(44, 206, 214, 0.8), rgba(32, 116, 204, 0.8));
-  border-color: white;
+ion-content {
+  &.diagonal {
+    background: rgb(40,53,147);
+    background: -moz-linear-gradient(-10deg, rgba(26,35,126,1) 0%, rgba(94,53,177,1) 22%, rgba(255,255,255,1) 22.01%);
+    background: -webkit-linear-gradient(-10deg, rgba(26,35,126,1) 0%,rgba(94,53,177,1) 22%,rgba(255,255,255,1) 22.01%);
+    background: linear-gradient(170deg, rgba(26,35,126,1) 0%,rgba(94,53,177,1) 22%,rgba(255,255,255,1) 22.01%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#283593', endColorstr='#ffffff',GradientType=1 );
+  }
+  background: rgb(40,53,147);
+  background: -moz-linear-gradient(-10deg, rgba(26,35,126,1) 0%, rgba(94,53,177,1) 50%, rgba(255,255,255,1) 50.01%);
+  background: -webkit-linear-gradient(-10deg, rgba(26,35,126,1) 0%,rgba(94,53,177,1) 50%,rgba(255,255,255,1) 50.01%);
+  background: linear-gradient(170deg, rgba(26,35,126,1) 0%,rgba(94,53,177,1) 50%,rgba(255,255,255,1) 50.01%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#283593', endColorstr='#ffffff',GradientType=1 );
+  & ion-content {
+    background: rgb(255, 255, 255) !important;
+  }
+}
+
+.list.list-no-border .item-inner {
+  border-bottom: 0 !important;
+}
+
+.list .item-block .item-inner {
+  border-bottom: 1px solid #9FA8DA;
 }
 
 .scroll-content,
 ion-menu .button,
-ion-item .button,
-ion-item ion-label {
-  color: rgba(0,0,0,0.75) !important;
+ion-item .button {
+  color: #283593 !important;
 }
 
-[boxxed] {
-  // background-color: rgba(245,61,61,0.25);
-  background-color: rgba(255,255,255,0.3);
-  border-radius: 15px;
+ion-label,
+ion-label .label,
+input {
+  color: #9FA8DA !important;
 }
 
-[boxxed-white] {
-  background-color: rgba(255,255,255,0.3);
-  border-radius: 15px;
+.menu {
+  background: white;
 }
 
 [justify] {
@@ -71,11 +71,7 @@ ion-loading .loading-wrapper {
 }
 
 .menu-background {
-  background-image: url('../assets/imgs/menu.jpg');
-  background-position: center;
-  background-size: contain;
   .scroll-content {
-    background-color: rgba(255, 255, 255, 0.65);
     flex-direction: column;
     justify-content: space-around;
     display: flex;
@@ -107,11 +103,6 @@ ion-list + ion-list.list {
 button[back-button] {
   color: #333;
   border: 0;
-}
-
-button.button[color="danger"][opacity] {
-  background-color: rgba(245, 61, 61, .85);
-  color: white;
 }
 
 [stacked].label {

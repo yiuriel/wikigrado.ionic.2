@@ -1,21 +1,17 @@
 page-grados {
   .grados-y-salidas {
-    background-image: url('../../assets/imgs/grados_y_salidas.jpg');
+    // background-image:url('../../assets/imgs/grados_y_salidas.jpg');
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
     .scroll-content {
-      background-color: rgba(255,255,255,0.75);
+      // background-color: rgba(255,255,255,0.75);
       image-switch-iframe {
         margin-bottom: 32px;
       }
 
       .list > .item-block:first-child {
         border-top: 0;
-      }
-
-      .list .item-block .item-inner {
-        border-bottom: 1px solid map-get($colors, danger);
       }
 
       .list > .item-block:last-child,

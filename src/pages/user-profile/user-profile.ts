@@ -101,7 +101,7 @@ public favoritesService: FavoritesProvider, public allAppDataService: AllAppData
   }
 
   ionViewDidEnter() {
-    let width = this.domElem.nativeElement.offsetWidth - 32;
+    let width = this.domElem.nativeElement.offsetWidth - 64;
     this.dimensions = {
       width: width,
       height: (width * 9) / 16,
