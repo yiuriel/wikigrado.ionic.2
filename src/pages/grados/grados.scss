@@ -1,6 +1,6 @@
 page-grados {
   .grados-y-salidas {
-    background-image: url('../../assets/imgs/grados_y_salidas.jpg');
+    // background-image: url('../../assets/imgs/grados_y_salidas.jpg');
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
@@ -8,51 +8,6 @@ page-grados {
       background-color: rgba(255,255,255,0.75);
       image-switch-iframe {
         margin-bottom: 32px;
-      }
-
-      .list > .item-block:first-child {
-        border-top: 0;
-      }
-
-      .list .item-block .item-inner {
-        border-bottom: 1px solid map-get($colors, danger);
-      }
-
-      .list > .item-block:last-child,
-      .list > .item-wrapper:last-child .item-block {
-        border-bottom: 0;
-      }
-
-      .list {
-        .item {
-          background-color: transparent;
-          padding-left: 0;
-          input {
-            color: black;
-          }
-          ion-label {
-            color: map-get($colors, danger);
-          }
-          &.career {
-            color: map-get($colors, danger);
-            a {
-              color: black;
-              text-decoration: none;
-              font-size: .8em;
-              display: flex;
-              align-items: center;
-              white-space: normal;
-              &.has-video {
-                font-weight: bold;
-              }
-              ion-icon {
-                margin-right: 10px;
-                font-size: 2em;
-                color: map-get($colors, danger);
-              }
-            }
-          }
-        }
       }
     }
   }

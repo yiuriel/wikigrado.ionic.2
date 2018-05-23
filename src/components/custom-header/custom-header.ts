@@ -30,7 +30,7 @@ export class CustomHeaderComponent {
   }
 
   goToUserProfile() {
-    this.navCtrl.setRoot(UserProfilePage, {}, {animate: true});
+    this.navCtrl.setRoot(UserProfilePage, {});
   }
 
 }

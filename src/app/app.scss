@@ -15,34 +15,138 @@
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
 
+$darkgrey: #333;
+$lightgrey: lighten(#2A2928, 5%);
+$darkergrey: darken(#2A2928, 5%);
+$yellow: #F7C708;
+$lightyellow: lighten(#F7C708, 15%);
+$gold: #FBCB05;
+$desaturategold: desaturate(#FBCB05, 20%);
+$desaturategold8: rgba($desaturategold, .8);
+$saturategold: saturate(#FBCB05, 20%);
+$saturategold8: rgba($saturategold, .8);
+$lightgold: lighten(#FBCB05, 20%);
+$red: #CC2424;
+$darkred: #A42424;
+$lightred: #DB6567;
+$white: #FFF;
+$white9: rgba($white, 0.9);
+$white8: rgba($white, 0.8);
+$white7: rgba($white, 0.7);
+$white6: rgba($white, 0.6);
+$white5: rgba($white, 0.5);
+
 .platform-ios11,
 .platform-ios10 {
 
 }
 
+.swiper-pagination-bullet-active {
+  background: $red;
+}
+
+.swiper-pagination-bullet {
+  background: $white;
+}
+
 .scroll-content {
-  background: rgb(44, 206, 214);
-  background: -webkit-gradient(linear, left top, right top, from(rgba(44, 206, 214, 0.8)), to(rgba(32, 116, 204, 0.8)));
-  background: linear-gradient(to right, rgba(44, 206, 214, 0.8), rgba(32, 116, 204, 0.8));
+  background: $darkgrey !important;
   border-color: white;
 }
 
 .scroll-content,
 ion-menu .button,
 ion-item .button,
-ion-item ion-label {
-  color: rgba(0,0,0,0.75) !important;
+ion-item ion-label,
+ion-label p.label {
+  color: $white9 !important;
 }
 
-[boxxed] {
-  // background-color: rgba(245,61,61,0.25);
-  background-color: rgba(255,255,255,0.3);
-  border-radius: 15px;
+.list > .item {
+  background: transparent;
+  .input-wrapper {
+    .grade {
+      color: $white8;
+      text-decoration: none;
+      font-size: .8em;
+      display: flex;
+      align-items: center;
+      white-space: normal;
+      &:not(.has-video) {
+        i {
+          border-radius: 50%;
+          background-image: linear-gradient($darkgrey, $darkgrey), linear-gradient($white, $white5);
+          background-origin: border-box;
+          background-clip: content-box, border-box;
+          color: $lightred;
+        }
+      }
+      i {
+        width: 26px;
+        height: 26px;
+        text-align: center;
+        line-height: 1.8em;
+        border: double 2px transparent;
+        border-radius: 50%;
+        color: $white9;
+        background-image: linear-gradient($darkgrey, $darkgrey), linear-gradient($red, $gold);
+        background-origin: border-box;
+        background-clip: content-box, border-box;
+      }
+
+      .career-title {
+        display: inline-block;
+        max-width: 85%;
+        padding-left: .75em;
+      }
+    }
+  }
 }
 
-[boxxed-white] {
-  background-color: rgba(255,255,255,0.3);
-  border-radius: 15px;
+.list > .item-block:first-child {
+  border-top: 0;
+}
+
+.list .item-block:not(.item-input):not(.item-select) .item-inner {
+  border-bottom: 0;
+}
+
+.list > .item-block:last-child:not(.item-input):not(.item-select),
+.list > .item-wrapper:last-child:not(.item-input):not(.item-select) .item-block {
+  border-bottom: 0;
+}
+
+.menu {
+  .scroll-content {
+    padding-left: 8px;
+    ion-icon {
+      padding: 0;
+      border-radius: 50%;
+      width: 2em;
+      height: 2em;
+      line-height: 1.8em;
+      text-align: center;
+      border: double 3px transparent;
+      background-image: linear-gradient($darkgrey, $darkgrey), linear-gradient($red, $gold);
+      background-origin: border-box;
+      background-clip: content-box, border-box;
+    }
+
+    [button-text] {
+      display: inline-block;
+      padding-left: .75em;
+      font-size: 1.15em;
+    }
+  }
+}
+
+[menuToggle] {
+  color: $gold !important;
+}
+
+input,
+.select-text {
+  color: $lightgold !important;
 }
 
 [justify] {
@@ -63,15 +167,11 @@ ion-loading .loading-wrapper {
   top: 11px !important;
   margin: 0 auto !important;
   padding: 5px;
-  color: #333;
-}
-
-.swiper-pagination-bullet-active {
-  background-color: map-get($colors, danger);
+  color: $white8;
 }
 
 .menu-background {
-  background-image: url('../assets/imgs/menu.jpg');
+  // background-image: url('../assets/imgs/menu.jpg');
   background-position: center;
   background-size: contain;
   .scroll-content {
@@ -79,10 +179,6 @@ ion-loading .loading-wrapper {
     flex-direction: column;
     justify-content: space-around;
     display: flex;
-    padding-left: 30px;
-    button {
-      font-size: 1.8rem;
-    }
   }
 }
 
@@ -102,16 +198,6 @@ ion-title .toolbar-title {
 
 ion-list + ion-list.list {
   margin-top: 35px;
-}
-
-button[back-button] {
-  color: #333;
-  border: 0;
-}
-
-button.button[color="danger"][opacity] {
-  background-color: rgba(245, 61, 61, .85);
-  color: white;
 }
 
 [stacked].label {

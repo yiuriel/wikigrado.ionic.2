@@ -1,8 +1,9 @@
 <ion-navbar>
-  <button ion-button menuToggle color="danger">
-    <img src="assets/imgs/small-logo.png" class="app-menu-logo" />
+  <button ion-button menuToggle>
+    <i class="fa-2x fas fa-bars"></i>
+    <!-- <img src="assets/imgs/small-logo.png" class="app-menu-logo" /> -->
   </button>
-  <ion-title></ion-title>
+  <!-- <ion-title></ion-title> -->
   <ion-buttons end *ngIf="!removeHeaderIcon">
     <button ion-button icon-only color="light" (click)="goToUserProfile()">
       <span [innerHTML]="username" style="text-align: right;max-width: 200px;text-overflow: ellipsis;width: 200px;overflow: hidden;"></span>
