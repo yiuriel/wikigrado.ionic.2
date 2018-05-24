@@ -99,8 +99,9 @@ export class GradoPage {
     }
   }
 
-  openUrl(url) {
+  openUrl(url, name) {
     this.iab.create(url, "_blank", {closebuttoncaption: "ok"});
+    this.tracker.trackEvent('links', 'web universidad', name, url);
   }
 
   callPhoneNumber(number) {

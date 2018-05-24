@@ -36,7 +36,7 @@
       <image-switch-iframe
       *ngIf="item.video"
       [url]="item.video"
-      [name]="item.name"
+      [name]="item.grade"
       [width]="dimensionData.width"
       [height]="dimensionData.height">
       </image-switch-iframe>
@@ -64,7 +64,7 @@
             <a color="light" (click)="callPhoneNumber(item.main_university.telephone)" [innerHTML]="item.main_university.telephone"></a>
           </div>
           <div *ngIf="item.main_university.website" padding-bottom>
-            <button ion-button round color="light" [class.has-logo]="item.main_university.logo" block class="university-link" (click)="openUrl(item.main_university.website)">
+            <button ion-button round color="light" [class.has-logo]="item.main_university.logo" block class="university-link" (click)="openUrl(item.main_university.website, item.main_university.university)">
               <img [src]="'assets/imgs/university-logos/' + item.main_university.logo" *ngIf="item.main_university.logo" />
               <span>Ir al sitio web de la universidad</span>
             </button>
@@ -111,7 +111,7 @@
           <a color="light" (click)="callPhoneNumber(item.telephone)" [innerHTML]="item.telephone"></a>
         </div>
         <div *ngIf="item.website" padding-bottom>
-          <button ion-button round color="light" [class.has-logo]="item.logo" block class="university-link" (click)="openUrl(university.website)">
+          <button ion-button round color="light" [class.has-logo]="item.logo" block class="university-link" (click)="openUrl(item.website, item.name)">
             <img [src]="'assets/imgs/university-logos/' + item.logo" *ngIf="item.logo" />
             <span>Ir al sitio web del colegio</span>
           </button>
@@ -131,7 +131,7 @@
           <a color="light" (click)="sendMail(item.email)" [innerHTML]="item.email"></a>
         </div>
         <div *ngIf="item.website" padding-bottom>
-          <button ion-button round color="light" [class.has-logo]="item.logo" block class="university-link" (click)="openUrl(university.website)">
+          <button ion-button round color="light" [class.has-logo]="item.logo" block class="university-link" (click)="openUrl(item.website, item.university)">
             <img [src]="'assets/imgs/university-logos/' + item.logo" *ngIf="item.logo" />
             <span>Ir al sitio web de la universidad</span>
           </button>

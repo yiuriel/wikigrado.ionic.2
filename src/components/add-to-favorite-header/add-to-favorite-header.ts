@@ -36,9 +36,23 @@ export class AddToFavoriteHeaderComponent {
     });
   }
 
+  getItemName(item) {
+    if (item.type === 'grades') {
+      return item.grade;
+    }
+    if (item.type === 'universities') {
+      return item.university;
+    }
+    if (item.type === 'colleges') {
+      return item.name;
+    }
+  }
+
   addToFavorite() {
+    const itemName = this.getItemName(this.favoriteItem);
     if (this.add) {
       this.loaderService.showLoader({content:'Guardando favorito...'});
+      this.tracker.trackEvent('favoritos', 'agregar', this.favoriteItem.type, itemName);
       this.favoritesService.addFavorite(this.favoriteItem, this.userData.id, (success, error) => {
         this.loaderService.hideLoader();
         if (error) {
@@ -49,6 +63,7 @@ export class AddToFavoriteHeaderComponent {
       });
     } else {
       this.loaderService.showLoader({content:'removiendo favorito...'});
+      this.tracker.trackEvent('favoritos', 'remover', this.favoriteItem.type, itemName);
       this.favoritesService.removeFavorite(this.favoriteItem, this.userData.id, (success, error) => {
         this.loaderService.hideLoader();
         if (!error) {
