@@ -20,12 +20,18 @@ export class ImageSwitchIframeComponent {
   @ViewChild('videoFrame') videoFrame: any;
 
   active: boolean;
+  trueWidth: number;
+  trueHeight: number;
   actualUrl: SafeUrl;
   // private screenOrientation: ScreenOrientation
   constructor(public loadingCtrl: LoadingController, public tracker: AnalyticsProvider, private sanitizer: DomSanitizer) {
     this.active = false;
+    const INSET = 32;
+    const INSETRATIO = (INSET * 9) / 16;
 
     setTimeout(() => {
+      this.trueWidth = Math.round(this.width - INSET);
+      this.trueHeight = Math.round(this.height - INSETRATIO);
       this.switchActive();
     }, 100)
   }

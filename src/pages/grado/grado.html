@@ -21,12 +21,12 @@
   <ion-fab top center edge>
     <button ion-fab mini color="danger"><ion-icon name="md-share"></ion-icon></button>
     <ion-fab-list side="left">
-      <button ion-fab color="dark" (click)="shareVia(item, 'facebook')"><ion-icon name="logo-facebook"></ion-icon></button>
-      <button ion-fab color="dark" (click)="shareVia(item, 'twitter')"><ion-icon name="logo-twitter"></ion-icon></button>
+      <button class="facebook" ion-fab color="light" (click)="shareVia(item, 'facebook')"><ion-icon name="logo-facebook"></ion-icon></button>
+      <button class="twitter" ion-fab color="light" (click)="shareVia(item, 'twitter')"><ion-icon name="logo-twitter"></ion-icon></button>
     </ion-fab-list>
     <ion-fab-list side="right">
-      <button ion-fab color="dark" (click)="shareVia(item, 'whatsapp')"><ion-icon name="logo-whatsapp"></ion-icon></button>
-      <button ion-fab color="dark" (click)="shareVia(item, 'email')"><ion-icon name="md-mail"></ion-icon></button>
+      <button class="whatsapp" ion-fab color="light" (click)="shareVia(item, 'whatsapp')"><ion-icon name="logo-whatsapp"></ion-icon></button>
+      <button class="email" ion-fab color="light" (click)="shareVia(item, 'email')"><ion-icon name="md-mail"></ion-icon></button>
     </ion-fab-list>
   </ion-fab>
   <div [ngSwitch]="item.type" padding-top>
@@ -72,14 +72,15 @@
           <div padding-bottom>
             <button ion-button round color="danger" block (click)="goTo(item.main_university, 'universities')">Ver en la app</button>
           </div>
-          <button round *ngIf="item.main_university.latitude && item.main_university.longitude" ion-button outline block color="light" (click)="viewLocation({latitude: item.main_university.latitude, longitudr: item.main_university.longitude})">Ver en el mapa</button>
+          <button round *ngIf="item.main_university.latitude && item.main_university.longitude" ion-button outline block color="light" (click)="viewLocation({latitude: item.main_university.latitude, longitude: item.main_university.longitude})">Ver en el mapa</button>
         </div>
       </div>
       <div *ngIf="item.list && item.list.length">
-        <h4 text-center color="light">Universidades que dan este grado:</h4>
+        <h5 text-center color="light">Otras universidades que dan este grado:</h5>
         <ion-list>
-          <ion-item *ngFor="let university of item.list;" (click)="goTo(university, 'universities');">
-            {{ university.university }}
+          <ion-item class="university-item-in-grade-list" *ngFor="let university of item.list;" (click)="goTo(university, 'universities');">
+            <i class="fas fa-university"></i>
+            <span>{{ university.university }}</span>
           </ion-item>
         </ion-list>
       </div>
@@ -115,7 +116,7 @@
             <span>Ir al sitio web del colegio</span>
           </button>
         </div>
-        <button round *ngIf="item.latitude && item.longitude" ion-button outline block color="light" (click)="viewLocation({lat: item.latitude, lng: item.longitude})">Ver en el mapa</button>
+        <button round *ngIf="item.latitude && item.longitude" ion-button outline block color="light" (click)="viewLocation({latitude: item.latitude, longitude: item.longitude})">Ver en el mapa</button>
       </div>
     </div>
 
@@ -135,13 +136,14 @@
             <span>Ir al sitio web de la universidad</span>
           </button>
         </div>
-        <button round *ngIf="item.latitude && item.longitude" ion-button outline block color="light" (click)="viewLocation({lat: item.latitude, lng: item.longitude})">Ver en el mapa</button>
+        <button round *ngIf="item.latitude && item.longitude" ion-button outline block color="light" (click)="viewLocation({latitude: item.latitude, longitude: item.longitude})">Ver en el mapa</button>
       </div>
       <div *ngIf="item.grades.length">
-        <h4 text-center color="light">Grados de esta universidad:</h4>
+        <h5 text-center color="light">Otros grados que da esta universidad:</h5>
         <ion-list>
-          <ion-item *ngFor="let grade of item.grades;" (click)="goTo(grade, 'grades');">
-            {{ grade.grade }}
+          <ion-item class="grade-item-in-university-list" *ngFor="let grade of item.grades;" (click)="goTo(grade, 'grades');">
+            <i class="fas fa-graduation-cap"></i>
+            <span>{{ grade.grade }}</span>
           </ion-item>
         </ion-list>
       </div>

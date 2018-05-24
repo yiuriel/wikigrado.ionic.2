@@ -16,16 +16,25 @@
 // automatically applied to the <body> element in the app.
 
 $darkgrey: #333;
-$lightgrey: lighten(#2A2928, 5%);
-$darkergrey: darken(#2A2928, 5%);
+$grey: #2A2928;
+$lightgrey: lighten($grey, 5%);
+$lightergrey: lighten($grey, 10%);
+$morelightergrey: lighten($grey, 20%);
+$darkergrey: darken($grey, 5%);
 $yellow: #F7C708;
-$lightyellow: lighten(#F7C708, 15%);
+$lightyellow: lighten($yellow, 15%);
+$lighteryellow: lighten($lightyellow, 5%);
 $gold: #FBCB05;
-$desaturategold: desaturate(#FBCB05, 20%);
+$darkgold: darken($gold, 10%);
+$desaturategold: desaturate($gold, 20%);
 $desaturategold8: rgba($desaturategold, .8);
-$saturategold: saturate(#FBCB05, 20%);
+$gold8: rgba($gold, .8);
+$gold6: rgba($gold, .6);
+$saturategold: saturate($gold, 20%);
 $saturategold8: rgba($saturategold, .8);
-$lightgold: lighten(#FBCB05, 20%);
+$lightgold: lighten($gold, 20%);
+$lightergold: lighten($lightgold, 5%);
+$lightdesaturategold: desaturate($lightgold, 20%);
 $red: #CC2424;
 $darkred: #A42424;
 $lightred: #DB6567;
@@ -35,6 +44,13 @@ $white8: rgba($white, 0.8);
 $white7: rgba($white, 0.7);
 $white6: rgba($white, 0.6);
 $white5: rgba($white, 0.5);
+$appred: #F53D3D;
+$lightappred: lighten($appred, 5%);
+
+$facebook: #3b5999;
+$whatsapp: #25D366;
+$twitter: #55acee;
+$email: #B0BEC5;
 
 .platform-ios11,
 .platform-ios10 {
@@ -89,7 +105,7 @@ ion-label p.label {
         border: double 2px transparent;
         border-radius: 50%;
         color: $white9;
-        background-image: linear-gradient($darkgrey, $darkgrey), linear-gradient($red, $gold);
+        background-image: linear-gradient($darkgrey, $darkgrey), linear-gradient($lightappred, $gold);
         background-origin: border-box;
         background-clip: content-box, border-box;
       }
@@ -119,6 +135,7 @@ ion-label p.label {
 .menu {
   .scroll-content {
     padding-left: 8px;
+    // background-color: $lightyellow !important;
     ion-icon {
       padding: 0;
       border-radius: 50%;
@@ -140,10 +157,6 @@ ion-label p.label {
   }
 }
 
-[menuToggle] {
-  color: $gold !important;
-}
-
 input,
 .select-text {
   color: $lightgold !important;
@@ -154,11 +167,17 @@ input,
 }
 
 ion-toast .toast-wrapper {
-  background-color: rgba(0, 0, 0, 0.65) !important;
+  // background-color: $darkgold !important;
 }
 
 ion-loading .loading-wrapper {
-  background-color: rgba(248, 248, 248, 0.65) !important;
+  background-color: $gold8 !important;
+  .loading-content {
+    color: $white;
+  }
+  .spinner-crescent circle {
+    stroke: $white;
+  }
 }
 
 .passIcon{
@@ -171,14 +190,29 @@ ion-loading .loading-wrapper {
 }
 
 .menu-background {
-  // background-image: url('../assets/imgs/menu.jpg');
   background-position: center;
   background-size: contain;
   .scroll-content {
-    background-color: rgba(255, 255, 255, 0.65);
     flex-direction: column;
     justify-content: space-around;
     display: flex;
+  }
+}
+
+ion-header {
+  .toolbar-background {
+    background-color: $darkergrey;
+  }
+  [menuToggle] {
+    color: $gold !important;
+  }
+
+  .navbar-right-buttons {
+    .button-inner {
+      span {
+        color: $white9;
+      }
+    }
   }
 }
 
@@ -202,4 +236,37 @@ ion-list + ion-list.list {
 
 [stacked].label {
   font-size: 1.6rem !important;
+}
+
+page-test {
+  ion-content .scroll-content {
+    ion-card {
+      .item-radio-checked ion-label,
+      .radio .radio-checked {
+        color: $gold !important;
+        .radio-inner {
+          border-color: $gold;
+        }
+      }
+    }
+  }
+}
+
+page-grado {
+  ion-fab-list {
+    .fab {
+      &.whatsapp {
+        color: $whatsapp;
+      }
+      &.twitter {
+        color: $twitter;
+      }
+      &.facebook {
+        color: $facebook;
+      }
+      &.email {
+        color: $email;
+      }
+    }
+  }
 }

@@ -10,27 +10,16 @@ page-test, page-pretest {
         border-radius: 15px;
         background-color: rgba(255,255,255,0.2);
       }
-      ion-item {
-        background-color: rgba(255,255,255,0);
-      }
-      ion-card-header,
       .pages-data {
-        background-color: rgba(255,255,255,0);
         white-space: normal;
-        color: black;
+        color: $white7;
+      }
+      ion-card-header {
+        color: $white;
       }
       .pages-data {
         border-bottom: 1px solid #EEE;
       }
-
-      // .list > .item-block:first-child {
-      //   border-top: 0;
-      // }
-      //
-      // .list > .item-block:last-child,
-      // .list > .item-wrapper:last-child .item-block {
-      //   border-bottom: 0;
-      // }
     }
   }
 }

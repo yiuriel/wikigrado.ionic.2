@@ -7,11 +7,7 @@ page-colegios-mayores {
     .scroll-content {
       background-color: rgba(255, 255, 255, 0.75);
       .list > .item-block {
-        border-color: map-get($colors, danger);
         border-top: 0;
-        .item-inner {
-          border-color: map-get($colors, danger);
-        }
       }
       .item {
         background-color: transparent;
@@ -20,16 +16,13 @@ page-colegios-mayores {
         .item {
           background-color: transparent;
           padding-left: 0;
-          input {
-            color: black;
-          }
           ion-label {
             color: map-get($colors, danger);
           }
           &.career {
             color: map-get($colors, danger);
             a {
-              color: black;
+              color: $white;
               text-decoration: none;
               font-size: 1.2em;
               display: flex;

@@ -7,10 +7,13 @@ page-grado {
     .scroll-content {
       background-color: rgba(255, 255, 255, 0.45);
       .item {
-        background-color: rgba(255, 255, 255, 0.5);
+        background-color: transparent;
+        ion-label {
+          color: $white !important;
+        }
       }
       .career-title {
-        color: black;
+        color: $white;
       }
       .no-video {
         font-size: 1.5em;
@@ -21,13 +24,13 @@ page-grado {
       }
 
       .grade-data {
-        border: 1px solid black;
+        border: 1px solid $lightdesaturategold;
         &-title {
           padding-bottom: 4px;
-          color: #333;
+          color: $white8;
         }
         &-value {
-          color: #333;
+          color: $gold;
           font-size: 1.1em;
         }
       }
@@ -48,15 +51,24 @@ page-grado {
         }
       }
 
-      .universities_list {
-        padding-left: 0;
-        list-style: none;
-        li {
-          padding-left: 0;
-          padding: 1em 0;
-          border-bottom: 1px solid map-get($colors, 'danger');
-          &:last-child {
-            border-bottom: 0;
+      .university-item-in-grade-list {
+        ion-label {
+          i {
+            color: $lightgold;
+          }
+          span {
+            padding-left: 8px;
+          }
+        }
+      }
+
+      .grade-item-in-university-list {
+        ion-label {
+          i {
+            color: $lightappred;
+          }
+          span {
+            padding-left: 8px;
           }
         }
       }
@@ -67,12 +79,12 @@ page-grado {
     color: black;
   }
   .toolbar-background {
-    background-color: #333;
+    background-color: $lightergrey;
   }
   .text-ios-primary {
-    color: map-get($colors, danger);
+    color: $white;
   }
   [color="light"] {
-    color: map-get($colors, dark);
+    color: $white9;
   }
 }
