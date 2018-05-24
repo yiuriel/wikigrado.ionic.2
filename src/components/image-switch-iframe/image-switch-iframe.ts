@@ -3,7 +3,7 @@ import { LoadingController } from 'ionic-angular';
 import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
 import { AnalyticsProvider } from '../../providers/analytics/analytics';
 // import { ScreenOrientation } from '@ionic-native/screen-orientation';
-// import Player from '@vimeo/player';
+import Player from '@vimeo/player';
 
 @Component({
   selector: 'image-switch-iframe',
@@ -39,12 +39,11 @@ export class ImageSwitchIframeComponent {
   switchActive() {
     this.actualUrl = this.sanitizer.bypassSecurityTrustResourceUrl(this.url)
     this.active = true;
-    this.tracker.trackEvent('video', 'ver video', this.name, 1);
-    // setTimeout(() => {
-    //   let player = new Player(this.videoFrame.nativeElement);
-    //   player.on('play', () => {
-    //     this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.LANDSCAPE);
-    //   });
+    setTimeout(() => {
+      let player = new Player(this.videoFrame.nativeElement);
+      player.on('play', () => {
+        this.tracker.trackEvent('video', 'ver video', this.name, 1);
+      });
     //   player.on('ended', () => {
     //     this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT);
     //   });
@@ -54,7 +53,7 @@ export class ImageSwitchIframeComponent {
     //   player.on('pause', () => {
     //     this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT);
     //   });
-    // }, 1000);
+    }, 50);
   }
 
 }
