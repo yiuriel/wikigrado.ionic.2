@@ -19,10 +19,12 @@ export class InitialSliderPage {
       {
         title: "Guia 1",
         description: "La App Wikigrado está pensada para que, a través de vídeos, conozcas  qué vas a estudiar en cada grado universitario.<br/><br/>Y algo muy importante! Profesionales en activo te explicarán de qué vas a poder trabajar y cómo son esos trabajos",
+        icons: `<div class="layer first-slide"><i class="fa-6x fas fa-university"></i></div>`
       },
       {
         title: "Guia 2",
         description: "Registrándote, tendrás tu historial, favoritos, avatar...y mas.<br/><br/>Podrás hacer una búsqueda muy precisa tanto de las universidades, como de los grados que se imparten en cada una. Bienvenido a Wikigrado.<br/><br/>Comenzamos? Hay un test de orientación, esperándote...",
+        icons: `<div class="layer second-slide"><i class="fa-6x fas fa-globe"></i><i class="fa-4x fas fa-user"></i></div>`
       }
     ];
   }

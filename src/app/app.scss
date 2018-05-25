@@ -57,6 +57,41 @@ $email: #B0BEC5;
 
 }
 
+.app-menu-logo {
+  background-color: $white;
+  border-radius: 6px;
+}
+
+.first-slide {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  .fa-university {
+    color: $white;
+    margin-bottom: -10px;
+  }
+
+  .fa-road {
+    color: $morelightergrey;
+  }
+}
+
+.second-slide {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  .fa-globe {
+    position: absolute;
+    color: dodgerblue;
+  }
+
+  .fa-user {
+    color: $lightappred;
+    z-index: 100;
+  }
+}
+
 .swiper-pagination-bullet-active {
   background: $red;
 }

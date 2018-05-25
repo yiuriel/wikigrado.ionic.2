@@ -3,7 +3,7 @@
     <ion-slide *ngFor="let slide of slidesData; let i = index;">
       <ion-toolbar>
         <ion-buttons start>
-          <img style="width: 40px;" src="../assets/imgs/medium-logo.png" />
+          <img style="width: 40px;" src="../assets/imgs/medium-logo-fit.png" class="app-menu-logo" />
         </ion-buttons>
         <img src="assets/imgs/wiki_red.png" style="width: 50%;margin-top: 10px;"/>
         <ion-buttons end>
@@ -12,10 +12,13 @@
       </ion-toolbar>
       <!-- <h2 class="slide-title" [innerHTML]="slide.title"></h2> -->
       <p padding justify [innerHTML]="slide.description"></p>
+      <div *ngIf="slide.icons" [innerHTML]="slide.icons">
+
+      </div>
     </ion-slide>
     <ion-slide class="last-slide">
       <div padding margin-bottom>
-        <img src="../assets/imgs/large-logo.png" />
+        <img src="../assets/imgs/large-logo-fit.png" class="app-menu-logo" />
       </div>
       <div padding>
         <button ion-button opacity round icon-end color="danger" (click)="goToRegisterPage()">
