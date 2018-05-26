@@ -127,6 +127,13 @@ export class AllAppDataProvider {
         const gradeObject = Object.assign({}, this.allData['grades'][grade], {universities: null})
         universityWithUniversities.grades[i] = gradeObject;
       });
+      universityWithUniversities.grades = universityWithUniversities.grades.sort((prev, next) => {
+        if (prev.grade.toLowerCase() < next.grade.toLowerCase())
+          return -1;
+        if (prev.grade.toLowerCase() > next.grade.toLowerCase())
+          return 1;
+        return 0;
+      });
       return universityWithUniversities;
     }
     return university;

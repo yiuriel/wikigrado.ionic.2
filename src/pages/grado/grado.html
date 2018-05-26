@@ -76,7 +76,7 @@
         </div>
       </div>
       <div *ngIf="item.list && item.list.length">
-        <h5 text-center color="light">Otras universidades que dan este grado:</h5>
+        <h5 text-center color="light">Universidades que imparten este grado:</h5>
         <ion-list>
           <ion-item class="university-item-in-grade-list" *ngFor="let university of item.list;" (click)="goTo(university, 'universities');">
             <i class="fas fa-university"></i>
@@ -139,7 +139,7 @@
         <button round *ngIf="item.latitude && item.longitude" ion-button outline block color="light" (click)="viewLocation({latitude: item.latitude, longitude: item.longitude})">Ver en el mapa</button>
       </div>
       <div *ngIf="item.grades.length">
-        <h5 text-center color="light">Otros grados que da esta universidad:</h5>
+        <h5 text-center color="light">Grados que imparte esta universidad:</h5>
         <ion-list>
           <ion-item class="grade-item-in-university-list" *ngFor="let grade of item.grades;" (click)="goTo(grade, 'grades');">
             <i class="fas fa-graduation-cap"></i>
