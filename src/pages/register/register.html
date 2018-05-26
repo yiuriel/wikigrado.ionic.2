@@ -64,6 +64,13 @@
               </ion-slides>
             </ion-item>
 
+            <ion-item>
+              <ion-label>Aceptar <a href="#" (click)="privacyPolicyModal()">politica de privacidad</a></ion-label>
+              <ion-checkbox color="danger" #privacypolicy="ngModel" name="privacypolicy" [(ngModel)]="user.privacypolicy" required></ion-checkbox>
+            </ion-item>
+            <div class="form-error" *ngIf="privacypolicy.invalid && (privacypolicy.dirty || privacypolicy.touched) && privacypolicy.errors">
+              <div *ngIf="privacypolicy.errors.required">Debes aceptar la politica de privacidad para crear tu cuenta.</div>
+            </div>
           </ion-list>
         </form>
       </ion-col>
