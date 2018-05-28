@@ -16,7 +16,6 @@ export class UserProvider {
   UPDATEAVATAR: string;
 
   constructor( private http: HttpClient, private env: EnvProvider, private storage: Storage, private tracker: AnalyticsProvider ) {
-    console.log('Hello UserProvider Provider');
     this.BASEURL = this.env.getEnvironmentUrl('production') + "/users";
     this.CHECKEMAILURL = this.BASEURL + "/check_email";
     this.LOGINURL = this.BASEURL + "/login";
@@ -27,17 +26,15 @@ export class UserProvider {
 
   verifySession(callback) {
     this.storage.get('user_data').then((data) => {
-      if (data) {
+      if (data && data.verified) {
         this.setUserData(data, () => {
           this.updateSession().subscribe(response => {
             if (response[0]) {
               const user = response[0];
-              // console.log("update session success", user);
               this.setUserData(user, () => {
                 callback(user, null);
               });
             } else {
-              // console.error("update session error in update session");
               this.clearStorage();
               callback(null, {error: 1});
             }
@@ -46,7 +43,6 @@ export class UserProvider {
           });
         });
       } else {
-        console.error("update session error no data");
         this.clearStorage();
         callback(null, {error: 1});
       }
@@ -110,7 +106,6 @@ export class UserProvider {
   register(user, callback) {
     const httpOptions = this.getCommonHeaders();
     const data = {...user, app_enabled_param: true};
-    console.log("start register");
     this.http.post<{[key: string]: any}>(this.BASEURL, data, httpOptions).subscribe(response => {
       if (response.error && response.status && response.name === "HttpErrorResponse") {
         callback(null, {error: 1});
@@ -124,7 +119,6 @@ export class UserProvider {
             callback(null, {error: 'retryToast'});
           }
         }
-        console.log("end register");
         callback(data, null);
       }
     }, error => {
@@ -135,7 +129,6 @@ export class UserProvider {
   login(user, callback) {
     const httpOptions = this.getCommonHeaders();
     const data = {...user, app_enabled_param: true};
-    console.log("start login");
     this.http.post<{[key: string]: any}>(this.LOGINURL, data, httpOptions).subscribe(data => {
       if (data) {
         this.setUserData(data, () => {
@@ -185,15 +178,12 @@ export class UserProvider {
   }
 
   updateLatLong(coords, callback) {
-    // console.log("update coords", coords);
     const httpOptions = this.getCommonHeaders();
     this.getUserData((data, error) => {
       if (!error) {
         const user = {id: data.id, app_enabled_param: true, latitude: coords.latitude, longitude: coords.longitude};
         this.http.put<{[key: string]: any}>(this.UPDATELATLONG, user, httpOptions).subscribe(update => {
-          console.log("success update lat long");
           if (update) {
-            // console.log(user, update);
             this.setUserData({...data, ...user}, () => {
               callback(user, null);
             });
@@ -214,9 +204,7 @@ export class UserProvider {
         const user = {avatar: avatar, app_enabled_param: true, id: data.id};
         this.http.put<{[key: string]: any}>(this.UPDATEAVATAR, user, httpOptions).subscribe(updateAvatar => {
           if (updateAvatar) {
-            // console.log(user, updateAvatar);
             const newUserData = {...data, avatar: avatar};
-            // console.warn(JSON.stringify(newUserData));
             this.setUserData(newUserData, (data, error) => {
               if (!error) {
                 callback(newUserData, null);

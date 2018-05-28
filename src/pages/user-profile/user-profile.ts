@@ -96,10 +96,6 @@ public favoritesService: FavoritesProvider, public allAppDataService: AllAppData
     this.avatar = this.slides.getActiveIndex();
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad UserProfilePage');
-  }
-
   ionViewDidEnter() {
     let width = this.domElem.nativeElement.offsetWidth - 32;
     this.dimensions = {

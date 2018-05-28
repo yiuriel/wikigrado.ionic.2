@@ -13,8 +13,6 @@ export class AllAppDataProvider {
   universities_computed: Array<number>;
 
   constructor(public http: HttpClient, private env: EnvProvider) {
-    console.log('Hello AllAppDataProvider Provider');
-
     this.grades_computed = [];
     this.universities_computed = [];
 

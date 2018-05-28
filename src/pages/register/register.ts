@@ -25,6 +25,7 @@ export class RegisterPage {
     this.ages = Array.from(Array(100).keys()).slice(13, 100);
     this.user = {};
 
+    this.avatar = 0;
     this.avatars = ['assets/imgs/avatar/1.png','assets/imgs/avatar/2.png','assets/imgs/avatar/3.png','assets/imgs/avatar/4.png','assets/imgs/avatar/5.png','assets/imgs/avatar/6.png','assets/imgs/avatar/7.png','assets/imgs/avatar/8.png','assets/imgs/avatar/9.png','assets/imgs/avatar/10.png','assets/imgs/avatar/11.png']
   }
 
@@ -51,7 +52,8 @@ export class RegisterPage {
             return this.toasterService.showToast({message: 'Ya existe un usuario con este email'});
         }
       } else {
-        this.navCtrl.setRoot(PretestPage);
+        this.toasterService.showToast({message: 'te registraste exitosamente, luego de verificar tu email podras loguearte.', duration: 10000});
+        // this.navCtrl.setRoot(PretestPage);
       }
     });
   }
@@ -68,20 +70,8 @@ export class RegisterPage {
     }
   }
 
-  // goToPicturePage() {
-  //   this.userService.setUserData(this.user, (success, error) => {
-  //     if (!error) {
-  //       this.navCtrl.push(RegisterPictureStepPage);
-  //     }
-  //   });
-  // }
-
   goBack() {
     this.navCtrl.pop();
-  }
-
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad RegisterPage');
   }
 
 }

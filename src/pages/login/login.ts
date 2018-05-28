@@ -27,10 +27,6 @@ export class LoginPage {
     this.passwordIcon = this.passwordIcon === 'eye-off' ? 'eye' : 'eye-off';
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad LoginPage');
-  }
-
   login() {
     this.loaderService.showLoader({content:'conectando...'});
     this.userService.login(this.user, (data, error) => {
@@ -40,7 +36,7 @@ export class LoginPage {
           case 'wrongLoginToast':
             return this.toasterService.showToast({message: 'Hubo un error, vuelve a intentarlo más tarde.'});
           case 'error':
-            return this.toasterService.showToast({message: 'Puede que los datos sean incorrectos, asegurate de haberlos escrito bien.'});
+            return this.toasterService.showToast({message: 'Puede que los datos sean incorrectos, o que tu email no este validado.'});
         }
       } else {
         if (data.first_orientation) {

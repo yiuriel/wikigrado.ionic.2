@@ -74,8 +74,4 @@ export class RegisterPictureStepPage {
     this.navCtrl.pop();
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad RegisterPictureStepPage');
-  }
-
 }

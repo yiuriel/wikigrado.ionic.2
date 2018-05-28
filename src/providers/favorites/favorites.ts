@@ -13,7 +13,6 @@ export class FavoritesProvider {
   CHECKFAVORITEURL: string;
 
   constructor(public http: HttpClient, private env: EnvProvider, public allAppDataService: AllAppDataProvider) {
-    console.log('Hello FavoritesProvider Provider');
     this.favorites = [];
 
     this.BASEURL = this.env.getEnvironmentUrl('production') + "/favorites";

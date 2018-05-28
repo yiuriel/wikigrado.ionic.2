@@ -41,8 +41,4 @@ export class InitialSliderPage {
     this.slides.slideTo(index, 250);
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad InitialSliderPage');
-  }
-
 }

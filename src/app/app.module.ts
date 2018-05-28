@@ -16,8 +16,6 @@ import { ComponentsModule } from '../components/components.module'
 import { PipesModule } from '../pipes/pipes.module'
 
 import { MyApp } from './app.component';
-import { HomePage } from '../pages/home/home';
-import { ListPage } from '../pages/list/list';
 import { SimulatesplashPage } from '../pages/simulatesplash/simulatesplash';
 import { InitialSliderPage } from '../pages/initial-slider/initial-slider';
 import { RegisterPage } from '../pages/register/register';
@@ -51,8 +49,6 @@ import { ToasterProvider } from '../providers/toaster/toaster';
 @NgModule({
   declarations: [
     MyApp,
-    HomePage,
-    ListPage,
     SimulatesplashPage,
     InitialSliderPage,
     RegisterPage,
@@ -85,8 +81,6 @@ import { ToasterProvider } from '../providers/toaster/toaster';
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    HomePage,
-    ListPage,
     SimulatesplashPage,
     InitialSliderPage,
     RegisterPage,

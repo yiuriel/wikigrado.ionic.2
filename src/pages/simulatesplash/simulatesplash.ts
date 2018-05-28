@@ -29,9 +29,7 @@ export class SimulatesplashPage {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad SimulatesplashPage');
     this.checkUserData((success, error) => {
-      // console.warn(success, error)
       const redirectTimeout = setTimeout(() => {
         if (success) {
           clearTimeout(redirectTimeout);

@@ -13,7 +13,6 @@ export class AnalyticsProvider {
   CLICK_ACTION: string;
 
   constructor(public http: HttpClient, public ga: GoogleAnalytics) {
-    console.log('Hello AnalyticsProvider Provider');
     this.ready = false;
     this.max_try_number = 5;
     this.intents = 1;
@@ -24,27 +23,22 @@ export class AnalyticsProvider {
   }
 
   initService() {
-    console.log("INIT ANALYTICS SERVICE")
     this.ga.startTrackerWithId('UA-119556846-1')
       .then(() => {
-        console.log('Google analytics is ready now');
         this.ready = true;
         this.firstTrack();
       })
       .catch(e => {
-        console.log('Error starting GoogleAnalytics', e);
         this.ready = false;
       });
   }
 
   firstTrack() {
-    console.log('first track', this.ready);
     this.trackView('app');
     this.setVersion(1);
   }
 
   trackView(view) {
-    console.log('trackView', this.ready);
     if (this.ready) {
       return this.ga.trackView(view);
     }
@@ -64,17 +58,14 @@ export class AnalyticsProvider {
   }
 
   setVersion(version) {
-    console.log('setVersion', this.ready);
     this.ga.setAppVersion(version);
   }
 
   setUserId(id) {
-    console.log('setUserId', this.ready);
     this.ga.setUserId(id);
   }
 
   trackEvent(category, action, label, value) {
-    console.log('trackEvent', this.ready);
     this.ga.trackEvent(category, action, label, value);
   }
 

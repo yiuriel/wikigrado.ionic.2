@@ -13,7 +13,6 @@ export class OrientationVideosProvider {
   videos: Array<{[key: string]: any}>
 
   constructor(public http: HttpClient) {
-    console.log('Hello OrientationVideosProvider Provider');
     this.videos = [
       {
         orientation: 'arte',

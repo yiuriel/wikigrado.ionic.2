@@ -16,10 +16,6 @@ export class GradosPage {
 
   constructor(public navCtrl: NavController, public tracker: AnalyticsProvider, public navParams: NavParams, public modalCtrl: ModalController, public allAppDataService :AllAppDataProvider, private domElem: ElementRef, public loadingCtrl: LoadingController) {}
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad GradosPage');
-  }
-
   ionViewDidEnter() {
     let width = this.domElem.nativeElement.offsetWidth - 32;
     this.dimensions = {

@@ -18,8 +18,6 @@ export class UniversidadesPage {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad UniversidadesPage');
-
     this.getUniversidadesFromService();
   }
 
