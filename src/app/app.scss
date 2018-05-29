@@ -305,3 +305,52 @@ page-grado {
     }
   }
 }
+
+/* OVERRIDES */
+// page-initial-slider {
+//   .scroll-content {
+//     background-color: $white !important;
+//     color: $grey !important;
+//     .swiper-pagination-bullet {
+//       background: $lightergrey !important;
+//     }
+//     .swiper-pagination {
+//       .swiper-pagination-bullet-active {
+//         background: $appred !important;
+//       }
+//     }
+//
+//     .first-slide {
+//       display: flex;
+//       justify-content: center;
+//       flex-direction: column;
+//       .fa-university {
+//         color: $grey;
+//         margin-bottom: -10px;
+//       }
+//     }
+//
+//     .second-slide {
+//       display: flex;
+//       justify-content: center;
+//       flex-direction: column;
+//       align-items: center;
+//       .fa-globe {
+//         position: absolute;
+//         color: dodgerblue;
+//       }
+//
+//       .fa-user {
+//         color: $white;
+//         z-index: 100;
+//       }
+//     }
+//   }
+// }
+//
+// page-pretest {
+//   .scroll-content {
+//     background-color: $white !important;
+//     color: $grey !important;
+//   }
+// }
