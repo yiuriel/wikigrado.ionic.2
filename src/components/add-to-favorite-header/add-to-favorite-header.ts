@@ -16,7 +16,6 @@ export class AddToFavoriteHeaderComponent {
   userData: {[key: string]: any}
 
   constructor(public favoritesService: FavoritesProvider, public tracker: AnalyticsProvider, public userService: UserProvider, public toasterService: ToasterProvider, public loaderService: LoaderProvider) {
-    console.log('Hello AddToFavoriteHeaderComponent Component');
     this.add = true;
 
     this.userData = null;

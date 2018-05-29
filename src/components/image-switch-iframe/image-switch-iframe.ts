@@ -40,10 +40,14 @@ export class ImageSwitchIframeComponent {
     this.actualUrl = this.sanitizer.bypassSecurityTrustResourceUrl(this.url)
     this.active = true;
     setTimeout(() => {
-      let player = new Player(this.videoFrame.nativeElement);
-      player.on('play', () => {
-        this.tracker.trackEvent('video', 'ver video', this.name, 1);
-      });
+      if (this.url.indexOf("vimeo") > -1) {
+        let player = new Player(this.videoFrame.nativeElement);
+        player.on('play', () => {
+          this.tracker.trackEvent('video', 'ver video vimeo', this.name, 1);
+        });
+      } else {
+        this.tracker.trackEvent('video', 'ver video youtube', this.name, 1);
+      }
     //   player.on('ended', () => {
     //     this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT);
     //   });
