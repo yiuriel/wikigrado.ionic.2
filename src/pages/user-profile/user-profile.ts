@@ -4,6 +4,7 @@ import { UserProvider } from '../../providers/user/user';
 import { LoaderProvider } from '../../providers/loader/loader';
 import { ToasterProvider } from '../../providers/toaster/toaster';
 import { AllAppDataProvider } from '../../providers/all-app-data/all-app-data';
+import { AnalyticsProvider } from '../../providers/analytics/analytics';
 import { GradoPage } from '../grado/grado';
 import { FavoritesProvider } from '../../providers/favorites/favorites'
 
@@ -23,7 +24,7 @@ export class UserProfilePage {
   loader: any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public userService: UserProvider, public toasterService: ToasterProvider, public loaderService: LoaderProvider,
-public favoritesService: FavoritesProvider, public allAppDataService: AllAppDataProvider, public modalCtrl: ModalController, private domElem: ElementRef) {
+public favoritesService: FavoritesProvider, public allAppDataService: AllAppDataProvider, public modalCtrl: ModalController, private domElem: ElementRef, public tracker: AnalyticsProvider) {
     this.loaderService.showLoader({content:'Cargando...'});
     this.userService.getUserData((data, error) => {
       if (!error) {
@@ -78,13 +79,27 @@ public favoritesService: FavoritesProvider, public allAppDataService: AllAppData
     }
   }
 
+  getItemName(item) {
+    if (item.type === 'grades') {
+      return item.grade;
+    }
+    if (item.type === 'universities') {
+      return item.university;
+    }
+    if (item.type === 'colleges') {
+      return item.name;
+    }
+  }
+
   deleteFavorite(favorite) {
+    const itemName = this.getItemName(favorite);
     this.loaderService.showLoader({content:'removiendo favorito...'});
     this.favoritesService.removeFavorite(favorite, this.user.id, (success, error) => {
       if (error) {
         this.loaderService.hideLoader();
         this.toasterService.showToast({message: 'Hubo un error, vuelve a intentarlo más tarde.'});
       } else {
+        this.tracker.trackEvent('favoritos', 'remover', favorite.type, itemName);
         this.getFavorites(() => {
           this.loaderService.hideLoader();
         });

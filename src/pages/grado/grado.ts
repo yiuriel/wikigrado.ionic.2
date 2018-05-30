@@ -107,6 +107,7 @@ export class GradoPage {
   callPhoneNumber(number) {
     const n = number.replace(/\s/g, "");
     this.iab.create("tel:" + n, "_system", {closebuttoncaption: "ok", location: 'no'});
+    this.tracker.trackEvent('llamadas', 'llamar', this.item.type, n);
   }
 
   viewLocation(location) {
