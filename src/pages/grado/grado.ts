@@ -105,7 +105,8 @@ export class GradoPage {
   }
 
   callPhoneNumber(number) {
-    window.open(`tel:${number}`, '_system');
+    const n = number.replace(/\s/g, "");
+    this.iab.create("tel:" + n, "_system", {closebuttoncaption: "ok", location: 'no'});
   }
 
   viewLocation(location) {
