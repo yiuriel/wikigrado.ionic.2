@@ -72,7 +72,7 @@
           <div padding-bottom>
             <button ion-button round color="danger" block (click)="goTo(item.main_university, 'universities')">Ver en la app</button>
           </div>
-          <button round *ngIf="item.main_university.latitude && item.main_university.longitude" ion-button outline block color="light" (click)="viewLocation({latitude: item.main_university.latitude, longitude: item.main_university.longitude})">Ver en el mapa</button>
+          <button round *ngIf="item.main_university.latitude && item.main_university.longitude" ion-button outline block color="dark" (click)="viewLocation({latitude: item.main_university.latitude, longitude: item.main_university.longitude})">Ver en el mapa</button>
         </div>
       </div>
       <div *ngIf="item.list && item.list.length">
@@ -116,7 +116,7 @@
             <span>Ir al sitio web del colegio</span>
           </button>
         </div>
-        <button round *ngIf="item.latitude && item.longitude" ion-button outline block color="light" (click)="viewLocation({latitude: item.latitude, longitude: item.longitude})">Ver en el mapa</button>
+        <button round *ngIf="item.latitude && item.longitude" ion-button outline block color="dark" (click)="viewLocation({latitude: item.latitude, longitude: item.longitude})">Ver en el mapa</button>
       </div>
     </div>
 
@@ -136,7 +136,7 @@
             <span>Ir al sitio web de la universidad</span>
           </button>
         </div>
-        <button round *ngIf="item.latitude && item.longitude" ion-button outline block color="light" (click)="viewLocation({latitude: item.latitude, longitude: item.longitude})">Ver en el mapa</button>
+        <button round *ngIf="item.latitude && item.longitude" ion-button outline block color="dark" (click)="viewLocation({latitude: item.latitude, longitude: item.longitude})">Ver en el mapa</button>
       </div>
       <div *ngIf="item.grades.length">
         <h5 text-center color="light">Grados que imparte esta universidad:</h5>
