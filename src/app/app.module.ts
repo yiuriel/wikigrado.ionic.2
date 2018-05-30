@@ -20,7 +20,6 @@ import { SimulatesplashPage } from '../pages/simulatesplash/simulatesplash';
 import { InitialSliderPage } from '../pages/initial-slider/initial-slider';
 import { RegisterPage } from '../pages/register/register';
 import { LoginPage } from '../pages/login/login';
-import { RegisterPictureStepPage } from '../pages/register-picture-step/register-picture-step';
 
 import { TestPage } from '../pages/test/test';
 import { PretestPage } from '../pages/pretest/pretest';
@@ -60,7 +59,6 @@ import { ToasterProvider } from '../providers/toaster/toaster';
     UniversidadesPage,
     ColegiosMayoresPage,
     FavoritosPage,
-    RegisterPictureStepPage,
     UserProfilePage,
     OrientationVideosAfterTestPage,
   ],
@@ -92,7 +90,6 @@ import { ToasterProvider } from '../providers/toaster/toaster';
     UniversidadesPage,
     ColegiosMayoresPage,
     FavoritosPage,
-    RegisterPictureStepPage,
     UserProfilePage,
     OrientationVideosAfterTestPage,
   ],
