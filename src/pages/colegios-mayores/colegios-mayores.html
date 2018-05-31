@@ -3,16 +3,16 @@
 <ion-content padding>
   <ion-list>
     <ion-item>
-      <ion-label color="danger" stacked>Buscar</ion-label>
-      <ion-input type="text" (ionChange)="getColegiosMayores($event)" placeholder="busca entre todos los colegios mayores"></ion-input>
+      <ion-label color="danger" stacked>Busca entre todos los colegios mayores</ion-label>
+      <ion-input type="text" (ionChange)="getColegiosMayores($event)"></ion-input>
     </ion-item>
   </ion-list>
 
   <ion-list>
-    <ion-item *ngFor="let video of videos;let i = index;" class="career">
-      <a (click)="goToColegioMayor(video)">
+    <ion-item *ngFor="let college of colleges;let i = index;" class="career">
+      <a (click)="goToColegioMayor(college)">
         <ion-icon name="film"></ion-icon>
-        <span class="career-title" [innerHTML]="video.career"></span>
+        <span class="career-title" [innerHTML]="college.name"></span>
       </a>
     </ion-item>
   </ion-list>

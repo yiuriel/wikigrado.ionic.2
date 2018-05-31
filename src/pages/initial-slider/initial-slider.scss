@@ -1,12 +1,9 @@
 page-initial-slider {
   .slide-background {
-    background-image: url('../assets/imgs/register.jpg');
+    // background-image: url('../assets/imgs/register.jpg');
     background-position: center;
     background-size: cover;
     .scroll-content {
-      background-color: rgba(255,255,255,0.75);
-      background-image: url('../assets/imgs/medium-logo.png');
-      background-position: center 60px;
       background-repeat: no-repeat;
       .toolbar-background {
         background: transparent;
@@ -21,7 +18,7 @@ page-initial-slider {
       .slide-zoom {
         height: 100%;
         .toolbar {
-          margin-bottom: 150px;
+          margin-bottom: 80px;
         }
       }
 

@@ -5,6 +5,7 @@ import { UserProvider } from '../../providers/user/user';
 import { AllAppDataProvider } from '../../providers/all-app-data/all-app-data';
 import { GradoPage } from '../grado/grado';
 import { LoaderProvider } from '../../providers/loader/loader';
+import { ToasterProvider } from '../../providers/toaster/toaster';
 
 @Component({
   selector: 'page-favoritos',
@@ -15,13 +16,13 @@ export class FavoritosPage {
   @ViewChild(Slides) slides: Slides;
   avatars: Array<string>
   avatar: number;
-  favorites: Array<{[key: string]: any}>
+  favorites: Array<{[key: string]: any}> = [];
   userData: {[key: string]: any}
   dimensions: {width: number, height: number}
   loader: any;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public userService: UserProvider, public favoritesService: FavoritesProvider, public allAppDataService: AllAppDataProvider, public modalCtrl: ModalController, private domElem: ElementRef, public loaderService: LoaderProvider) {
-    this.loaderService.showLoader({content:'cargando...'});
+  constructor(public navCtrl: NavController, public navParams: NavParams, public userService: UserProvider, public favoritesService: FavoritesProvider, public allAppDataService: AllAppDataProvider, public modalCtrl: ModalController, private domElem: ElementRef, public loaderService: LoaderProvider, public toasterService: ToasterProvider) {
+    this.loaderService.showLoader({content:'Cargando...'});
     this.userService.getUserData((data, error) => {
       if (!error) {
         this.userData = data;
@@ -44,9 +45,9 @@ export class FavoritosPage {
       if (!favoritesError) {
         let res = [];
         favorites.forEach(item => {
-          let founditem = this.allAppDataService.getDataBasedOnTypeAndIndex(item.item_type_in_app, item.item_id_in_app);
+          let founditem = this.allAppDataService.getDataBasedOnTypeAndIndex(item.type, item.favorite_id);
           if (founditem) {
-            res = res.concat(founditem);
+            res = res.concat([{...founditem, type: item.type, index: item.favorite_id}]);
           }
         });
         this.favorites = res;
@@ -65,9 +66,10 @@ export class FavoritosPage {
 
   viewFavorite(item) {
     if (item) {
-      let modal = this.modalCtrl.create(GradoPage, {videoData: item, dimensionData: this.dimensions});
+      //{data: {...gradeWithUnivs, type: 'grado', index: gradeWithUnivs.id}, dimensionData: this.dimensions}
+      let modal = this.modalCtrl.create(GradoPage, {data: item, dimensionData: this.dimensions});
       modal.onDidDismiss(() => {
-        this.loaderService.showLoader({content:'cargando...'});
+        this.loaderService.showLoader({content:'Cargando...'});
         this.getFavorites(() => {
           this.loaderService.hideLoader();
         });
@@ -77,8 +79,18 @@ export class FavoritosPage {
     }
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad FavoritosPage');
+  deleteFavorite(favorite) {
+    this.loaderService.showLoader({content:'removiendo favorito...'});
+    this.favoritesService.removeFavorite(favorite, this.userData.id, (success, error) => {
+      if (error) {
+        this.loaderService.hideLoader();
+        this.toasterService.showToast({message: 'Hubo un error, vuelve a intentarlo más tarde.'});
+      } else {
+        this.getFavorites(() => {
+          this.loaderService.hideLoader();
+        });
+      }
+    });
   }
 
 }

@@ -38,8 +38,4 @@ export class OrientationVideosAfterTestPage {
     this.navCtrl.setRoot(TestPage, {animate: true})
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad OrientationVideosAfterTestPage');
-  }
-
 }

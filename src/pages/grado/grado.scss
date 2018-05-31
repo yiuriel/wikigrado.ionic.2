@@ -1,36 +1,90 @@
 page-grado {
   ion-content {
-    background-image: url('../../assets/imgs/grados_y_salidas.jpg');
+    // background-image: url('../../assets/imgs/grados_y_salidas.jpg');
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
     .scroll-content {
-      background-color: rgba(0,0,0,0.45);
+      background-color: rgba(255, 255, 255, 0.45);
       .item {
-        background-color: rgba(255, 255, 255, 0.5);
+        background-color: transparent;
+        ion-label {
+          color: $white !important;
+        }
       }
       .career-title {
-        color: white;
+        color: $white;
       }
       .no-video {
         font-size: 1.5em;
       }
+
       a {
         text-decoration: underline;
+      }
+
+      .grade-data {
+        border: 1px solid $lightdesaturategold;
+        &-title {
+          padding-bottom: 4px;
+          color: $white8;
+        }
+        &-value {
+          color: $gold;
+          font-size: 1.1em;
+        }
+      }
+
+      .university-link {
+        padding: 0 1.5em;
+        &.has-logo {
+          .button-inner {
+            align-items: center;
+            justify-content: space-between;
+            img {
+              max-height: 40px;
+            }
+          }
+        }
+        .button-inner {
+          color: black;
+        }
+      }
+
+      .university-item-in-grade-list {
+        ion-label {
+          i {
+            color: $lightgold;
+          }
+          span {
+            padding-left: 8px;
+          }
+        }
+      }
+
+      .grade-item-in-university-list {
+        ion-label {
+          i {
+            color: $lightappred;
+          }
+          span {
+            padding-left: 8px;
+          }
+        }
       }
     }
   }
 
   .toolbar-title {
-    color: white;
+    color: black;
   }
   .toolbar-background {
-    background-color: #333;
+    background-color: $lightergrey;
   }
   .text-ios-primary {
-    color: map-get($colors, danger);
+    color: $white;
   }
   [color="light"] {
-    color: map-get($colors, light);
+    color: $white9;
   }
 }

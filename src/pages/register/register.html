@@ -2,7 +2,7 @@
   <ion-grid>
     <ion-row>
       <ion-col text-center>
-        <img src="assets/imgs/medium-logo.png" class="app-menu-logo" />
+        <img src="assets/imgs/medium-logo-fit.png" class="app-menu-logo" />
       </ion-col>
     </ion-row>
     <ion-row align-items-start>
@@ -12,33 +12,51 @@
 
             <ion-item>
               <ion-label stacked>Nombre</ion-label>
-              <ion-input name="firstname" required [(ngModel)]="user.first_name" type="text"></ion-input>
+              <ion-input #firstname="ngModel" name="firstname" minlength="3" required [(ngModel)]="user.first_name" type="text"></ion-input>
             </ion-item>
+            <div class="form-error" *ngIf="firstname.invalid && (firstname.dirty || firstname.touched) && firstname.errors">
+              <div *ngIf="firstname.errors.required">El nombre es requerido.</div>
+            </div>
 
             <ion-item>
               <ion-label stacked>Apellido</ion-label>
-              <ion-input name="lastname" required [(ngModel)]="user.last_name" type="text"></ion-input>
+              <ion-input #lastname="ngModel" name="lastname" minlength="3" required [(ngModel)]="user.last_name" type="text"></ion-input>
             </ion-item>
+            <div class="form-error" *ngIf="lastname.invalid && (lastname.dirty || lastname.touched) && lastname.errors">
+              <div *ngIf="lastname.errors.required">El apellido es requerido.</div>
+            </div>
 
             <ion-item>
               <ion-label stacked>Edad</ion-label>
-              <ion-select name="age" required [(ngModel)]="user.age">
+              <ion-select #age="ngModel" name="age" required [(ngModel)]="user.age">
                 <ion-option *ngFor="let age of ages" [value]="age" [innerHTML]="age"></ion-option>
               </ion-select>
             </ion-item>
+            <div class="form-error" *ngIf="age.invalid && (age.dirty || age.touched) && age.errors">
+              <div *ngIf="age.errors.required">La edad es requerida.</div>
+            </div>
 
             <ion-item>
               <ion-label stacked>Email</ion-label>
-              <ion-input name="email" required [(ngModel)]="user.email" (ionBlur)="checkEmail()" #registeremail="ngModel" [email]="true" type="email"></ion-input>
+              <ion-input #email="ngModel" name="email" minlength="3" required [(ngModel)]="user.email" (ionBlur)="checkEmail()" #registeremail="ngModel" [email]="true" type="email"></ion-input>
             </ion-item>
+            <div class="form-error" *ngIf="email.invalid && (email.dirty || email.touched) && email.errors">
+              <div *ngIf="email.errors.required">El email es requerido.</div>
+              <div *ngIf="email.errors.email && email.errors.minlength">El formato del email es incorrecto.</div>
+            </div>
 
             <ion-item>
-              <ion-label stacked>Contraseña</ion-label>
-              <ion-input name="password" required [(ngModel)]="user.password" type="password"></ion-input>
+              <ion-label stacked>Contrase&ntilde;a</ion-label>
+              <ion-input #password="ngModel" name="password" minlength="8" maxlength="14" required [(ngModel)]="user.password" [type]="passwordType"></ion-input>
+              <ion-icon item-end [name]="passwordIcon" class="passIcon" (click)='hideShowPassword()'></ion-icon>
             </ion-item>
+            <div class="form-error" *ngIf="password.invalid && (password.dirty || password.touched) && password.errors">
+              <div *ngIf="password.errors.required">La contrase&ntilde;a es obligatoria. debe tener entre 8 y 14 caracteres.</div>
+              <div *ngIf="password.errors.minlength">La contrase&ntilde;a debe tener al menos 8.</div>
+            </div>
 
             <ion-item>
-              <p color="danger" padding-bottom>Elige tu avatar</p>
+              <p color="danger" stacked class="label" padding-bottom>Elige tu avatar</p>
               <ion-slides (ionSlideDidChange)="slideChanged()">
                 <ion-slide *ngFor="let avatar of avatars;">
                   <img [src]="avatar" />
@@ -46,6 +64,13 @@
               </ion-slides>
             </ion-item>
 
+            <ion-item>
+              <ion-label>Aceptar <a href="#" (click)="privacyPolicyModal()">politica de privacidad</a></ion-label>
+              <ion-checkbox color="danger" #privacy_policy_accept="ngModel" name="privacy_policy_accept" [(ngModel)]="user.privacy_policy_accept" required></ion-checkbox>
+            </ion-item>
+            <div class="form-error" *ngIf="privacy_policy_accept.invalid && (privacy_policy_accept.dirty || privacy_policy_accept.touched) && privacy_policy_accept.errors">
+              <div *ngIf="privacy_policy_accept.errors.required">Debes aceptar la politica de privacidad para crear tu cuenta.</div>
+            </div>
           </ion-list>
         </form>
       </ion-col>
@@ -55,10 +80,10 @@
         <button ion-button round small outline color="danger" [disabled]="!userForm.form.valid" (click)="goToPicturePage()">subir foto</button>
       </ion-col> -->
       <ion-col text-right>
-        <button ion-button round small color="danger" [disabled]="!userForm.form.valid" (click)="register()">registrarme</button>
+        <button ion-button round color="danger" opacity [disabled]="!userForm.form.valid" (click)="register()">Registrarme</button>
       </ion-col>
       <ion-col>
-        <button ion-button round small outline color="danger" (click)="goBack()">volver</button>
+        <button ion-button round outline color="light" opacity back-button (click)="goBack()">Volver</button>
       </ion-col>
     </ion-row>
   </ion-grid>

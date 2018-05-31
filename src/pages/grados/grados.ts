@@ -10,15 +10,11 @@ import { AnalyticsProvider } from '../../providers/analytics/analytics';
 })
 export class GradosPage {
 
-  videos: Array<{videoUrl: string, hasVideo: boolean, career: string}>
-  videosCached: Array<{videoUrl: string, hasVideo: boolean, career: string}>
+  grades: Array<{[key: string]: any}>
+  gradesCached: Array<{[key: string]: any}>
   dimensions: {width: number, height: number}
 
   constructor(public navCtrl: NavController, public tracker: AnalyticsProvider, public navParams: NavParams, public modalCtrl: ModalController, public allAppDataService :AllAppDataProvider, private domElem: ElementRef, public loadingCtrl: LoadingController) {}
-
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad GradosPage');
-  }
 
   ionViewDidEnter() {
     let width = this.domElem.nativeElement.offsetWidth - 32;
@@ -27,22 +23,29 @@ export class GradosPage {
       height: (width * 9) / 16,
     }
 
-    this.getAllVideos();
+    this.getAllGrades();
   }
 
-  getAllVideos() {
-    this.videos = this.allAppDataService.getDataBasedOnType('grado');
-    this.videosCached = [].concat(this.videos);
+  getAllGrades() {
+    this.grades = this.allAppDataService.get('grades');
+    this.gradesCached = [].concat(this.grades);
   }
 
   filterGrades($event) {
     const value = $event.value;
-    this.videos = this.allAppDataService.getDataBasedOnTypeAndValue('grado', value);
+    if (value) {
+      this.grades = this.gradesCached.filter(cache => {
+        return cache.grade.toLowerCase().indexOf(value.toLowerCase()) > -1
+      });
+    } else {
+      this.grades = [].concat(this.gradesCached);
+    }
   }
 
-  goToGrade(video) {
-    if (video) {
-      let modal = this.modalCtrl.create(GradoPage, {videoData: video, dimensionData: this.dimensions});
+  goToGrade(grade) {
+    if (grade) {
+      let gradeWithUnivs = this.allAppDataService.getGradeWithUniversities(grade);
+      let modal = this.modalCtrl.create(GradoPage, {data: {...gradeWithUnivs, type: 'grades', index: gradeWithUnivs.id}, dimensionData: this.dimensions});
       modal.onDidDismiss(() => {
         modal = null;
       })

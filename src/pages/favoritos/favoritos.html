@@ -8,25 +8,30 @@
         <img [src]="avatars[avatar]" />
       </ion-col>
     </ion-row>
+    <ion-row *ngIf="favorites.length == 0">
+      <ion-col text-center padding>
+        <h3>No tienes ningun favorito aun.</h3>
+      </ion-col>
+    </ion-row>
     <ion-row *ngFor="let favorite of favorites;">
       <ion-col>
-        <h3 [innerHTML]="favorite.type | noSnakeCase"></h3>
         <div [ngSwitch]="favorite.type">
-          <div *ngSwitchCase="'universidad'">
-            <p [innerHTML]="favorite.universidad"></p>
-            <button ion-button round small outline color="danger" (click)="viewFavorite(favorite)">ver</button>
-            <button ion-button round small color="danger">borrar</button>
+          <span *ngSwitchCase="'grades'">Grado</span>
+          <span *ngSwitchCase="'universities'">Universidad</span>
+          <span *ngSwitchCase="'colleges'">Colegio Mayor</span>
+        </div>
+        <div [ngSwitch]="favorite.type">
+          <div *ngSwitchCase="'universities'">
+            <p [innerHTML]="favorite.university"></p>
           </div>
-          <div *ngSwitchCase="'grado'">
+          <div *ngSwitchCase="'grades'">
+            <p [innerHTML]="favorite.grade"></p>
+          </div>
+          <div *ngSwitchCase="'colleges'">
             <p [innerHTML]="favorite.career"></p>
-            <button ion-button round small outline color="danger" (click)="viewFavorite(favorite)">ver</button>
-            <button ion-button round small color="danger">borrar</button>
           </div>
-          <div *ngSwitchCase="'colegio_mayor'">
-            <p [innerHTML]="favorite.career"></p>
-            <button ion-button round small outline color="danger" (click)="viewFavorite(favorite)">ver</button>
-            <button ion-button round small color="danger">borrar</button>
-          </div>
+          <button ion-button round small outline color="danger" (click)="viewFavorite(favorite)">ver</button>
+          <button ion-button round small color="danger" (click)="deleteFavorite(favorite)">borrar</button>
         </div>
       </ion-col>
     </ion-row>

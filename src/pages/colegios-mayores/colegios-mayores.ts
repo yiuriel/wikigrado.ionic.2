@@ -10,8 +10,8 @@ import { AnalyticsProvider } from '../../providers/analytics/analytics';
 })
 export class ColegiosMayoresPage {
 
-  videos: Array<{videoUrl: string, description: string, location: {any}, career: string}>
-  videosCached: Array<{videoUrl: string, description: string, location: {any}, career: string}>
+  colleges: {[key: string]: any}
+  collegesCached: {[key: string]: any}
   dimensions: {width: number, height: number}
 
   constructor(public navCtrl: NavController, public tracker: AnalyticsProvider, public navParams: NavParams, private domElem: ElementRef, public modalCtrl: ModalController, public allAppDataService: AllAppDataProvider, public loadingCtrl: LoadingController) {
@@ -29,18 +29,24 @@ export class ColegiosMayoresPage {
   }
 
   getColegiosMayoresFromService() {
-    this.videos = this.allAppDataService.getDataBasedOnType('colegio_mayor');
-    this.videosCached = [].concat(this.videos);
+    this.colleges = this.allAppDataService.getColleges();
+    this.collegesCached = [].concat(this.colleges);
   }
 
   getColegiosMayores($event) {
     const value = $event.value;
-    this.videos = this.allAppDataService.getDataBasedOnTypeAndValue('colegio_mayor', value);
+    if (value) {
+      this.colleges = this.collegesCached.filter(cache => {
+        return cache.career.indexOf(value) > -1
+      });
+    } else {
+      this.colleges = [].concat(this.collegesCached);
+    }
   }
 
   goToColegioMayor(colegioMayor) {
     if (colegioMayor) {
-      let modal = this.modalCtrl.create(GradoPage, {videoData: colegioMayor, dimensionData: this.dimensions, isColegioMayor: true});
+      let modal = this.modalCtrl.create(GradoPage, {data: {...colegioMayor, type: 'colleges', index: colegioMayor.id}, dimensionData: this.dimensions});
       modal.onDidDismiss(() => {
         modal = null;
       })

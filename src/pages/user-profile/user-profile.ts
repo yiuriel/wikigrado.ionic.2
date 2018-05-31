@@ -1,10 +1,12 @@
-import { Component, ViewChild } from '@angular/core';
-import { NavController, NavParams, Slides } from 'ionic-angular';
+import { Component, ElementRef, ViewChild } from '@angular/core';
+import { NavController, NavParams, ModalController, Slides } from 'ionic-angular';
 import { UserProvider } from '../../providers/user/user';
-import { CanvasProvider } from '../../providers/canvas/canvas';
-// import { Camera, CameraOptions } from '@ionic-native/camera';
 import { LoaderProvider } from '../../providers/loader/loader';
 import { ToasterProvider } from '../../providers/toaster/toaster';
+import { AllAppDataProvider } from '../../providers/all-app-data/all-app-data';
+import { AnalyticsProvider } from '../../providers/analytics/analytics';
+import { GradoPage } from '../grado/grado';
+import { FavoritesProvider } from '../../providers/favorites/favorites'
 
 @Component({
   selector: 'page-user-profile',
@@ -17,12 +19,20 @@ export class UserProfilePage {
   avatar: number;
   user: {[key: string]: any};
   ages: Array<number>
+  favorites: Array<{[key: string]: any}> = [];
+  dimensions: {width: number, height: number}
+  loader: any;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public userService: UserProvider, public canvasService: CanvasProvider, public toasterService: ToasterProvider, public loaderService: LoaderProvider) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public userService: UserProvider, public toasterService: ToasterProvider, public loaderService: LoaderProvider,
+public favoritesService: FavoritesProvider, public allAppDataService: AllAppDataProvider, public modalCtrl: ModalController, private domElem: ElementRef, public tracker: AnalyticsProvider) {
+    this.loaderService.showLoader({content:'Cargando...'});
     this.userService.getUserData((data, error) => {
       if (!error) {
         this.user = data;
         this.avatar = data.avatar;
+        this.getFavorites((done, error) => {
+          this.loaderService.hideLoader();
+        });
       }
     });
 
@@ -30,12 +40,83 @@ export class UserProfilePage {
     this.ages = Array.from(Array(100).keys()).slice(13, 100);
   }
 
+  getFavorites(callback) {
+    this.favoritesService.getFavorites(this.user.id, (favorites, favoritesError) => {
+      if (!favoritesError) {
+        let res = [];
+        favorites.forEach(item => {
+          let founditem = this.allAppDataService.getDataBasedOnTypeAndIndex(item.type, item.favorite_id);
+          if (founditem) {
+            res = res.concat([{...founditem, type: item.type, index: item.favorite_id}]);
+          }
+        });
+        this.favorites = res;
+      }
+      callback();
+    });
+  }
+
+  viewFavorite(item) {
+    if (item) {
+      //{data: {...gradeWithUnivs, type: 'grado', index: gradeWithUnivs.id}, dimensionData: this.dimensions}
+      let trueItem;
+      if (item.type === "universities") {
+        trueItem = this.allAppDataService.getUniversityWithGrades(item);
+      } else if (item.type === "grades") {
+        trueItem = this.allAppDataService.getGradeWithUniversities(item);
+      } else {
+        trueItem = item;
+      }
+      let modal = this.modalCtrl.create(GradoPage, {data: trueItem, dimensionData: this.dimensions});
+      modal.onDidDismiss(() => {
+        this.loaderService.showLoader({content:'Cargando...'});
+        this.getFavorites(() => {
+          this.loaderService.hideLoader();
+        });
+        modal = null;
+      })
+      modal.present();
+    }
+  }
+
+  getItemName(item) {
+    if (item.type === 'grades') {
+      return item.grade;
+    }
+    if (item.type === 'universities') {
+      return item.university;
+    }
+    if (item.type === 'colleges') {
+      return item.name;
+    }
+  }
+
+  deleteFavorite(favorite) {
+    const itemName = this.getItemName(favorite);
+    this.loaderService.showLoader({content:'removiendo favorito...'});
+    this.favoritesService.removeFavorite(favorite, this.user.id, (success, error) => {
+      if (error) {
+        this.loaderService.hideLoader();
+        this.toasterService.showToast({message: 'Hubo un error, vuelve a intentarlo más tarde.'});
+      } else {
+        this.tracker.trackEvent('favoritos', 'remover ' + favorite.type, itemName);
+        this.getFavorites(() => {
+          this.loaderService.hideLoader();
+        });
+      }
+    });
+  }
+
   slideChanged() {
     this.avatar = this.slides.getActiveIndex();
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad UserProfilePage');
+  ionViewDidEnter() {
+    let width = this.domElem.nativeElement.offsetWidth - 32;
+    this.dimensions = {
+      width: width,
+      height: (width * 9) / 16,
+    }
   }
 
   updateUser() {
@@ -52,7 +133,7 @@ export class UserProfilePage {
           }
         })
       } else {
-        this.loaderService.showLoader({content: 'Hubo un error, vuelve a intentarlo más tarde.'});
+        this.toasterService.showToast({message: 'Hubo un error, vuelve a intentarlo más tarde.'});
       }
       this.loaderService.hideLoader();
     });

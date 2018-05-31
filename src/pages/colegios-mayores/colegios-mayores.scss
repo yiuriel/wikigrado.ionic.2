@@ -1,17 +1,13 @@
 page-colegios-mayores {
   ion-content {
-    background-image: url('../../assets/imgs/universidades.jpg');
+    // background-image: url('../../assets/imgs/universidades.jpg');
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
     .scroll-content {
       background-color: rgba(255, 255, 255, 0.75);
       .list > .item-block {
-        border-color: map-get($colors, danger);
         border-top: 0;
-        .item-inner {
-          border-color: map-get($colors, danger);
-        }
       }
       .item {
         background-color: transparent;
@@ -20,16 +16,13 @@ page-colegios-mayores {
         .item {
           background-color: transparent;
           padding-left: 0;
-          input {
-            color: #333;
-          }
           ion-label {
             color: map-get($colors, danger);
           }
           &.career {
             color: map-get($colors, danger);
             a {
-              color: #333;
+              color: $white;
               text-decoration: none;
               font-size: 1.2em;
               display: flex;
@@ -40,7 +33,7 @@ page-colegios-mayores {
               }
               ion-icon {
                 margin-right: .2em;
-                font-size: 8em;
+                font-size: 2em;
                 color: map-get($colors, danger);
               }
             }

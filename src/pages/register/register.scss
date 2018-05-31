@@ -1,6 +1,6 @@
 page-register {
   ion-content {
-    background-image: url('../../assets/imgs/register.jpg');
+    // background-image: url('../../assets/imgs/register.jpg');
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
@@ -10,11 +10,17 @@ page-register {
         min-height: 100%;
         justify-content: center;
       }
+      .list > .item-block:first-child {
+        border-top: 0;
+      }
+      .list > .item-block:last-child {
+        border-bottom: 0;
+      }
       .item {
         background-color: transparent;
         .label[stacked],
         [color="danger"] {
-          color: map-get($colors, danger);
+          color: map-get($colors, dark);
         }
         p {
           font-size: 1.2rem;

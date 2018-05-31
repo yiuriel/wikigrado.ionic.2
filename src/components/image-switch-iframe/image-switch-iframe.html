@@ -1,13 +1,13 @@
 <div [style.width.px]="width" [style.height.px]="height" class="image-switch-iframe-wrapper">
-  <div class="box padding" *ngIf="!active" (click)="switchActive()">
+  <!-- <div class="box padding" *ngIf="!active" (click)="switchActive()">
     <p *ngIf="career" [innerHTML]="career"></p>
     <p *ngIf="!career">ver video</p>
-  </div>
+  </div> -->
   <iframe
     #videoFrame
-    *ngIf="active"
+    *ngIf="actualUrl"
     [src]="actualUrl"
-    [width]="width"
-    [height]="height"
+    [width]="trueWidth"
+    [height]="trueHeight"
     frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 </div>

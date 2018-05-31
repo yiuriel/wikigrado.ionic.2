@@ -1,8 +1,12 @@
 image-switch-iframe {
   display: inline-block;
   .image-switch-iframe-wrapper {
-    display: inline-block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     position: relative;
+    background-color: $morelightergrey;
+    border-radius: 15px;
     .box {
       position: absolute;
       width: 100%;

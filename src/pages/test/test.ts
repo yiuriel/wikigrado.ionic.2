@@ -56,7 +56,7 @@ export class TestPage {
     this.nextButtonDisable[index] = (this.testAnswers[index].filter(obj => obj.value.toString() === "1").length > 3) ? "disabled" : "";
 
     if (this.nextButtonDisable[index] === "disabled") {
-      this.loaderService.showLoader({content: 'Solo puedes elegir "Si" 3 (tres) veces por pantalla'});
+      this.toasterService.showToast({message: 'Solo puedes elegir "Si" 3 (tres) veces por pantalla'});
     }
 
     const questionsAnswered = this.getAnsweredLength(this.testAnswers);
@@ -120,11 +120,11 @@ export class TestPage {
               })
               this.trackOrientations(orientations, success);
             } else {
-              this.loaderService.showLoader({content: 'Hubo un error, vuelve a intentarlo mas tarde'});
+              this.toasterService.showToast({message: 'Hubo un error, vuelve a intentarlo más tarde.'});
             }
           })
         } else {
-          this.loaderService.showLoader({content: 'Hubo un error, vuelve a intentarlo mas tarde'});
+          this.toasterService.showToast({message: 'Hubo un error, vuelve a intentarlo más tarde.'});
         }
       }
     );
@@ -132,7 +132,7 @@ export class TestPage {
 
   ionViewWillLeave() {
     if (this.testProgress < 100) {
-      this.tracker.trackEvent('Test de orientacion', 'sin resultados', 'dejar el test sin terminar', this.userData.age);
+      this.tracker.trackEvent('test de orientacion', 'sin resultados', 'salir del test');
     }
   }
 
@@ -154,10 +154,10 @@ export class TestPage {
   }
 
   trackOrientations(orientations, userData) {
-    this.tracker.trackEvent('Test de orientacion', 'resultados', orientations.first_orientation, userData.age);
-    this.tracker.trackEvent('Test de orientacion', 'resultados', orientations.second_orientation, userData.age);
+    this.tracker.trackEvent('test de orientacion', 'primer resultado', orientations.first_orientation);
+    this.tracker.trackEvent('test de orientacion', 'segundo resultado', orientations.second_orientation);
     if (orientations.third_orientation) {
-      this.tracker.trackEvent('Test de orientacion', 'resultados', orientations.third_orientation, userData.age);
+      this.tracker.trackEvent('test de orientacion', 'tercer resultado', orientations.third_orientation);
     }
   }
 

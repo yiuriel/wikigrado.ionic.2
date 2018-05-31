@@ -14,14 +14,17 @@ export class LoginPage {
 
   user: {email:string, password: string}
   showVolver: any;
+  passwordType: string = 'password';
+  passwordIcon: string = 'eye-off';
 
   constructor(public navCtrl: NavController, public userService: UserProvider, public navParams: NavParams, public toasterService: ToasterProvider, public loaderService: LoaderProvider, public testStorageService: TestStorageProvider) {
     this.user = {email: "", password: ""}
     this.showVolver = this.navParams.data.hasOwnProperty("showVolver") || false;
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad LoginPage');
+  hideShowPassword() {
+    this.passwordType = this.passwordType === 'text' ? 'password' : 'text';
+    this.passwordIcon = this.passwordIcon === 'eye-off' ? 'eye' : 'eye-off';
   }
 
   login() {
@@ -33,7 +36,7 @@ export class LoginPage {
           case 'wrongLoginToast':
             return this.toasterService.showToast({message: 'Hubo un error, vuelve a intentarlo más tarde.'});
           case 'error':
-            return this.toasterService.showToast({message: 'Puede que los datos sean incorrectos, asegurate de haberlos escrito bien.'});
+            return this.toasterService.showToast({message: 'Puede que los datos sean incorrectos, o que tu email no este validado.'});
         }
       } else {
         if (data.first_orientation) {

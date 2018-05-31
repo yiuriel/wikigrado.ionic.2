@@ -1,10 +1,24 @@
-<ion-header customheader remove-header-icon="true" header-title="Inicio"></ion-header>
+<ion-header customheader header-title="Inicio"></ion-header>
 
 <ion-content padding text-center>
-  <img src="assets/imgs/large-logo.png" alt="logo-wikigrado" />
-  <h1>Bienvenido a wikigrado</h1>
-  <h5 *ngIf="!test_done">te invitamos a que realizes el test de personalidad, para que puedas descubrir cuales son las cosas que puedes estudiar y a gusto!</h5>
-  <h5 *ngIf="test_done">puedes realizar el test de personalidad nuevamente</h5>
-  <button ion-button outline color="danger" *ngIf="!test_done" margin-top (click)="goToTestPage()">Realizar Test</button>
-  <button ion-button outline color="danger" *ngIf="test_done" margin-top (click)="goToTestPage()">Realizar nuevamente el test</button>
+  <img src="assets/imgs/large-logo-2-fit.png" class="app-menu-logo" style="width: 25%;" alt="logo-wikigrado" />
+  <h1>Bienvenido a</h1><img src="assets/imgs/wiki_red.png" style="opacity: .85;width: 60%;margin-top:  16px;"/>
+  <div *ngIf="!test_done">
+    <h5 justify padding>
+      ¿Quieres conocer el bachillerato y el grado que mejor se adapta a tu personalidad?<br/><br/>Orientadores de la prestigiosa Universidad de Navarra contestan al test de orientación académica con el que se inicia esta app.
+    </h5>
+    <h5 boxxed-white justify padding>
+      Si quieres una versión más completa, sigue este <a (click)="openNavarraTest()">enlace</a>.
+      <br/>
+      <p text-center padding-top>
+        <a (click)="openNavarraTest()">
+          <img src="../assets/imgs/university-logos/universidad-navarra.png" />
+        </a>
+      </p>
+    </h5>
+  </div>
+  <div *ngIf="test_done">
+    <h5>Puedes realizar el test de personalidad nuevamente</h5>
+  </div>
+  <button ion-button color="danger" round margin-top (click)="goToTestPage()">Ir al Test</button>
 </ion-content>

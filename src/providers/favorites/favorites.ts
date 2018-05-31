@@ -13,7 +13,6 @@ export class FavoritesProvider {
   CHECKFAVORITEURL: string;
 
   constructor(public http: HttpClient, private env: EnvProvider, public allAppDataService: AllAppDataProvider) {
-    console.log('Hello FavoritesProvider Provider');
     this.favorites = [];
 
     this.BASEURL = this.env.getEnvironmentUrl('production') + "/favorites";
@@ -39,7 +38,7 @@ export class FavoritesProvider {
   }
 
   addFavorite(item, user_id, callback) {
-    const data = {item_id_in_app: item.index, item_type_in_app: item.type, app_enabled_param: true};
+    const data = {favorite_id: item.index, type: item.type, app_enabled_param: true};
     this.http.post(this.ADDFAVORITEURL + user_id, data, this.getCommonHeaders()).subscribe(response => {
       callback(response, null);
     }, error => {

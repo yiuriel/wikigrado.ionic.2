@@ -1,27 +1,25 @@
 page-test, page-pretest {
   ion-content {
-    background-image: url('../../assets/imgs/test.jpg');
+    // background-image: url('../../assets/imgs/register.jpg');
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
     .scroll-content {
       background-color: rgba(255, 255, 255, 0.6);
-      ion-card-header {
+      ion-card {
+        border-radius: 15px;
+        background-color: rgba(255,255,255,0.2);
+      }
+      .pages-data {
         white-space: normal;
-        background-color: #F53d3d;
-        color: white;
+        color: $white7;
+      }
+      ion-card-header {
+        color: $white;
+        white-space: normal;
       }
       .pages-data {
         border-bottom: 1px solid #EEE;
-      }
-
-      .list > .item-block:first-child {
-        border-top: 0;
-      }
-
-      .list > .item-block:last-child,
-      .list > .item-wrapper:last-child .item-block {
-        border-bottom: 0;
       }
     }
   }

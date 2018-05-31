@@ -41,9 +41,46 @@
       </ion-row>
       <ion-row align-items-end text-center>
         <ion-col>
-          <button ion-button round small outline color="danger" [disabled]="!userEditForm.form.valid" (click)="updateUser()">guardar cambios</button>
+          <button ion-button round outline color="danger" [disabled]="!userEditForm.form.valid" (click)="updateUser()">Guardar cambios</button>
         </ion-col>
       </ion-row>
     </ion-grid>
   </form>
+
+  <hr />
+
+  <ion-grid class="super-cool-grid">
+    <ion-row *ngIf="favorites.length > 0">
+      <ion-col text-center padding>
+        <h3>Tu lista de favoritos</h3>
+      </ion-col>
+    </ion-row>
+    <ion-row *ngIf="favorites.length == 0">
+      <ion-col text-center padding>
+        <h3>No tienes ningun favorito aun</h3>
+      </ion-col>
+    </ion-row>
+    <ion-row *ngFor="let favorite of favorites;">
+      <ion-col>
+        <div [ngSwitch]="favorite.type">
+          <span *ngSwitchCase="'grades'">Grado</span>
+          <span *ngSwitchCase="'universities'">Universidad</span>
+          <span *ngSwitchCase="'colleges'">Colegio Mayor</span>
+        </div>
+        <div [ngSwitch]="favorite.type">
+          <div *ngSwitchCase="'universities'">
+            <p [innerHTML]="favorite.university"></p>
+          </div>
+          <div *ngSwitchCase="'grades'">
+            <p [innerHTML]="favorite.grade"></p>
+          </div>
+          <div *ngSwitchCase="'colleges'">
+            <p [innerHTML]="favorite.name"></p>
+          </div>
+          <button ion-button round small outline color="danger" (click)="viewFavorite(favorite)">Ver</button>
+          <button ion-button round small color="danger" (click)="deleteFavorite(favorite)">Borrar</button>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>

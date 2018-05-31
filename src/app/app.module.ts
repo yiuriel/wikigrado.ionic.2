@@ -10,18 +10,16 @@ import { NativeGeocoder } from '@ionic-native/native-geocoder';
 import { InAppBrowser } from '@ionic-native/in-app-browser';
 import { IonicStorageModule } from '@ionic/storage';
 import { Camera } from '@ionic-native/camera';
+import { SocialSharing } from '@ionic-native/social-sharing';
 
 import { ComponentsModule } from '../components/components.module'
 import { PipesModule } from '../pipes/pipes.module'
 
 import { MyApp } from './app.component';
-import { HomePage } from '../pages/home/home';
-import { ListPage } from '../pages/list/list';
 import { SimulatesplashPage } from '../pages/simulatesplash/simulatesplash';
 import { InitialSliderPage } from '../pages/initial-slider/initial-slider';
 import { RegisterPage } from '../pages/register/register';
 import { LoginPage } from '../pages/login/login';
-import { RegisterPictureStepPage } from '../pages/register-picture-step/register-picture-step';
 
 import { TestPage } from '../pages/test/test';
 import { PretestPage } from '../pages/pretest/pretest';
@@ -50,8 +48,6 @@ import { ToasterProvider } from '../providers/toaster/toaster';
 @NgModule({
   declarations: [
     MyApp,
-    HomePage,
-    ListPage,
     SimulatesplashPage,
     InitialSliderPage,
     RegisterPage,
@@ -63,7 +59,6 @@ import { ToasterProvider } from '../providers/toaster/toaster';
     UniversidadesPage,
     ColegiosMayoresPage,
     FavoritosPage,
-    RegisterPictureStepPage,
     UserProfilePage,
     OrientationVideosAfterTestPage,
   ],
@@ -84,8 +79,6 @@ import { ToasterProvider } from '../providers/toaster/toaster';
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    HomePage,
-    ListPage,
     SimulatesplashPage,
     InitialSliderPage,
     RegisterPage,
@@ -97,7 +90,6 @@ import { ToasterProvider } from '../providers/toaster/toaster';
     UniversidadesPage,
     ColegiosMayoresPage,
     FavoritosPage,
-    RegisterPictureStepPage,
     UserProfilePage,
     OrientationVideosAfterTestPage,
   ],
@@ -110,6 +102,7 @@ import { ToasterProvider } from '../providers/toaster/toaster';
     NativeGeocoder,
     GoogleAnalytics,
     Camera,
+    SocialSharing,
     ScreenOrientation,
     LaunchNavigator,
     UserProvider,

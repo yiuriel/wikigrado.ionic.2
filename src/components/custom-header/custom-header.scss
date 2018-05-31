@@ -1,10 +1,15 @@
 [customheader] {
   display: block;
   .app-menu-logo {
-    width: 75%;
+    width: 18%;
+    background-color: white;
+    border-radius: 5px;
+    display: block;
+    margin: auto;
   }
-  .toolbar-background {
-    background-color: #333;
+
+  .user-profile {
+    width: 43px;
   }
 
   ion-title {

@@ -1,6 +1,6 @@
 page-login {
   ion-content {
-    background-image: url('../../assets/imgs/register.jpg');
+    // background-image: url('../../assets/imgs/register.jpg');
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
@@ -9,6 +9,9 @@ page-login {
       ion-grid {
         min-height: 100%;
         justify-content: center;
+      }
+      .list > .item-block:first-child {
+        border-top: 0;
       }
       .item {
         background-color: transparent;

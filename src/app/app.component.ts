@@ -7,16 +7,18 @@ import { HttpClientModule } from '@angular/common/http';
 import { UserProvider } from '../providers/user/user';
 import { AnalyticsProvider } from '../providers/analytics/analytics';
 import { TestStorageProvider } from '../providers/test-storage/test-storage';
+import { AllAppDataProvider } from '../providers/all-app-data/all-app-data';
 
 // import { InitialSliderPage } from '../pages/initial-slider/initial-slider';
 
 // pages for menu
 import { LoginPage } from '../pages/login/login';
 import { PretestPage } from '../pages/pretest/pretest';
+import { TestPage } from '../pages/test/test';
 import { GradosPage } from '../pages/grados/grados';
 import { UniversidadesPage } from '../pages/universidades/universidades';
 import { ColegiosMayoresPage } from '../pages/colegios-mayores/colegios-mayores';
-import { FavoritosPage } from '../pages/favoritos/favoritos';
+// import { FavoritosPage } from '../pages/favoritos/favoritos';
 import { SimulatesplashPage } from '../pages/simulatesplash/simulatesplash';
 import { UserProfilePage } from '../pages/user-profile/user-profile';
 import { OrientationVideosAfterTestPage } from '../pages/orientation-videos-after-test/orientation-videos-after-test';
@@ -33,7 +35,7 @@ export class MyApp {
 
   pages: Array<{icon: string, title: string, component: any}>;
 
-  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen, public tracker: AnalyticsProvider, public userService: UserProvider, public testStorageService: TestStorageProvider, public menuCtrl: MenuController) {
+  constructor(public platform: Platform, public allAppDataService :AllAppDataProvider, public statusBar: StatusBar, public splashScreen: SplashScreen, public tracker: AnalyticsProvider, public userService: UserProvider, public testStorageService: TestStorageProvider, public menuCtrl: MenuController) {
     this.initializeApp();
 
     let testMenuComponent;
@@ -41,12 +43,12 @@ export class MyApp {
       testMenuComponent = component;
 
       this.pages = [
+        { icon: 'md-home', title: 'Inicio', component: PretestPage },
         { icon: 'md-book', title: 'Test de Personalidad', component: {function: this.checkIfPretestOrTest} },
         { icon: 'md-school', title: 'Grados y Salidas Profesionales', component: GradosPage },
         { icon: 'md-ribbon', title: 'Universidades', component: UniversidadesPage },
         { icon: 'md-paper', title: 'Colegios Mayores', component: ColegiosMayoresPage },
         { icon: 'person', title: 'Perfil', component: UserProfilePage },
-        { icon: 'md-star', title: 'Favoritos', component: FavoritosPage },
       ];
     });
   }
@@ -57,7 +59,7 @@ export class MyApp {
         if (value) {
           callback(OrientationVideosAfterTestPage);
         } else {
-          callback(PretestPage);
+          callback(TestPage);
         }
       }
     })
