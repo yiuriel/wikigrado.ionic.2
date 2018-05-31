@@ -99,7 +99,7 @@ public favoritesService: FavoritesProvider, public allAppDataService: AllAppData
         this.loaderService.hideLoader();
         this.toasterService.showToast({message: 'Hubo un error, vuelve a intentarlo más tarde.'});
       } else {
-        this.tracker.trackEvent('favoritos', 'remover', favorite.type, itemName);
+        this.tracker.trackEvent('favoritos', 'remover ' + favorite.type, itemName);
         this.getFavorites(() => {
           this.loaderService.hideLoader();
         });

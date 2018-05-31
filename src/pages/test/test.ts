@@ -132,7 +132,7 @@ export class TestPage {
 
   ionViewWillLeave() {
     if (this.testProgress < 100) {
-      this.tracker.trackEvent('Test de orientacion', 'sin resultados', 'dejar el test sin terminar', this.userData.age);
+      this.tracker.trackEvent('test de orientacion', 'sin resultados', 'salir del test');
     }
   }
 
@@ -154,10 +154,10 @@ export class TestPage {
   }
 
   trackOrientations(orientations, userData) {
-    this.tracker.trackEvent('Test de orientacion', 'resultados', orientations.first_orientation, userData.age);
-    this.tracker.trackEvent('Test de orientacion', 'resultados', orientations.second_orientation, userData.age);
+    this.tracker.trackEvent('test de orientacion', 'primer resultado', orientations.first_orientation);
+    this.tracker.trackEvent('test de orientacion', 'segundo resultado', orientations.second_orientation);
     if (orientations.third_orientation) {
-      this.tracker.trackEvent('Test de orientacion', 'resultados', orientations.third_orientation, userData.age);
+      this.tracker.trackEvent('test de orientacion', 'tercer resultado', orientations.third_orientation);
     }
   }
 

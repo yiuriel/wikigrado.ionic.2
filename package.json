@@ -27,7 +27,7 @@
     "@ionic-native/in-app-browser": "^4.6.0",
     "@ionic-native/launch-navigator": "^4.6.0",
     "@ionic-native/market": "^4.7.0",
-    "@ionic-native/native-geocoder": "^4.6.0",
+    "@ionic-native/native-geocoder": "^4.7.0",
     "@ionic-native/screen-orientation": "^4.6.0",
     "@ionic-native/social-sharing": "^4.7.0",
     "@ionic-native/splash-screen": "4.4.0",
@@ -81,13 +81,13 @@
       "cordova-plugin-ionic-webview": {},
       "cordova-plugin-ionic-keyboard": {},
       "cordova-plugin-google-analytics": {},
-      "cordova-plugin-nativegeocoder": {
-        "LOCATION_WHEN_IN_USE_DESCRIPTION": "Use geocoder service"
-      },
       "cordova-plugin-inappbrowser": {},
       "cordova-plugin-camera": {},
       "cordova-plugin-x-socialsharing": {},
-      "cordova-plugin-market": {}
+      "cordova-plugin-market": {},
+      "cordova-plugin-nativegeocoder": {
+        "LOCATION_WHEN_IN_USE_DESCRIPTION": "Use geocoder service"
+      }
     },
     "platforms": [
       "android",

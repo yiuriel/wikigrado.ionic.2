@@ -41,28 +41,28 @@ export class GradoPage {
       switch (shareType) {
         case 'whatsapp':
           this.social.shareViaWhatsApp('unete a wikigrado', 'assets/imgs/wiki_red.png', 'https://www.wikigrado.es/').then(shareSuccess => {
-            this.tracker.trackEvent('social', 'compartir', shareType, itemName);
+            this.tracker.trackEvent('social', 'compartir ' + shareType, itemName);
           }).catch(error => {
             this.noAppAlert();
           });
         break;
         case 'facebook':
           this.social.shareViaFacebook('unete a wikigrado', 'assets/imgs/wiki_red.png', 'https://www.wikigrado.es/').then(shareSuccess => {
-            this.tracker.trackEvent('social', 'compartir', shareType, itemName);
+            this.tracker.trackEvent('social', 'compartir ' + shareType, itemName);
           }).catch(error => {
             this.noAppAlert();
           });
         break;
         case 'twitter':
           this.social.shareViaTwitter('unete a wikigrado', 'assets/imgs/wiki_red.png', 'https://www.wikigrado.es/').then(shareSuccess => {
-            this.tracker.trackEvent('social', 'compartir', shareType, itemName);
+            this.tracker.trackEvent('social', 'compartir ' + shareType, itemName);
           }).catch(error => {
             this.noAppAlert();
           });
         break;
         case 'email':
           this.social.shareViaEmail('unete a wikigrado', 'La App de wikigrado es genial, visita el sitio https://www.wikigrado.es/', []).then(shareSuccess => {
-            this.tracker.trackEvent('social', 'compartir', shareType, itemName);
+            this.tracker.trackEvent('social', 'compartir ' + shareType, itemName);
           }).catch(error => {
             this.noAppAlert();
           });
@@ -101,13 +101,13 @@ export class GradoPage {
 
   openUrl(url, name) {
     this.iab.create(url, "_blank", {closebuttoncaption: "ok"});
-    this.tracker.trackEvent('links', 'web universidad', name, url);
+    this.tracker.trackEvent('links', 'web universidad ' + name, url);
   }
 
   callPhoneNumber(number) {
     const n = number.replace(/\s/g, "");
     this.iab.create("tel:" + n, "_system", {closebuttoncaption: "ok", location: 'no'});
-    this.tracker.trackEvent('llamadas', 'llamar', this.item.type, n);
+    this.tracker.trackEvent('llamadas', 'llamar ' + this.item.type, n);
   }
 
   viewLocation(location) {
@@ -115,6 +115,8 @@ export class GradoPage {
       return {
         text: app.replace(/_/g, " "),
         handler: () => {
+          const itemName = this.getItemName(this.item);
+          this.tracker.trackEvent('mapa', app, itemName);
           this.openApp(app, location)
         }
       }

@@ -28,7 +28,6 @@ export class PretestPage {
   }
 
   goToTestPage() {
-    this.tracker.trackEvent('pre test page', this.tracker.CLICK_ACTION, 'ir al test', this.tracker.BUTTON_IN_VIEW);
     this.navCtrl.setRoot(TestPage, {}, {animate: true})
   }
 

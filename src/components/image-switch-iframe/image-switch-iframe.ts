@@ -43,10 +43,10 @@ export class ImageSwitchIframeComponent {
       if (this.url.indexOf("vimeo") > -1) {
         let player = new Player(this.videoFrame.nativeElement);
         player.on('play', () => {
-          this.tracker.trackEvent('video', 'ver video vimeo', this.name, 1);
+          this.tracker.trackEvent('video', 'vimeo', this.name);
         });
       } else {
-        this.tracker.trackEvent('video', 'ver video youtube', this.name, 1);
+        this.tracker.trackEvent('video', 'youtube', this.name);
       }
     //   player.on('ended', () => {
     //     this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT);

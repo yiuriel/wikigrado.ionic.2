@@ -65,8 +65,8 @@ export class AnalyticsProvider {
     this.ga.setUserId(id);
   }
 
-  trackEvent(category, action, label, value) {
-    this.ga.trackEvent(category, action, label, value);
+  trackEvent(category, action, label) {
+    this.ga.trackEvent(category, action, label);
   }
 
 }
