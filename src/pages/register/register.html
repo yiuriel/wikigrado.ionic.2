@@ -12,18 +12,20 @@
 
             <ion-item>
               <ion-label stacked>Nombre</ion-label>
-              <ion-input #firstname="ngModel" name="firstname" minlength="3" required [(ngModel)]="user.first_name" type="text"></ion-input>
+              <ion-input #firstname="ngModel" name="firstname" minlength="2" maxlength="50" required [(ngModel)]="user.first_name" type="text"></ion-input>
             </ion-item>
             <div class="form-error" *ngIf="firstname.invalid && (firstname.dirty || firstname.touched) && firstname.errors">
               <div *ngIf="firstname.errors.required">El nombre es requerido.</div>
+              <div *ngIf="firstname.errors.minlength">Minimo 2 caracteres.</div>
             </div>
 
             <ion-item>
               <ion-label stacked>Apellido</ion-label>
-              <ion-input #lastname="ngModel" name="lastname" minlength="3" required [(ngModel)]="user.last_name" type="text"></ion-input>
+              <ion-input #lastname="ngModel" name="lastname" minlength="2" maxlength="50" required [(ngModel)]="user.last_name" type="text"></ion-input>
             </ion-item>
             <div class="form-error" *ngIf="lastname.invalid && (lastname.dirty || lastname.touched) && lastname.errors">
               <div *ngIf="lastname.errors.required">El apellido es requerido.</div>
+              <div *ngIf="lastname.errors.minlength">Minimo 2 caracteres.</div>
             </div>
 
             <ion-item>
@@ -38,11 +40,12 @@
 
             <ion-item>
               <ion-label stacked>Email</ion-label>
-              <ion-input #email="ngModel" name="email" minlength="3" required [(ngModel)]="user.email" (ionBlur)="checkEmail()" #registeremail="ngModel" [email]="true" type="email"></ion-input>
+              <ion-input #email="ngModel" name="email" minlength="3" maxlength="80" required [(ngModel)]="user.email" (ionBlur)="checkEmail()" #registeremail="ngModel" [email]="true" type="email"></ion-input>
             </ion-item>
             <div class="form-error" *ngIf="email.invalid && (email.dirty || email.touched) && email.errors">
               <div *ngIf="email.errors.required">El email es requerido.</div>
-              <div *ngIf="email.errors.email && email.errors.minlength">El formato del email es incorrecto.</div>
+              <div *ngIf="email.errors.email">El formato del email es incorrecto.</div>
+              <div *ngIf="email.errors.minlength">Minimo 3 caracteres.</div>
             </div>
 
             <ion-item>
@@ -52,7 +55,7 @@
             </ion-item>
             <div class="form-error" *ngIf="password.invalid && (password.dirty || password.touched) && password.errors">
               <div *ngIf="password.errors.required">La contrase&ntilde;a es obligatoria. debe tener entre 8 y 14 caracteres.</div>
-              <div *ngIf="password.errors.minlength">La contrase&ntilde;a debe tener al menos 8.</div>
+              <div *ngIf="password.errors.minlength">La contrase&ntilde;a debe tener al menos 8 caracteres.</div>
             </div>
 
             <ion-item>
@@ -64,23 +67,19 @@
               </ion-slides>
             </ion-item>
 
-            <ion-item>
-              <ion-label>Aceptar <a href="#" (click)="privacyPolicyModal()">politica de privacidad</a></ion-label>
-              <ion-checkbox color="danger" #privacy_policy_accept="ngModel" name="privacy_policy_accept" [(ngModel)]="user.privacy_policy_accept" required></ion-checkbox>
+            <ion-item text-center padding-top>
+              <ion-label (click)="seePrivacyPolicy()">ver <span style="color: dodgerblue;">politica de privacidad</span></ion-label>
             </ion-item>
-            <div class="form-error" *ngIf="privacy_policy_accept.invalid && (privacy_policy_accept.dirty || privacy_policy_accept.touched) && privacy_policy_accept.errors">
-              <div *ngIf="privacy_policy_accept.errors.required">Debes aceptar la politica de privacidad para crear tu cuenta.</div>
+            <div class="form-error" *ngIf="!accept">
+              debes aceptar la politica de privacidad para registrarte
             </div>
           </ion-list>
         </form>
       </ion-col>
     </ion-row>
     <ion-row align-items-end text-center>
-      <!-- <ion-col>
-        <button ion-button round small outline color="danger" [disabled]="!userForm.form.valid" (click)="goToPicturePage()">subir foto</button>
-      </ion-col> -->
       <ion-col text-right>
-        <button ion-button round color="danger" opacity [disabled]="!userForm.form.valid" (click)="register()">Registrarme</button>
+        <button ion-button round color="danger" opacity [disabled]="!userForm.form.valid || !accept" (click)="register()">Registrarme</button>
       </ion-col>
       <ion-col>
         <button ion-button round outline color="light" opacity back-button (click)="goBack()">Volver</button>

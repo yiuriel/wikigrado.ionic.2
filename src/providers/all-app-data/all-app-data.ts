@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { EnvProvider } from '../env/env';
 import { Injectable } from '@angular/core';
 
@@ -11,6 +11,7 @@ export class AllAppDataProvider {
   collegesData: {[key: string]: any}
   grades_computed: Array<number>;
   universities_computed: Array<number>;
+  authHeaders: any;
 
   constructor(public http: HttpClient, private env: EnvProvider) {
     this.grades_computed = [];
@@ -18,6 +19,16 @@ export class AllAppDataProvider {
 
     this.BASEURL = this.env.getEnvironmentUrl('production') + "/data";
     this.COLLEGESURL = this.BASEURL + "/colleges";
+
+    const authStr = 'Qzmea0rxbgO7ts3deYeUME wikigrado SSY0UFT2q9LInWF3lW44AfXYz7dIXN';
+    const authStrKey = authStr.substr(Math.round(Math.random() * authStr.length / 2), Math.round(Math.random() * authStr.length / 2) + 10);
+    this.authHeaders = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': authStr,
+        'Authorization-Key': authStrKey
+      })
+    };
 
     this.getAllData((data, error) => {
       if (!error) {
@@ -30,10 +41,11 @@ export class AllAppDataProvider {
         this.collegesData = data;
       }
     });
+
   }
 
   getAllData(callback) {
-    this.http.get(this.BASEURL + "/").subscribe(data => {
+    this.http.get(this.BASEURL + "/", this.authHeaders).subscribe(data => {
       callback(data, null);
     }, error => {
       callback(null, error);
@@ -41,7 +53,7 @@ export class AllAppDataProvider {
   }
 
   getCollegesData(callback) {
-    this.http.get(this.COLLEGESURL + "/").subscribe(data => {
+    this.http.get(this.COLLEGESURL + "/", this.authHeaders).subscribe(data => {
       callback(data, null);
     }, error => {
       callback(null, error);

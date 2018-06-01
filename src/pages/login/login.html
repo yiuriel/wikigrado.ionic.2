@@ -12,11 +12,12 @@
 
             <ion-item>
               <ion-label stacked>Email</ion-label>
-              <ion-input #email="ngModel" minlength="3" required name="email" [(ngModel)]="user.email" [email]="true" type="email"></ion-input>
+              <ion-input #email="ngModel" minlength="3" maxlength="80" required name="email" [(ngModel)]="user.email" [email]="true" type="email"></ion-input>
             </ion-item>
             <div class="form-error" *ngIf="email.invalid && (email.dirty || email.touched) && email.errors">
               <div *ngIf="email.errors.required">El email es requerido.</div>
-              <div *ngIf="email.errors.email && email.errors.minlength">El formato del email es incorrecto.</div>
+              <div *ngIf="email.errors.email">El formato del email es incorrecto.</div>
+              <div *ngIf="email.errors.minlength">Minimo 3 caracteres.</div>
             </div>
 
             <ion-item>
@@ -26,7 +27,7 @@
             </ion-item>
             <div class="form-error" *ngIf="password.invalid && (password.dirty || password.touched) && password.errors">
               <div *ngIf="password.errors.required">La contrase&ntilde;a es obligatoria. debe tener entre 8 y 14 caracteres.</div>
-              <div *ngIf="password.errors.minlength">La contrase&ntilde;a debe tener al menos 8.</div>
+              <div *ngIf="password.errors.minlength">La contrase&ntilde;a debe tener al menos 8 caracteres.</div>
             </div>
 
           </ion-list>

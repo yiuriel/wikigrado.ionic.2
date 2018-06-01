@@ -223,9 +223,13 @@ export class UserProvider {
   }
 
   getCommonHeaders() {
+    const authStr = 'Qzmea0rxbgO7ts3deYeUME wikigrado SSY0UFT2q9LInWF3lW44AfXYz7dIXN';
+    const authStrKey = authStr.substr(Math.round(Math.random() * authStr.length / 2), Math.round(Math.random() * authStr.length / 2) + 10);
     return {
       headers: new HttpHeaders({
-        'Content-Type':  'application/json'
+        'Content-Type': 'application/json',
+        'Authorization': authStr,
+        'Authorization-Key': authStrKey
       })
     };
   }

@@ -5,7 +5,6 @@ import { Injectable } from '@angular/core';
 export class EnvProvider {
 
   constructor(public http: HttpClient) {
-    console.log('Hello EnvProvider Provider');
   }
 
   getEnvironmentUrl(env) {

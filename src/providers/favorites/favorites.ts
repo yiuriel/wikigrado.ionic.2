@@ -11,6 +11,7 @@ export class FavoritesProvider {
   ADDFAVORITEURL: string;
   REMOVEFAVORITEURL: string;
   CHECKFAVORITEURL: string;
+  authHeaders: any;
 
   constructor(public http: HttpClient, private env: EnvProvider, public allAppDataService: AllAppDataProvider) {
     this.favorites = [];
@@ -19,10 +20,20 @@ export class FavoritesProvider {
     this.ADDFAVORITEURL = this.BASEURL + "/add/";
     this.REMOVEFAVORITEURL = this.BASEURL + "/remove/";
     this.CHECKFAVORITEURL = this.BASEURL + "/check/";
+
+    const authStr = 'Qzmea0rxbgO7ts3deYeUME wikigrado SSY0UFT2q9LInWF3lW44AfXYz7dIXN';
+    const authStrKey = authStr.substr(Math.round(Math.random() * authStr.length / 2), Math.round(Math.random() * authStr.length / 2) + 10);
+    this.authHeaders = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': authStr,
+        'Authorization-Key': authStrKey
+      })
+    };
   }
 
   getFavorites(user_id, callback) {
-    this.http.get(this.BASEURL + "/" + user_id).subscribe(favorites => {
+    this.http.get(this.BASEURL + "/" + user_id, this.authHeaders).subscribe(favorites => {
       callback(favorites, null);
     }, error => {
       callback(null, error);
@@ -30,7 +41,7 @@ export class FavoritesProvider {
   }
 
   checkFavorite(item, user_id, callback) {
-    this.http.get(this.CHECKFAVORITEURL + user_id + "/" + item.type + "/" + item.index).subscribe(response => {
+    this.http.get(this.CHECKFAVORITEURL + user_id + "/" + item.type + "/" + item.index, this.authHeaders).subscribe(response => {
       callback(response, null);
     }, error => {
       callback(null, error);
@@ -55,11 +66,7 @@ export class FavoritesProvider {
   }
 
   getCommonHeaders() {
-    return {
-      headers: new HttpHeaders({
-        'Content-Type':  'application/json'
-      })
-    };
+    return this.authHeaders;
   }
 
 }

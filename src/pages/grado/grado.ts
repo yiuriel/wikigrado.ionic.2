@@ -35,6 +35,18 @@ export class GradoPage {
     }
   }
 
+  getItemNameForMapTrack(item) {
+    if (item.type === 'grades') {
+      return item.main_university.university;
+    }
+    if (item.type === 'universities') {
+      return item.university;
+    }
+    if (item.type === 'colleges') {
+      return item.name;
+    }
+  }
+
   shareVia(item, shareType) {
     let itemName = this.getItemName(item);
     this.social.canShareVia(shareType).then((success) => {
@@ -105,9 +117,10 @@ export class GradoPage {
   }
 
   callPhoneNumber(number) {
+    const itemName = this.getItemName(this.item);
     const n = number.replace(/\s/g, "");
     this.iab.create("tel:" + n, "_system", {closebuttoncaption: "ok", location: 'no'});
-    this.tracker.trackEvent('llamadas', 'llamar ' + this.item.type, n);
+    this.tracker.trackEvent('llamadas', 'llamar ' + this.item.type + " " + itemName, n);
   }
 
   viewLocation(location) {
@@ -115,7 +128,7 @@ export class GradoPage {
       return {
         text: app.replace(/_/g, " "),
         handler: () => {
-          const itemName = this.getItemName(this.item);
+          const itemName = this.getItemNameForMapTrack(this.item);
           this.tracker.trackEvent('mapa', app, itemName);
           this.openApp(app, location)
         }
