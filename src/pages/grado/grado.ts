@@ -59,7 +59,7 @@ export class GradoPage {
           });
         break;
         case 'facebook':
-          this.social.shareViaFacebook('unete a wikigrado', 'assets/imgs/wiki_red.png', 'https://www.wikigrado.es/').then(shareSuccess => {
+          this.social.shareViaFacebookWithPasteMessageHint('unete a wikigrado', '', '').then(shareSuccess => {
             this.tracker.trackEvent('social', 'compartir ' + shareType, itemName);
           }).catch(error => {
             this.noAppAlert();

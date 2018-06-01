@@ -113,6 +113,10 @@ ion-label p.label {
   color: $white9 !important;
 }
 
+ion-menu .button-md {
+  height: auto;
+}
+
 .list > .item {
   background: transparent;
   .input-wrapper {

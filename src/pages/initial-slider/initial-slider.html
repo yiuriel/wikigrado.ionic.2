@@ -2,16 +2,16 @@
   <ion-slides pager>
     <ion-slide *ngFor="let slide of slidesData; let i = index;">
       <ion-toolbar>
-        <ion-buttons start>
+        <ion-buttons start left>
           <img style="width: 40px;" src="assets/imgs/medium-logo-fit.png" class="app-menu-logo" />
         </ion-buttons>
         <img src="assets/imgs/wiki_red.png" style="width: 50%;margin-top: 10px;"/>
-        <ion-buttons end>
+        <ion-buttons end right>
           <button ion-button color="light" (click)="goToSlide(i + 1)">Siguiente</button>
         </ion-buttons>
       </ion-toolbar>
       <!-- <h2 class="slide-title" [innerHTML]="slide.title"></h2> -->
-      <p padding justify [innerHTML]="slide.description"></p>
+      <p padding-bottom padding-left padding-right justify [innerHTML]="slide.description"></p>
       <div *ngIf="slide.icons" [innerHTML]="slide.icons">
 
       </div>

@@ -75,13 +75,20 @@ page-grado {
     }
   }
 
+  ion-toolbar {
+    ion-icon.android {
+      color: white;
+      font-size: 2em;
+    }
+  }
+
   .toolbar-title {
     color: black;
   }
   .toolbar-background {
     background-color: $lightergrey;
   }
-  .text-ios-primary {
+  .text-primary {
     color: $white;
   }
   [color="light"] {

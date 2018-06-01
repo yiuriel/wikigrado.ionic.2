@@ -7,13 +7,13 @@
         <span *ngSwitchCase="'colleges'">Colegio Mayor</span>
       </div> -->
     </ion-title>
-    <ion-buttons start>
+    <ion-buttons start left>
       <button ion-button (click)="dismiss()">
         <span ion-text color="primary" showWhen="ios">Volver</span>
-        <ion-icon name="md-close" showWhen="android, windows"></ion-icon>
+        <ion-icon class="android" name="md-arrow-back" showWhen="android, windows"></ion-icon>
       </button>
     </ion-buttons>
-    <ion-buttons end addtofavoriteheader [favoriteItem]="item"></ion-buttons>
+    <ion-buttons end right addtofavoriteheader [favoriteItem]="item"></ion-buttons>
   </ion-toolbar>
 </ion-header>
 
