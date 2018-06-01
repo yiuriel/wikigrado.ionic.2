@@ -2,7 +2,7 @@ import { Component, ViewChild } from '@angular/core';
 import { NavController, NavParams, Slides, AlertController } from 'ionic-angular';
 import { UserProvider } from '../../providers/user/user';
 import { AnalyticsProvider } from '../../providers/analytics/analytics';
-import { PretestPage } from '../pretest/pretest';
+// import { PretestPage } from '../pretest/pretest';
 // import { RegisterPictureStepPage } from '../register-picture-step/register-picture-step';
 import { LoaderProvider } from '../../providers/loader/loader';
 import { ToasterProvider } from '../../providers/toaster/toaster';
@@ -53,10 +53,20 @@ export class RegisterPage {
             return this.toasterService.showToast({message: 'Ya existe un usuario con este email'});
         }
       } else {
-        this.toasterService.showToast({message: 'te registraste exitosamente, luego de verificar tu email podras loguearte.', duration: 10000});
+        this.registerSuccessAlert();
+        // this.toasterService.showToast({message: '', duration: 10000});
         // this.navCtrl.setRoot(PretestPage);
       }
     });
+  }
+
+  registerSuccessAlert() {
+    const alert = this.alertCtrl.create({
+      title: '¡Registro Exitoso!',
+      subTitle: 'Te has registrado exitosamente, verifica tu email para poder loguearte.',
+      buttons: ['Aceptar']
+    });
+    alert.present();
   }
 
   checkEmail() {
