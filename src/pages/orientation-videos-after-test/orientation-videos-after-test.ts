@@ -30,7 +30,7 @@ export class OrientationVideosAfterTestPage {
       height: (width * 9) / 16,
     }
 
-    const orientations = [this.user.first_orientation, this.user.second_orientation, this.user.third_orientation].filter(orientation => orientation !== null);
+    const orientations = this.user.orientations.split(",");
     this.videos = this.orientationVideosService.getVideosBasedOnOrientations(orientations);
   }
 

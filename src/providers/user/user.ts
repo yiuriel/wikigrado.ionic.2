@@ -165,7 +165,7 @@ export class UserProvider {
     this.getUserData((data, error) => {
       if (!error) {
         const httpOptions = this.getCommonHeaders();
-        const newData = {id: data.id, ...orientations, app_enabled_param: true};
+        const newData = {id: data.id, orientations: orientations, app_enabled_param: true};
         this.http.put<{[key: string]: any}>(this.UPDATEORIENTATIONS, newData, httpOptions).subscribe(data => {
           if (data && data[0]) {
             callback(data[0]);

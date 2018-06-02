@@ -1,45 +1,40 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { EnvProvider } from '../env/env';
 
-/*
-  Generated class for the OrientationVideosProvider provider.
-
-  See https://angular.io/guide/dependency-injection for more info on providers
-  and Angular DI.
-*/
 @Injectable()
 export class OrientationVideosProvider {
 
   videos: Array<{[key: string]: any}>
+  BASEURL: string;
+  authHeaders: any;
 
-  constructor(public http: HttpClient) {
-    this.videos = [
-      {
-        orientation: 'arte',
-        career: 'Grados Artísticos',
-        url: 'https://player.vimeo.com/video/250976505'
-      },
-      {
-        orientation: 'tecnologia',
-        career: 'Grados en Tecnologias',
-        url: 'https://player.vimeo.com/video/250969615'
-      },
-      {
-        orientation: 'humanidades',
-        career: 'Grados en Humanidades',
-        url: 'https://player.vimeo.com/video/250955010'
-      },
-      {
-        orientation: 'sociales',
-        career: 'Grados en Ciencias Sociales',
-        url: 'https://player.vimeo.com/video/247694448'
-      },
-      {
-        orientation: 'salud',
-        career: 'Grados en Ciencias de la Salud',
-        url: 'https://player.vimeo.com/video/247675245'
+  constructor(public http: HttpClient, private env: EnvProvider) {
+    this.BASEURL = this.env.getEnvironmentUrl('production') + "/data/orientation_videos";
+
+    const authStr = 'Qzmea0rxbgO7ts3deYeUME wikigrado SSY0UFT2q9LInWF3lW44AfXYz7dIXN';
+    const authStrKey = authStr.substr(Math.round(Math.random() * authStr.length / 2), Math.round(Math.random() * authStr.length / 2) + 10);
+    this.authHeaders = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': authStr,
+        'Authorization-Key': authStrKey
+      })
+    };
+
+    this.getOrientationVideos((videos, error) => {
+      if (!error) {
+        this.videos = videos;
       }
-    ];
+    });
+  }
+
+  getOrientationVideos(callback) {
+    this.http.get(this.BASEURL, this.authHeaders).subscribe(videos => {
+      callback(videos, null);
+    }, error => {
+      callback(null, error);
+    })
   }
 
   getVideosBasedOnOrientations(orientations) {

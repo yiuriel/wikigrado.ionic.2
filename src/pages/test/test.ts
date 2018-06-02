@@ -22,6 +22,7 @@ export class TestPage {
   questionsPageData: string;
   questionsAnsweredData: string;
   userData: any;
+  orientations: Array<any>;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public userService: UserProvider, private testService: TestQuestionsProvider, public toasterService: ToasterProvider, public tracker: AnalyticsProvider, public loaderService: LoaderProvider, public testStorageService: TestStorageProvider) {
     this.activeCardIndex = 0;
@@ -29,6 +30,7 @@ export class TestPage {
     this.testProgress = 0;
     this.testAnswers = [];
     this.nextButtonDisable = [];
+    this.orientations = [];
     this.updateQuestionsPageData();
     this.updateQuestionsAnsweredData(0);
     this.userService.getUserData((data, error) => {
@@ -53,11 +55,11 @@ export class TestPage {
     }
     this.testAnswers[index][subindex] = {value: answer.value, type: answer.type};
     this.testProgress = this.updateProgress(this.testAnswers);
-    this.nextButtonDisable[index] = (this.testAnswers[index].filter(obj => obj.value.toString() === "1").length > 3) ? "disabled" : "";
+    this.nextButtonDisable[index] = "";
 
-    if (this.nextButtonDisable[index] === "disabled") {
-      this.toasterService.showToast({message: 'Solo puedes elegir "Si" 3 (tres) veces por pantalla'});
-    }
+    // if (this.nextButtonDisable[index] === "disabled") {
+    //   this.toasterService.showToast({message: 'Solo puedes elegir "Si" 3 (tres) veces por pantalla'});
+    // }
 
     const questionsAnswered = this.getAnsweredLength(this.testAnswers);
     this.updateQuestionsAnsweredData(questionsAnswered.length);
@@ -92,20 +94,10 @@ export class TestPage {
       repetitions[type] += 1;
     });
 
-    let first_orientation = this.getOrientation(repetitions);
-    let second_orientation = this.getOrientation(repetitions);
-    let third_orientation = this.getOrientation(repetitions);
-
-    if ((first_orientation.number > second_orientation.number) || second_orientation.number > third_orientation.number) {
-      third_orientation.orientation = null;
-    }
+    this.getOrientations(repetitions);
 
     this.loaderService.showLoader({content:'obteniendo el resultado del test...'});
-    const orientations = {
-      first_orientation: first_orientation.orientation,
-      second_orientation: second_orientation.orientation,
-      third_orientation: third_orientation.orientation
-    };
+    const orientations = this.orientations.join(",");
     this.userService.updateUserOrientations(
       orientations,
       (success, error) => {
@@ -118,7 +110,7 @@ export class TestPage {
                   this.navCtrl.setRoot(OrientationVideosAfterTestPage, {animate: true});
                 }
               })
-              this.trackOrientations(orientations, success);
+              this.trackOrientations();
             } else {
               this.toasterService.showToast({message: 'Hubo un error, vuelve a intentarlo más tarde.'});
             }
@@ -136,7 +128,28 @@ export class TestPage {
     }
   }
 
-  getOrientation(repetitions) {
+  getOrientations(repetitions) {
+    const orientation = this.getMaxOrientation(repetitions);
+    this.orientations.push(orientation.orientation);
+
+    const second_orientation = this.getMaxOrientation(repetitions);
+    this.orientations.push(second_orientation.orientation);
+
+    const third_orientation = this.getMaxOrientation(repetitions);
+    if (third_orientation.number === second_orientation.number) {
+      this.orientations.push(third_orientation.orientation);
+      const forth_orientation = this.getMaxOrientation(repetitions);
+      if (forth_orientation.number === third_orientation.number) {
+        this.orientations.push(forth_orientation.orientation);
+        const fifth_orientation = this.getMaxOrientation(repetitions);
+        if (fifth_orientation.number === forth_orientation.number) {
+          this.orientations.push(fifth_orientation.orientation);
+        }
+      }
+    }
+  }
+
+  getMaxOrientation(repetitions) {
     let keyToRemove = "";
     let min = 0;
     Object.keys(repetitions).forEach((key, index) => {
@@ -145,6 +158,7 @@ export class TestPage {
         keyToRemove = key;
       }
     });
+
     delete repetitions[keyToRemove];
     return {orientation: keyToRemove, number: min};
   }
@@ -153,12 +167,10 @@ export class TestPage {
     this.tracker.trackView('vista del test');
   }
 
-  trackOrientations(orientations, userData) {
-    this.tracker.trackEvent('test de orientacion', 'primer resultado', orientations.first_orientation);
-    this.tracker.trackEvent('test de orientacion', 'segundo resultado', orientations.second_orientation);
-    if (orientations.third_orientation) {
-      this.tracker.trackEvent('test de orientacion', 'tercer resultado', orientations.third_orientation);
-    }
+  trackOrientations() {
+    this.orientations.forEach(orientation => {
+      this.tracker.trackEvent('test de orientacion', 'primer resultado', orientation.orientation);
+    });
   }
 
 }

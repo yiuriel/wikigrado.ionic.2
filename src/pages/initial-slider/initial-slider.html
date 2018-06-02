@@ -6,8 +6,8 @@
           <img style="width: 40px;" src="assets/imgs/medium-logo-fit.png" class="app-menu-logo" />
         </ion-buttons>
         <img src="assets/imgs/wiki_red.png" style="width: 50%;margin-top: 10px;"/>
-        <ion-buttons end right>
-          <button ion-button color="light" (click)="goToSlide(i + 1)">Siguiente</button>
+        <ion-buttons end>
+          <button ion-button color="dark" (click)="goToSlide(i + 1)">Siguiente</button>
         </ion-buttons>
       </ion-toolbar>
       <!-- <h2 class="slide-title" [innerHTML]="slide.title"></h2> -->
@@ -15,6 +15,24 @@
       <div *ngIf="slide.icons" [innerHTML]="slide.icons">
 
       </div>
+    </ion-slide>
+    <ion-slide class="collaborators-slide">
+      <ion-toolbar>
+        <ion-buttons start left>
+          <img style="width: 40px;" src="assets/imgs/medium-logo-fit.png" class="app-menu-logo" />
+        </ion-buttons>
+        <img src="assets/imgs/wiki_red.png" style="width: 50%;margin-top: 10px;"/>
+        <ion-buttons end>
+          <button ion-button color="dark" (click)="goToSlide(3)">Siguiente</button>
+        </ion-buttons>
+      </ion-toolbar>
+
+      <p padding>Colaboradores que hicieron posible esta aplicacion:</p>
+      <ul>
+        <li *ngFor="let collaborator of collaborators;">
+          <img [src]="collaborator.src" [alt]="collaborator.alt" />
+        </li>
+      </ul>
     </ion-slide>
     <ion-slide class="last-slide">
       <div padding margin-bottom>

@@ -13,6 +13,7 @@ export class InitialSliderPage {
 
   @ViewChild(Slides) slides: Slides;
   slidesData: Array<any>
+  collaborators: Array<any>
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public tracker: AnalyticsProvider) {
     this.slidesData = [
@@ -27,6 +28,69 @@ export class InitialSliderPage {
         icons: `<div class="layer second-slide"><i class="fa-6x fas fa-globe"></i><i class="fa-4x fas fa-user"></i></div>`
       }
     ];
+
+    this.collaborators = [
+      {
+        src: 'assets/imgs/collaborators/mapfre.png',
+        alt: 'Mapfre'
+      },
+      {
+        src: 'assets/imgs/collaborators/elcorteingles.png',
+        alt: 'Viajes el corte ingles'
+      },
+      {
+        src: 'assets/imgs/collaborators/hm.png',
+        alt: 'HM Hospitales'
+      },
+      {
+        src: 'assets/imgs/collaborators/bodega.png',
+        alt: 'Bodegas Marqués de Vargas'
+      },
+      {
+        src: 'assets/imgs/collaborators/llorente.jpg',
+        alt: 'Llorente y Cuenca'
+      },
+      {
+        src: 'assets/imgs/collaborators/playstation.svg',
+        alt: 'Playstation'
+      },
+      {
+        src: 'assets/imgs/collaborators/utad.png',
+        alt: 'Utad'
+      },
+      {
+        src: 'assets/imgs/collaborators/esic.png',
+        alt: 'Esic'
+      },
+      {
+        src: 'assets/imgs/collaborators/sandamaso.png',
+        alt: 'San Dámaso'
+      },
+      {
+        src: 'assets/imgs/collaborators/udima.png',
+        alt: 'Udima'
+      },
+      {
+        src: 'assets/imgs/collaborators/lasalle.jpg',
+        alt: 'Lasalle'
+      },
+      {
+        src: 'assets/imgs/collaborators/ie.svg',
+        alt: 'IE'
+      },
+      {
+        src: 'assets/imgs/collaborators/deusto.png',
+        alt: 'Deusto'
+      },
+      {
+        src: 'assets/imgs/collaborators/schiller.png',
+        alt: 'Schiller'
+      },
+      {
+        src: 'assets/imgs/collaborators/universidad-navarra.png',
+        alt: 'Navarra'
+      }
+    ]
   }
 
   goToRegisterPage() {

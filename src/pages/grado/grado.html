@@ -66,13 +66,13 @@
           <div *ngIf="item.main_university.website" padding-bottom>
             <button ion-button round color="light" [class.has-logo]="item.main_university.logo" block class="university-link" (click)="openUrl(item.main_university.website, item.main_university.university)">
               <img [src]="'assets/imgs/university-logos/' + item.main_university.logo" *ngIf="item.main_university.logo" />
-              <span>Ir al sitio web de la universidad</span>
+              <span>Ir al sitio web</span>
             </button>
           </div>
           <div padding-bottom>
             <button ion-button round color="danger" block (click)="goTo(item.main_university, 'universities')">Ver en la app</button>
           </div>
-          <button round *ngIf="item.main_university.latitude && item.main_university.longitude" ion-button outline block color="light" (click)="viewLocation({latitude: item.main_university.latitude, longitude: item.main_university.longitude})">Ver en el mapa</button>
+          <button round *ngIf="item.main_university.latitude && item.main_university.longitude" ion-button outline block color="dark" (click)="viewLocation({latitude: item.main_university.latitude, longitude: item.main_university.longitude})">Ver en el mapa</button>
         </div>
       </div>
       <div *ngIf="item.list && item.list.length">
@@ -113,10 +113,10 @@
         <div *ngIf="item.website" padding-bottom>
           <button ion-button round color="light" [class.has-logo]="item.logo" block class="university-link" (click)="openUrl(item.website, item.name)">
             <img [src]="'assets/imgs/university-logos/' + item.logo" *ngIf="item.logo" />
-            <span>Ir al sitio web del colegio</span>
+            <span>Ir al sitio web</span>
           </button>
         </div>
-        <button round *ngIf="item.latitude && item.longitude" ion-button outline block color="light" (click)="viewLocation({latitude: item.latitude, longitude: item.longitude})">Ver en el mapa</button>
+        <button round *ngIf="item.latitude && item.longitude" ion-button outline block color="dark" (click)="viewLocation({latitude: item.latitude, longitude: item.longitude})">Ver en el mapa</button>
       </div>
     </div>
 
@@ -133,10 +133,10 @@
         <div *ngIf="item.website" padding-bottom>
           <button ion-button round color="light" [class.has-logo]="item.logo" block class="university-link" (click)="openUrl(item.website, item.university)">
             <img [src]="'assets/imgs/university-logos/' + item.logo" *ngIf="item.logo" />
-            <span>Ir al sitio web de la universidad</span>
+            <span>Ir al sitio web</span>
           </button>
         </div>
-        <button round *ngIf="item.latitude && item.longitude" ion-button outline block color="light" (click)="viewLocation({latitude: item.latitude, longitude: item.longitude})">Ver en el mapa</button>
+        <button round *ngIf="item.latitude && item.longitude" ion-button outline block color="dark" (click)="viewLocation({latitude: item.latitude, longitude: item.longitude})">Ver en el mapa</button>
       </div>
       <div *ngIf="item.grades.length">
         <h5 text-center color="light">Grados que imparte esta universidad:</h5>

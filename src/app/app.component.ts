@@ -43,12 +43,12 @@ export class MyApp {
       testMenuComponent = component;
 
       this.pages = [
-        { icon: 'md-home', title: 'Inicio', component: PretestPage },
-        { icon: 'md-book', title: 'Test de Personalidad', component: {function: this.checkIfPretestOrTest} },
+        { icon: 'ios-home', title: 'Inicio', component: PretestPage },
+        { icon: 'ios-list', title: 'Test de Personalidad', component: {function: this.checkIfPretestOrTest} },
         { icon: 'md-school', title: 'Grados y Salidas Profesionales', component: GradosPage },
-        { icon: 'md-ribbon', title: 'Universidades', component: UniversidadesPage },
+        { icon: 'ios-ribbon', title: 'Universidades', component: UniversidadesPage },
         { icon: 'md-paper', title: 'Colegios Mayores', component: ColegiosMayoresPage },
-        { icon: 'person', title: 'Perfil', component: UserProfilePage },
+        { icon: 'md-person', title: 'Perfil', component: UserProfilePage },
       ];
     });
   }

@@ -15,8 +15,10 @@
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
 
-$darkgrey: #333;
-$grey: #2A2928;
+$darkgrey: #FFF;
+// $darkgrey: #333;
+$grey: #FFF;
+// $grey: #2A2928;
 $lightgrey: lighten($grey, 5%);
 $lightergrey: lighten($grey, 10%);
 $morelightergrey: lighten($grey, 20%);
@@ -38,7 +40,7 @@ $lightdesaturategold: desaturate($lightgold, 20%);
 $red: #CC2424;
 $darkred: #A42424;
 $lightred: #DB6567;
-$white: #FFF;
+$white: #2A2928;
 $white9: rgba($white, 0.9);
 $white8: rgba($white, 0.8);
 $white7: rgba($white, 0.7);
@@ -58,8 +60,43 @@ $email: #B0BEC5;
 }
 
 .app-menu-logo {
-  background-color: $white;
+  background-color: transparent !important;
   border-radius: 6px;
+}
+
+.ion-ios-list:before {
+  font-size: 1.5em;
+}
+
+.collaborators-slide {
+  .slide-zoom {
+    overflow-y: auto;
+    padding-bottom: 16px;
+    ul {
+      padding-left: 0;
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      background-color: $gold;
+      border-radius: 15px;
+      li {
+        width: 100%;
+        margin: 0;
+        border-bottom: 2px solid $grey;
+        &:nth-child(even) {
+        }
+        &:nth-child(odd) {
+        }
+        img {
+          padding: 12px 8px 8px;
+          display: inline-block;
+          max-height: 60px;
+        }
+      }
+    }
+  }
 }
 
 .first-slide {
@@ -130,23 +167,19 @@ ion-menu .button-md {
       &:not(.has-video) {
         i {
           border-radius: 50%;
-          background-image: linear-gradient($darkgrey, $darkgrey), linear-gradient($white, $white5);
-          background-origin: border-box;
-          background-clip: content-box, border-box;
+          border: 3px solid $white5;
           color: $lightred;
         }
       }
       i {
-        width: 26px;
-        height: 26px;
+        width: 29px;
+        height: 29px;
         text-align: center;
-        line-height: 1.8em;
+        line-height: 1.85em;
         border: double 2px transparent;
         border-radius: 50%;
         color: $white9;
-        background-image: linear-gradient($darkgrey, $darkgrey), linear-gradient($lightappred, $gold);
-        background-origin: border-box;
-        background-clip: content-box, border-box;
+        border: 3px solid $appred;
       }
 
       .career-title {
@@ -177,15 +210,12 @@ ion-menu .button-md {
     // background-color: $lightyellow !important;
     ion-icon {
       padding: 0;
-      border-radius: 50%;
-      width: 2em;
-      height: 2em;
-      line-height: 1.8em;
+      border-radius: 80%;
+      width: 1.9em;
+      height: 1.9em;
+      line-height: 1.7em;
       text-align: center;
-      border: double 3px transparent;
-      background-image: linear-gradient($darkgrey, $darkgrey), linear-gradient($red, $gold);
-      background-origin: border-box;
-      background-clip: content-box, border-box;
+      border: solid 3px $appred;
     }
 
     [button-text] {
@@ -198,7 +228,7 @@ ion-menu .button-md {
 
 input,
 .select-text {
-  color: $lightgold !important;
+  color: $white5 !important;
 }
 
 [justify] {
@@ -362,3 +392,13 @@ page-grado {
 //     color: $grey !important;
 //   }
 // }
+
+[addtofavoriteheader] {
+  ion-icon {
+    color: gold;
+    font-size: 2em;
+    &[name="star-outline"] {
+      // color: white;
+    }
+  }
+}
