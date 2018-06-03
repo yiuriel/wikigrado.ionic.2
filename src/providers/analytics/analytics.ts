@@ -23,7 +23,7 @@ export class AnalyticsProvider {
   }
 
   initService() {
-    this.ga.startTrackerWithId('UA-119556846-1')
+    this.ga.startTrackerWithId('UA-120264440-1')
       .then(() => {
         this.ready = true;
         this.firstTrack();
