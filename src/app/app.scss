@@ -347,7 +347,15 @@ page-grado {
 }
 
 .alert-wrapper .alert-message {
-  text-align: justify;
+  text-align: left;
+  font-size: 90%;
+  ul {
+    padding-left: 10px;
+  }
+
+  h1, h2, h3, h4 {
+    font-size: 120%;
+  }
 }
 
 /* OVERRIDES */
