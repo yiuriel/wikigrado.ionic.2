@@ -3,14 +3,15 @@
   <ion-content class="menu-background menu">
     <div *ngFor="let p of pages">
       <button ion-button icon-start clear color="danger" (click)="openPage(p)">
-        <ion-icon [ios]="p.icon" [md]="p.icon"></ion-icon>
+        <ion-icon *ngIf="p.icon" [ios]="p.icon" [md]="p.icon"></ion-icon>
+        <i *ngIf="p.fa" [class]="'fas ' + p.fa"></i>
         <span button-text>{{p.title}}</span>
       </button>
     </div>
     <div>
       <button menuClose ion-button icon-start clear color="danger" (click)="logout()">
-        <ion-icon name="ios-log-out"></ion-icon>
-        <span button-text>salir</span>
+        <ion-icon [md]="'md-log-out'" [ios]="'md-log-out'"></ion-icon>
+        <span button-text>Salir</span>
       </button>
     </div>
   </ion-content>

@@ -12,7 +12,7 @@
 
             <ion-item>
               <ion-label stacked>Nombre</ion-label>
-              <ion-input #firstname="ngModel" name="firstname" minlength="2" maxlength="50" required [(ngModel)]="user.first_name" type="text"></ion-input>
+              <ion-input autocomplete="on" #firstname="ngModel" name="firstname" minlength="2" maxlength="50" required [(ngModel)]="user.first_name" type="text"></ion-input>
             </ion-item>
             <div class="form-error" *ngIf="firstname.invalid && (firstname.dirty || firstname.touched) && firstname.errors">
               <div *ngIf="firstname.errors.required">El nombre es requerido.</div>
@@ -21,7 +21,7 @@
 
             <ion-item>
               <ion-label stacked>Apellido</ion-label>
-              <ion-input #lastname="ngModel" name="lastname" minlength="2" maxlength="50" required [(ngModel)]="user.last_name" type="text"></ion-input>
+              <ion-input autocomplete="on" #lastname="ngModel" name="lastname" minlength="2" maxlength="50" required [(ngModel)]="user.last_name" type="text"></ion-input>
             </ion-item>
             <div class="form-error" *ngIf="lastname.invalid && (lastname.dirty || lastname.touched) && lastname.errors">
               <div *ngIf="lastname.errors.required">El apellido es requerido.</div>
@@ -40,7 +40,7 @@
 
             <ion-item>
               <ion-label stacked>Email</ion-label>
-              <ion-input #email="ngModel" name="email" minlength="3" maxlength="80" required [(ngModel)]="user.email" (ionBlur)="checkEmail()" #registeremail="ngModel" [email]="true" type="email"></ion-input>
+              <ion-input autocomplete="on" #email="ngModel" name="email" minlength="3" maxlength="80" required [(ngModel)]="user.email" (ionBlur)="checkEmail()" #registeremail="ngModel" [email]="true" type="email"></ion-input>
             </ion-item>
             <div class="form-error" *ngIf="email.invalid && (email.dirty || email.touched) && email.errors">
               <div *ngIf="email.errors.required">El email es requerido.</div>

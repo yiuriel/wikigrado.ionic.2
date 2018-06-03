@@ -126,11 +126,12 @@ $email: #B0BEC5;
   align-items: center;
   .fa-globe {
     position: absolute;
-    color: dodgerblue;
+    margin-top: -30px;
+    color: $white9;
   }
 
-  .fa-user {
-    color: $lightappred;
+  .fa-users {
+    color: $appred;
     z-index: 100;
   }
 }
@@ -214,14 +215,19 @@ ion-menu .button-md {
   .scroll-content {
     padding-left: 8px;
     // background-color: $lightyellow !important;
-    ion-icon {
+    ion-icon, i {
       padding: 0;
       border-radius: 80%;
-      width: 1.9em;
-      height: 1.9em;
-      line-height: 1.7em;
+      width: 1.5em;
+      height: 1.5em;
+      line-height: 1.4em;
+      font-size: 1.8em;
       text-align: center;
       border: solid 3px $appred;
+    }
+
+    i {
+      line-height: 1.3em;
     }
 
     [button-text] {
@@ -279,7 +285,7 @@ ion-header {
     background-color: $darkergrey;
   }
   [menuToggle] {
-    color: $gold !important;
+    color: $appred !important;
   }
 
   .navbar-right-buttons {

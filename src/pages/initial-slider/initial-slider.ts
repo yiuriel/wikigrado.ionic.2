@@ -25,7 +25,7 @@ export class InitialSliderPage {
       {
         title: "Guia 2",
         description: "Registrándote, tendrás tu historial, favoritos, avatar...y mas.<br/><br/>Podrás hacer una búsqueda muy precisa tanto de las universidades, como de los grados que se imparten en cada una. Bienvenido a Wikigrado.<br/><br/>Comenzamos? Hay un test de orientación, esperándote...",
-        icons: `<div class="layer second-slide"><i class="fa-6x fas fa-globe"></i><i class="fa-4x fas fa-user"></i></div>`
+        icons: `<div class="layer second-slide"><i class="fa-6x fas fa-globe"></i><i class="fa-6x fas fa-users"></i></div>`
       }
     ];
 

@@ -12,7 +12,7 @@
 
             <ion-item>
               <ion-label stacked>Email</ion-label>
-              <ion-input #email="ngModel" minlength="3" maxlength="80" required name="email" [(ngModel)]="user.email" [email]="true" type="email"></ion-input>
+              <ion-input autocomplete="on" #email="ngModel" minlength="3" maxlength="80" required name="email" [(ngModel)]="user.email" [email]="true" type="email"></ion-input>
             </ion-item>
             <div class="form-error" *ngIf="email.invalid && (email.dirty || email.touched) && email.errors">
               <div *ngIf="email.errors.required">El email es requerido.</div>
@@ -22,7 +22,7 @@
 
             <ion-item>
               <ion-label stacked>Contrase&ntilde;a</ion-label>
-              <ion-input #password="ngModel" minlength="1" maxlength="14" required name="password" [(ngModel)]="user.password" [type]="passwordType"></ion-input>
+              <ion-input autocomplete="on" #password="ngModel" minlength="1" maxlength="14" required name="password" [(ngModel)]="user.password" [type]="passwordType"></ion-input>
               <ion-icon item-end [name]="passwordIcon" class="passIcon" (click)='hideShowPassword()'></ion-icon>
             </ion-item>
             <div class="form-error" *ngIf="password.invalid && (password.dirty || password.touched) && password.errors">

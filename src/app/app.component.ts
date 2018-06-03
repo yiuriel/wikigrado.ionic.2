@@ -33,7 +33,7 @@ export class MyApp {
 
   rootPage: any = SimulatesplashPage;
 
-  pages: Array<{icon: string, title: string, component: any}>;
+  pages: Array<{[key: string]: any}>;
 
   constructor(public platform: Platform, public allAppDataService :AllAppDataProvider, public statusBar: StatusBar, public splashScreen: SplashScreen, public tracker: AnalyticsProvider, public userService: UserProvider, public testStorageService: TestStorageProvider, public menuCtrl: MenuController) {
     this.initializeApp();
@@ -45,9 +45,9 @@ export class MyApp {
       this.pages = [
         { icon: 'ios-home', title: 'Inicio', component: PretestPage },
         { icon: 'ios-list', title: 'Test de Personalidad', component: {function: this.checkIfPretestOrTest} },
-        { icon: 'md-school', title: 'Grados y Salidas Profesionales', component: GradosPage },
-        { icon: 'ios-ribbon', title: 'Universidades', component: UniversidadesPage },
-        { icon: 'md-paper', title: 'Colegios Mayores', component: ColegiosMayoresPage },
+        { icon: 'md-school', title: 'Grados', component: GradosPage },
+        { icon: null, fa: 'fa-university', title: 'Universidades', component: UniversidadesPage },
+        { icon: 'ios-people', title: 'Colegios Mayores', component: ColegiosMayoresPage },
         { icon: 'md-person', title: 'Perfil', component: UserProfilePage },
       ];
     });

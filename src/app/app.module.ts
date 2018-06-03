@@ -66,6 +66,7 @@ import { ToasterProvider } from '../providers/toaster/toaster';
     BrowserModule,
     HttpClientModule,
     IonicModule.forRoot(MyApp, {
+      autocomplete: 'on',
       platforms: {
         ios: {
           activator: "ripple"
