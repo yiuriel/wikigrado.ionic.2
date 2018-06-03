@@ -4,6 +4,7 @@ import { TestPage } from '../test/test';
 import { UserProvider } from '../../providers/user/user';
 import { AnalyticsProvider } from '../../providers/analytics/analytics';
 import { OrientationVideosProvider } from '../../providers/orientation-videos/orientation-videos';
+import { LoaderProvider } from '../../providers/loader/loader';
 
 @Component({
   selector: 'page-orientation-videos-after-test',
@@ -15,7 +16,7 @@ export class OrientationVideosAfterTestPage {
   videos: Array<{[key: string]: any}>
   dimensions: {width: number, height: number}
 
-  constructor(public navCtrl: NavController, public tracker: AnalyticsProvider, public navParams: NavParams, public userService: UserProvider, public toastCtrl: ToastController, public loadingCtrl: LoadingController, public orientationVideosService: OrientationVideosProvider, private domElem: ElementRef) {
+  constructor(public navCtrl: NavController, public tracker: AnalyticsProvider, public navParams: NavParams, public userService: UserProvider, public toastCtrl: ToastController, public loadingCtrl: LoadingController, public orientationVideosService: OrientationVideosProvider, private domElem: ElementRef, public loaderService: LoaderProvider) {
     this.userService.getUserData((data, error) => {
       if (!error) {
         this.user = data;
@@ -31,7 +32,11 @@ export class OrientationVideosAfterTestPage {
     }
 
     const orientations = this.user.orientations.split(",");
-    this.videos = this.orientationVideosService.getVideosBasedOnOrientations(orientations);
+    this.loaderService.showLoader({content:'cargando...'});
+    this.orientationVideosService.getVideosBasedOnOrientations(orientations, (videos) => {
+      this.videos = videos;
+      this.loaderService.hideLoader();
+    });
   }
 
   retakeTest() {

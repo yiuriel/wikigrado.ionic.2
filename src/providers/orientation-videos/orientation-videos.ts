@@ -30,17 +30,24 @@ export class OrientationVideosProvider {
   }
 
   getOrientationVideos(callback) {
-    this.http.get(this.BASEURL, this.authHeaders).subscribe(videos => {
-      callback(videos, null);
-    }, error => {
-      callback(null, error);
-    })
+    if (this.videos) {
+      callback(this.videos, null);
+    } else {
+      this.http.get(this.BASEURL, this.authHeaders).subscribe(videos => {
+        callback(videos, null);
+      }, error => {
+        callback(null, error);
+      });
+    }
   }
 
-  getVideosBasedOnOrientations(orientations) {
-    return this.videos.filter(video => {
-      return orientations.indexOf(video.orientation) > -1;
-    });
+  getVideosBasedOnOrientations(orientations, callback) {
+    this.getOrientationVideos((videos, error) => {
+      const filtered = videos.filter(video => {
+        return orientations.indexOf(video.orientation) > -1;
+      });
+      callback(filtered);
+    })
   }
 
 }

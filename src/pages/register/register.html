@@ -78,11 +78,11 @@
       </ion-col>
     </ion-row>
     <ion-row align-items-end text-center>
-      <ion-col text-right>
-        <button ion-button round color="danger" opacity [disabled]="!userForm.form.valid || !accept" (click)="register()">Registrarme</button>
-      </ion-col>
       <ion-col>
         <button ion-button round outline color="dark" opacity back-button (click)="goBack()">Volver</button>
+      </ion-col>
+      <ion-col text-right>
+        <button ion-button round color="danger" opacity [disabled]="!userForm.form.valid || !accept" (click)="register()">Registrarme</button>
       </ion-col>
     </ion-row>
   </ion-grid>

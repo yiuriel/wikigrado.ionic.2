@@ -1,11 +1,12 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
-import { NavController, NavParams, ModalController, Slides } from 'ionic-angular';
+import { NavController, NavParams, ModalController, Slides, AlertController } from 'ionic-angular';
 import { UserProvider } from '../../providers/user/user';
 import { LoaderProvider } from '../../providers/loader/loader';
 import { ToasterProvider } from '../../providers/toaster/toaster';
 import { AllAppDataProvider } from '../../providers/all-app-data/all-app-data';
 import { AnalyticsProvider } from '../../providers/analytics/analytics';
 import { GradoPage } from '../grado/grado';
+import { LoginPage } from '../login/login';
 import { FavoritesProvider } from '../../providers/favorites/favorites'
 
 @Component({
@@ -24,7 +25,7 @@ export class UserProfilePage {
   loader: any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public userService: UserProvider, public toasterService: ToasterProvider, public loaderService: LoaderProvider,
-public favoritesService: FavoritesProvider, public allAppDataService: AllAppDataProvider, public modalCtrl: ModalController, private domElem: ElementRef, public tracker: AnalyticsProvider) {
+public favoritesService: FavoritesProvider, public allAppDataService: AllAppDataProvider, public modalCtrl: ModalController, private domElem: ElementRef, public tracker: AnalyticsProvider, public alertCtrl: AlertController) {
     this.loaderService.showLoader({content:'Cargando...'});
     this.userService.getUserData((data, error) => {
       if (!error) {
@@ -117,6 +118,37 @@ public favoritesService: FavoritesProvider, public allAppDataService: AllAppData
       width: width,
       height: (width * 9) / 16,
     }
+  }
+
+  deleteAccount() {
+    let alert = this.alertCtrl.create({
+      title: 'Borrar cuenta',
+      message: 'Una vez que presiones <b>Borrar</b> todos tus datos seran eliminados completamente junto con tus favoritos.',
+      buttons: [
+        {
+          text: 'Cancelar',
+          role: 'cancel',
+        },
+        {
+          text: 'Borrar',
+          handler: () => {
+            this.loaderService.showLoader({content:'borrando cuenta...'});
+            this.userService.deleteAccount(this.user, (success, error) => {
+              this.loaderService.hideLoader();
+              if (!error) {
+                this.logout();
+              }
+            });
+          }
+        }
+      ]
+    });
+    alert.present();
+  }
+
+  logout() {
+    this.userService.clearStorage();
+    this.navCtrl.setRoot(LoginPage, {showVolver: false});
   }
 
   updateUser() {

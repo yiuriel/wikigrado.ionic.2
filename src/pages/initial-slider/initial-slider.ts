@@ -31,29 +31,10 @@ export class InitialSliderPage {
 
     this.collaborators = [
       {
-        src: 'assets/imgs/collaborators/mapfre.png',
-        alt: 'Mapfre'
+        src: 'assets/imgs/collaborators/universidad-navarra.png',
+        alt: 'Navarra'
       },
-      {
-        src: 'assets/imgs/collaborators/elcorteingles.png',
-        alt: 'Viajes el corte ingles'
-      },
-      {
-        src: 'assets/imgs/collaborators/hm.png',
-        alt: 'HM Hospitales'
-      },
-      {
-        src: 'assets/imgs/collaborators/bodega.png',
-        alt: 'Bodegas Marqués de Vargas'
-      },
-      {
-        src: 'assets/imgs/collaborators/llorente.jpg',
-        alt: 'Llorente y Cuenca'
-      },
-      {
-        src: 'assets/imgs/collaborators/playstation.svg',
-        alt: 'Playstation'
-      },
+
       {
         src: 'assets/imgs/collaborators/utad.png',
         alt: 'Utad'
@@ -87,8 +68,28 @@ export class InitialSliderPage {
         alt: 'Schiller'
       },
       {
-        src: 'assets/imgs/collaborators/universidad-navarra.png',
-        alt: 'Navarra'
+        src: 'assets/imgs/collaborators/mapfre.png',
+        alt: 'Mapfre'
+      },
+      {
+        src: 'assets/imgs/collaborators/elcorteingles.png',
+        alt: 'Viajes el corte ingles'
+      },
+      {
+        src: 'assets/imgs/collaborators/hm.png',
+        alt: 'HM Hospitales'
+      },
+      {
+        src: 'assets/imgs/collaborators/bodega.png',
+        alt: 'Bodegas Marqués de Vargas'
+      },
+      {
+        src: 'assets/imgs/collaborators/llorente.jpg',
+        alt: 'Llorente y Cuenca'
+      },
+      {
+        src: 'assets/imgs/collaborators/playstation.svg',
+        alt: 'Playstation'
       }
     ]
   }

@@ -2,7 +2,7 @@
 
 <ion-content padding text-center>
   <h2 padding-top padding-bottom>Estos son los videos de orientacion de acuerdo al resultado de tu test de personalidad</h2>
-  <div class="separator"></div>
+  <div class="separator" *ngIf="videos"></div>
   <div *ngFor="let video of videos;" padding-top padding-bottom>
     <h4 [innerHTML]="video.career"></h4>
     <image-switch-iframe
@@ -12,7 +12,7 @@
     [height]="dimensions.height">
     </image-switch-iframe>
   </div>
-  <div class="separator"></div>
+  <div class="separator" *ngIf="videos"></div>
   <div padding>
     <h5>Si quieres puedes volver a hacer el test.</h5>
     <button ion-button round color="danger" (click)="retakeTest()">Realizar test</button>

@@ -14,6 +14,7 @@ export class UserProvider {
   UPDATELATLONG: string;
   UPDATEORIENTATIONS: string;
   UPDATEAVATAR: string;
+  DELETEUSER: string;
 
   constructor( private http: HttpClient, private env: EnvProvider, private storage: Storage, private tracker: AnalyticsProvider ) {
     this.BASEURL = this.env.getEnvironmentUrl('production') + "/users";
@@ -22,6 +23,7 @@ export class UserProvider {
     this.UPDATELATLONG = this.BASEURL + "/update_lat_long";
     this.UPDATEORIENTATIONS = this.BASEURL + "/set_orientations";
     this.UPDATEAVATAR = this.BASEURL + "/image";
+    this.DELETEUSER = this.BASEURL + "/delete";
   }
 
   verifySession(callback) {
@@ -232,6 +234,14 @@ export class UserProvider {
         'Authorization-Key': authStrKey
       })
     };
+  }
+
+  deleteAccount(user, callback) {
+    this.http.post(this.DELETEUSER, {id: user.id, app_enabled_param: true}, this.getCommonHeaders()).subscribe(success => {
+      callback(success, null);
+    }, error => {
+      callback(null, error);
+    })
   }
 
 }

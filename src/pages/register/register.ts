@@ -2,6 +2,7 @@ import { Component, ViewChild } from '@angular/core';
 import { NavController, NavParams, Slides, AlertController } from 'ionic-angular';
 import { UserProvider } from '../../providers/user/user';
 import { AnalyticsProvider } from '../../providers/analytics/analytics';
+import { LoginPage } from '../login/login';
 // import { PretestPage } from '../pretest/pretest';
 // import { RegisterPictureStepPage } from '../register-picture-step/register-picture-step';
 import { LoaderProvider } from '../../providers/loader/loader';
@@ -334,9 +335,15 @@ export class RegisterPage {
 
   registerSuccessAlert() {
     const alert = this.alertCtrl.create({
-      title: '¡Registro Exitoso!',
-      subTitle: 'Te has registrado exitosamente, verifica tu email para poder loguearte.',
-      buttons: ['Aceptar']
+      title: 'Valida tu email',
+      subTitle: 'Solo falta un paso para que tu registro sea completo, ve a tu casilla de correo y valida el email que ingresaste.',
+      buttons: [{
+        text: 'Ir al login',
+        role: 'accept',
+        handler: data => {
+          this.navCtrl.push(LoginPage)
+        }
+      }]
     });
     alert.present();
   }

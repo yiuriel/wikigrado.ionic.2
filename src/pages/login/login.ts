@@ -39,7 +39,7 @@ export class LoginPage {
             return this.toasterService.showToast({message: 'Puede que los datos sean incorrectos, o que tu email no este validado.'});
         }
       } else {
-        if (data.first_orientation) {
+        if (data.orientations) {
           this.testStorageService.setTestDone(true, (value, failed) => {
             if (!failed) {
               this.navCtrl.setRoot(PretestPage);
