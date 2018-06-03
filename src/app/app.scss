@@ -69,8 +69,14 @@ $email: #B0BEC5;
 }
 
 .collaborators-slide {
+  .container {
+    height: 100%;
+    .scroll-content {
+      top: 80px;
+    }
+  }
   .slide-zoom {
-    overflow-y: auto;
+    // overflow-y: auto;
     padding-bottom: 16px;
     ul {
       padding-left: 0;

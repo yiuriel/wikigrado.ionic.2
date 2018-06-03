@@ -26,13 +26,16 @@
           <button ion-button color="dark" (click)="goToSlide(3)">Siguiente</button>
         </ion-buttons>
       </ion-toolbar>
-
-      <p padding>Colaboradores que hicieron posible esta aplicacion:</p>
-      <ul>
-        <li *ngFor="let collaborator of collaborators;">
-          <img [src]="collaborator.src" [alt]="collaborator.alt" />
-        </li>
-      </ul>
+      <div class="container">
+        <div class="scroll-content">
+          <p>Colaboradores que hicieron posible esta aplicacion:</p>
+          <ul>
+            <li *ngFor="let collaborator of collaborators;">
+              <img [src]="collaborator.src" [alt]="collaborator.alt" />
+            </li>
+          </ul>
+        </div>
+      </div>
     </ion-slide>
     <ion-slide class="last-slide">
       <div padding margin-bottom>

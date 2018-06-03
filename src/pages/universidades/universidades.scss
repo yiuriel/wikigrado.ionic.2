@@ -26,13 +26,10 @@ page-universidades {
             width: 30px;
             height: 30px;
             text-align: center;
-            line-height: 1.5em;
-            border: double 2px transparent;
+            line-height: 1.45em;
             border-radius: 50%;
             color: $white9;
-            background-image: linear-gradient($darkgrey, $darkgrey), linear-gradient($lightappred, $darkgold);
-            background-origin: border-box;
-            background-clip: content-box, border-box;
+            border: 3px solid $appred;
           }
         }
       }
