@@ -68,6 +68,15 @@ $email: #B0BEC5;
   font-size: 1.5em;
 }
 
+.slide-zoom {
+  p {
+    font-size: .95em;
+    b {
+      font-size: 1.15em;
+    }
+  }
+}
+
 .collaborators-slide {
   .container {
     height: 100%;
@@ -85,16 +94,10 @@ $email: #B0BEC5;
       justify-content: center;
       align-items: center;
       flex-wrap: wrap;
-      background-color: $gold;
       border-radius: 15px;
       li {
         width: 100%;
         margin: 0;
-        border-bottom: 2px solid $grey;
-        &:nth-child(even) {
-        }
-        &:nth-child(odd) {
-        }
         img {
           padding: 12px 8px 8px;
           display: inline-block;
@@ -127,7 +130,7 @@ $email: #B0BEC5;
   .fa-globe {
     position: absolute;
     margin-top: -30px;
-    color: $white9;
+    color: rgb(255, 101, 101);
   }
 
   .fa-users {
@@ -174,8 +177,8 @@ ion-menu .button-md {
       &:not(.has-video) {
         i {
           border-radius: 50%;
-          border: 3px solid $white5;
-          color: $lightred;
+          border: 3px solid $appred;
+          color: $appred;
         }
       }
       i {
@@ -186,7 +189,7 @@ ion-menu .button-md {
         border: double 2px transparent;
         border-radius: 50%;
         color: $white9;
-        border: 3px solid $appred;
+        border: 3px solid $gold;
       }
 
       .career-title {
