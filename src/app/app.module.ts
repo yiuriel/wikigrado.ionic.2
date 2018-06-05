@@ -6,7 +6,6 @@ import { ScreenOrientation } from '@ionic-native/screen-orientation';
 import { LaunchNavigator } from '@ionic-native/launch-navigator';
 import { Geolocation } from '@ionic-native/geolocation';
 import { GoogleAnalytics } from '@ionic-native/google-analytics';
-import { NativeGeocoder } from '@ionic-native/native-geocoder';
 import { InAppBrowser } from '@ionic-native/in-app-browser';
 import { IonicStorageModule } from '@ionic/storage';
 import { SocialSharing } from '@ionic-native/social-sharing';
@@ -99,7 +98,6 @@ import { ToasterProvider } from '../providers/toaster/toaster';
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     InAppBrowser,
     Geolocation,
-    NativeGeocoder,
     GoogleAnalytics,
     SocialSharing,
     ScreenOrientation,

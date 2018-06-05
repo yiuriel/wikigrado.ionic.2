@@ -122,6 +122,10 @@ export class GradoPage {
             this.appsAvailable.push(app);
           }
         }
+
+        if (this.appsAvailable.indexOf("google_maps") === -1) {
+          this.appsAvailable.push("google_maps");
+        }
       })
     }
   }
