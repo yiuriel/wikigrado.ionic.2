@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams, MenuController } from 'ionic-angular';
 import { TestPage } from '../test/test';
 import { AnalyticsProvider } from '../../providers/analytics/analytics';
 import { UserProvider } from '../../providers/user/user';
@@ -12,7 +12,8 @@ import { InAppBrowser } from '@ionic-native/in-app-browser';
 })
 export class PretestPage {
   test_done: any;
-  constructor(public navCtrl: NavController, public navParams: NavParams, public tracker: AnalyticsProvider, public userService: UserProvider, public testStorageService: TestStorageProvider, private iab: InAppBrowser) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public tracker: AnalyticsProvider, public userService: UserProvider, public testStorageService: TestStorageProvider, private iab: InAppBrowser, public menuCtrl: MenuController) {
+    this.menuCtrl.enable(true, 'appmenu');
   }
 
   ionViewDidLoad() {

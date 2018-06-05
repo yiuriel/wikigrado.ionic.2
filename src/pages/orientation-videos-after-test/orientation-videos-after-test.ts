@@ -1,5 +1,5 @@
 import { Component, ElementRef } from '@angular/core';
-import { NavController, NavParams, ToastController, LoadingController } from 'ionic-angular';
+import { NavController, NavParams, ToastController, LoadingController, MenuController } from 'ionic-angular';
 import { TestPage } from '../test/test';
 import { UserProvider } from '../../providers/user/user';
 import { AnalyticsProvider } from '../../providers/analytics/analytics';
@@ -16,7 +16,8 @@ export class OrientationVideosAfterTestPage {
   videos: Array<{[key: string]: any}>
   dimensions: {width: number, height: number}
 
-  constructor(public navCtrl: NavController, public tracker: AnalyticsProvider, public navParams: NavParams, public userService: UserProvider, public toastCtrl: ToastController, public loadingCtrl: LoadingController, public orientationVideosService: OrientationVideosProvider, private domElem: ElementRef, public loaderService: LoaderProvider) {
+  constructor(public navCtrl: NavController, public tracker: AnalyticsProvider, public navParams: NavParams, public userService: UserProvider, public toastCtrl: ToastController, public loadingCtrl: LoadingController, public orientationVideosService: OrientationVideosProvider, private domElem: ElementRef, public loaderService: LoaderProvider, public menuCtrl: MenuController) {
+    this.menuCtrl.enable(true, 'appmenu');
     this.userService.getUserData((data, error) => {
       if (!error) {
         this.user = data;

@@ -1,5 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-import { NavController, NavParams, Slides } from 'ionic-angular';
+import { NavController, NavParams, Slides, MenuController } from 'ionic-angular';
 import { AnalyticsProvider } from '../../providers/analytics/analytics';
 
 import { RegisterPage } from '../register/register';
@@ -15,7 +15,8 @@ export class InitialSliderPage {
   slidesData: Array<any>
   collaborators: Array<any>
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public tracker: AnalyticsProvider) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public tracker: AnalyticsProvider, public menuCtrl: MenuController) {
+    this.menuCtrl.enable(false, 'appmenu');
     this.slidesData = [
       {
         title: "Guia 1",

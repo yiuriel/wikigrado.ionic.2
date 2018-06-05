@@ -78,7 +78,9 @@ export class MyApp {
 
   logout() {
     this.userService.clearStorage();
-    this.nav.setRoot(LoginPage, {showVolver: false});
+    this.nav.setRoot(LoginPage, {showVolver: false}, {}, () => {
+      this.menuCtrl.enable(false, 'appmenu');
+    });
   }
 
   openPage(page) {
