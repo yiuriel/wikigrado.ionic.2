@@ -9,7 +9,6 @@ import { GoogleAnalytics } from '@ionic-native/google-analytics';
 import { NativeGeocoder } from '@ionic-native/native-geocoder';
 import { InAppBrowser } from '@ionic-native/in-app-browser';
 import { IonicStorageModule } from '@ionic/storage';
-import { Camera } from '@ionic-native/camera';
 import { SocialSharing } from '@ionic-native/social-sharing';
 
 import { ComponentsModule } from '../components/components.module'
@@ -102,7 +101,6 @@ import { ToasterProvider } from '../providers/toaster/toaster';
     Geolocation,
     NativeGeocoder,
     GoogleAnalytics,
-    Camera,
     SocialSharing,
     ScreenOrientation,
     LaunchNavigator,
