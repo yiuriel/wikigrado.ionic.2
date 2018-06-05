@@ -341,7 +341,11 @@ export class RegisterPage {
         text: 'Ir al login',
         role: 'accept',
         handler: data => {
-          this.navCtrl.push(LoginPage)
+          this.navCtrl.push(LoginPage, {
+            user: {
+              email: this.user.email,
+            }
+          })
         }
       }]
     });

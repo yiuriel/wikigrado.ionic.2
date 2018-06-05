@@ -326,10 +326,23 @@ page-test {
   ion-content .scroll-content {
     ion-card {
       .item-radio-checked ion-label,
-      .radio .radio-checked {
+      .radio {
         color: $gold !important;
-        .radio-inner {
-          border-color: $gold;
+        &.radio-md {
+          .radio-checked {
+            color: $gold !important;
+            border-color: $gold;
+            .radio-inner {
+              border-color: $gold;
+              background-color: $gold;
+            }
+          }
+        }
+        .radio-checked {
+          color: $gold !important;
+          .radio-inner {
+            border-color: $gold;
+          }
         }
       }
     }

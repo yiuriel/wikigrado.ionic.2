@@ -20,6 +20,11 @@ export class LoginPage {
   constructor(public navCtrl: NavController, public userService: UserProvider, public navParams: NavParams, public toasterService: ToasterProvider, public loaderService: LoaderProvider, public testStorageService: TestStorageProvider) {
     this.user = {email: "", password: ""}
     this.showVolver = this.navParams.data.hasOwnProperty("showVolver") || false;
+
+    const user = this.navParams.get('user');
+    if (user && user.email) {
+      this.user.email = user.email;
+    }
   }
 
   hideShowPassword() {
