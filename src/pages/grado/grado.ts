@@ -49,25 +49,9 @@ export class GradoPage {
 
   shareVia(item, shareType) {
     let itemName = this.getItemName(item);
-    // var options = {
-    //   message: 'share this', // not supported on some apps (Facebook, Instagram)
-    //   subject: 'the subject', // fi. for email
-    //   files: ['', ''], // an array of filenames either locally or remotely
-    //   url: 'https://www.website.com/foo/#bar?a=b'
-    // };
-    //
-    // var onSuccess = function(result) {
-    //   console.log("Share completed? " + result.completed); // On Android apps mostly return false even while it's true
-    //   console.log("Shared to app: " + result.app); // On Android result.app since plugin version 5.4.0 this is no longer empty. On iOS it's empty when sharing is cancelled (result.completed=false)
-    // };
-    //
-    // var onError = function(msg) {
-    //   console.log("Sharing failed with message: " + msg);
-    // };
-    // this.social.shareWithOptions(options).then(onSuccess, onError);
     switch (shareType) {
       case 'whatsapp':
-        this.social.shareViaWhatsApp('unete a wikigrado', 'assets/imgs/wiki_red.png', 'https://www.wikigrado.es/').then(shareSuccess => {
+        this.social.shareViaWhatsApp('unete a wikigrado y profesionales te explicarán en video sobre grados universitarios de tu interes. ', null, 'https://www.wikigrado.es/').then(shareSuccess => {
           this.tracker.trackEvent('social', 'compartir ' + shareType, itemName);
         }).catch(error => {
           console.log(JSON.stringify(error));
@@ -75,7 +59,7 @@ export class GradoPage {
         });
       break;
       case 'facebook':
-        this.social.shareViaFacebookWithPasteMessageHint('unete a wikigrado', '', '').then(shareSuccess => {
+        this.social.shareViaFacebookWithPasteMessageHint('', '', '').then(shareSuccess => {
           this.tracker.trackEvent('social', 'compartir ' + shareType, itemName);
         }).catch(error => {
           console.log(JSON.stringify(error));
@@ -83,7 +67,7 @@ export class GradoPage {
         });
       break;
       case 'twitter':
-        this.social.shareViaTwitter('unete a wikigrado', 'assets/imgs/wiki_red.png', 'https://www.wikigrado.es/').then(shareSuccess => {
+        this.social.shareViaTwitter('unete a wikigrado y profesionales te explicarán en video sobre grados universitarios de tu interes. ', null, 'https://www.wikigrado.es/').then(shareSuccess => {
           this.tracker.trackEvent('social', 'compartir ' + shareType, itemName);
         }).catch(error => {
           console.log(JSON.stringify(error));
@@ -91,7 +75,7 @@ export class GradoPage {
         });
       break;
       case 'email':
-        this.social.shareViaEmail('unete a wikigrado', 'La App de wikigrado es genial, visita el sitio https://www.wikigrado.es/', []).then(shareSuccess => {
+        this.social.shareViaEmail('La App de wikigrado es genial, visita el sitio https://www.wikigrado.es/', 'unete a wikigrado', []).then(shareSuccess => {
           this.tracker.trackEvent('social', 'compartir ' + shareType, itemName);
         }).catch(error => {
           console.log(JSON.stringify(error));
