@@ -146,18 +146,14 @@ export class GradoPage {
     actionSheet.present();
   }
 
-  doNothing() {
-    
-  }
-
   openApp(app, location) {
     let options: LaunchNavigatorOptions = {
       app: app
     };
 
     this.launchNavigator.navigate([location.latitude, location.longitude], options).then(
-      success => this.doNothing(),
-      error => this.doNothing()
+      success => console.log('Launched navigator'),
+      error => console.log('Error launching navigator', error)
     );
   }
 
