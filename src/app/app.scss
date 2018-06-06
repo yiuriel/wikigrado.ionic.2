@@ -70,9 +70,9 @@ $email: #B0BEC5;
 
 .slide-zoom {
   p {
-    font-size: .95em;
+    font-size: .9em;
     b {
-      font-size: 1.15em;
+      font-size: 1.1em;
     }
   }
 }
@@ -436,5 +436,11 @@ page-grado {
     &[name="star-outline"] {
       // color: white;
     }
+  }
+}
+
+.layer {
+  img {
+    max-width: 150px;
   }
 }

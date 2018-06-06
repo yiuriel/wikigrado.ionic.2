@@ -44,7 +44,7 @@ export class MyApp {
 
       this.pages = [
         { icon: 'ios-home', title: 'Inicio', component: PretestPage },
-        { icon: 'ios-list', title: 'Test de Personalidad', component: {function: this.checkIfPretestOrTest} },
+        { icon: 'ios-list', title: 'Test de Orientación', component: {function: this.checkIfPretestOrTest} },
         { icon: 'md-school', title: 'Grados', component: GradosPage },
         { icon: null, fa: 'fa-university', title: 'Universidades', component: UniversidadesPage },
         { icon: 'ios-people', title: 'Colegios Mayores', component: ColegiosMayoresPage },

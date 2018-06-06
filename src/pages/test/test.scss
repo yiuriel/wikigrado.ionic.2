@@ -24,3 +24,11 @@ page-test, page-pretest {
     }
   }
 }
+
+page-test {
+  ion-card {
+    button.button {
+      padding: 0 1.6rem;
+    }
+  }
+}

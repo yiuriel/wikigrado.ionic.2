@@ -21,12 +21,14 @@ export class InitialSliderPage {
       {
         title: "Guia 1",
         description: "La App <b style='font-size: 1.1em;'>Wikigrado</b> está pensada para que, a través de <b>vídeos</b>, conozcas  qué vas a estudiar en cada <b>grado universitario.</b><br/><br/><b>Y algo muy importante!</b> Profesionales en activo te explicarán de qué vas a poder trabajar y cómo son esos trabajos",
-        icons: `<div class="layer first-slide"><i class="fa-6x fas fa-university"></i></div>`
+        // icons: `<div class="layer first-slide"><i class="fa-6x fas fa-university"></i></div>`
+        icons: '<div class="layer"><img src="assets/imgs/slide-1.png" /></div>'
       },
       {
         title: "Guia 2",
         description: "Registrándote, tendrás tu <b>favoritos, avatar, participación en sorteos y mas...</b><br/><br/>Podrás hacer una búsqueda muy precisa tanto de las universidades, como de los grados que se imparten en cada una.<br/><br/> <b>Bienvenido a Wikigrado.</b><br/><br/>¿Comenzamos? Hay un test de orientación esperándote...",
-        icons: `<div class="layer second-slide"><i class="fa-6x fas fa-globe"></i><i class="fa-6x fas fa-users"></i></div>`
+        // icons: `<div class="layer second-slide"><i class="fa-6x fas fa-globe"></i><i class="fa-6x fas fa-users"></i></div>`
+        icons: '<div class="layer"><img src="assets/imgs/slide-2.png" /></div>'
       }
     ];
 

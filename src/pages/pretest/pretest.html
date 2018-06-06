@@ -5,7 +5,7 @@
   <h1>Bienvenido a</h1><img src="assets/imgs/wiki_red.png" style="opacity: .85;width: 60%;margin-top:  16px;"/>
   <div *ngIf="!test_done">
     <h5 justify padding>
-      ¿Quieres conocer el bachillerato y el grado que mejor se adapta a tu personalidad?<br/><br/>Orientadores de la prestigiosa Universidad de Navarra contestan al test de orientación académica con el que se inicia esta app.
+      ¿Quieres conocer el bachillerato y el grado que mejor se adapta a tu orientación?<br/><br/>Orientadores de la prestigiosa Universidad de Navarra contestan al test de orientación académica con el que se inicia esta app.
     </h5>
     <button ion-button color="danger" round margin-top (click)="goToTestPage()">Ir al Test</button>
     <h5 boxxed-white justify padding>
@@ -19,7 +19,7 @@
     </h5>
   </div>
   <div *ngIf="test_done">
-    <h5>Puedes realizar el test de personalidad nuevamente</h5>
+    <h5>Puedes realizar el test de orientación nuevamente</h5>
     <button ion-button color="danger" round margin-top (click)="goToTestPage()">Ir al Test</button>
   </div>
 </ion-content>

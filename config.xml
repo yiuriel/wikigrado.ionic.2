@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
 <widget id="es.wikigrado.www" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>Wikigrado</name>
-    <description>Wikigrado app.</description>
+    <description>La primera app que te cuenta en vídeo y en vivo en qué consiste cada grado universitario y de qué vas a poder trabajar cuando lo acabes. Descárgate esta app gratuita, de muy fácil manejo, que te va a ayudar a decidir tu futuro o a reconducirlo si lo que estás estudiando no es lo tuyo. ¡Según tu talento, hay un grado para ti! Descubre cuál es.</description>
     <author email="wikigradoapp@gmail.com" href="https://www.wikigrado.es/">Wikigrado S.L</author>
     <content src="index.html" />
     <access origin="*" />
