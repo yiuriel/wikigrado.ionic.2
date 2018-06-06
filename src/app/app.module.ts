@@ -37,7 +37,6 @@ import { AnalyticsProvider } from '../providers/analytics/analytics';
 import { FavoritesProvider } from '../providers/favorites/favorites';
 import { EnvProvider } from '../providers/env/env';
 import { AllAppDataProvider } from '../providers/all-app-data/all-app-data';
-import { CanvasProvider } from '../providers/canvas/canvas';
 import { OrientationVideosProvider } from '../providers/orientation-videos/orientation-videos';
 import { TestStorageProvider } from '../providers/test-storage/test-storage';
 import { LoaderProvider } from '../providers/loader/loader';
@@ -108,7 +107,6 @@ import { ToasterProvider } from '../providers/toaster/toaster';
     FavoritesProvider,
     EnvProvider,
     AllAppDataProvider,
-    CanvasProvider,
     OrientationVideosProvider,
     TestStorageProvider,
     LoaderProvider,

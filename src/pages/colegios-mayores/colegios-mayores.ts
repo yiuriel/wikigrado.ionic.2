@@ -18,7 +18,6 @@ export class ColegiosMayoresPage {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad ColegiosMayoresPage');
     let width = this.domElem.nativeElement.offsetWidth - 32;
     this.dimensions = {
       width: width,

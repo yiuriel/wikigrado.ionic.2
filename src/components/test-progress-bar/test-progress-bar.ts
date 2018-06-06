@@ -9,7 +9,6 @@ export class TestProgressBarComponent {
   @Input('progress') progress:number;
 
   constructor() {
-    console.log('Hello TestProgressBarComponent Component');
   }
 
 }

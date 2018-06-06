@@ -54,7 +54,6 @@ export class GradoPage {
         this.social.shareViaWhatsApp('unete a wikigrado y profesionales te explicarán en video sobre grados universitarios de tu interes. ', null, 'https://www.wikigrado.es/').then(shareSuccess => {
           this.tracker.trackEvent('social', 'compartir ' + shareType, itemName);
         }).catch(error => {
-          console.log(JSON.stringify(error));
           this.noAppAlert();
         });
       break;
@@ -62,7 +61,6 @@ export class GradoPage {
         this.social.shareViaFacebookWithPasteMessageHint('', '', '').then(shareSuccess => {
           this.tracker.trackEvent('social', 'compartir ' + shareType, itemName);
         }).catch(error => {
-          console.log(JSON.stringify(error));
           this.noAppAlert();
         });
       break;
@@ -70,7 +68,6 @@ export class GradoPage {
         this.social.shareViaTwitter('unete a wikigrado y profesionales te explicarán en video sobre grados universitarios de tu interes. ', null, 'https://www.wikigrado.es/').then(shareSuccess => {
           this.tracker.trackEvent('social', 'compartir ' + shareType, itemName);
         }).catch(error => {
-          console.log(JSON.stringify(error));
           this.noAppAlert();
         });
       break;
@@ -78,7 +75,6 @@ export class GradoPage {
         this.social.shareViaEmail('La App de wikigrado es genial, visita el sitio https://www.wikigrado.es/', 'unete a wikigrado', []).then(shareSuccess => {
           this.tracker.trackEvent('social', 'compartir ' + shareType, itemName);
         }).catch(error => {
-          console.log(JSON.stringify(error));
           this.noAppAlert();
         });
       break;
@@ -88,7 +84,7 @@ export class GradoPage {
   noAppAlert() {
     let alert = this.alertCtrl.create({
       title: 'Ups!',
-      subTitle: 'Puede que no tengas instalada la aplicacion para compartir esto',
+      subTitle: 'Puede que no tengas instalada la aplicacion para compartir esto.',
       buttons: ['OK']
     });
     alert.present();
@@ -150,14 +146,18 @@ export class GradoPage {
     actionSheet.present();
   }
 
+  doNothing() {
+    
+  }
+
   openApp(app, location) {
     let options: LaunchNavigatorOptions = {
       app: app
     };
 
     this.launchNavigator.navigate([location.latitude, location.longitude], options).then(
-      success => console.log('Launched navigator'),
-      error => console.log('Error launching navigator', error)
+      success => this.doNothing(),
+      error => this.doNothing()
     );
   }
 
