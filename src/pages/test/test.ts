@@ -168,8 +168,8 @@ export class TestPage {
   }
 
   trackOrientations() {
-    this.orientations.forEach(orientation => {
-      this.tracker.trackEvent('test de orientacion', 'primer resultado', orientation.orientation);
+    this.orientations.forEach((orientation, i) => {
+      this.tracker.trackEvent('test de orientacion', 'resultado ' + i, orientation);
     });
   }
 
