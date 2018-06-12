@@ -36,6 +36,10 @@
             <button *ngIf="!showVolver" ion-button opacity round outline color="dark" back-button (click)="goBack()">Volver</button>
             <button ion-button round color="danger" opacity [disabled]="!userForm.form.valid" (click)="login()">Login</button>
           </div>
+
+          <!-- <div text-center padding margin-top>
+            <button ion-button round color="light" opacity (click)="resetPassword()">Olvide mi contraseña</button>
+          </div> -->
         </form>
       </ion-col>
     </ion-row>

@@ -15,6 +15,7 @@ export class UserProvider {
   UPDATEORIENTATIONS: string;
   UPDATEAVATAR: string;
   DELETEUSER: string;
+  PASSWORD_RECOVERY: string;
 
   constructor( private http: HttpClient, private env: EnvProvider, private storage: Storage, private tracker: AnalyticsProvider ) {
     this.BASEURL = this.env.getEnvironmentUrl('production') + "/users";
@@ -24,6 +25,7 @@ export class UserProvider {
     this.UPDATEORIENTATIONS = this.BASEURL + "/set_orientations";
     this.UPDATEAVATAR = this.BASEURL + "/image";
     this.DELETEUSER = this.BASEURL + "/delete";
+    this.PASSWORD_RECOVERY = this.BASEURL + "/start/password_recovery";
   }
 
   verifySession(callback) {
@@ -52,7 +54,7 @@ export class UserProvider {
   }
 
   clearStorage() {
-    this.storage.clear();
+    this.storage.remove('user_data');
   }
 
   setUserData(data, callback) {
@@ -238,6 +240,14 @@ export class UserProvider {
 
   deleteAccount(user, callback) {
     this.http.post(this.DELETEUSER, {id: user.id, app_enabled_param: true}, this.getCommonHeaders()).subscribe(success => {
+      callback(success, null);
+    }, error => {
+      callback(null, error);
+    })
+  }
+
+  startPasswordRecovery(email, callback) {
+    this.http.post(this.PASSWORD_RECOVERY, {email: email, app_enabled_param: true}, this.getCommonHeaders()).subscribe(success => {
       callback(success, null);
     }, error => {
       callback(null, error);

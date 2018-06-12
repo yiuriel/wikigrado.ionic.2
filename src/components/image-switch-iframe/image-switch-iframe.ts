@@ -57,7 +57,7 @@ export class ImageSwitchIframeComponent {
     //   player.on('pause', () => {
     //     this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT);
     //   });
-    }, 150);
+    }, 250);
   }
 
 }

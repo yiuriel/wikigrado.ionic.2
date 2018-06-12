@@ -3,6 +3,7 @@ import { NavController, NavParams, ModalController, LoadingController } from 'io
 import { GradoPage } from '../grado/grado';
 import { AllAppDataProvider } from '../../providers/all-app-data/all-app-data';
 import { AnalyticsProvider } from '../../providers/analytics/analytics';
+import { Storage } from '@ionic/storage';
 
 @Component({
   selector: 'page-grados',
@@ -13,8 +14,25 @@ export class GradosPage {
   grades: Array<{[key: string]: any}>
   gradesCached: Array<{[key: string]: any}>
   dimensions: {width: number, height: number}
+  agreedInformation: boolean = true;
 
-  constructor(public navCtrl: NavController, public tracker: AnalyticsProvider, public navParams: NavParams, public modalCtrl: ModalController, public allAppDataService :AllAppDataProvider, private domElem: ElementRef, public loadingCtrl: LoadingController) {}
+  constructor(public navCtrl: NavController, public tracker: AnalyticsProvider, public navParams: NavParams, public modalCtrl: ModalController, public allAppDataService :AllAppDataProvider, private domElem: ElementRef, public loadingCtrl: LoadingController, public storage: Storage) {
+    this.storage.get('agreedInformation').then(value => {
+      if (value) {
+        this.agreedInformation = true;
+      }
+    }, error => {
+      this.agreedInformation = false;
+    });
+  }
+
+  setAgreedInformation() {
+    this.storage.set('agreedInformation', true).then(value => {
+      this.agreedInformation = true;
+    }, error => {
+      this.agreedInformation = false;
+    });
+  }
 
   ionViewDidEnter() {
     let width = this.domElem.nativeElement.offsetWidth - 32;

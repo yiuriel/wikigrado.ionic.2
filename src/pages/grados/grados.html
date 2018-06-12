@@ -1,6 +1,11 @@
 <ion-header customheader header-title="Grados y Salidas Profesionales"></ion-header>
 
 <ion-content padding class="grados-y-salidas">
+  <div text-right *ngIf="!agreedInformation">
+    <div margin-bottom text-justify>Si no encuentras lo que estás buscando, ¡No te preocupes! Wikigrado está en constante actualización y todos los meses podrás encontrar nuevos grados. Estate atento y recibirás notificaciones nuestras.</div>
+    <button ion-button round small color="primary" (click)="setAgreedInformation()">Ok!</button>
+  </div>
+
   <ion-list>
     <ion-item>
       <ion-label color="danger" stacked>Busca entre todos los grados</ion-label>
