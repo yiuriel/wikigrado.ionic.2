@@ -240,6 +240,7 @@ export class UserProvider {
 
   deleteAccount(user, callback) {
     this.http.post(this.DELETEUSER, {id: user.id, app_enabled_param: true}, this.getCommonHeaders()).subscribe(success => {
+      this.storage.clear();
       callback(success, null);
     }, error => {
       callback(null, error);
