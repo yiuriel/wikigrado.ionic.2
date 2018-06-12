@@ -20,6 +20,8 @@ export class GradosPage {
     this.storage.get('agreedInformation').then(value => {
       if (value) {
         this.agreedInformation = true;
+      } else {
+        this.agreedInformation = false;
       }
     }, error => {
       this.agreedInformation = false;
