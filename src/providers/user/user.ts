@@ -126,7 +126,11 @@ export class UserProvider {
         callback(data, null);
       }
     }, error => {
-      callback(null, {error: 1});
+      if (error && error.hasOwnProperty("error") && error.error.hasOwnProperty("available")) {
+        callback(null, {error: 'emailTakenToast'});
+      } else {
+        callback(null, {error: 1});
+      }
     })
   }
 
