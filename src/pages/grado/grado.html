@@ -107,9 +107,6 @@
         <a color="light" (click)="sendMail(item.email)" [innerHTML]="item.email"></a>
       </div>
       <div padding-bottom>
-        <div *ngIf="item.telephone" padding-bottom>
-          <a color="light" (click)="callPhoneNumber(item.telephone)" [innerHTML]="item.telephone"></a>
-        </div>
         <div *ngIf="item.website" padding-bottom>
           <button ion-button round color="light" [class.has-logo]="item.logo" block class="university-link" (click)="openUrl(item.website, item.name)">
             <img [src]="'assets/imgs/university-logos/' + item.logo" *ngIf="item.logo" />

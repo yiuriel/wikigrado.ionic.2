@@ -10,11 +10,12 @@
           <button ion-button color="dark" (click)="goToSlide(i + 1)">Siguiente</button>
         </ion-buttons>
       </ion-toolbar>
-      <!-- <h2 class="slide-title" [innerHTML]="slide.title"></h2> -->
-      <div *ngIf="slide.icons" [innerHTML]="slide.icons">
-
+      <div class="container" style="position: relative;height: 75%;">
+        <div class="scroll-content">
+          <div *ngIf="slide.icons" [innerHTML]="slide.icons"></div>
+          <p padding-bottom padding-left padding-right justify [innerHTML]="slide.description"></p>
+        </div>
       </div>
-      <p padding-bottom padding-left padding-right justify [innerHTML]="slide.description"></p>
     </ion-slide>
     <ion-slide class="collaborators-slide">
       <ion-toolbar>
