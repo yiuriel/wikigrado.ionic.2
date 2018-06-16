@@ -69,6 +69,11 @@
               <span>Ir al sitio web</span>
             </button>
           </div>
+          <div *ngIf="item.grade_url" padding-bottom>
+            <button ion-button round color="light" block class="university-link" (click)="openUrl(item.grade_url, item.grade)">
+              <span>Ir al sitio web del grado</span>
+            </button>
+          </div>
           <div padding-bottom>
             <button ion-button round color="danger" block (click)="goTo(item.main_university, 'universities')">Ver en la app</button>
           </div>
