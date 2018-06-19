@@ -444,3 +444,21 @@ page-grado {
     max-width: 130px;
   }
 }
+
+@media all and (orientation: landscape) {
+  .app-root {
+    page-initial-slider .slide-background .scroll-content .slide-zoom {
+      .toolbar {
+        margin-bottom: 0;
+      }
+      .container {
+        height: 60% !important;
+        overflow: hidden;
+        position: relative;
+        .scroll-content {
+          top: 0;
+        }
+      }
+    }
+  }
+}

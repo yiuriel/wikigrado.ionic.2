@@ -5,6 +5,7 @@ import { UserProvider } from '../../providers/user/user';
 import { AnalyticsProvider } from '../../providers/analytics/analytics';
 import { OrientationVideosProvider } from '../../providers/orientation-videos/orientation-videos';
 import { LoaderProvider } from '../../providers/loader/loader';
+import { ScreenOrientation } from '@ionic-native/screen-orientation';
 
 @Component({
   selector: 'page-orientation-videos-after-test',
@@ -16,8 +17,9 @@ export class OrientationVideosAfterTestPage {
   videos: Array<{[key: string]: any}>
   dimensions: {width: number, height: number}
 
-  constructor(public navCtrl: NavController, public tracker: AnalyticsProvider, public navParams: NavParams, public userService: UserProvider, public toastCtrl: ToastController, public loadingCtrl: LoadingController, public orientationVideosService: OrientationVideosProvider, private domElem: ElementRef, public loaderService: LoaderProvider, public menuCtrl: MenuController) {
+  constructor(public navCtrl: NavController, public tracker: AnalyticsProvider, public navParams: NavParams, public userService: UserProvider, public toastCtrl: ToastController, public loadingCtrl: LoadingController, public orientationVideosService: OrientationVideosProvider, private domElem: ElementRef, public loaderService: LoaderProvider, public menuCtrl: MenuController, private screenOrientation: ScreenOrientation) {
     this.menuCtrl.enable(true, 'appmenu');
+    this.screenOrientation.unlock();
     this.userService.getUserData((data, error) => {
       if (!error) {
         this.user = data;
@@ -38,6 +40,10 @@ export class OrientationVideosAfterTestPage {
       this.videos = videos;
       this.loaderService.hideLoader();
     });
+  }
+
+  ionViewWillLeave() {
+    this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT).catch((e) => {});
   }
 
   retakeTest() {

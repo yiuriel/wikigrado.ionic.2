@@ -5,6 +5,7 @@ import { AnalyticsProvider } from '../../providers/analytics/analytics';
 import { InAppBrowser } from '@ionic-native/in-app-browser';
 import { AllAppDataProvider } from '../../providers/all-app-data/all-app-data';
 import { SocialSharing } from '@ionic-native/social-sharing';
+import { ScreenOrientation } from '@ionic-native/screen-orientation';
 
 @Component({
   selector: 'page-grado',
@@ -16,11 +17,17 @@ export class GradoPage {
   item: any;
   dimensionData: any;
 
-  constructor(public navCtrl: NavController, public alertCtrl: AlertController, private social: SocialSharing, public tracker: AnalyticsProvider, public navParams: NavParams, public platform: Platform, public actionSheetCtrl: ActionSheetController, public viewCtrl: ViewController, private launchNavigator: LaunchNavigator, private iab: InAppBrowser, public allAppDataService: AllAppDataProvider, public modalCtrl: ModalController) {
+  constructor(public navCtrl: NavController, public alertCtrl: AlertController, private social: SocialSharing, public tracker: AnalyticsProvider, public navParams: NavParams, public platform: Platform, public actionSheetCtrl: ActionSheetController, public viewCtrl: ViewController, private launchNavigator: LaunchNavigator, private iab: InAppBrowser, public allAppDataService: AllAppDataProvider, public modalCtrl: ModalController, private screenOrientation: ScreenOrientation ) {
     this.appsAvailable = [];
+
+    this.screenOrientation.unlock();
 
     this.item = this.navParams.data.data;
     this.dimensionData = this.navParams.data.dimensionData;
+  }
+
+  ionViewWillLeave() {
+    this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT).catch((e) => {});
   }
 
   getItemName(item) {
@@ -110,9 +117,9 @@ export class GradoPage {
     }
   }
 
-  openUrl(url, name) {
+  openUrl(url, name, type) {
     this.iab.create(url, "_blank", {closebuttoncaption: "ok"});
-    this.tracker.trackEvent('links', 'web universidad ' + name, url);
+    this.tracker.trackEvent('links', 'web ' + type + ' ' + name, url);
   }
 
   callPhoneNumber(number) {

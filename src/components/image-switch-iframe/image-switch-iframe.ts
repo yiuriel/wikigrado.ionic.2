@@ -2,7 +2,6 @@ import { Component, Input, ViewChild } from '@angular/core';
 import { LoadingController } from 'ionic-angular';
 import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
 import { AnalyticsProvider } from '../../providers/analytics/analytics';
-// import { ScreenOrientation } from '@ionic-native/screen-orientation';
 import Player from '@vimeo/player';
 
 @Component({
@@ -18,22 +17,19 @@ export class ImageSwitchIframeComponent {
   @Input('name') name: string;
 
   @ViewChild('videoFrame') videoFrame: any;
+  @ViewChild('wrapper') wrapper: any;
 
   active: boolean;
   trueWidth: number;
   trueHeight: number;
   actualUrl: SafeUrl;
-  // private screenOrientation: ScreenOrientation
+
   constructor(public loadingCtrl: LoadingController, public tracker: AnalyticsProvider, private sanitizer: DomSanitizer) {
     this.active = false;
-    const INSET = 32;
-    const INSETRATIO = (INSET * 9) / 16;
 
     setTimeout(() => {
-      this.trueWidth = Math.round(this.width - INSET);
-      this.trueHeight = Math.round(this.height - INSETRATIO);
       this.switchActive();
-    }, 100)
+    }, 100);
   }
 
   switchActive() {
@@ -48,15 +44,6 @@ export class ImageSwitchIframeComponent {
       } else {
         this.tracker.trackEvent('video', 'youtube', this.name);
       }
-    //   player.on('ended', () => {
-    //     this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT);
-    //   });
-    //   player.on('error', () => {
-    //     this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT);
-    //   });
-    //   player.on('pause', () => {
-    //     this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT);
-    //   });
     }, 250);
   }
 

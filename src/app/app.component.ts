@@ -2,6 +2,7 @@ import { Component, ViewChild } from '@angular/core';
 import { Nav, Platform, MenuController } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { ScreenOrientation } from '@ionic-native/screen-orientation';
 
 import { HttpClientModule } from '@angular/common/http';
 import { UserProvider } from '../providers/user/user';
@@ -35,8 +36,10 @@ export class MyApp {
 
   pages: Array<{[key: string]: any}>;
 
-  constructor(public platform: Platform, public allAppDataService :AllAppDataProvider, public statusBar: StatusBar, public splashScreen: SplashScreen, public tracker: AnalyticsProvider, public userService: UserProvider, public testStorageService: TestStorageProvider, public menuCtrl: MenuController) {
+  constructor(public platform: Platform, public allAppDataService :AllAppDataProvider, public statusBar: StatusBar, public splashScreen: SplashScreen, public tracker: AnalyticsProvider, public userService: UserProvider, public testStorageService: TestStorageProvider, public menuCtrl: MenuController, private screenOrientation: ScreenOrientation) {
     this.initializeApp();
+
+    this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT).catch((e) => {});
 
     let testMenuComponent;
     this.checkIfPretestOrTest((component) => {

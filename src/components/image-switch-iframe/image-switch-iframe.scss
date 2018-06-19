@@ -1,24 +1,21 @@
 image-switch-iframe {
-  display: inline-block;
-  .image-switch-iframe-wrapper {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  display: block;
+  .true-wrapper {
     position: relative;
     background-color: $appred;
     border-radius: 15px;
-    .box {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      background-color: map-get($colors, danger);
-      color: white;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      font-size: 1.2em;
-      text-align: center;
-      padding: 32px;
-    }
+  }
+  .image-switch-iframe-wrapper {
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
+  }
+  .image-switch-iframe-wrapper iframe {
+    position: absolute;
+    top:0;
+    left: 0;
+    width: 100%;
+    height: 100%;
   }
 }
