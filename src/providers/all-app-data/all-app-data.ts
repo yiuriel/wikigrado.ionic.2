@@ -85,7 +85,16 @@ export class AllAppDataProvider {
       } else if (key === "universities") {
         let centers = result.filter(row => row.university.toLowerCase().indexOf("centro") > -1);
         let centerIds = centers.map(row => row.id);
-        let universities = result.filter(row => centerIds.indexOf(row.id) === -1);
+        let universities = result.filter(row => centerIds.indexOf(row.id) === -1).sort((prev, next) => {
+          const importanceOrder = prev.importance - next.importance;
+          if (importanceOrder === 0) {
+            if (prev.university.toLowerCase() > next.university.toLowerCase()) return 1;
+            if (prev.university.toLowerCase() < next.university.toLowerCase()) return -1;
+            return 0;
+          } else {
+            return importanceOrder;
+          }
+        });
         return universities.concat(centers);
       } else {
         return result;
