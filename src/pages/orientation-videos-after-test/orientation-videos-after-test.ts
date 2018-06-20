@@ -19,7 +19,6 @@ export class OrientationVideosAfterTestPage {
 
   constructor(public navCtrl: NavController, public tracker: AnalyticsProvider, public navParams: NavParams, public userService: UserProvider, public toastCtrl: ToastController, public loadingCtrl: LoadingController, public orientationVideosService: OrientationVideosProvider, private domElem: ElementRef, public loaderService: LoaderProvider, public menuCtrl: MenuController, private screenOrientation: ScreenOrientation) {
     this.menuCtrl.enable(true, 'appmenu');
-    this.screenOrientation.unlock();
     this.userService.getUserData((data, error) => {
       if (!error) {
         this.user = data;
@@ -28,6 +27,7 @@ export class OrientationVideosAfterTestPage {
   }
 
   ionViewDidEnter() {
+    this.screenOrientation.unlock();
     let width = this.domElem.nativeElement.offsetWidth - 32;
     this.dimensions = {
       width: width,

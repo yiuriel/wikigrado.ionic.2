@@ -2,15 +2,12 @@ import { Component, ViewChild } from '@angular/core';
 import { Nav, Platform, MenuController } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-import { ScreenOrientation } from '@ionic-native/screen-orientation';
 
 import { HttpClientModule } from '@angular/common/http';
 import { UserProvider } from '../providers/user/user';
 import { AnalyticsProvider } from '../providers/analytics/analytics';
 import { TestStorageProvider } from '../providers/test-storage/test-storage';
 import { AllAppDataProvider } from '../providers/all-app-data/all-app-data';
-
-// import { InitialSliderPage } from '../pages/initial-slider/initial-slider';
 
 // pages for menu
 import { LoginPage } from '../pages/login/login';
@@ -36,10 +33,8 @@ export class MyApp {
 
   pages: Array<{[key: string]: any}>;
 
-  constructor(public platform: Platform, public allAppDataService :AllAppDataProvider, public statusBar: StatusBar, public splashScreen: SplashScreen, public tracker: AnalyticsProvider, public userService: UserProvider, public testStorageService: TestStorageProvider, public menuCtrl: MenuController, private screenOrientation: ScreenOrientation) {
+  constructor(public platform: Platform, public allAppDataService :AllAppDataProvider, public statusBar: StatusBar, public splashScreen: SplashScreen, public tracker: AnalyticsProvider, public userService: UserProvider, public testStorageService: TestStorageProvider, public menuCtrl: MenuController) {
     this.initializeApp();
-
-    this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT).catch((e) => {});
 
     let testMenuComponent;
     this.checkIfPretestOrTest((component) => {

@@ -20,8 +20,6 @@ export class GradoPage {
   constructor(public navCtrl: NavController, public alertCtrl: AlertController, private social: SocialSharing, public tracker: AnalyticsProvider, public navParams: NavParams, public platform: Platform, public actionSheetCtrl: ActionSheetController, public viewCtrl: ViewController, private launchNavigator: LaunchNavigator, private iab: InAppBrowser, public allAppDataService: AllAppDataProvider, public modalCtrl: ModalController, private screenOrientation: ScreenOrientation ) {
     this.appsAvailable = [];
 
-    this.screenOrientation.unlock();
-
     this.item = this.navParams.data.data;
     this.dimensionData = this.navParams.data.dimensionData;
   }
@@ -102,6 +100,7 @@ export class GradoPage {
   }
 
   ionViewDidLoad() {
+    this.screenOrientation.unlock();
     if (this.platform.is("mobile") && !this.platform.is("mobileweb")) {
       this.launchNavigator.availableApps().then(res => {
         for (let app in res) {

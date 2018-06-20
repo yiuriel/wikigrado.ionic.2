@@ -27,3 +27,11 @@
     }
   }
 }
+
+@media all and (orientation: landscape) {
+  [customheader] {
+    .app-menu-logo {
+      width: 8%;
+    }
+  }
+}

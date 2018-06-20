@@ -7,6 +7,7 @@ import { UserProvider } from '../../providers/user/user';
 import { Storage } from '@ionic/storage';
 import { TestStorageProvider } from '../../providers/test-storage/test-storage';
 import { Geolocation } from '@ionic-native/geolocation';
+import { ScreenOrientation } from '@ionic-native/screen-orientation';
 
 @Component({
   selector: 'page-simulatesplash',
@@ -16,7 +17,7 @@ export class SimulatesplashPage {
 
   testpage: any;
 
-  constructor(public platform: Platform, public navCtrl: NavController, public navParams: NavParams, public userService: UserProvider, private geolocation: Geolocation, private storage: Storage, public testStorageService: TestStorageProvider) {
+  constructor(public platform: Platform, public navCtrl: NavController, public navParams: NavParams, public userService: UserProvider, private geolocation: Geolocation, private storage: Storage, public testStorageService: TestStorageProvider, private screenOrientation: ScreenOrientation) {
     this.testpage = PretestPage;
     this.testStorageService.getTestDone((value, error) => {
       if (!error) {
@@ -28,6 +29,7 @@ export class SimulatesplashPage {
   }
 
   ionViewDidLoad() {
+    this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT).catch((e) => {});
     this.checkUserData((success, error) => {
       const redirectTimeout = setTimeout(() => {
         if (success) {

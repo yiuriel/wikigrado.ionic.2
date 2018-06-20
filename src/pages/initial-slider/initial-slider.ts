@@ -1,7 +1,7 @@
 import { Component, ViewChild } from '@angular/core';
 import { NavController, NavParams, Slides, MenuController } from 'ionic-angular';
 import { AnalyticsProvider } from '../../providers/analytics/analytics';
-
+import { ScreenOrientation } from '@ionic-native/screen-orientation';
 import { RegisterPage } from '../register/register';
 import { LoginPage } from '../login/login';
 
@@ -15,7 +15,7 @@ export class InitialSliderPage {
   slidesData: Array<any>
   collaborators: Array<any>
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public tracker: AnalyticsProvider, public menuCtrl: MenuController) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public tracker: AnalyticsProvider, public menuCtrl: MenuController, private screenOrientation: ScreenOrientation) {
     this.menuCtrl.enable(false, 'appmenu');
     this.slidesData = [
       {
@@ -94,6 +94,10 @@ export class InitialSliderPage {
         alt: 'Playstation'
       }
     ]
+  }
+
+  ionViewDidLoad() {
+    this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT).catch((e) => {});
   }
 
   goToRegisterPage() {
