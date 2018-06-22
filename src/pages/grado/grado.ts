@@ -56,7 +56,7 @@ export class GradoPage {
     let itemName = this.getItemName(item);
     switch (shareType) {
       case 'whatsapp':
-        this.social.shareViaWhatsApp('unete a wikigrado y profesionales te explicarán en video sobre grados universitarios de tu interes. ', null, 'https://www.wikigrado.es/').then(shareSuccess => {
+        this.social.shareViaWhatsApp('unete a wikigrado y profesionales te explicarán en video sobre grados universitarios de tu interes. ', null, 'https://www.wikigrado.com/').then(shareSuccess => {
           this.tracker.trackEvent('social', 'compartir ' + shareType, itemName);
         }).catch(error => {
           this.noAppAlert();
@@ -70,14 +70,14 @@ export class GradoPage {
         });
       break;
       case 'twitter':
-        this.social.shareViaTwitter('unete a wikigrado y profesionales te explicarán en video sobre grados universitarios de tu interes. ', null, 'https://www.wikigrado.es/').then(shareSuccess => {
+        this.social.shareViaTwitter('unete a wikigrado y profesionales te explicarán en video sobre grados universitarios de tu interes. ', null, 'https://www.wikigrado.com/').then(shareSuccess => {
           this.tracker.trackEvent('social', 'compartir ' + shareType, itemName);
         }).catch(error => {
           this.noAppAlert();
         });
       break;
       case 'email':
-        this.social.shareViaEmail('La App de wikigrado es genial, visita el sitio https://www.wikigrado.es/', 'unete a wikigrado', []).then(shareSuccess => {
+        this.social.shareViaEmail('La App de wikigrado es genial, visita el sitio https://www.wikigrado.com/', 'unete a wikigrado', []).then(shareSuccess => {
           this.tracker.trackEvent('social', 'compartir ' + shareType, itemName);
         }).catch(error => {
           this.noAppAlert();
