@@ -1,7 +1,7 @@
 [customheader] {
   display: block;
   .app-menu-logo {
-    width: 18%;
+    width: 40px;
     background-color: white;
     border-radius: 5px;
     display: block;
@@ -30,8 +30,6 @@
 
 @media all and (orientation: landscape) {
   [customheader] {
-    .app-menu-logo {
-      width: 8%;
-    }
+    
   }
 }

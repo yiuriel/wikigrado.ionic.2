@@ -462,3 +462,14 @@ page-grado {
     }
   }
 }
+
+@media all and (min-width: 768px) and (orientation: portrait) {
+  .collaborators-slide {
+    .container {
+      height: 100%;
+      .scroll-content {
+        top: 150px;
+      }
+    }
+  }
+}
