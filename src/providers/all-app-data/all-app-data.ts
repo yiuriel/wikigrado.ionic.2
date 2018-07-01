@@ -74,9 +74,9 @@ export class AllAppDataProvider {
 
       if (key === "grades") {
         let withVideo = result.filter(row => row.video).sort((prev, next) => {
-          if (prev.grade[0].toLowerCase() < next.grade[0].toLowerCase())
+          if (prev.grade.toLowerCase() < next.grade.toLowerCase())
             return -1;
-          if (prev.grade[0].toLowerCase() > next.grade[0].toLowerCase())
+          if (prev.grade.toLowerCase() > next.grade.toLowerCase())
             return 1;
           return 0;
         });
