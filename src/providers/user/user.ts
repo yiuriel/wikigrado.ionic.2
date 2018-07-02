@@ -55,6 +55,7 @@ export class UserProvider {
 
   clearStorage() {
     this.storage.remove('user_data');
+    this.storage.remove('test_done');
   }
 
   setUserData(data, callback) {

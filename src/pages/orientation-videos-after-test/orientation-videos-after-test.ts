@@ -6,6 +6,7 @@ import { AnalyticsProvider } from '../../providers/analytics/analytics';
 import { OrientationVideosProvider } from '../../providers/orientation-videos/orientation-videos';
 import { LoaderProvider } from '../../providers/loader/loader';
 import { ScreenOrientation } from '@ionic-native/screen-orientation';
+import { InAppBrowser } from '@ionic-native/in-app-browser';
 
 @Component({
   selector: 'page-orientation-videos-after-test',
@@ -17,7 +18,7 @@ export class OrientationVideosAfterTestPage {
   videos: Array<{[key: string]: any}>
   dimensions: {width: number, height: number}
 
-  constructor(public navCtrl: NavController, public tracker: AnalyticsProvider, public navParams: NavParams, public userService: UserProvider, public toastCtrl: ToastController, public loadingCtrl: LoadingController, public orientationVideosService: OrientationVideosProvider, private domElem: ElementRef, public loaderService: LoaderProvider, public menuCtrl: MenuController, private screenOrientation: ScreenOrientation) {
+  constructor(public navCtrl: NavController, public tracker: AnalyticsProvider, private iab: InAppBrowser, public navParams: NavParams, public userService: UserProvider, public toastCtrl: ToastController, public loadingCtrl: LoadingController, public orientationVideosService: OrientationVideosProvider, private domElem: ElementRef, public loaderService: LoaderProvider, public menuCtrl: MenuController, private screenOrientation: ScreenOrientation) {
     this.menuCtrl.enable(true, 'appmenu');
     this.userService.getUserData((data, error) => {
       if (!error) {
@@ -48,6 +49,10 @@ export class OrientationVideosAfterTestPage {
 
   retakeTest() {
     this.navCtrl.setRoot(TestPage, {animate: true})
+  }
+
+  openNavarraTest() {
+    this.iab.create("https://www.unav.edu/web/admision-y-ayudas/test-online-de-orientacion", "_blank", {closebuttoncaption: "ok"});
   }
 
 }

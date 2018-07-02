@@ -64,7 +64,13 @@ export class SimulatesplashPage {
                 subscription.unsubscribe();
               }
             });
-            callback(sessionSuccess, null);
+            if (sessionSuccess && sessionSuccess.orientations) {
+              this.testStorageService.setTestDone(true, () => {
+                callback(sessionSuccess, null);
+              });
+            } else {
+              callback(sessionSuccess, null);
+            }
           } else {
             callback(null, sessionError);
           }

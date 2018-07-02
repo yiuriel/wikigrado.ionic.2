@@ -14,6 +14,15 @@
   </div>
   <div class="separator" *ngIf="videos"></div>
   <div padding>
+    <h5 boxxed-white justify padding>
+      Si quieres una versión más completa, sigue este <a (click)="openNavarraTest()">enlace</a>.
+      <br/>
+      <p text-center padding-top>
+        <a (click)="openNavarraTest()">
+          <img src="assets/imgs/university-logos/universidad-navarra.png" />
+        </a>
+      </p>
+    </h5>
     <h5>Si quieres puedes volver a hacer el test.</h5>
     <button ion-button round color="danger" (click)="retakeTest()">Realizar test</button>
   </div>
