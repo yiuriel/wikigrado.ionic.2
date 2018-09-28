@@ -99,7 +99,22 @@ export class GradoPage {
     window.open(`mailto:${mail}`, '_system');
   }
 
+  getTranslatedType(item) {
+    if (item.type === 'grades') {
+      return "Grado";
+    }
+    if (item.type === 'universities') {
+      return "Universidad";
+    }
+    if (item.type === 'colleges') {
+      return "Colegio";
+    }
+  }
+
   ionViewDidLoad() {
+    const name = this.getItemName(this.item);
+    const type = this.getTranslatedType(this.item);
+    this.tracker.trackView(type + " " + name);
     this.screenOrientation.unlock();
     if (this.platform.is("mobile") && !this.platform.is("mobileweb")) {
       this.launchNavigator.availableApps().then(res => {
