@@ -6,7 +6,6 @@ import { UserProvider } from '../../providers/user/user';
 import { TestStorageProvider } from '../../providers/test-storage/test-storage';
 import { InAppBrowser } from '@ionic-native/in-app-browser';
 
-import {EmpleoPage} from "../empleo/empleo";
 import {GradosPage} from "../grados/grados";
 import {FpInicioPage} from "../fp-inicio/fp-inicio";
 
@@ -39,9 +38,9 @@ export class PretestPage {
   //goToFormacionPage(){
   //  this.navCtrl.setRoot(FormacionPage, {}, {animate: true})
   //}
-  goToEmpleoPage(){
-    this.navCtrl.setRoot(EmpleoPage, {}, {animate: true})
-  }
+  //goToEmpleoPage(){
+  //  this.navCtrl.setRoot(EmpleoPage, {}, {animate: true})
+  //}
   goToGradosPage(){
     this.navCtrl.setRoot(GradosPage, {}, {animate: true})
   }
