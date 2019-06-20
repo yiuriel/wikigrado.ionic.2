@@ -21,6 +21,7 @@ import { SimulatesplashPage } from '../pages/simulatesplash/simulatesplash';
 import { UserProfilePage } from '../pages/user-profile/user-profile';
 import { OrientationVideosAfterTestPage } from '../pages/orientation-videos-after-test/orientation-videos-after-test';
 import 'rxjs/add/operator/filter';
+import {FpInicioPage} from "../pages/fp-inicio/fp-inicio";
 
 @Component({
   templateUrl: 'app.html',
@@ -44,6 +45,7 @@ export class MyApp {
         { icon: 'ios-home', title: 'Inicio', component: PretestPage },
         { icon: 'ios-list', title: 'Test de Orientación', component: {function: this.checkIfPretestOrTest} },
         { icon: 'md-school', title: 'Grados', component: GradosPage },
+        { icon: null, fa: 'fa-briefcase', title: 'FP', component: FpInicioPage},
         { icon: null, fa: 'fa-university', title: 'Universidades', component: UniversidadesPage },
         { icon: 'ios-people', title: 'Colegios Mayores', component: ColegiosMayoresPage },
         { icon: 'md-person', title: 'Perfil', component: UserProfilePage },

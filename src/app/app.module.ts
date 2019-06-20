@@ -41,6 +41,12 @@ import { OrientationVideosProvider } from '../providers/orientation-videos/orien
 import { TestStorageProvider } from '../providers/test-storage/test-storage';
 import { LoaderProvider } from '../providers/loader/loader';
 import { ToasterProvider } from '../providers/toaster/toaster';
+//import {FormacionPage} from "../pages/formacion/formacion";
+import {FpInicioPage} from "../pages/fp-inicio/fp-inicio";
+import {FpGradoMedioPage} from "../pages/fp-grado-medio/fp-grado-medio";
+import {FpGradoSuperiorPage} from "../pages/fp-grado-superior/fp-grado-superior";
+import {GradoMedioPage} from "../pages/grado-medio/grado-medio";
+import {GradoSuperiorPage} from "../pages/grado-superior/grado-superior";
 
 @NgModule({
   declarations: [
@@ -58,6 +64,11 @@ import { ToasterProvider } from '../providers/toaster/toaster';
     FavoritosPage,
     UserProfilePage,
     OrientationVideosAfterTestPage,
+    FpInicioPage,
+    FpGradoMedioPage,
+    FpGradoSuperiorPage,
+    GradoMedioPage,
+    GradoSuperiorPage
   ],
   imports: [
     BrowserModule,
@@ -90,6 +101,11 @@ import { ToasterProvider } from '../providers/toaster/toaster';
     FavoritosPage,
     UserProfilePage,
     OrientationVideosAfterTestPage,
+    FpInicioPage,
+    FpGradoMedioPage,
+    FpGradoSuperiorPage,
+    GradoMedioPage,
+    GradoSuperiorPage
   ],
   providers: [
     StatusBar,

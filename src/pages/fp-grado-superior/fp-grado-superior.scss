@@ -1,0 +1,14 @@
+page-fp-grado-superior {
+  .grados-y-salidas {
+    // background-image: url('../../assets/imgs/grados_y_salidas.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    .scroll-content {
+      background-color: rgba(255,255,255,0.75);
+      image-switch-iframe {
+        margin-bottom: 32px;
+      }
+    }
+  }
+}

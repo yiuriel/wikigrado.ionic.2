@@ -1,0 +1,26 @@
+<ion-header customheader header-title="Grado Medio"></ion-header>
+
+<ion-content padding class="grados-y-salidas">
+  <div text-right *ngIf="!agreedInformation">
+    <div margin-bottom text-justify>Si no encuentras lo que estás buscando, ¡No te preocupes! Wikigrado está en constante actualización y todos los meses podrás encontrar nuevos grados. Estate atento y recibirás notificaciones nuestras.</div>
+    <button ion-button round small color="primary" (click)="setAgreedInformation()">Ok!</button>
+  </div>
+
+  <ion-list>
+    <ion-item>
+      <ion-label color="danger" stacked>Buscador</ion-label>
+      <ion-input type="text" (ionChange)="filterGrades($event)"></ion-input>
+    </ion-item>
+  </ion-list>
+
+  <ion-list [virtualScroll]="grades" [approxItemHeight]="'54px'">
+    <ion-item *virtualItem="let grade" class="career">
+      <a [class.has-video]="grade.video" class="grade" (click)="goToGrade(grade)">
+        <i class="fas fa-video" *ngIf="grade.video"></i>
+        <i class="fas fa-video-slash" *ngIf="!grade.video"></i>
+        <span class="career-title" [innerHTML]="grade.name"></span>
+      </a>
+    </ion-item>
+  </ion-list>
+</ion-content>
+

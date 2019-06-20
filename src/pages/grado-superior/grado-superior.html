@@ -31,12 +31,12 @@
   </ion-fab>
   <div [ngSwitch]="item.type" padding-top>
     <!-- type grados -->
-    <div *ngSwitchCase="'grades'">
-      <h1 text-center class="career-title" [innerHTML]="item.grade"></h1>
+    <div *ngSwitchCase="'fp_superior'">
+      <h1 text-center class="career-title" [innerHTML]="item.name"></h1>
       <image-switch-iframe
       *ngIf="item.video"
       [url]="item.video"
-      [name]="item.grade"
+      [name]="item.name"
       [width]="dimensionData.width"
       [height]="dimensionData.height">
       </image-switch-iframe>
@@ -70,20 +70,25 @@
             </button>
           </div>
           <div *ngIf="item.grade_url" padding-bottom>
-            <button ion-button round color="light" block class="university-link" (click)="openUrl(item.grade_url, item.grade, 'grado')">
+            <button ion-button round color="light" block class="university-link" (click)="openUrl(item.grade_url, item.name, 'fp_medio')">
               <span>Ir al sitio web del grado</span>
             </button>
           </div>
           <div padding-bottom>
-            <button ion-button round color="danger" block (click)="goTo(item.main_university, 'universities')">Ver en la app</button>
+            <button ion-button round color="danger" block (click)="goTo(item.main_university)">Ver en la app</button>
           </div>
           <button round *ngIf="item.main_university.latitude && item.main_university.longitude" ion-button outline block color="dark" (click)="viewLocation({latitude: item.main_university.latitude, longitude: item.main_university.longitude})">Ver en el mapa</button>
         </div>
       </div>
+      <div *ngIf="item.grade_url" padding-bottom>
+        <button ion-button round color="light" block class="university-link" (click)="openUrl(item.grade_url, item.name, 'fp_medio')">
+          <span>Ir al sitio web del grado</span>
+        </button>
+      </div>
       <div *ngIf="item.list && item.list.length">
         <h5 text-center color="light">Centros que imparten este grado:</h5>
         <ion-list>
-          <ion-item class="university-item-in-grade-list" *ngFor="let university of item.list;" (click)="goTo(university, 'universities');">
+          <ion-item class="university-item-in-grade-list" *ngFor="let university of item.list;" (click)="goTo(university);">
             <i class="fas fa-university"></i>
             <span>{{ university.university }}</span>
           </ion-item>
@@ -143,7 +148,7 @@
       <div *ngIf="item.grades.length">
         <h5 text-center color="light">Grados que imparte esta universidad:</h5>
         <ion-list>
-          <ion-item class="grade-item-in-university-list" *ngFor="let grade of item.grades;" (click)="goTo(grade, 'grades');">
+          <ion-item class="grade-item-in-university-list" *ngFor="let grade of item.grades;" (click)="goTo(grade);">
             <i class="fas fa-graduation-cap"></i>
             <span>{{ grade.grade }}</span>
           </ion-item>

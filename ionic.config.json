@@ -1,8 +1,8 @@
 {
   "name": "wikigrado.ionic.2",
-  "app_id": "8e16b203",
-  "type": "ionic-angular",
   "integrations": {
     "cordova": {}
-  }
+  },
+  "type": "ionic-angular",
+  "id": "8e16b203"
 }
